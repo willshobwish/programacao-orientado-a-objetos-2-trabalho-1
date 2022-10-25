@@ -6,7 +6,7 @@ package Usuario;
 
 import java.time.LocalDate;
 
-public class Usuario {
+abstract public class Usuario {
 
     protected int codigoUsuario;
     protected String nome;

@@ -1,15 +1,11 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Giovanna Silva Custodio
+ * Willian Yoshio Murayama
  */
 package Usuario;
 
 import java.time.LocalDate;
 
-/**
- *
- * @author Willian
- */
 public class Usuario {
 
     protected int codigoUsuario;
@@ -21,6 +17,18 @@ public class Usuario {
     protected String cep;
     protected String telefone;
     protected String email;
+
+    public Usuario(int codigoUsuario, String nome, String cpf, String rg, LocalDate dataNascimento, String endereco, String cep, String telefone, String email) {
+        this.codigoUsuario = codigoUsuario;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.rg = rg;
+        this.dataNascimento = dataNascimento;
+        this.endereco = endereco;
+        this.cep = cep;
+        this.telefone = telefone;
+        this.email = email;
+    }
 
     public int getCodigoUsuario() {
         return codigoUsuario;

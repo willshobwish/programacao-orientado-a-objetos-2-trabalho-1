@@ -1,11 +1,17 @@
 /*
- * Giovanna Silva Custodio
- * Willian Yoshio Murayama
+ * Trabalho de programacao orientado a objetos II
  */
 package Usuario;
 
 import java.time.LocalDate;
 
+/*
+ *
+ * Bruno Augusto Furquim
+ * Giovanna Silva Custodio
+ * Willian Yoshio Murayama
+ *
+ */
 public class Cliente extends Usuario {
 
     protected LocalDate dataCadastro;

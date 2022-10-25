@@ -4,10 +4,10 @@
  */
 package Unicos;
 
-/**
- *
- * @author Willian
- */
 public class Venda {
 
+    private int codigoVenda;
+    private Cliente cliente;
+    private Corretor corretor;
+    private Imovel imovel;
 }

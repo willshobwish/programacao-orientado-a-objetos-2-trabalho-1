@@ -1,8 +1,7 @@
 <#if licenseFirst??>
 ${licenseFirst}
 </#if>
-${licensePrefix}Giovanna Silva Custodio
-${licensePrefix}Willian Yoshio Murayama
+${licensePrefix}Trabalho de programacao orientado a objetos II
 <#if licenseLast??>
 ${licenseLast}
 </#if>

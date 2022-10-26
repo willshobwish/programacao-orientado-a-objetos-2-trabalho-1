@@ -3,6 +3,9 @@
  */
 package Unicos;
 
+import Imovel.Imovel;
+import Usuario.Cliente;
+import Usuario.Corretor;
 import java.time.LocalDate;
 
 /*

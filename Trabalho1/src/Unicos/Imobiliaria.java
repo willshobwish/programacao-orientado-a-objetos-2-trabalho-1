@@ -3,6 +3,8 @@
  */
 package Unicos;
 
+import Imovel.Imovel;
+import Usuario.Usuario;
 import java.util.ArrayList;
 
 /*

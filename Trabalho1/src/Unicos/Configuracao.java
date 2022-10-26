@@ -1,12 +1,14 @@
 /*
- * Giovanna Silva Custodio
- * Willian Yoshio Murayama
+ * Trabalho de programacao orientado a objetos II
  */
 package Unicos;
 
-/**
+/*
  *
- * @author Willian
+ * Bruno Augusto Furquim
+ * Giovanna Silva Custodio
+ * Willian Yoshio Murayama
+ *
  */
 public class Configuracao {
 

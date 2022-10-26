@@ -1,12 +1,16 @@
 /*
- * Giovanna Silva Custodio
- * Willian Yoshio Murayama
+ * Trabalho de programacao orientado a objetos II
  */
 package Unicos;
 
-/**
+import java.util.ArrayList;
+
+/*
  *
- * @author Willian
+ * Bruno Augusto Furquim
+ * Giovanna Silva Custodio
+ * Willian Yoshio Murayama
+ *
  */
 public class Imobiliaria {
 

@@ -26,8 +26,17 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem13 = new javax.swing.JMenuItem();
+        jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuItem21 = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
 
@@ -35,6 +44,36 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         setTitle("Trabalho 01");
 
         jMenu1.setText("Imovel");
+
+        jMenu4.setText("Listar");
+
+        jMenu5.setText("Todos");
+
+        jMenuItem13.setText("Todos categoria Apartamento Residencial");
+        jMenuItem13.setToolTipText("");
+        jMenu5.add(jMenuItem13);
+
+        jMenuItem12.setText("Todos categoria Casa Residencial");
+        jMenu5.add(jMenuItem12);
+
+        jMenuItem21.setText("Todos categoria Comercial");
+        jMenuItem21.setToolTipText("");
+        jMenu5.add(jMenuItem21);
+
+        jMenu4.add(jMenu5);
+
+        jMenu6.setText("Locação");
+
+        jMenuItem2.setText("Disponível");
+        jMenu6.add(jMenuItem2);
+
+        jMenuItem1.setText("Indisponível");
+        jMenu6.add(jMenuItem1);
+
+        jMenu4.add(jMenu6);
+
+        jMenu1.add(jMenu4);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Usuario");
@@ -98,6 +137,15 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem13;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem21;
+    private javax.swing.JPopupMenu jPopupMenu1;
     // End of variables declaration//GEN-END:variables
 }

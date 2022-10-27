@@ -27,6 +27,7 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private void initComponents() {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
@@ -37,8 +38,13 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         jMenu6 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
+
+        jMenuItem5.setText("jMenuItem5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Trabalho 01");
@@ -49,14 +55,14 @@ public class InterfaceGrafico extends javax.swing.JFrame {
 
         jMenu5.setText("Todos");
 
-        jMenuItem13.setText("Todos categoria Apartamento Residencial");
+        jMenuItem13.setText("Categoria Apartamento Residencial");
         jMenuItem13.setToolTipText("");
         jMenu5.add(jMenuItem13);
 
-        jMenuItem12.setText("Todos categoria Casa Residencial");
+        jMenuItem12.setText("Categoria Casa Residencial");
         jMenu5.add(jMenuItem12);
 
-        jMenuItem21.setText("Todos categoria Comercial");
+        jMenuItem21.setText("Categoria Comercial");
         jMenuItem21.setToolTipText("");
         jMenu5.add(jMenuItem21);
 
@@ -72,6 +78,12 @@ public class InterfaceGrafico extends javax.swing.JFrame {
 
         jMenu4.add(jMenu6);
 
+        jMenuItem3.setText("Disponível para venda");
+        jMenu4.add(jMenuItem3);
+
+        jMenuItem4.setText("Indisponível para venda e ou locação");
+        jMenu4.add(jMenuItem4);
+
         jMenu1.add(jMenu4);
 
         jMenuBar1.add(jMenu1);
@@ -80,6 +92,15 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Pagamento");
+
+        jMenuItem6.setText("Corretores cadastrados");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem6);
+
         jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
@@ -97,6 +118,10 @@ public class InterfaceGrafico extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,6 +171,10 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem21;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPopupMenu jPopupMenu1;
     // End of variables declaration//GEN-END:variables
 }

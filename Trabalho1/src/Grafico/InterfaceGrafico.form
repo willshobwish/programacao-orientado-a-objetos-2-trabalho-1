@@ -8,6 +8,11 @@
         <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
     </Container>
+    <Component class="javax.swing.JMenuItem" name="jMenuItem5">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jMenuItem5"/>
+      </Properties>
+    </Component>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu1">
@@ -27,18 +32,18 @@
                   <SubComponents>
                     <MenuItem class="javax.swing.JMenuItem" name="jMenuItem13">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Todos categoria Apartamento Residencial"/>
+                        <Property name="text" type="java.lang.String" value="Categoria Apartamento Residencial"/>
                         <Property name="toolTipText" type="java.lang.String" value=""/>
                       </Properties>
                     </MenuItem>
                     <MenuItem class="javax.swing.JMenuItem" name="jMenuItem12">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Todos categoria Casa Residencial"/>
+                        <Property name="text" type="java.lang.String" value="Categoria Casa Residencial"/>
                       </Properties>
                     </MenuItem>
                     <MenuItem class="javax.swing.JMenuItem" name="jMenuItem21">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Todos categoria Comercial"/>
+                        <Property name="text" type="java.lang.String" value="Categoria Comercial"/>
                         <Property name="toolTipText" type="java.lang.String" value=""/>
                       </Properties>
                     </MenuItem>
@@ -61,6 +66,16 @@
                     </MenuItem>
                   </SubComponents>
                 </Menu>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Dispon&#xed;vel para venda"/>
+                  </Properties>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Indispon&#xed;vel para venda e ou loca&#xe7;&#xe3;o"/>
+                  </Properties>
+                </MenuItem>
               </SubComponents>
             </Menu>
           </SubComponents>
@@ -74,6 +89,16 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Pagamento"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Corretores cadastrados"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem6ActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>

@@ -76,10 +76,20 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         Todos.add(CategoriaApartamentoResidencial);
 
         CategoriaCasaResidencial.setText("Categoria Casa Residencial");
+        CategoriaCasaResidencial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CategoriaCasaResidencialActionPerformed(evt);
+            }
+        });
         Todos.add(CategoriaCasaResidencial);
 
         CategoriaComercial.setText("Categoria Comercial");
         CategoriaComercial.setToolTipText("");
+        CategoriaComercial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CategoriaComercialActionPerformed(evt);
+            }
+        });
         Todos.add(CategoriaComercial);
 
         ListarMenu.add(Todos);
@@ -87,17 +97,37 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         Locacao.setText("Locação");
 
         ListaDisponivel.setText("Disponível");
+        ListaDisponivel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListaDisponivelActionPerformed(evt);
+            }
+        });
         Locacao.add(ListaDisponivel);
 
         ListaIndisponivel.setText("Indisponível");
+        ListaIndisponivel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListaIndisponivelActionPerformed(evt);
+            }
+        });
         Locacao.add(ListaIndisponivel);
 
         ListarMenu.add(Locacao);
 
         DisponivelVenda.setText("Disponível para venda");
+        DisponivelVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DisponivelVendaActionPerformed(evt);
+            }
+        });
         ListarMenu.add(DisponivelVenda);
 
         IndisponivelVenda.setText("Indisponível para venda e ou locação");
+        IndisponivelVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IndisponivelVendaActionPerformed(evt);
+            }
+        });
         ListarMenu.add(IndisponivelVenda);
 
         ImovelMenu.add(ListarMenu);
@@ -150,8 +180,44 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private void CategoriaApartamentoResidencialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CategoriaApartamentoResidencialActionPerformed
         // TODO add your handling code here:
         Limpar();
-        TextoExibicao.setText("Lista de categoria residencial:");
+        TextoExibicao.setText("Lista de categoria de apartamento residencial:");
     }//GEN-LAST:event_CategoriaApartamentoResidencialActionPerformed
+
+    private void CategoriaCasaResidencialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CategoriaCasaResidencialActionPerformed
+        // TODO add your handling code here:
+        Limpar();
+        TextoExibicao.setText("Lista de categoria de casa residencial:");
+    }//GEN-LAST:event_CategoriaCasaResidencialActionPerformed
+
+    private void CategoriaComercialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CategoriaComercialActionPerformed
+        // TODO add your handling code here:
+        Limpar();
+        TextoExibicao.setText("Lista de categoria de comercio:");
+    }//GEN-LAST:event_CategoriaComercialActionPerformed
+
+    private void DisponivelVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DisponivelVendaActionPerformed
+        // TODO add your handling code here:
+        Limpar();
+        TextoExibicao.setText("Casas disponiveis para venda:");
+    }//GEN-LAST:event_DisponivelVendaActionPerformed
+
+    private void IndisponivelVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IndisponivelVendaActionPerformed
+        // TODO add your handling code here:
+        Limpar();
+        TextoExibicao.setText("Casas indisponiveis para venda ou aluguel:");
+    }//GEN-LAST:event_IndisponivelVendaActionPerformed
+
+    private void ListaDisponivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaDisponivelActionPerformed
+        // TODO add your handling code here:
+        Limpar();
+        TextoExibicao.setText("Casas disponiveis para locacao:");
+    }//GEN-LAST:event_ListaDisponivelActionPerformed
+
+    private void ListaIndisponivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaIndisponivelActionPerformed
+        // TODO add your handling code here:
+        Limpar();
+        TextoExibicao.setText("Casas indisponiveis para locacao:");
+    }//GEN-LAST:event_ListaIndisponivelActionPerformed
 
     /**
      * @param args the command line arguments

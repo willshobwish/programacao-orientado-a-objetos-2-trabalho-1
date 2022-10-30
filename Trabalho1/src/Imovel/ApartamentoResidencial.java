@@ -3,6 +3,7 @@
  */
 package Imovel;
 
+import Imovel.Interface.ValorAluguel;
 import java.time.LocalDate;
 
 /*
@@ -12,7 +13,7 @@ import java.time.LocalDate;
  * Willian Yoshio Murayama
  *
  */
-public class ApartamentoResidencial extends Imovel {
+public class ApartamentoResidencial extends Imovel implements ValorAluguel {
 
     protected int andar;
     protected float valorCondominio;
@@ -23,6 +24,7 @@ public class ApartamentoResidencial extends Imovel {
         this.valorCondominio = valorCondominio;
     }
 
+    @Override
     public float getValorAluguel() {
         return valorAluguel += valorCondominio;
     }

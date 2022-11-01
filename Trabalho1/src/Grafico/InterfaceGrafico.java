@@ -35,6 +35,12 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         TextoExibicaoScroll = new javax.swing.JScrollPane();
         TextoExibicao = new javax.swing.JTextArea();
         BarraMenu = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        Cliente = new javax.swing.JMenuItem();
+        Corretores = new javax.swing.JMenuItem();
+        CasaResidencial = new javax.swing.JMenuItem();
+        ApartamentoResidencial = new javax.swing.JMenuItem();
+        Comercial = new javax.swing.JMenuItem();
         ImovelMenu = new javax.swing.JMenu();
         ListarMenu = new javax.swing.JMenu();
         Todos = new javax.swing.JMenu();
@@ -59,6 +65,50 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         TextoExibicao.setColumns(20);
         TextoExibicao.setRows(5);
         TextoExibicaoScroll.setViewportView(TextoExibicao);
+
+        jMenu1.setText("Cadastro");
+
+        Cliente.setText("Cliente");
+        Cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClienteActionPerformed(evt);
+            }
+        });
+        jMenu1.add(Cliente);
+
+        Corretores.setText("Corretores");
+        Corretores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CorretoresActionPerformed(evt);
+            }
+        });
+        jMenu1.add(Corretores);
+
+        CasaResidencial.setText("Casa residencial");
+        CasaResidencial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CasaResidencialActionPerformed(evt);
+            }
+        });
+        jMenu1.add(CasaResidencial);
+
+        ApartamentoResidencial.setText("Apartamento residencial");
+        ApartamentoResidencial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ApartamentoResidencialActionPerformed(evt);
+            }
+        });
+        jMenu1.add(ApartamentoResidencial);
+
+        Comercial.setText("Comercial");
+        Comercial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComercialActionPerformed(evt);
+            }
+        });
+        jMenu1.add(Comercial);
+
+        BarraMenu.add(jMenu1);
 
         ImovelMenu.setText("Imovel");
 
@@ -219,6 +269,40 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         TextoExibicao.setText("Casas indisponiveis para locacao:");
     }//GEN-LAST:event_ListaIndisponivelActionPerformed
 
+    private void ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClienteActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_ClienteActionPerformed
+
+    private void CorretoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CorretoresActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_CorretoresActionPerformed
+
+    private void CasaResidencialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CasaResidencialActionPerformed
+        // TODO add your handling code here:
+        CadastroImovel CadastroCasaResidencial = new CadastroImovel(this, true);
+        CadastroCasaResidencial.CadastroCasaResidencial();
+        CadastroCasaResidencial.setLocationRelativeTo(this);
+        CadastroCasaResidencial.setVisible(true);
+    }//GEN-LAST:event_CasaResidencialActionPerformed
+
+    private void ApartamentoResidencialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApartamentoResidencialActionPerformed
+        // TODO add your handling code here:
+        CadastroImovel CadastroApartamentoResidencial = new CadastroImovel(this, true);
+        CadastroApartamentoResidencial.CadastroApartamentoResidencial();
+        CadastroApartamentoResidencial.setLocationRelativeTo(this);
+        CadastroApartamentoResidencial.setVisible(true);
+    }//GEN-LAST:event_ApartamentoResidencialActionPerformed
+
+    private void ComercialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComercialActionPerformed
+        // TODO add your handling code here:
+        CadastroImovel CadastroComercial = new CadastroImovel(this, true);
+        CadastroComercial.CadastroComercial();
+        CadastroComercial.setLocationRelativeTo(this);
+        CadastroComercial.setVisible(true);
+    }//GEN-LAST:event_ComercialActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -255,10 +339,15 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem ApartamentoResidencial;
     private javax.swing.JMenuBar BarraMenu;
+    private javax.swing.JMenuItem CasaResidencial;
     private javax.swing.JMenuItem CategoriaApartamentoResidencial;
     private javax.swing.JMenuItem CategoriaCasaResidencial;
     private javax.swing.JMenuItem CategoriaComercial;
+    private javax.swing.JMenuItem Cliente;
+    private javax.swing.JMenuItem Comercial;
+    private javax.swing.JMenuItem Corretores;
     private javax.swing.JMenuItem CorretoresCadastrados;
     private javax.swing.JMenuItem DisponivelVenda;
     private javax.swing.JMenu ImovelMenu;
@@ -272,6 +361,7 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private javax.swing.JScrollPane TextoExibicaoScroll;
     private javax.swing.JMenu Todos;
     private javax.swing.JMenu UsuarioMenu;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPopupMenu jPopupMenu1;
     // End of variables declaration//GEN-END:variables

@@ -271,12 +271,16 @@ public class InterfaceGrafico extends javax.swing.JFrame {
 
     private void ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClienteActionPerformed
         // TODO add your handling code here:
-
+        CadastroCliente CadastroCliente = new CadastroCliente();
+        CadastroCliente.setLocationRelativeTo(this);
+        CadastroCliente.setVisible(true);
     }//GEN-LAST:event_ClienteActionPerformed
 
     private void CorretoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CorretoresActionPerformed
         // TODO add your handling code here:
-
+        CadastroCorretor CadastroCorretores = new CadastroCorretor();
+        CadastroCorretores.setLocationRelativeTo(this);
+        CadastroCorretores.setVisible(true);
     }//GEN-LAST:event_CorretoresActionPerformed
 
     private void CasaResidencialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CasaResidencialActionPerformed

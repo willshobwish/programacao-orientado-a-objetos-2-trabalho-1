@@ -63,7 +63,11 @@ public class Seguro {
     }
 
     public void setValor(float valor) {
-        this.valor = valor;
+        if (valor > 0) {
+            this.valor = valor;
+        } else {
+            System.out.println("Valor nao pode ser negativo");
+        }
     }
 
 }

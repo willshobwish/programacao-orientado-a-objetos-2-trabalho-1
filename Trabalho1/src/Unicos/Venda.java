@@ -26,7 +26,8 @@ public class Venda {
     private float valorTotalVenda;
     private Pagamento formaPagamento;
 
-    public Venda(int codigoVenda, Cliente cliente, Corretor corretor, Imovel imovel, LocalDate dataVenda, float valorTotalVenda, Pagamento formaPagamento) {
+    public Venda(int codigoVenda, Cliente cliente, Corretor corretor, Imovel imovel, LocalDate dataVenda,
+            float valorTotalVenda, Pagamento formaPagamento) {
         this.codigoVenda = codigoVenda;
         this.cliente = cliente;
         this.corretor = corretor;
@@ -81,7 +82,9 @@ public class Venda {
     }
 
     public void setValorTotalVenda(float valorTotalVenda) {
-        this.valorTotalVenda = valorTotalVenda;
+        if (valorTotalVenda > 0) {
+            this.valorTotalVenda = valorTotalVenda;
+        }
     }
 
     public Pagamento getFormaPagamento() {

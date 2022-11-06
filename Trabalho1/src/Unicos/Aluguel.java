@@ -31,7 +31,9 @@ public class Aluguel {
     private ArrayList<Seguro> segurosContratados;
     private boolean pago;
 
-    public Aluguel(int codigoAluguel, Cliente cliente, Corretor corretor, Imovel imovel, LocalDate dataAluguel, LocalDate dataDevolucao, LocalDate dataPagamentoMensal, float valorTotalAluguel, Pagamento formaPagamento, ArrayList<Seguro> segurosContratados, boolean pago) {
+    public Aluguel(int codigoAluguel, Cliente cliente, Corretor corretor, Imovel imovel, LocalDate dataAluguel,
+            LocalDate dataDevolucao, LocalDate dataPagamentoMensal, float valorTotalAluguel, Pagamento formaPagamento,
+            ArrayList<Seguro> segurosContratados, boolean pago) {
         this.codigoAluguel = codigoAluguel;
         this.cliente = cliente;
         this.corretor = corretor;
@@ -106,7 +108,11 @@ public class Aluguel {
     }
 
     public void setValorTotalAluguel(float valorTotalAluguel) {
-        this.valorTotalAluguel = valorTotalAluguel;
+        if (valorTotalAluguel > 0) {
+            this.valorTotalAluguel = valorTotalAluguel;
+        } else {
+            System.out.println("Valor total do aluguel não pode ser negativo");
+        }
     }
 
     public Pagamento getFormaPagamento() {
@@ -131,6 +137,25 @@ public class Aluguel {
 
     public void setPago(boolean pago) {
         this.pago = pago;
+    }
+
+    public float calcularValorTotal() {
+        float valorTotal = 0;
+
+        for (Seguro seguro : segurosContratados) {
+            valorTotal += seguro.getValor();
+        }
+        valorTotal += imovel.getValorAluguel();
+        return valorTotal;
+    }
+
+    public boolean possuiSeguro() {
+        return !segurosContratados.isEmpty(); // retorna verdadeiro se houver seguros e falso caso contrario
+    }
+
+    public boolean verificarAtraso() {
+        return dataPagamentoMensal.isBefore(dataAluguel); // retorna verdadeiro se a data de pagamento mensal for
+                                                          // anterior a data do aluguel
     }
 
 }

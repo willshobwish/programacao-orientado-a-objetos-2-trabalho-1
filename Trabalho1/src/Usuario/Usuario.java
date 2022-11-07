@@ -24,7 +24,9 @@ abstract public class Usuario {
     protected String telefone;
     protected String email;
 
-    public Usuario(int codigoUsuario, String nome, String cpf, String rg, LocalDate dataNascimento, String endereco, String cep, String telefone, String email) {
+
+    public Usuario(int codigoUsuario, String nome, String cpf, String rg, LocalDate dataNascimento, String endereco,
+            String cep, String telefone, String email) {
         this.codigoUsuario = codigoUsuario;
         this.nome = nome;
         this.cpf = cpf;
@@ -57,7 +59,11 @@ abstract public class Usuario {
     }
 
     public void setCpf(String cpf) {
-        this.cpf = cpf;
+        if (cpf.length() == 11) {
+            this.cpf = cpf;
+        } else {
+            System.out.println("CPF invalido");
+        }
     }
 
     public String getRg() {
@@ -65,7 +71,11 @@ abstract public class Usuario {
     }
 
     public void setRg(String rg) {
-        this.rg = rg;
+        if (rg.length() == 9) {
+            this.rg = rg;
+        } else {
+            System.out.println("RG invalido");
+        }
     }
 
     public LocalDate getDataNascimento() {
@@ -89,7 +99,11 @@ abstract public class Usuario {
     }
 
     public void setCep(String cep) {
-        this.cep = cep;
+        if (cep.length() == 8) {
+            this.cep = cep;
+        } else {
+            System.out.println("CEP invalido");
+        }
     }
 
     public String getTelefone() {
@@ -97,7 +111,11 @@ abstract public class Usuario {
     }
 
     public void setTelefone(String telefone) {
-        this.telefone = telefone;
+        if (telefone.length() == 11) {
+            this.telefone = telefone;
+        } else {
+            System.out.println("Telefone invalido");
+        }
     }
 
     public String getEmail() {

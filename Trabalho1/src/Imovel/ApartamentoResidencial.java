@@ -13,7 +13,9 @@ import java.time.LocalDate;
  * Willian Yoshio Murayama
  *
  */
+
 public class ApartamentoResidencial extends Imovel implements ValorAluguel {
+
 
     protected int andar;
     protected float valorCondominio;
@@ -25,6 +27,7 @@ public class ApartamentoResidencial extends Imovel implements ValorAluguel {
     }
 
     @Override
+
     public float getValorAluguel() {
         return valorAluguel += valorCondominio;
     }

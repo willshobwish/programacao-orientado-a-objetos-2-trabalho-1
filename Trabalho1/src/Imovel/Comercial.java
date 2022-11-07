@@ -13,6 +13,7 @@ import java.time.LocalDate;
  * Willian Yoshio Murayama
  *
  */
+
 public class Comercial extends Imovel implements ValorAluguel {
 
     protected float taxaImpostoFederal;
@@ -22,7 +23,8 @@ public class Comercial extends Imovel implements ValorAluguel {
         this.taxaImpostoFederal = taxaImpostoFederal;
     }
 
-    public float getValorAluguel() {;
+    public float getValorAluguel() {
+
         return valorAluguel += valorAluguel * taxaImpostoFederal;
     }
 

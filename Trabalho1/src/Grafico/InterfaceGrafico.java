@@ -17,6 +17,10 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         initComponents();
     }
 
+    private void Limpar() {
+        TextoExibicao.setText("");
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,34 +30,282 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        TextoExibicaoScroll = new javax.swing.JScrollPane();
+        TextoExibicao = new javax.swing.JTextArea();
+        BarraMenu = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        Cliente = new javax.swing.JMenuItem();
+        Corretores = new javax.swing.JMenuItem();
+        CasaResidencial = new javax.swing.JMenuItem();
+        ApartamentoResidencial = new javax.swing.JMenuItem();
+        Comercial = new javax.swing.JMenuItem();
+        ImovelMenu = new javax.swing.JMenu();
+        ListarMenu = new javax.swing.JMenu();
+        Todos = new javax.swing.JMenu();
+        CategoriaApartamentoResidencial = new javax.swing.JMenuItem();
+        CategoriaCasaResidencial = new javax.swing.JMenuItem();
+        CategoriaComercial = new javax.swing.JMenuItem();
+        Locacao = new javax.swing.JMenu();
+        ListaDisponivel = new javax.swing.JMenuItem();
+        ListaIndisponivel = new javax.swing.JMenuItem();
+        DisponivelVenda = new javax.swing.JMenuItem();
+        IndisponivelVenda = new javax.swing.JMenuItem();
+        UsuarioMenu = new javax.swing.JMenu();
+        CorretoresCadastrados = new javax.swing.JMenuItem();
+        PagamentoMenu = new javax.swing.JMenu();
+
+        jMenuItem5.setText("jMenuItem5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Trabalho 01");
 
-        jMenu1.setText("Arquivo");
-        jMenuBar1.add(jMenu1);
+        TextoExibicao.setEditable(false);
+        TextoExibicao.setColumns(20);
+        TextoExibicao.setRows(5);
+        TextoExibicaoScroll.setViewportView(TextoExibicao);
 
-        jMenu2.setText("Editar");
-        jMenuBar1.add(jMenu2);
+        jMenu1.setText("Cadastro");
 
-        setJMenuBar(jMenuBar1);
+        Cliente.setText("Cliente");
+        Cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClienteActionPerformed(evt);
+            }
+        });
+        jMenu1.add(Cliente);
+
+        Corretores.setText("Corretores");
+        Corretores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CorretoresActionPerformed(evt);
+            }
+        });
+        jMenu1.add(Corretores);
+
+        CasaResidencial.setText("Casa residencial");
+        CasaResidencial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CasaResidencialActionPerformed(evt);
+            }
+        });
+        jMenu1.add(CasaResidencial);
+
+        ApartamentoResidencial.setText("Apartamento residencial");
+        ApartamentoResidencial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ApartamentoResidencialActionPerformed(evt);
+            }
+        });
+        jMenu1.add(ApartamentoResidencial);
+
+        Comercial.setText("Comercial");
+        Comercial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComercialActionPerformed(evt);
+            }
+        });
+        jMenu1.add(Comercial);
+
+        BarraMenu.add(jMenu1);
+
+        ImovelMenu.setText("Imovel");
+
+        ListarMenu.setText("Listar");
+
+        Todos.setText("Todos");
+
+        CategoriaApartamentoResidencial.setText("Categoria Apartamento Residencial");
+        CategoriaApartamentoResidencial.setToolTipText("");
+        CategoriaApartamentoResidencial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CategoriaApartamentoResidencialActionPerformed(evt);
+            }
+        });
+        Todos.add(CategoriaApartamentoResidencial);
+
+        CategoriaCasaResidencial.setText("Categoria Casa Residencial");
+        CategoriaCasaResidencial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CategoriaCasaResidencialActionPerformed(evt);
+            }
+        });
+        Todos.add(CategoriaCasaResidencial);
+
+        CategoriaComercial.setText("Categoria Comercial");
+        CategoriaComercial.setToolTipText("");
+        CategoriaComercial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CategoriaComercialActionPerformed(evt);
+            }
+        });
+        Todos.add(CategoriaComercial);
+
+        ListarMenu.add(Todos);
+
+        Locacao.setText("Locação");
+
+        ListaDisponivel.setText("Disponível");
+        ListaDisponivel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListaDisponivelActionPerformed(evt);
+            }
+        });
+        Locacao.add(ListaDisponivel);
+
+        ListaIndisponivel.setText("Indisponível");
+        ListaIndisponivel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListaIndisponivelActionPerformed(evt);
+            }
+        });
+        Locacao.add(ListaIndisponivel);
+
+        ListarMenu.add(Locacao);
+
+        DisponivelVenda.setText("Disponível para venda");
+        DisponivelVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DisponivelVendaActionPerformed(evt);
+            }
+        });
+        ListarMenu.add(DisponivelVenda);
+
+        IndisponivelVenda.setText("Indisponível para venda e ou locação");
+        IndisponivelVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IndisponivelVendaActionPerformed(evt);
+            }
+        });
+        ListarMenu.add(IndisponivelVenda);
+
+        ImovelMenu.add(ListarMenu);
+
+        BarraMenu.add(ImovelMenu);
+
+        UsuarioMenu.setText("Usuario");
+
+        CorretoresCadastrados.setText("Corretores cadastrados");
+        CorretoresCadastrados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CorretoresCadastradosActionPerformed(evt);
+            }
+        });
+        UsuarioMenu.add(CorretoresCadastrados);
+
+        BarraMenu.add(UsuarioMenu);
+
+        PagamentoMenu.setText("Pagamento");
+        BarraMenu.add(PagamentoMenu);
+
+        setJMenuBar(BarraMenu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 920, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(TextoExibicaoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 908, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 517, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(TextoExibicaoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void CorretoresCadastradosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CorretoresCadastradosActionPerformed
+        // TODO add your handling code here:
+        Limpar();
+        TextoExibicao.setText("Corretores cadastrados:");
+    }//GEN-LAST:event_CorretoresCadastradosActionPerformed
+
+    private void CategoriaApartamentoResidencialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CategoriaApartamentoResidencialActionPerformed
+        // TODO add your handling code here:
+        Limpar();
+        TextoExibicao.setText("Lista de categoria de apartamento residencial:");
+    }//GEN-LAST:event_CategoriaApartamentoResidencialActionPerformed
+
+    private void CategoriaCasaResidencialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CategoriaCasaResidencialActionPerformed
+        // TODO add your handling code here:
+        Limpar();
+        TextoExibicao.setText("Lista de categoria de casa residencial:");
+    }//GEN-LAST:event_CategoriaCasaResidencialActionPerformed
+
+    private void CategoriaComercialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CategoriaComercialActionPerformed
+        // TODO add your handling code here:
+        Limpar();
+        TextoExibicao.setText("Lista de categoria de comercio:");
+    }//GEN-LAST:event_CategoriaComercialActionPerformed
+
+    private void DisponivelVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DisponivelVendaActionPerformed
+        // TODO add your handling code here:
+        Limpar();
+        TextoExibicao.setText("Casas disponiveis para venda:");
+    }//GEN-LAST:event_DisponivelVendaActionPerformed
+
+    private void IndisponivelVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IndisponivelVendaActionPerformed
+        // TODO add your handling code here:
+        Limpar();
+        TextoExibicao.setText("Casas indisponiveis para venda ou aluguel:");
+    }//GEN-LAST:event_IndisponivelVendaActionPerformed
+
+    private void ListaDisponivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaDisponivelActionPerformed
+        // TODO add your handling code here:
+        Limpar();
+        TextoExibicao.setText("Casas disponiveis para locacao:");
+    }//GEN-LAST:event_ListaDisponivelActionPerformed
+
+    private void ListaIndisponivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaIndisponivelActionPerformed
+        // TODO add your handling code here:
+        Limpar();
+        TextoExibicao.setText("Casas indisponiveis para locacao:");
+    }//GEN-LAST:event_ListaIndisponivelActionPerformed
+
+    private void ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClienteActionPerformed
+        // TODO add your handling code here:
+        CadastroCliente CadastroCliente = new CadastroCliente();
+        CadastroCliente.setLocationRelativeTo(this);
+        CadastroCliente.setVisible(true);
+    }//GEN-LAST:event_ClienteActionPerformed
+
+    private void CorretoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CorretoresActionPerformed
+        // TODO add your handling code here:
+        CadastroCorretor CadastroCorretores = new CadastroCorretor();
+        CadastroCorretores.setLocationRelativeTo(this);
+        CadastroCorretores.setVisible(true);
+    }//GEN-LAST:event_CorretoresActionPerformed
+
+    private void CasaResidencialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CasaResidencialActionPerformed
+        // TODO add your handling code here:
+        CadastroImovel CadastroCasaResidencial = new CadastroImovel(this, true);
+        CadastroCasaResidencial.CadastroCasaResidencial();
+        CadastroCasaResidencial.setLocationRelativeTo(this);
+        CadastroCasaResidencial.setVisible(true);
+    }//GEN-LAST:event_CasaResidencialActionPerformed
+
+    private void ApartamentoResidencialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApartamentoResidencialActionPerformed
+        // TODO add your handling code here:
+        CadastroImovel CadastroApartamentoResidencial = new CadastroImovel(this, true);
+        CadastroApartamentoResidencial.CadastroApartamentoResidencial();
+        CadastroApartamentoResidencial.setLocationRelativeTo(this);
+        CadastroApartamentoResidencial.setVisible(true);
+    }//GEN-LAST:event_ApartamentoResidencialActionPerformed
+
+    private void ComercialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComercialActionPerformed
+        // TODO add your handling code here:
+        CadastroImovel CadastroComercial = new CadastroImovel(this, true);
+        CadastroComercial.CadastroComercial();
+        CadastroComercial.setLocationRelativeTo(this);
+        CadastroComercial.setVisible(true);
+    }//GEN-LAST:event_ComercialActionPerformed
 
     /**
      * @param args the command line arguments
@@ -91,8 +343,30 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem ApartamentoResidencial;
+    private javax.swing.JMenuBar BarraMenu;
+    private javax.swing.JMenuItem CasaResidencial;
+    private javax.swing.JMenuItem CategoriaApartamentoResidencial;
+    private javax.swing.JMenuItem CategoriaCasaResidencial;
+    private javax.swing.JMenuItem CategoriaComercial;
+    private javax.swing.JMenuItem Cliente;
+    private javax.swing.JMenuItem Comercial;
+    private javax.swing.JMenuItem Corretores;
+    private javax.swing.JMenuItem CorretoresCadastrados;
+    private javax.swing.JMenuItem DisponivelVenda;
+    private javax.swing.JMenu ImovelMenu;
+    private javax.swing.JMenuItem IndisponivelVenda;
+    private javax.swing.JMenuItem ListaDisponivel;
+    private javax.swing.JMenuItem ListaIndisponivel;
+    private javax.swing.JMenu ListarMenu;
+    private javax.swing.JMenu Locacao;
+    private javax.swing.JMenu PagamentoMenu;
+    private javax.swing.JTextArea TextoExibicao;
+    private javax.swing.JScrollPane TextoExibicaoScroll;
+    private javax.swing.JMenu Todos;
+    private javax.swing.JMenu UsuarioMenu;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JPopupMenu jPopupMenu1;
     // End of variables declaration//GEN-END:variables
 }

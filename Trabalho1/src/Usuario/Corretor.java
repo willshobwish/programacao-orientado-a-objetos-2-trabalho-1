@@ -19,7 +19,9 @@ public class Corretor extends Usuario {
     protected String pis;
     protected LocalDate dataAdmissao;
 
-    public Corretor(String creci, float salario, String pis, LocalDate dataAdmissao, int codigoUsuario, String nome, String cpf, String rg, LocalDate dataNascimento, String endereco, String cep, String telefone, String email) {
+    public Corretor(String creci, float salario, String pis, LocalDate dataAdmissao, int codigoUsuario, String nome,
+            String cpf, String rg, LocalDate dataNascimento, String endereco, String cep, String telefone,
+            String email) {
         super(codigoUsuario, nome, cpf, rg, dataNascimento, endereco, cep, telefone, email);
         this.creci = creci;
         this.salario = salario;

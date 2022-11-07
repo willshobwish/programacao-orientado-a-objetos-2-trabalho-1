@@ -3,12 +3,6 @@
  */
 package Unicos;
 
-import Imovel.Imovel;
-import Pagamento.Pagamento;
-import Usuario.Cliente;
-import Usuario.Corretor;
-import java.time.LocalDate;
-
 /*
  *
  * Bruno Augusto Furquim

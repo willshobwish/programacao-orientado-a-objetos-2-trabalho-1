@@ -3,6 +3,7 @@
  */
 package Imovel;
 
+import Imovel.Interface.ValorAluguel;
 import java.time.LocalDate;
 
 /*
@@ -12,7 +13,8 @@ import java.time.LocalDate;
  * Willian Yoshio Murayama
  *
  */
-public class Comercial extends Imovel {
+
+public class Comercial extends Imovel implements ValorAluguel {
 
     protected float taxaImpostoFederal;
 
@@ -22,6 +24,7 @@ public class Comercial extends Imovel {
     }
 
     public float getValorAluguel() {
+
         return valorAluguel += valorAluguel * taxaImpostoFederal;
     }
 

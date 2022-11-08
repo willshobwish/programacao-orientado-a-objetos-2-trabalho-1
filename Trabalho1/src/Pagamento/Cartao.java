@@ -12,7 +12,7 @@ public class Cartao extends Pagamento {
     private String numero;
 
     public Cartao(String nome, String bandeira, String numero) {
-        super("Cartão");
+        super("Cartao");
         this.nome = nome;
         this.bandeira = bandeira;
         this.numero = numero;

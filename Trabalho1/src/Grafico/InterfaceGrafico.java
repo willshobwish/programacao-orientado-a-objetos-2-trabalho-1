@@ -4,17 +4,26 @@
  */
 package Grafico;
 
+import Unicos.Imobiliaria;
+import Unicos.Venda;
+import java.util.ArrayList;
+
 /**
  *
  * @author Willian
  */
 public class InterfaceGrafico extends javax.swing.JFrame {
 
+    public ArrayList<Venda> Vendas;
+    public Imobiliaria Imobiliaria = new Imobiliaria();
+
     /**
      * Creates new form InterfaceGrafico
      */
     public InterfaceGrafico() {
+
         initComponents();
+
     }
 
     private void Limpar() {
@@ -321,16 +330,24 @@ public class InterfaceGrafico extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InterfaceGrafico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfaceGrafico.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InterfaceGrafico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfaceGrafico.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InterfaceGrafico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfaceGrafico.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InterfaceGrafico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfaceGrafico.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 

@@ -26,7 +26,9 @@ abstract public class Imovel {
     protected float valorVenda;
     protected float valorAluguel;
 
-    public Imovel(int codigoImovel, String endereco, LocalDate dataConstrucao, float areaTotal, float areaConstruida, int qtdDormitorios, int qtdBanheiros, int qtdVagasGaragem, float valorIPTU, float valorVenda, float valorAluguel) {
+    public Imovel(int codigoImovel, String endereco, LocalDate dataConstrucao, float areaTotal, float areaConstruida,
+            int qtdDormitorios, int qtdBanheiros, int qtdVagasGaragem, float valorIPTU, float valorVenda,
+            float valorAluguel) {
         this.codigoImovel = codigoImovel;
         this.endereco = endereco;
         this.dataConstrucao = dataConstrucao;
@@ -126,6 +128,20 @@ abstract public class Imovel {
 
     public void setValorAluguel(float valorAluguel) {
         this.valorAluguel = valorAluguel;
+    }
+
+    public String toString() {
+        return "Codigo do imovel: " + this.codigoImovel +
+                "\nEndereco: " + this.endereco +
+                "\nData de construcao: " + this.dataConstrucao +
+                "\nArea total: " + this.areaTotal +
+                "\nArea construida: " + this.areaConstruida +
+                "\nQuantidade de dormitorios: " + this.qtdDormitorios +
+                "\nQuantidade de banheiros: " + this.qtdBanheiros +
+                "\nQuantidade de vagas na garagem: " + this.qtdVagasGaragem +
+                "\nValor do IPTU: " + this.valorIPTU +
+                "\nValor de venda: " + this.valorVenda +
+                "\nValor de aluguel: " + this.valorAluguel;
     }
 
 }

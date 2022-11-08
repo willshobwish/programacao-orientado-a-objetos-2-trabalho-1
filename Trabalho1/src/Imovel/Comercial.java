@@ -16,8 +16,11 @@ public class Comercial extends Imovel {
 
     protected float taxaImpostoFederal;
 
-    public Comercial(float taxaImpostoFederal, int codigoImovel, String endereco, LocalDate dataConstrucao, float areaTotal, float areaConstruida, int qtdDormitorios, int qtdBanheiros, int qtdVagasGaragem, float valorIPTU, float valorVenda, float valorAluguel) {
-        super(codigoImovel, endereco, dataConstrucao, areaTotal, areaConstruida, qtdDormitorios, qtdBanheiros, qtdVagasGaragem, valorIPTU, valorVenda, valorAluguel);
+    public Comercial(float taxaImpostoFederal, int codigoImovel, String endereco, LocalDate dataConstrucao,
+            float areaTotal, float areaConstruida, int qtdDormitorios, int qtdBanheiros, int qtdVagasGaragem,
+            float valorIPTU, float valorVenda, float valorAluguel) {
+        super(codigoImovel, endereco, dataConstrucao, areaTotal, areaConstruida, qtdDormitorios, qtdBanheiros,
+                qtdVagasGaragem, valorIPTU, valorVenda, valorAluguel);
         this.taxaImpostoFederal = taxaImpostoFederal;
     }
 
@@ -32,6 +35,12 @@ public class Comercial extends Imovel {
 
     public void setTaxaImpostoFederal(float taxaImpostoFederal) {
         this.taxaImpostoFederal = taxaImpostoFederal;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "\nTaxa de imposto federal: " + this.taxaImpostoFederal;
     }
 
 }

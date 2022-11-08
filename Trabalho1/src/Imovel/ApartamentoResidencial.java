@@ -17,8 +17,11 @@ public class ApartamentoResidencial extends Imovel {
     protected int andar;
     protected float valorCondominio;
 
-    public ApartamentoResidencial(int andar, float valorCondominio, int codigoImovel, String endereco, LocalDate dataConstrucao, float areaTotal, float areaConstruida, int qtdDormitorios, int qtdBanheiros, int qtdVagasGaragem, float valorIPTU, float valorVenda, float valorAluguel) {
-        super(codigoImovel, endereco, dataConstrucao, areaTotal, areaConstruida, qtdDormitorios, qtdBanheiros, qtdVagasGaragem, valorIPTU, valorVenda, valorAluguel);
+    public ApartamentoResidencial(int andar, float valorCondominio, int codigoImovel, String endereco,
+            LocalDate dataConstrucao, float areaTotal, float areaConstruida, int qtdDormitorios, int qtdBanheiros,
+            int qtdVagasGaragem, float valorIPTU, float valorVenda, float valorAluguel) {
+        super(codigoImovel, endereco, dataConstrucao, areaTotal, areaConstruida, qtdDormitorios, qtdBanheiros,
+                qtdVagasGaragem, valorIPTU, valorVenda, valorAluguel);
         this.andar = andar;
         this.valorCondominio = valorCondominio;
     }
@@ -43,6 +46,13 @@ public class ApartamentoResidencial extends Imovel {
 
     public void setValorCondominio(float valorCondominio) {
         this.valorCondominio = valorCondominio;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "Andar: " + andar +
+                "Valor do condominio: " + valorCondominio;
     }
 
 }

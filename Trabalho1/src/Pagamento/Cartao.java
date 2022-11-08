@@ -1,20 +1,17 @@
 /*
+ * Bruno Augusto Furquim
  * Giovanna Silva Custodio
  * Willian Yoshio Murayama
  */
 package Pagamento;
 
-/**
- *
- * @author Willian
- */
+public class Cartao extends Pagamento {
 
-public class Cartao extends Pagamento{
     private String nome;
     private String bandeira;
     private String numero;
-    
-    public Cartao(String nome, String bandeira, String numero){
+
+    public Cartao(String nome, String bandeira, String numero) {
         super("Cartão");
         this.nome = nome;
         this.bandeira = bandeira;
@@ -44,9 +41,9 @@ public class Cartao extends Pagamento{
     public void setNumero(String numero) {
         this.numero = numero;
     }
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         return "\nTipo de Pagamento: " + getTipoPagamento()
                 + "\nNome: " + getNome()
                 + "\nBandeira: " + getBandeira()

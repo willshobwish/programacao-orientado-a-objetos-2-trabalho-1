@@ -24,7 +24,6 @@ abstract public class Usuario {
     protected String telefone;
     protected String email;
 
-
     public Usuario(int codigoUsuario, String nome, String cpf, String rg, LocalDate dataNascimento, String endereco,
             String cep, String telefone, String email) {
         this.codigoUsuario = codigoUsuario;
@@ -124,6 +123,19 @@ abstract public class Usuario {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Codigo: " + this.codigoUsuario +
+                "\nNome: " + this.nome +
+                "\nCPF: " + this.cpf +
+                "\nRG: " + this.rg +
+                "\nData de Nascimento: " + this.dataNascimento +
+                "\nEndereco: " + this.endereco +
+                "\nCEP: " + this.cep +
+                "\nTelefone: " + this.telefone +
+                "\nEmail: " + this.email;
     }
 
 }

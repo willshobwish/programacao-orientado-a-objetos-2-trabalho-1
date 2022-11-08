@@ -25,7 +25,9 @@ public class Imobiliaria {
     private ArrayList<Seguro> seguros;
     private Configuracao configuracoes;
 
-    public Imobiliaria(String nome, String endereco, ArrayList<Aluguel> alugueis, ArrayList<Venda> vendas, ArrayList<Imovel> imoveis, ArrayList<Usuario> corretores, ArrayList<Seguro> seguros, Configuracao configuracoes) {
+    public Imobiliaria(String nome, String endereco, ArrayList<Aluguel> alugueis, ArrayList<Venda> vendas,
+            ArrayList<Imovel> imoveis, ArrayList<Usuario> corretores, ArrayList<Seguro> seguros,
+            Configuracao configuracoes) {
         this.nome = nome;
         this.endereco = endereco;
         this.alugueis = alugueis;
@@ -99,5 +101,4 @@ public class Imobiliaria {
     public void setConfiguracoes(Configuracao configuracoes) {
         this.configuracoes = configuracoes;
     }
-
 }

@@ -70,4 +70,11 @@ public class Seguro {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Seguro{" + "codigoSeguro=" + this.codigoSeguro + ", nomeSeguradora=" + this.nomeSeguradora + ", tipo="
+                + this.tipo
+                + ", descricao=" + this.descricao + ", valor=" + this.valor + '}';
+    }
+
 }

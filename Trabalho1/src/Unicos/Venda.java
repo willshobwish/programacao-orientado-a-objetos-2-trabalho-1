@@ -95,4 +95,12 @@ public class Venda {
         this.formaPagamento = formaPagamento;
     }
 
+    @Override
+    public String toString() {
+        return "\nCodigo da venda: " + this.codigoVenda + "\nCliente: " + this.cliente.getNome() + " \nCorretor: "
+                + this.corretor.getNome() + "\nImovel: " + this.imovel.toString() + "\nData da venda: "
+                + this.dataVenda + "\nValor total da venda: " + this.valorTotalVenda + "\nForma de pagamento: "
+                + this.formaPagamento.getTipoPagamento();
+    }
+
 }

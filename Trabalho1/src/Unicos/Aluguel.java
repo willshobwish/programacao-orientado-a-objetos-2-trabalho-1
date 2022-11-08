@@ -158,4 +158,15 @@ public class Aluguel {
                                                           // anterior a data do aluguel
     }
 
+    @Override
+    public String toString() {
+        return "Aluguel [codigoAluguel = " + this.codigoAluguel + ", cliente = " + this.cliente + ", corretor = "
+                + this.corretor
+                + ", dataAluguel = "
+                + this.dataAluguel + ", dataDevolucao = " + this.dataDevolucao + ", dataPagamentoMensal = "
+                + this.dataPagamentoMensal
+                + ", formaPagamento = " + this.formaPagamento + ", imovel = " + this.imovel + ", pago = " + this.pago
+                + ", segurosContratados = "
+                + this.segurosContratados + ", valorTotalAluguel = " + this.valorTotalAluguel + "]";
+    }
 }

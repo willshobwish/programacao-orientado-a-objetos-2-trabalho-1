@@ -16,7 +16,8 @@ public class Cliente extends Usuario {
 
     protected LocalDate dataCadastro;
 
-    public Cliente(LocalDate dataCadastro, int codigoUsuario, String nome, String cpf, String rg, LocalDate dataNascimento, String endereco, String cep, String telefone, String email) {
+    public Cliente(LocalDate dataCadastro, int codigoUsuario, String nome, String cpf, String rg,
+            LocalDate dataNascimento, String endereco, String cep, String telefone, String email) {
         super(codigoUsuario, nome, cpf, rg, dataNascimento, endereco, cep, telefone, email);
         this.dataCadastro = dataCadastro;
     }
@@ -27,6 +28,11 @@ public class Cliente extends Usuario {
 
     public void setDataCadastro(LocalDate dataCadastro) {
         this.dataCadastro = dataCadastro;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\ndataCadastro" + this.dataCadastro;
     }
 
 }

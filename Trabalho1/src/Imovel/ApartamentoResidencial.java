@@ -27,7 +27,6 @@ public class ApartamentoResidencial extends Imovel {
     }
 
     @Override
-
     public float getValorAluguel() {
         return valorAluguel += valorCondominio;
     }

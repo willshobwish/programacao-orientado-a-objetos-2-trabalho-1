@@ -24,8 +24,8 @@ public class Comercial extends Imovel {
         this.taxaImpostoFederal = taxaImpostoFederal;
     }
 
+    @Override
     public float getValorAluguel() {
-
         return valorAluguel += valorAluguel * taxaImpostoFederal;
     }
 

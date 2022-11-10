@@ -4,6 +4,7 @@
 package Unicos;
 
 import Imovel.Imovel;
+import Usuario.Cliente;
 import Usuario.Usuario;
 import java.util.ArrayList;
 
@@ -21,21 +22,32 @@ public class Imobiliaria {
     private ArrayList<Aluguel> alugueis;
     private ArrayList<Venda> vendas;
     private ArrayList<Imovel> imoveis;
-    private ArrayList<Usuario> corretores;
+    private ArrayList<Usuario> usuarios;
     private ArrayList<Seguro> seguros;
     private Configuracao configuracoes;
 
     public Imobiliaria(String nome, String endereco, ArrayList<Aluguel> alugueis, ArrayList<Venda> vendas,
-            ArrayList<Imovel> imoveis, ArrayList<Usuario> corretores, ArrayList<Seguro> seguros,
+            ArrayList<Imovel> imoveis, ArrayList<Usuario> usuarios, ArrayList<Seguro> seguros,
             Configuracao configuracoes) {
         this.nome = nome;
         this.endereco = endereco;
         this.alugueis = alugueis;
         this.vendas = vendas;
         this.imoveis = imoveis;
-        this.corretores = corretores;
+        this.usuarios = usuarios;
         this.seguros = seguros;
         this.configuracoes = configuracoes;
+    }
+
+    public boolean adicionarCliente(Cliente Cliente) {
+        try {
+            usuarios.add(Cliente);
+            return true;
+        } catch (Exception ex) {
+            System.out.println(ex);
+            return false;
+        }
+
     }
 
     public String getNome() {
@@ -78,12 +90,12 @@ public class Imobiliaria {
         this.imoveis = imoveis;
     }
 
-    public ArrayList<Usuario> getCorretores() {
-        return corretores;
+    public ArrayList<Usuario> getUsuarios() {
+        return usuarios;
     }
 
-    public void setCorretores(ArrayList<Usuario> corretores) {
-        this.corretores = corretores;
+    public void setUsuarios(ArrayList<Usuario> usuarios) {
+        this.usuarios = usuarios;
     }
 
     public ArrayList<Seguro> getSeguros() {

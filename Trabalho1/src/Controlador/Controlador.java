@@ -9,6 +9,7 @@ import Unicos.Imobiliaria;
 import Unicos.Seguro;
 import Unicos.Venda;
 import Usuario.Cliente;
+import Usuario.Corretor;
 import Usuario.Usuario;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -41,6 +42,7 @@ public class Controlador {
                Endereco: %s
                """.formatted(Imobiliaria.getNome(), Imobiliaria.getEndereco());
     }
+//Clientes
 
     public void adicionarCliente(LocalDate Data, int CodigoUsuario, String NomeCliente, String cpf, String rg, LocalDate DataNascimento, String endereco, String cep, String telefone, String email) {
         Cliente Cliente = new Cliente(Data, CodigoUsuario, NomeCliente, cpf, rg, DataNascimento, endereco, cep, telefone, email);
@@ -48,16 +50,43 @@ public class Controlador {
         System.out.println(Cliente.toString());
     }
 
-    public String mostrarUsuarios() {
+    public String mostrarClientes() {
         String Dados = "Clientes cadastrados:\n";
         ArrayList<Usuario> Usuarios = Imobiliaria.getUsuarios();
         for (Usuario U : Usuarios) {
-            Dados = Dados + U.toString() + "\n-----------------------\n";
+            if (U instanceof Cliente) {
+                Dados = Dados + U.toString() + "\n-----------------------\n";
+            }
         }
         System.out.println("Mostrar usuarios acionado");
         return Dados;
     }
 
+//Corretores
+    public boolean adicionarCorretores(String creci, float salario, String pis, int codigoUsuario, String nome, String cpf, String rg, LocalDate DataNascimento, LocalDate dataAdmissao, String endereco, String cep, String telefone, String email) {
+        Corretor Corretor = new Corretor(creci, salario, pis, dataAdmissao, codigoUsuario, nome, cpf, rg, DataNascimento, endereco, cep, telefone, email);
+        if (Imobiliaria.adicionarCorretor(Corretor)) {
+            System.out.println("Corretor cadastrado:\n" + Corretor.toString());
+            return true;
+        } else {
+            System.out.println("Corretor nao cadastrado");
+            return false;
+        }
+    }
+
+    public String mostrarCorretores() {
+        String Dados = "Corretores cadastrados:\n";
+        ArrayList<Usuario> Usuarios = Imobiliaria.getUsuarios();
+        for (Usuario U : Usuarios) {
+            if (U instanceof Corretor) {
+                Dados = Dados + U.toString() + "\n-----------------------\n";
+            }
+        }
+        System.out.println("Mostrar usuarios acionado");
+        return Dados;
+    }
+
+//Outros
     public int geradorCodigoUsuario() {
         ArrayList<Usuario> Usuarios = Imobiliaria.getUsuarios();
         System.out.println("Gerador de codigo de usuario acionado");

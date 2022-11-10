@@ -5,6 +5,7 @@ package Unicos;
 
 import Imovel.Imovel;
 import Usuario.Cliente;
+import Usuario.Corretor;
 import Usuario.Usuario;
 import java.util.ArrayList;
 
@@ -42,6 +43,17 @@ public class Imobiliaria {
     public boolean adicionarCliente(Cliente Cliente) {
         try {
             usuarios.add(Cliente);
+            return true;
+        } catch (Exception ex) {
+            System.out.println(ex);
+            return false;
+        }
+
+    }
+
+    public boolean adicionarCorretor(Corretor Corretor) {
+        try {
+            usuarios.add(Corretor);
             return true;
         } catch (Exception ex) {
             System.out.println(ex);

@@ -12,13 +12,14 @@ import Controlador.Controlador;
  */
 public class InterfaceGrafico extends javax.swing.JFrame {
 
+    public Controlador Controlador = new Controlador();
+
     /**
      * Creates new form InterfaceGrafico
      */
     public InterfaceGrafico() {
 
         initComponents();
-        Controlador Controlador = new Controlador();
         System.out.println(Controlador.toString());
 
     }
@@ -240,14 +241,15 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private void ClientesCadastradosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientesCadastradosActionPerformed
         // TODO add your handling code here:
         Limpar();
-        Controlador Controlador = new Controlador();
-        TextoExibicao.setText(Controlador.mostrarUsuarios());
+        TextoExibicao.setText(Controlador.mostrarClientes());
     }//GEN-LAST:event_ClientesCadastradosActionPerformed
 
     private void CorretoresCadastradosActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CorretoresCadastradosActionPerformed
         // TODO add your handling code here:
         Limpar();
         TextoExibicao.setText("Corretores cadastrados:");
+        TextoExibicao.setText(Controlador.mostrarCorretores());
+
     }// GEN-LAST:event_CorretoresCadastradosActionPerformed
 
     private void CategoriaApartamentoResidencialActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CategoriaApartamentoResidencialActionPerformed
@@ -304,6 +306,7 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         CadastroCorretor CadastroCorretores = new CadastroCorretor();
         CadastroCorretores.setLocationRelativeTo(this);
         CadastroCorretores.setVisible(true);
+
     }// GEN-LAST:event_CorretoresActionPerformed
 
     private void CasaResidencialActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CasaResidencialActionPerformed

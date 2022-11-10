@@ -4,9 +4,7 @@
  */
 package Grafico;
 
-import Unicos.Imobiliaria;
-import Unicos.Venda;
-import java.util.ArrayList;
+import Controlador.Controlador;
 
 /**
  *
@@ -14,15 +12,14 @@ import java.util.ArrayList;
  */
 public class InterfaceGrafico extends javax.swing.JFrame {
 
-    public ArrayList<Venda> Vendas;
-    public Imobiliaria Imobiliaria = new Imobiliaria("nome", "endereco", null, Vendas, null, null, null, null);
-
     /**
      * Creates new form InterfaceGrafico
      */
     public InterfaceGrafico() {
 
         initComponents();
+        Controlador Controlador = new Controlador();
+        System.out.println(Controlador.toString());
 
     }
 
@@ -37,7 +34,7 @@ public class InterfaceGrafico extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
@@ -63,6 +60,7 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         DisponivelVenda = new javax.swing.JMenuItem();
         IndisponivelVenda = new javax.swing.JMenuItem();
         UsuarioMenu = new javax.swing.JMenu();
+        ClientesCadastrados = new javax.swing.JMenuItem();
         CorretoresCadastrados = new javax.swing.JMenuItem();
         PagamentoMenu = new javax.swing.JMenu();
 
@@ -196,6 +194,14 @@ public class InterfaceGrafico extends javax.swing.JFrame {
 
         UsuarioMenu.setText("Usuario");
 
+        ClientesCadastrados.setText("Clientes cadastrados");
+        ClientesCadastrados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClientesCadastradosActionPerformed(evt);
+            }
+        });
+        UsuarioMenu.add(ClientesCadastrados);
+
         CorretoresCadastrados.setText("Corretores cadastrados");
         CorretoresCadastrados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -214,22 +220,29 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(TextoExibicaoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 908,
-                                        Short.MAX_VALUE)
-                                .addContainerGap()));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(TextoExibicaoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 908, Short.MAX_VALUE)
+                .addContainerGap())
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(TextoExibicaoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 505,
-                                        Short.MAX_VALUE)
-                                .addContainerGap()));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(TextoExibicaoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ClientesCadastradosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientesCadastradosActionPerformed
+        // TODO add your handling code here:
+        Limpar();
+        Controlador Controlador = new Controlador();
+        TextoExibicao.setText(Controlador.mostrarUsuarios());
+    }//GEN-LAST:event_ClientesCadastradosActionPerformed
 
     private void CorretoresCadastradosActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CorretoresCadastradosActionPerformed
         // TODO add your handling code here:
@@ -372,6 +385,7 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private javax.swing.JMenuItem CategoriaCasaResidencial;
     private javax.swing.JMenuItem CategoriaComercial;
     private javax.swing.JMenuItem Cliente;
+    private javax.swing.JMenuItem ClientesCadastrados;
     private javax.swing.JMenuItem Comercial;
     private javax.swing.JMenuItem Corretores;
     private javax.swing.JMenuItem CorretoresCadastrados;

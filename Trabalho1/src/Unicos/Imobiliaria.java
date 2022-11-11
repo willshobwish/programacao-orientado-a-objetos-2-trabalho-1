@@ -30,13 +30,49 @@ public class Imobiliaria {
     private ArrayList<Seguro> seguros;
     private Configuracao configuracoes;
 
-    public Imobiliaria() {
+    public Imobiliaria(String nome, String endereco) {
+        this.nome = nome;
+        this.endereco = endereco;
         ArrayList<Aluguel> alugueis = new ArrayList<>();
         ArrayList<Venda> vendas = new ArrayList<>();
         ArrayList<Imovel> imoveis = new ArrayList<>();
         ArrayList<Usuario> corretores = new ArrayList<>();
         ArrayList<Usuario> clientes = new ArrayList<>();
         ArrayList<Seguro> seguros = new ArrayList<>();
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getEndereco() {
+        return this.endereco;
+    }
+
+    public ArrayList<Imovel> getImoveis() {
+        return this.imoveis;
+    }
+
+    public ArrayList<Usuario> getUsuarios() {
+        ArrayList<Usuario> usuarios = new ArrayList<>();
+
+        for (Usuario cli : this.clientes) {
+            usuarios.add(cli);
+        }
+
+        for (Usuario cor : this.corretores) {
+            usuarios.add(cor);
+        }
+
+        return usuarios;
     }
 
     public void carregarArquivos() throws IOException {
@@ -311,6 +347,20 @@ public class Imobiliaria {
                 return true;
             } else {
                 System.out.println("Seguro já cadastrado");
+                return false;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean adicionarCasaResidencial(Imovel imovel) {
+        try {
+            if (buscarImovel(imovel.getCodigoImovel()) == null) {
+                imoveis.add(imovel);
+                return true;
+            } else {
+                System.out.println("Imovel ja cadastrado");
                 return false;
             }
         } catch (Exception e) {

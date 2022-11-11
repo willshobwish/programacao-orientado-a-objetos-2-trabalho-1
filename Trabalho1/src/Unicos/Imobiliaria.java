@@ -3,6 +3,7 @@
  */
 package Unicos;
 
+import Imovel.CasaResidencial;
 import Imovel.Imovel;
 import Usuario.Cliente;
 import Usuario.Corretor;
@@ -60,6 +61,10 @@ public class Imobiliaria {
             return false;
         }
 
+    }
+
+    public void adicionarCasaResidencial(CasaResidencial CasaResidencial) {
+        imoveis.add(CasaResidencial);
     }
 
     public String getNome() {

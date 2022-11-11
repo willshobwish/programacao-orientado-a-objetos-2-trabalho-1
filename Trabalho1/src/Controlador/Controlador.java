@@ -3,6 +3,7 @@
  */
 package Controlador;
 
+import Imovel.CasaResidencial;
 import Imovel.Imovel;
 import Unicos.Aluguel;
 import Unicos.Imobiliaria;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
  *
  */
 public class Controlador {
+//Nao sei se eh necessario ser static, uma vez que esta na classe e nao no construtor
 
     private static ArrayList<Venda> Venda = new ArrayList<>();
     private static ArrayList<Imovel> Imovel = new ArrayList<>();
@@ -42,8 +44,8 @@ public class Controlador {
                Endereco: %s
                """.formatted(Imobiliaria.getNome(), Imobiliaria.getEndereco());
     }
-//Clientes
 
+//Clientes
     public void adicionarCliente(LocalDate Data, int CodigoUsuario, String NomeCliente, String cpf, String rg, LocalDate DataNascimento, String endereco, String cep, String telefone, String email) {
         Cliente Cliente = new Cliente(Data, CodigoUsuario, NomeCliente, cpf, rg, DataNascimento, endereco, cep, telefone, email);
         Imobiliaria.adicionarCliente(Cliente);
@@ -86,10 +88,24 @@ public class Controlador {
         return Dados;
     }
 
+//Casa residencial
+    public boolean cadastroCasaResidencial(int codigoImovel, String endereco, LocalDate dataConstrucao, float areaTotal, float areaConstruida, int qtdDormitorios, int qtdBanheiros, int qtdVagasGaragem, float valorIPTU, float valorVenda, float valorAluguel) {
+        CasaResidencial CasaResidencial = new CasaResidencial(codigoImovel, endereco, dataConstrucao, areaTotal, areaConstruida, qtdDormitorios, qtdBanheiros, qtdVagasGaragem, valorIPTU, valorVenda, valorAluguel);
+        Imobiliaria.adicionarCasaResidencial(CasaResidencial);
+        System.out.println("Casa residencial cadastrado:\n" + CasaResidencial.toString());
+        return true;
+    }
+
 //Outros
     public int geradorCodigoUsuario() {
         ArrayList<Usuario> Usuarios = Imobiliaria.getUsuarios();
         System.out.println("Gerador de codigo de usuario acionado");
         return Usuarios.size();
+    }
+
+    public int geradorCodigoImovel() {
+        ArrayList<Imovel> Imoveis = Imobiliaria.getImoveis();
+        System.out.println("Gerador de codigo de imoveis acionado");
+        return Imoveis.size();
     }
 }

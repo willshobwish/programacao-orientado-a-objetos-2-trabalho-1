@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class InterfaceGrafico extends javax.swing.JFrame {
 
     public ArrayList<Venda> Vendas;
-    public Imobiliaria Imobiliaria = new Imobiliaria("nome", "endereco", null, Vendas, null, null, null, null);
+    public Imobiliaria Imobiliaria = new Imobiliaria();
 
     /**
      * Creates new form InterfaceGrafico

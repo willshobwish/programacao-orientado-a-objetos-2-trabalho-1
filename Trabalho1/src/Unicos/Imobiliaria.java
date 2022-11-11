@@ -261,4 +261,60 @@ public class Imobiliaria {
             return null;
         }
     }
+
+    public boolean cadastrarCorretor(Corretor corretor) {
+        try {
+            if (buscarCorretor(corretor.getCodigoUsuario()) == null) {
+                corretores.add(corretor);
+                return true;
+            } else {
+                System.out.println("Corretor já cadastrado");
+                return false;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean cadastrarCliente(Cliente cliente) {
+        try {
+            if (buscarCliente(cliente.getCodigoUsuario()) == null) {
+                clientes.add(cliente);
+                return true;
+            } else {
+                System.out.println("Cliente já cadastrado");
+                return false;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean cadastrarImovel(Imovel imovel) {
+        try {
+            if (buscarImovel(imovel.getCodigoImovel()) == null) {
+                imoveis.add(imovel);
+                return true;
+            } else {
+                System.out.println("Imóvel já cadastrado");
+                return false;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean cadastrarSeguros(Seguro seguro) {
+        try {
+            if (buscarSeguro(seguro.getCodigoSeguro()) == null) {
+                seguros.add(seguro);
+                return true;
+            } else {
+                System.out.println("Seguro já cadastrado");
+                return false;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }

@@ -3,7 +3,6 @@
  */
 package Unicos;
 
-import Imovel.CasaResidencial;
 import Imovel.Imovel;
 import Usuario.Cliente;
 import Usuario.Corretor;
@@ -167,6 +166,99 @@ public class Imobiliaria {
             return true;
         } catch (Exception e) {
             return false;
+        }
+    }
+
+    public boolean salvarArquivos() {
+        if (salvarAlugueis() && salvarVendas() && salvarImoveis() && salvarClientes() && salvarCorretores()
+                && salvarSeguros()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public Usuario buscarCorretor(int codigo) {
+        try {
+            for (Usuario corretor : corretores) {
+                if (corretor.getCodigoUsuario() == codigo) {
+                    return (Corretor) corretor;
+                }
+            }
+            System.out.println("Corretor não encontrado");
+            return null;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public Usuario buscarCliente(int codigo) {
+        try {
+            for (Usuario cliente : clientes) {
+                if (cliente.getCodigoUsuario() == codigo) {
+                    return (Cliente) cliente;
+                }
+            }
+            System.out.println("Cliente não encontrado");
+            return null;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public Venda buscarVenda(int codigo) {
+        try {
+            for (Venda venda : vendas) {
+                if (venda.getCodigoVenda() == codigo) {
+                    return venda;
+                }
+            }
+            System.out.println("Venda não encontrada");
+            return null;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public Aluguel buscarAluguel(int codigo) {
+        try {
+            for (Aluguel aluguel : alugueis) {
+                if (aluguel.getCodigoAluguel() == codigo) {
+                    return aluguel;
+                }
+            }
+            System.out.println("Aluguel não encontrado");
+            return null;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public Imovel buscarImovel(int codigo) {
+        try {
+            for (Imovel imovel : imoveis) {
+                if (imovel.getCodigoImovel() == codigo) {
+                    return imovel;
+                }
+            }
+            System.out.println("Imóvel não encontrado");
+            return null;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public Seguro buscarSeguro(int codigo) {
+        try {
+            for (Seguro seguro : seguros) {
+                if (seguro.getCodigoSeguro() == codigo) {
+                    return seguro;
+                }
+            }
+            System.out.println("Seguro não encontrado");
+            return null;
+        } catch (Exception e) {
+            return null;
         }
     }
 }

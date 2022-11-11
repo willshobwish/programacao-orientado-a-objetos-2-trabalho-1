@@ -3,6 +3,8 @@
  */
 package Unicos;
 
+import java.io.Serializable;
+
 /*
  *
  * Bruno Augusto Furquim
@@ -10,7 +12,8 @@ package Unicos;
  * Willian Yoshio Murayama
  *
  */
-public class Configuracao {
+public final class Configuracao implements Serializable {
+    private static Configuracao instanciaConfiguracao = null;
     private String arquivoAlugueis;
     private String arquivoVendas;
     private String arquivoImoveis;
@@ -18,14 +21,20 @@ public class Configuracao {
     private String arquivoCorretores;
     private String arquivoSeguros;
 
-    public Configuracao(String arquivoAlugueis, String arquivoVendas, String arquivoImoveis, String arquivoClientes,
-            String arquivoCorretores, String arquivoSeguros) {
-        this.arquivoAlugueis = arquivoAlugueis;
-        this.arquivoVendas = arquivoVendas;
-        this.arquivoImoveis = arquivoImoveis;
-        this.arquivoClientes = arquivoClientes;
-        this.arquivoCorretores = arquivoCorretores;
-        this.arquivoSeguros = arquivoSeguros;
+    private Configuracao() {
+        this.arquivoAlugueis = "src/Arquivos/alugueis.ser";
+        this.arquivoVendas = "src/Arquivos/vendas.ser";
+        this.arquivoImoveis = "src/Arquivos/imoveis.ser";
+        this.arquivoClientes = "src/Arquivos/clientes.ser";
+        this.arquivoCorretores = "src/Arquivos/corretores.ser";
+        this.arquivoSeguros = "src/Arquivos/seguros.ser";
+    }
+
+    public static Configuracao getInstanciaConfiguracao() {
+        if (instanciaConfiguracao == null) {
+            instanciaConfiguracao = new Configuracao();
+        }
+        return instanciaConfiguracao;
     }
 
     public String getArquivoAlugueis() {

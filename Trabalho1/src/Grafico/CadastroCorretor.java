@@ -3,7 +3,9 @@
  */
 package Grafico;
 
+import Controlador.Controlador;
 import java.time.LocalDate;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,6 +18,8 @@ public class CadastroCorretor extends javax.swing.JFrame {
      */
     public CadastroCorretor() {
         initComponents();
+        Controlador Controlador = new Controlador();
+        Codigo.setText(Integer.toString(Controlador.geradorCodigoUsuario()));
     }
 
     public int DataAno() {
@@ -54,19 +58,19 @@ public class CadastroCorretor extends javax.swing.JFrame {
         CreciText = new javax.swing.JTextField();
         SalarioLabel = new javax.swing.JLabel();
         SalarioText = new javax.swing.JTextField();
-        Ano2 = new javax.swing.JSpinner();
+        AnoAdmisssao = new javax.swing.JSpinner();
         AnoAdmissaoLabel = new javax.swing.JLabel();
         MesAdmissaoLabel = new javax.swing.JLabel();
         DiaAdmissaoLabel = new javax.swing.JLabel();
         DataAdmissaoLabel = new javax.swing.JLabel();
-        Dia2 = new javax.swing.JSpinner();
-        Mes2 = new javax.swing.JSpinner();
+        DiaAdmissao = new javax.swing.JSpinner();
+        MesAdmissao = new javax.swing.JSpinner();
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        Rg = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        Endereco = new javax.swing.JTextField();
         Dia = new javax.swing.JSpinner();
         Mes = new javax.swing.JSpinner();
         Ano = new javax.swing.JSpinner();
@@ -74,17 +78,17 @@ public class CadastroCorretor extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        Email = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        Cep = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        Codigo = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        Telefone = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        Nome = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        Cpf = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -109,21 +113,16 @@ public class CadastroCorretor extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro de corretor");
 
         PisLabel.setText("PIS");
 
-        PIS.setText("jTextField1");
-
         CreciLabel.setText("CRECI");
-
-        CreciText.setText("jTextField1");
 
         SalarioLabel.setText("Salário");
 
-        SalarioText.setText("jTextField1");
-
-        Ano2.setName(""); // NOI18N
-        Ano2.setValue(DataAno());
+        AnoAdmisssao.setName(""); // NOI18N
+        AnoAdmisssao.setValue(DataAno());
 
         AnoAdmissaoLabel.setText("Ano");
 
@@ -133,21 +132,22 @@ public class CadastroCorretor extends javax.swing.JFrame {
 
         DataAdmissaoLabel.setText("Data de admissão");
 
-        Dia2.setValue(DataDia());
+        DiaAdmissao.setValue(DataDia());
 
-        Mes2.setValue(DataMes());
+        MesAdmissao.setValue(DataMes());
 
         jButton1.setText("Cadastrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("RG");
-
-        jTextField4.setText("jTextField1");
 
         jLabel5.setText("Data de nascimento");
 
         jLabel6.setText("Endereço");
-
-        jTextField6.setText("jTextField1");
 
         Dia.setValue(DataDia());
 
@@ -164,32 +164,23 @@ public class CadastroCorretor extends javax.swing.JFrame {
 
         jLabel7.setText("E-mail");
 
-        jTextField5.setText("jTextField1");
-
         jLabel8.setText("CEP");
-
-        jTextField7.setText("jTextField1");
 
         jLabel1.setText("Código usuário");
 
-        jTextField1.setText("jTextField1");
+        Codigo.setEditable(false);
 
         jLabel9.setText("Telefone");
 
-        jTextField8.setText("jTextField1");
-
         jLabel2.setText("Nome");
 
-        jTextField2.setText("jTextField1");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        Nome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                NomeActionPerformed(evt);
             }
         });
 
         jLabel3.setText("CPF");
-
-        jTextField3.setText("jTextField1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -205,7 +196,7 @@ public class CadastroCorretor extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(Codigo, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,14 +215,14 @@ public class CadastroCorretor extends javax.swing.JFrame {
                                         .addComponent(jLabel16)
                                         .addComponent(Ano, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(Nome, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(Cpf, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(Rg, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(Endereco, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(CreciText)
-                            .addComponent(jTextField8)
+                            .addComponent(Telefone)
                             .addComponent(PIS)
                             .addComponent(SalarioText)
                             .addGroup(layout.createSequentialGroup()
@@ -243,20 +234,20 @@ public class CadastroCorretor extends javax.swing.JFrame {
                                     .addComponent(DataAdmissaoLabel)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(Dia2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(DiaAdmissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(DiaAdmissaoLabel))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(Mes2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(MesAdmissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(MesAdmissaoLabel))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(AnoAdmissaoLabel)
-                                            .addComponent(Ano2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(AnoAdmisssao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addComponent(CreciLabel)
-                                    .addComponent(jTextField5))
+                                    .addComponent(Email))
                                 .addGap(0, 0, Short.MAX_VALUE))))
-                    .addComponent(jTextField7))
+                    .addComponent(Cep))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -267,19 +258,19 @@ public class CadastroCorretor extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Rg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -295,15 +286,15 @@ public class CadastroCorretor extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Endereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(CreciLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -325,13 +316,13 @@ public class CadastroCorretor extends javax.swing.JFrame {
                             .addComponent(AnoAdmissaoLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Dia2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Ano2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Mes2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(DiaAdmissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AnoAdmisssao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MesAdmissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Cep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addContainerGap())
@@ -340,9 +331,26 @@ public class CadastroCorretor extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void NomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_NomeActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Controlador Controlador = new Controlador();
+        LocalDate DataNascimento = LocalDate.parse(Ano.getValue() + "-" + Mes.getValue() + "-" + Dia.getValue());
+        LocalDate DataAdmissao = LocalDate.parse(AnoAdmisssao.getValue() + "-" + MesAdmissao.getValue() + "-" + DiaAdmissao.getValue());
+        if (!Controlador.adicionarCorretores(CreciText.getText(), Float.parseFloat(SalarioText.getText()), PIS.getText(), Integer.parseInt(Codigo.getText()), Nome.getText(), Cpf.getText(), Rg.getText(), DataNascimento, DataAdmissao, Endereco.getText(), Cep.getText(), Telefone.getText(), Email.getText())) {
+            JOptionPane.showMessageDialog(this,
+                    "Corretor nao cadastrado",
+                    "Inane error",
+                    JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this,
+                    "Corretor cadastrado com sucesso");
+        }
+        Codigo.setText(Integer.toString(Controlador.geradorCodigoUsuario()));
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -381,21 +389,29 @@ public class CadastroCorretor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner Ano;
-    private javax.swing.JSpinner Ano2;
     private javax.swing.JLabel AnoAdmissaoLabel;
+    private javax.swing.JSpinner AnoAdmisssao;
+    private javax.swing.JTextField Cep;
+    private javax.swing.JTextField Codigo;
+    private javax.swing.JTextField Cpf;
     private javax.swing.JLabel CreciLabel;
     private javax.swing.JTextField CreciText;
     private javax.swing.JLabel DataAdmissaoLabel;
     private javax.swing.JSpinner Dia;
-    private javax.swing.JSpinner Dia2;
+    private javax.swing.JSpinner DiaAdmissao;
     private javax.swing.JLabel DiaAdmissaoLabel;
+    private javax.swing.JTextField Email;
+    private javax.swing.JTextField Endereco;
     private javax.swing.JSpinner Mes;
-    private javax.swing.JSpinner Mes2;
+    private javax.swing.JSpinner MesAdmissao;
     private javax.swing.JLabel MesAdmissaoLabel;
+    private javax.swing.JTextField Nome;
     private javax.swing.JTextField PIS;
     private javax.swing.JLabel PisLabel;
+    private javax.swing.JTextField Rg;
     private javax.swing.JLabel SalarioLabel;
     private javax.swing.JTextField SalarioText;
+    private javax.swing.JTextField Telefone;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
@@ -412,13 +428,5 @@ public class CadastroCorretor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 }

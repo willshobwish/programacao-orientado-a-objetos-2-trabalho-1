@@ -32,7 +32,7 @@ public class Cliente extends Usuario {
 
     @Override
     public String toString() {
-        return super.toString() + "\ndataCadastro" + this.dataCadastro;
+        return super.toString() + "\nData de cadastro: " + this.dataCadastro;
     }
 
 }

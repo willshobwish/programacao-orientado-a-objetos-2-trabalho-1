@@ -3,7 +3,10 @@
  */
 package Unicos;
 
+import Imovel.CasaResidencial;
 import Imovel.Imovel;
+import Usuario.Cliente;
+import Usuario.Corretor;
 import Usuario.Usuario;
 
 import java.io.*;
@@ -165,53 +168,5 @@ public class Imobiliaria {
         } catch (Exception e) {
             return false;
         }
-    }
-
-    public ArrayList<Aluguel> getAlugueis() {
-        return alugueis;
-    }
-
-    public void setAlugueis(ArrayList<Aluguel> alugueis) {
-        this.alugueis = alugueis;
-    }
-
-    public ArrayList<Venda> getVendas() {
-        return vendas;
-    }
-
-    public void setVendas(ArrayList<Venda> vendas) {
-        this.vendas = vendas;
-    }
-
-    public ArrayList<Imovel> getImoveis() {
-        return imoveis;
-    }
-
-    public void setImoveis(ArrayList<Imovel> imoveis) {
-        this.imoveis = imoveis;
-    }
-
-    public ArrayList<Usuario> getCorretores() {
-        return corretores;
-    }
-
-    public void setCorretores(ArrayList<Usuario> corretores) {
-        this.corretores = corretores;
-    }
-
-    public ArrayList<Seguro> getSeguros() {
-        return seguros;
-    }
-
-    public void setSeguros(ArrayList<Seguro> seguros) {
-        this.seguros = seguros;
-    }
-
-    public Configuracao getConfiguracoes() {
-        return configuracoes;
-    }
-
-    public void setConfiguracoes(Configuracao configuracoes) {
-        this.configuracoes = configuracoes;
     }
 }

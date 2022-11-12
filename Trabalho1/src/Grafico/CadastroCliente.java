@@ -12,14 +12,14 @@ import java.time.LocalDate;
  */
 public class CadastroCliente extends javax.swing.JFrame {
 
+    public Controlador Controlador = new Controlador();
+
     /**
      * Creates new form CadastroUsuario
      */
     public CadastroCliente() {
         initComponents();
-        Controlador Controlador = new Controlador();
-        CodigoCliente.setText(Integer.toString(Controlador.geradorCodigoUsuario()));
-
+//        CodigoCliente.setText(Integer.toString(Controlador.geradorCodigoUsuario()));
     }
 
     public int DataAno() {
@@ -289,10 +289,10 @@ public class CadastroCliente extends javax.swing.JFrame {
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
         // TODO add your handling code here:
-        Controlador Controlador = new Controlador();
+//        Controlador Controlador = new Controlador();
         LocalDate DataNascimeto = LocalDate.parse(AnoNascimento.getValue() + "-" + MesNascimento.getValue() + "-" + DiaNascimento.getValue());
         Controlador.adicionarCliente(LocalDate.now(), Integer.parseInt(CodigoCliente.getText()), NomeCliente.getText(), CPFCliente.getText(), RGCliente.getText(), DataNascimeto, EnderecoCliente.getText(), CEPCliente.getText(), TelefoneCliente.getText(), EmailCliente.getText());
-        CodigoCliente.setText(Integer.toString(Controlador.geradorCodigoUsuario()));
+//        CodigoCliente.setText(Integer.toString(Controlador.geradorCodigoUsuario()));
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void RGClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RGClienteActionPerformed

@@ -25,23 +25,16 @@ public class Imobiliaria {
 
     private String nome;
     private String endereco;
-    private ArrayList<Aluguel> alugueis;
-    private ArrayList<Venda> vendas;
-    private ArrayList<Imovel> imoveis;
-    private ArrayList<Usuario> corretores;
-    private ArrayList<Usuario> clientes;
-    private ArrayList<Seguro> seguros;
-    private Configuracao configuracoes;
+    private ArrayList<Aluguel> alugueis = new ArrayList<Aluguel>();
+    private ArrayList<Venda> vendas = new ArrayList<Venda>();
+    private ArrayList<Imovel> imoveis = new ArrayList<Imovel>();
+    private ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+    private ArrayList<Seguro> seguros = new ArrayList<Seguro>();
+    private Configuracao configuracoes = new Configuracao();
 
     public Imobiliaria(String nome, String endereco) {
         this.nome = nome;
         this.endereco = endereco;
-        ArrayList<Aluguel> alugueis = new ArrayList<>();
-        ArrayList<Venda> vendas = new ArrayList<>();
-        ArrayList<Imovel> imoveis = new ArrayList<>();
-        ArrayList<Usuario> corretores = new ArrayList<>();
-        ArrayList<Usuario> clientes = new ArrayList<>();
-        ArrayList<Seguro> seguros = new ArrayList<>();
     }
 
     public void setNome(String nome) {

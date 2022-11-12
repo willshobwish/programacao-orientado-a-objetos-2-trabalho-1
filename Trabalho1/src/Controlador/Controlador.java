@@ -59,6 +59,9 @@ public class Controlador {
     public String mostrarClientes() {
         String Dados = "Clientes cadastrados:\n";
         ArrayList<Usuario> Usuarios = Imobiliaria.getUsuarios();
+        if (Usuarios == null) {
+            return Dados = Dados + "Nenhum cliente cadastrado";
+        }
         for (Usuario U : Usuarios) {
             if (U instanceof Cliente) {
                 Dados = Dados + U.toString() + "\n-----------------------\n";
@@ -69,18 +72,12 @@ public class Controlador {
     }
 
     // Corretores
-    public boolean adicionarCorretores(String creci, float salario, String pis, int codigoUsuario, String nome,
+    public void adicionarCorretores(String creci, float salario, String pis, int codigoUsuario, String nome,
             String cpf, String rg, LocalDate DataNascimento, LocalDate dataAdmissao, String endereco, String cep,
             String telefone, String email) {
         Corretor Corretor = new Corretor(creci, salario, pis, dataAdmissao, codigoUsuario, nome, cpf, rg,
                 DataNascimento, endereco, cep, telefone, email);
-        if (Imobiliaria.cadastrarCorretor(Corretor)) {
-            System.out.println("Corretor cadastrado:\n" + Corretor.toString());
-            return true;
-        } else {
-            System.out.println("Corretor nao cadastrado");
-            return false;
-        }
+        Imobiliaria.cadastrarCorretor(Corretor);
     }
 
     public String mostrarCorretores() {

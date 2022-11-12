@@ -51,85 +51,86 @@
             <Property name="text" type="java.lang.String" value="Imovel"/>
           </Properties>
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="ListarMenu">
+            <Menu class="javax.swing.JMenu" name="Todos">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Listar"/>
+                <Property name="text" type="java.lang.String" value="Todos"/>
               </Properties>
               <SubComponents>
-                <Menu class="javax.swing.JMenu" name="Todos">
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Todos"/>
-                  </Properties>
-                  <SubComponents>
-                    <MenuItem class="javax.swing.JMenuItem" name="CategoriaApartamentoResidencial">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Categoria Apartamento Residencial"/>
-                        <Property name="toolTipText" type="java.lang.String" value=""/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CategoriaApartamentoResidencialActionPerformed"/>
-                      </Events>
-                    </MenuItem>
-                    <MenuItem class="javax.swing.JMenuItem" name="CategoriaCasaResidencial">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Categoria Casa Residencial"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CategoriaCasaResidencialActionPerformed"/>
-                      </Events>
-                    </MenuItem>
-                    <MenuItem class="javax.swing.JMenuItem" name="CategoriaComercial">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Categoria Comercial"/>
-                        <Property name="toolTipText" type="java.lang.String" value=""/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CategoriaComercialActionPerformed"/>
-                      </Events>
-                    </MenuItem>
-                  </SubComponents>
-                </Menu>
-                <Menu class="javax.swing.JMenu" name="Locacao">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Loca&#xe7;&#xe3;o"/>
-                  </Properties>
-                  <SubComponents>
-                    <MenuItem class="javax.swing.JMenuItem" name="ListaDisponivel">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Dispon&#xed;vel"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ListaDisponivelActionPerformed"/>
-                      </Events>
-                    </MenuItem>
-                    <MenuItem class="javax.swing.JMenuItem" name="ListaIndisponivel">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Indispon&#xed;vel"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ListaIndisponivelActionPerformed"/>
-                      </Events>
-                    </MenuItem>
-                  </SubComponents>
-                </Menu>
-                <MenuItem class="javax.swing.JMenuItem" name="DisponivelVenda">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Dispon&#xed;vel para venda"/>
+                    <Property name="text" type="java.lang.String" value="Todas categorias"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DisponivelVendaActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
                   </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="IndisponivelVenda">
+                <MenuItem class="javax.swing.JMenuItem" name="CategoriaApartamentoResidencial">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Indispon&#xed;vel para venda e ou loca&#xe7;&#xe3;o"/>
+                    <Property name="text" type="java.lang.String" value="Apartamento Residencial"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IndisponivelVendaActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CategoriaApartamentoResidencialActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="CategoriaCasaResidencial">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Casa Residencial"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CategoriaCasaResidencialActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="CategoriaComercial">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Comercial"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CategoriaComercialActionPerformed"/>
                   </Events>
                 </MenuItem>
               </SubComponents>
             </Menu>
+            <Menu class="javax.swing.JMenu" name="Locacao">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Loca&#xe7;&#xe3;o"/>
+              </Properties>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="ListaDisponivel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Dispon&#xed;vel"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ListaDisponivelActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="ListaIndisponivel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Indispon&#xed;vel"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ListaIndisponivelActionPerformed"/>
+                  </Events>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+            <MenuItem class="javax.swing.JMenuItem" name="DisponivelVenda">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Dispon&#xed;vel para venda"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DisponivelVendaActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="IndisponivelVenda">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Indispon&#xed;vel para venda e ou loca&#xe7;&#xe3;o"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IndisponivelVendaActionPerformed"/>
+              </Events>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="UsuarioMenu">

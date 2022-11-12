@@ -47,8 +47,8 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         Corretores = new javax.swing.JMenuItem();
         CasaResidencial = new javax.swing.JMenuItem();
         ImovelMenu = new javax.swing.JMenu();
-        ListarMenu = new javax.swing.JMenu();
         Todos = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         CategoriaApartamentoResidencial = new javax.swing.JMenuItem();
         CategoriaCasaResidencial = new javax.swing.JMenuItem();
         CategoriaComercial = new javax.swing.JMenuItem();
@@ -102,11 +102,17 @@ public class InterfaceGrafico extends javax.swing.JFrame {
 
         ImovelMenu.setText("Imovel");
 
-        ListarMenu.setText("Listar");
-
         Todos.setText("Todos");
 
-        CategoriaApartamentoResidencial.setText("Categoria Apartamento Residencial");
+        jMenuItem1.setText("Todas categorias");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        Todos.add(jMenuItem1);
+
+        CategoriaApartamentoResidencial.setText("Apartamento Residencial");
         CategoriaApartamentoResidencial.setToolTipText("");
         CategoriaApartamentoResidencial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,7 +121,7 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         });
         Todos.add(CategoriaApartamentoResidencial);
 
-        CategoriaCasaResidencial.setText("Categoria Casa Residencial");
+        CategoriaCasaResidencial.setText("Casa Residencial");
         CategoriaCasaResidencial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CategoriaCasaResidencialActionPerformed(evt);
@@ -123,7 +129,7 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         });
         Todos.add(CategoriaCasaResidencial);
 
-        CategoriaComercial.setText("Categoria Comercial");
+        CategoriaComercial.setText("Comercial");
         CategoriaComercial.setToolTipText("");
         CategoriaComercial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,7 +138,7 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         });
         Todos.add(CategoriaComercial);
 
-        ListarMenu.add(Todos);
+        ImovelMenu.add(Todos);
 
         Locacao.setText("Locação");
 
@@ -152,7 +158,7 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         });
         Locacao.add(ListaIndisponivel);
 
-        ListarMenu.add(Locacao);
+        ImovelMenu.add(Locacao);
 
         DisponivelVenda.setText("Disponível para venda");
         DisponivelVenda.addActionListener(new java.awt.event.ActionListener() {
@@ -160,7 +166,7 @@ public class InterfaceGrafico extends javax.swing.JFrame {
                 DisponivelVendaActionPerformed(evt);
             }
         });
-        ListarMenu.add(DisponivelVenda);
+        ImovelMenu.add(DisponivelVenda);
 
         IndisponivelVenda.setText("Indisponível para venda e ou locação");
         IndisponivelVenda.addActionListener(new java.awt.event.ActionListener() {
@@ -168,9 +174,7 @@ public class InterfaceGrafico extends javax.swing.JFrame {
                 IndisponivelVendaActionPerformed(evt);
             }
         });
-        ListarMenu.add(IndisponivelVenda);
-
-        ImovelMenu.add(ListarMenu);
+        ImovelMenu.add(IndisponivelVenda);
 
         BarraMenu.add(ImovelMenu);
 
@@ -218,6 +222,10 @@ public class InterfaceGrafico extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void ClientesCadastradosActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ClientesCadastradosActionPerformed
         // TODO add your handling code here:
@@ -369,7 +377,6 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private javax.swing.JMenuItem IndisponivelVenda;
     private javax.swing.JMenuItem ListaDisponivel;
     private javax.swing.JMenuItem ListaIndisponivel;
-    private javax.swing.JMenu ListarMenu;
     private javax.swing.JMenu Locacao;
     private javax.swing.JMenu PagamentoMenu;
     private javax.swing.JTextArea TextoExibicao;
@@ -377,6 +384,7 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private javax.swing.JMenu Todos;
     private javax.swing.JMenu UsuarioMenu;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPopupMenu jPopupMenu1;
     // End of variables declaration//GEN-END:variables

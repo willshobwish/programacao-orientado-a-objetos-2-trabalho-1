@@ -22,12 +22,6 @@ public final class Configuracao {
     public Configuracao() {
     }
 
-//    public static Configuracao getInstanciaConfiguracao() {
-//        if (instanciaConfiguracao == null) {
-//            instanciaConfiguracao = new Configuracao();
-//        }
-//        return instanciaConfiguracao;
-//    }
     public String getArquivoAlugueis() {
         return arquivoAlugueis;
     }

@@ -340,15 +340,8 @@ public class CadastroCorretor extends javax.swing.JFrame {
         Controlador Controlador = new Controlador();
         LocalDate DataNascimento = LocalDate.parse(Ano.getValue() + "-" + Mes.getValue() + "-" + Dia.getValue());
         LocalDate DataAdmissao = LocalDate.parse(AnoAdmisssao.getValue() + "-" + MesAdmissao.getValue() + "-" + DiaAdmissao.getValue());
-        if (!Controlador.adicionarCorretores(CreciText.getText(), Float.parseFloat(SalarioText.getText()), PIS.getText(), Integer.parseInt(Codigo.getText()), Nome.getText(), Cpf.getText(), Rg.getText(), DataNascimento, DataAdmissao, Endereco.getText(), Cep.getText(), Telefone.getText(), Email.getText())) {
-            JOptionPane.showMessageDialog(this,
-                    "Corretor nao cadastrado",
-                    "Inane error",
-                    JOptionPane.ERROR_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(this,
-                    "Corretor cadastrado com sucesso");
-        }
+        Controlador.adicionarCorretores(CreciText.getText(), Float.parseFloat(SalarioText.getText()), PIS.getText(), Integer.parseInt(Codigo.getText()), Nome.getText(), Cpf.getText(), Rg.getText(), DataNascimento, DataAdmissao, Endereco.getText(), Cep.getText(), Telefone.getText(), Email.getText());
+        JOptionPane.showMessageDialog(this, "Corretor cadastrado com sucesso");
         Codigo.setText(Integer.toString(Controlador.geradorCodigoUsuario()));
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -386,7 +379,6 @@ public class CadastroCorretor extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner Ano;
     private javax.swing.JLabel AnoAdmissaoLabel;

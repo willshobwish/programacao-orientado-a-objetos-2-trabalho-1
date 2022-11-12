@@ -35,6 +35,11 @@ public class Imobiliaria {
     public Imobiliaria(String nome, String endereco) {
         this.nome = nome;
         this.endereco = endereco;
+        carregarAlugueis();
+        carregarImoveis();
+        carregarSeguros();
+        carregarUsuarios();
+        carregarVendas();
     }
 
     public void setNome(String nome) {
@@ -58,69 +63,96 @@ public class Imobiliaria {
     }
 
     public ArrayList<Usuario> getUsuarios() {
-        ArrayList<Usuario> usuarios = new ArrayList<>();
-
-        for (Usuario cli : this.clientes) {
-            usuarios.add(cli);
-        }
-
-        for (Usuario cor : this.corretores) {
-            usuarios.add(cor);
-        }
-
         return usuarios;
     }
 
-    public void carregarArquivos() throws IOException {
+    public void carregarSeguros() {
         try {
-            // carregando alugueis
-            FileInputStream inn = new FileInputStream(configuracoes.getArquivoAlugueis());
-            ObjectInputStream obj = new ObjectInputStream(inn);
-            this.alugueis = (ArrayList<Aluguel>) obj.readObject();
-            obj.close();
-            inn.close();
-
-            // carregando vendas
-            inn = new FileInputStream(configuracoes.getArquivoVendas());
-            obj = new ObjectInputStream(inn);
-            this.vendas = (ArrayList<Venda>) obj.readObject();
-            obj.close();
-            inn.close();
-
-            // carregando imoveis
-            inn = new FileInputStream(configuracoes.getArquivoImoveis());
-            obj = new ObjectInputStream(inn);
-            this.imoveis = (ArrayList<Imovel>) obj.readObject();
-            obj.close();
-            inn.close();
-
-            // carregando clientes
-            inn = new FileInputStream(configuracoes.getArquivoClientes());
-            obj = new ObjectInputStream(inn);
-            this.clientes = (ArrayList<Usuario>) obj.readObject();
-            obj.close();
-            inn.close();
-
-            // carregando corretores
-            inn = new FileInputStream(configuracoes.getArquivoCorretores());
-            obj = new ObjectInputStream(inn);
-            this.corretores = (ArrayList<Usuario>) obj.readObject();
-            obj.close();
-            inn.close();
-
-            // carregando seguros
-            inn = new FileInputStream(configuracoes.getArquivoSeguros());
-            obj = new ObjectInputStream(inn);
-            this.seguros = (ArrayList<Seguro>) obj.readObject();
-            obj.close();
-            inn.close();
-
+            FileInputStream Filename = new FileInputStream(configuracoes.getArquivoSeguros());
+            ObjectInputStream LoadObject = new ObjectInputStream(Filename);
+            if ((ArrayList<Seguro>) LoadObject.readObject() == null) {
+                seguros = new ArrayList<>();
+            } else {
+                seguros = (ArrayList<Seguro>) LoadObject.readObject();
+            }
+            LoadObject.close();
+            Filename.close();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
 
+    public void carregarImoveis() {
+        try {
+            FileInputStream Filename = new FileInputStream(configuracoes.getArquivoImoveis());
+            ObjectInputStream LoadObject = new ObjectInputStream(Filename);
+            if ((ArrayList<Imovel>) LoadObject.readObject() == null) {
+                imoveis = new ArrayList<>();
+            } else {
+                imoveis = (ArrayList<Imovel>) LoadObject.readObject();
+            }
+            LoadObject.close();
+            Filename.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void carregarVendas() {
+        try {
+            FileInputStream Filename = new FileInputStream(configuracoes.getArquivoVendas());
+            ObjectInputStream LoadObject = new ObjectInputStream(Filename);
+            if ((ArrayList<Venda>) LoadObject.readObject() == null) {
+                vendas = new ArrayList<Venda>();
+            } else {
+                vendas = (ArrayList<Venda>) LoadObject.readObject();
+            }
+            LoadObject.close();
+            Filename.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void carregarAlugueis() {
+        try {
+            FileInputStream Filename = new FileInputStream(configuracoes.getArquivoAlugueis());
+            ObjectInputStream LoadObject = new ObjectInputStream(Filename);
+            if ((ArrayList<Aluguel>) LoadObject.readObject() == null) {
+                alugueis = new ArrayList<Aluguel>();
+            } else {
+                alugueis = (ArrayList<Aluguel>) LoadObject.readObject();
+            }
+            LoadObject.close();
+            Filename.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void carregarUsuarios() {
+        try {
+            FileInputStream Filename = new FileInputStream(configuracoes.getArquivoUsuarios());
+            ObjectInputStream LoadObject = new ObjectInputStream(Filename);
+            usuarios = (ArrayList<Usuario>) LoadObject.readObject();
+            if (usuarios == null) {
+                usuarios = new ArrayList<Usuario>();
+            }
+            LoadObject.close();
+            Filename.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public boolean salvarAlugueis() {
@@ -162,28 +194,15 @@ public class Imobiliaria {
         }
     }
 
-    public boolean salvarClientes() {
+    public boolean salvarUsuarios() {
         try {
-            FileOutputStream out = new FileOutputStream(configuracoes.getArquivoClientes());
+            FileOutputStream out = new FileOutputStream(configuracoes.getArquivoUsuarios());
             ObjectOutputStream obj = new ObjectOutputStream(out);
-            obj.writeObject(this.clientes);
+            obj.writeObject(usuarios);
             obj.close();
-            out.close();
             return true;
         } catch (Exception e) {
-            return false;
-        }
-    }
-
-    public boolean salvarCorretores() {
-        try {
-            FileOutputStream out = new FileOutputStream(configuracoes.getArquivoCorretores());
-            ObjectOutputStream obj = new ObjectOutputStream(out);
-            obj.writeObject(this.corretores);
-            obj.close();
-            out.close();
-            return true;
-        } catch (Exception e) {
+            System.out.println(e);
             return false;
         }
     }
@@ -201,18 +220,17 @@ public class Imobiliaria {
         }
     }
 
-    public boolean salvarArquivos() {
-        if (salvarAlugueis() && salvarVendas() && salvarImoveis() && salvarClientes() && salvarCorretores()
-                && salvarSeguros()) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
+//    public boolean salvarArquivos() {
+//        if (salvarAlugueis() && salvarVendas() && salvarImoveis() && salvarUsuarios()
+//                && salvarSeguros()) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
     public Usuario buscarCorretor(int codigo) {
         try {
-            for (Usuario corretor : corretores) {
+            for (Usuario corretor : usuarios) {
                 if (corretor.getCodigoUsuario() == codigo) {
                     return (Corretor) corretor;
                 }
@@ -226,7 +244,7 @@ public class Imobiliaria {
 
     public Usuario buscarCliente(int codigo) {
         try {
-            for (Usuario cliente : clientes) {
+            for (Usuario cliente : usuarios) {
                 if (cliente.getCodigoUsuario() == codigo) {
                     return (Cliente) cliente;
                 }
@@ -294,32 +312,16 @@ public class Imobiliaria {
         }
     }
 
-    public boolean cadastrarCorretor(Corretor corretor) {
-        try {
-            if (buscarCorretor(corretor.getCodigoUsuario()) == null) {
-                corretores.add(corretor);
-                return true;
-            } else {
-                System.out.println("Corretor já cadastrado");
-                return false;
-            }
-        } catch (Exception e) {
-            return false;
-        }
+    public void cadastrarCorretor(Corretor corretor) {
+        usuarios.add(corretor);
+        salvarUsuarios();
+        System.out.println("Corretor cadastrado");
     }
 
-    public boolean cadastrarCliente(Cliente cliente) {
-        try {
-            if (buscarCliente(cliente.getCodigoUsuario()) == null) {
-                clientes.add(cliente);
-                return true;
-            } else {
-                System.out.println("Cliente já cadastrado");
-                return false;
-            }
-        } catch (Exception e) {
-            return false;
-        }
+    public void cadastrarCliente(Cliente cliente) {
+        usuarios.add(cliente);
+        salvarUsuarios();
+        System.out.println("Cliente cadastrado");
     }
 
     public boolean cadastrarImovel(Imovel imovel) {

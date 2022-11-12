@@ -57,15 +57,17 @@ public class Controlador {
     }
 
     public String mostrarClientes() {
+        boolean existe = false;
         String Dados = "Clientes cadastrados:\n";
         ArrayList<Usuario> Usuarios = Imobiliaria.getUsuarios();
-        if (Usuarios == null) {
-            return Dados = Dados + "Nenhum cliente cadastrado";
-        }
         for (Usuario U : Usuarios) {
             if (U instanceof Cliente) {
+                existe = true;
                 Dados = Dados + U.toString() + "\n-----------------------\n";
             }
+        }
+        if (!existe) {
+            return Dados = Dados + "Nenhum cliente cadastrado";
         }
         System.out.println("Mostrar usuarios acionado");
         return Dados;
@@ -81,26 +83,43 @@ public class Controlador {
     }
 
     public String mostrarCorretores() {
+        boolean existe = false;
         String Dados = "Corretores cadastrados:\n";
         ArrayList<Usuario> Usuarios = Imobiliaria.getUsuarios();
+        if (Usuarios == null) {
+            return Dados = Dados + "Nenhum corretor cadastrado";
+        }
         for (Usuario U : Usuarios) {
             if (U instanceof Corretor) {
+                existe = true;
                 Dados = Dados + U.toString() + "\n-----------------------\n";
             }
+        }
+        if (!existe) {
+            return Dados = Dados + "Nenhum corretor cadastrado";
         }
         System.out.println("Mostrar usuarios acionado");
         return Dados;
     }
 
     // Casa residencial
-    public boolean cadastroCasaResidencial(int codigoImovel, String endereco, LocalDate dataConstrucao, float areaTotal,
+    public void cadastroCasaResidencial(int codigoImovel, String endereco, LocalDate dataConstrucao, float areaTotal,
             float areaConstruida, int qtdDormitorios, int qtdBanheiros, int qtdVagasGaragem, float valorIPTU,
             float valorVenda, float valorAluguel) {
         CasaResidencial CasaResidencial = new CasaResidencial(codigoImovel, endereco, dataConstrucao, areaTotal,
                 areaConstruida, qtdDormitorios, qtdBanheiros, qtdVagasGaragem, valorIPTU, valorVenda, valorAluguel);
         Imobiliaria.adicionarCasaResidencial(CasaResidencial);
         System.out.println("Casa residencial cadastrado:\n" + CasaResidencial.toString());
-        return true;
+    }
+
+    public String exibirTodasCasas() {
+        String Dados = "";
+        ArrayList<Imovel> Casas = Imobiliaria.getImoveis();
+        for (Imovel CasaExibicao : Casas) {
+            System.out.println(CasaExibicao.toString());
+            Dados = Dados + CasaExibicao.toString();
+        }
+        return Dados;
     }
 
     // Outros

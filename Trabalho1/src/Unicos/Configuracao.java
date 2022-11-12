@@ -3,8 +3,6 @@
  */
 package Unicos;
 
-import java.io.Serializable;
-
 /*
  *
  * Bruno Augusto Furquim
@@ -12,31 +10,24 @@ import java.io.Serializable;
  * Willian Yoshio Murayama
  *
  */
-public final class Configuracao implements Serializable {
-    private static Configuracao instanciaConfiguracao = null;
-    private String arquivoAlugueis;
-    private String arquivoVendas;
-    private String arquivoImoveis;
-    private String arquivoClientes;
-    private String arquivoCorretores;
-    private String arquivoSeguros;
+public final class Configuracao {
 
-    private Configuracao() {
-        this.arquivoAlugueis = "src/Arquivos/alugueis.ser";
-        this.arquivoVendas = "src/Arquivos/vendas.ser";
-        this.arquivoImoveis = "src/Arquivos/imoveis.ser";
-        this.arquivoClientes = "src/Arquivos/clientes.ser";
-        this.arquivoCorretores = "src/Arquivos/corretores.ser";
-        this.arquivoSeguros = "src/Arquivos/seguros.ser";
+//    private static Configuracao instanciaConfiguracao = null;
+    private String arquivoAlugueis = "src\\Arquivos\\alugueis.ser";
+    private String arquivoVendas = "src\\Arquivos\\vendas.ser";
+    private String arquivoImoveis = "src\\Arquivos\\imoveis.ser";
+    private String arquivoUsuarios = "src\\Arquivos\\usuarios.ser";
+    private String arquivoSeguros = "src\\Arquivos\\seguros.ser";
+
+    public Configuracao() {
     }
 
-    public static Configuracao getInstanciaConfiguracao() {
-        if (instanciaConfiguracao == null) {
-            instanciaConfiguracao = new Configuracao();
-        }
-        return instanciaConfiguracao;
-    }
-
+//    public static Configuracao getInstanciaConfiguracao() {
+//        if (instanciaConfiguracao == null) {
+//            instanciaConfiguracao = new Configuracao();
+//        }
+//        return instanciaConfiguracao;
+//    }
     public String getArquivoAlugueis() {
         return arquivoAlugueis;
     }
@@ -61,22 +52,15 @@ public final class Configuracao implements Serializable {
         this.arquivoImoveis = arquivoImoveis;
     }
 
-    public String getArquivoClientes() {
-        return arquivoClientes;
+    public String getArquivoUsuarios() {
+        return arquivoUsuarios;
     }
 
-    public void setArquivoClientes(String arquivoClientes) {
-        this.arquivoClientes = arquivoClientes;
+    public void setArquivoUsuarios(String arquivoUsuarios) {
+        this.arquivoUsuarios = arquivoUsuarios;
     }
 
-    public String getArquivoCorretores() {
-        return arquivoCorretores;
-    }
-
-    public void setArquivoCorretores(String arquivoCorretores) {
-        this.arquivoCorretores = arquivoCorretores;
-    }
-
+//    }
     public String getArquivoSeguros() {
         return arquivoSeguros;
     }
@@ -84,5 +68,4 @@ public final class Configuracao implements Serializable {
     public void setArquivoSeguros(String arquivoSeguros) {
         this.arquivoSeguros = arquivoSeguros;
     }
-
 }

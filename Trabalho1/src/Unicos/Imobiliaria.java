@@ -3,6 +3,7 @@
  */
 package Unicos;
 
+import Imovel.CasaResidencial;
 import Imovel.Imovel;
 import Usuario.Cliente;
 import Usuario.Corretor;
@@ -88,10 +89,12 @@ public class Imobiliaria {
         try {
             FileInputStream Filename = new FileInputStream(configuracoes.getArquivoImoveis());
             ObjectInputStream LoadObject = new ObjectInputStream(Filename);
-            if ((ArrayList<Imovel>) LoadObject.readObject() == null) {
-                imoveis = new ArrayList<>();
+            imoveis = (ArrayList<Imovel>) LoadObject.readObject();
+            if (imoveis == null) {
+                imoveis = new ArrayList<Imovel>();
+                System.out.println("Imoveis nao carregados");
             } else {
-                imoveis = (ArrayList<Imovel>) LoadObject.readObject();
+                System.out.println("Imoveis carregados");
             }
             LoadObject.close();
             Filename.close();
@@ -172,7 +175,7 @@ public class Imobiliaria {
         try {
             FileOutputStream out = new FileOutputStream(configuracoes.getArquivoVendas());
             ObjectOutputStream obj = new ObjectOutputStream(out);
-            obj.writeObject(this.vendas);
+            obj.writeObject(vendas);
             obj.close();
             out.close();
             return true;
@@ -185,9 +188,10 @@ public class Imobiliaria {
         try {
             FileOutputStream out = new FileOutputStream(configuracoes.getArquivoImoveis());
             ObjectOutputStream obj = new ObjectOutputStream(out);
-            obj.writeObject(this.imoveis);
+            obj.writeObject(imoveis);
             obj.close();
             out.close();
+            System.out.println("Imoveis salvo");
             return true;
         } catch (Exception e) {
             return false;
@@ -328,6 +332,7 @@ public class Imobiliaria {
         try {
             if (buscarImovel(imovel.getCodigoImovel()) == null) {
                 imoveis.add(imovel);
+                salvarImoveis();
                 return true;
             } else {
                 System.out.println("Imóvel já cadastrado");
@@ -352,17 +357,21 @@ public class Imobiliaria {
         }
     }
 
-    public boolean adicionarCasaResidencial(Imovel imovel) {
-        try {
-            if (buscarImovel(imovel.getCodigoImovel()) == null) {
-                imoveis.add(imovel);
-                return true;
-            } else {
-                System.out.println("Imovel ja cadastrado");
-                return false;
-            }
-        } catch (Exception e) {
-            return false;
-        }
+    public boolean adicionarCasaResidencial(CasaResidencial CasaResidencial) {
+//        try {
+//            if (buscarImovel(CasaResidencial.getCodigoImovel()) == null) {
+//                imoveis.add(CasaResidencial);
+//                salvarImoveis();
+//                return true;
+//            } else {
+//                System.out.println("CasaResidencial ja cadastrado");
+//                return false;
+//            }
+//        } catch (Exception e) {
+//            return false;
+//        }
+        imoveis.add(CasaResidencial);
+        salvarImoveis();
+        return true;
     }
 }

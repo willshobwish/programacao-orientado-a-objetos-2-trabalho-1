@@ -5,7 +5,9 @@
  */
 package Pagamento;
 
-public class Cartao extends Pagamento {
+import java.io.Serializable;
+
+public class Cartao extends Pagamento implements Serializable {
 
     private String nome;
     private String bandeira;

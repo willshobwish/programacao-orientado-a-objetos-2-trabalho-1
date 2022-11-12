@@ -3,6 +3,7 @@
  */
 package Usuario;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /*
@@ -12,7 +13,7 @@ import java.time.LocalDate;
  * Willian Yoshio Murayama
  *
  */
-public class Cliente extends Usuario {
+public class Cliente extends Usuario implements Serializable {
 
     protected LocalDate dataCadastro;
 
@@ -34,5 +35,4 @@ public class Cliente extends Usuario {
     public String toString() {
         return super.toString() + "\nData de cadastro: " + this.dataCadastro;
     }
-
 }

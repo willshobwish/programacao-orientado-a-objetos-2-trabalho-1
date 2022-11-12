@@ -5,7 +5,9 @@
  */
 package Pagamento;
 
-public class Dinheiro extends Pagamento {
+import java.io.Serializable;
+
+public class Dinheiro extends Pagamento implements Serializable {
 
     public Dinheiro() {
         super("Dinheiro");

@@ -3,6 +3,7 @@
  */
 package Imovel;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /*
@@ -12,7 +13,7 @@ import java.time.LocalDate;
  * Willian Yoshio Murayama
  *
  */
-public class Comercial extends Imovel {
+public class Comercial extends Imovel implements Serializable {
 
     protected float taxaImpostoFederal;
 
@@ -39,8 +40,7 @@ public class Comercial extends Imovel {
 
     @Override
     public String toString() {
-        return super.toString() +
-                "\nTaxa de imposto federal: " + this.taxaImpostoFederal;
+        return super.toString()
+                + "\nTaxa de imposto federal: " + this.taxaImpostoFederal;
     }
-
 }

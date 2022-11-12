@@ -3,6 +3,8 @@
  */
 package Unicos;
 
+import java.io.Serializable;
+
 /*
  *
  * Bruno Augusto Furquim
@@ -10,7 +12,7 @@ package Unicos;
  * Willian Yoshio Murayama
  *
  */
-public class Seguro {
+public class Seguro implements Serializable {
 
     private int codigoSeguro;
     private String nomeSeguradora;
@@ -76,5 +78,4 @@ public class Seguro {
                 + this.tipo
                 + ", descricao=" + this.descricao + ", valor=" + this.valor + '}';
     }
-
 }

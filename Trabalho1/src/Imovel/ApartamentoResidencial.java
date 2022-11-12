@@ -3,6 +3,7 @@
  */
 package Imovel;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /*
@@ -12,7 +13,7 @@ import java.time.LocalDate;
  * Willian Yoshio Murayama
  *
  */
-public class ApartamentoResidencial extends Imovel {
+public class ApartamentoResidencial extends Imovel implements Serializable {
 
     protected int andar;
     protected float valorCondominio;
@@ -49,9 +50,8 @@ public class ApartamentoResidencial extends Imovel {
 
     @Override
     public String toString() {
-        return super.toString() +
-                "Andar: " + andar +
-                "Valor do condominio: " + valorCondominio;
+        return super.toString()
+                + "Andar: " + andar
+                + "Valor do condominio: " + valorCondominio;
     }
-
 }

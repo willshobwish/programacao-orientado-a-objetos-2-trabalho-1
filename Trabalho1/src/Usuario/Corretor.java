@@ -3,6 +3,7 @@
  */
 package Usuario;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /*
@@ -12,7 +13,7 @@ import java.time.LocalDate;
  * Willian Yoshio Murayama
  *
  */
-public class Corretor extends Usuario {
+public class Corretor extends Usuario implements Serializable {
 
     protected String creci;
     protected float salario;
@@ -68,5 +69,4 @@ public class Corretor extends Usuario {
                 + "\nPis: " + this.pis
                 + "\nData de admissao: " + this.dataAdmissao;
     }
-
 }

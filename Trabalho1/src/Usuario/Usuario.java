@@ -3,6 +3,7 @@
  */
 package Usuario;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /*
@@ -12,7 +13,7 @@ import java.time.LocalDate;
  * Willian Yoshio Murayama
  *
  */
-abstract public class Usuario {
+abstract public class Usuario implements Serializable {
 
     protected int codigoUsuario;
     protected String nome;
@@ -127,15 +128,14 @@ abstract public class Usuario {
 
     @Override
     public String toString() {
-        return "Codigo: " + this.codigoUsuario +
-                "\nNome: " + this.nome +
-                "\nCPF: " + this.cpf +
-                "\nRG: " + this.rg +
-                "\nData de Nascimento: " + this.dataNascimento +
-                "\nEndereco: " + this.endereco +
-                "\nCEP: " + this.cep +
-                "\nTelefone: " + this.telefone +
-                "\nEmail: " + this.email;
+        return "Codigo: " + this.codigoUsuario
+                + "\nNome: " + this.nome
+                + "\nCPF: " + this.cpf
+                + "\nRG: " + this.rg
+                + "\nData de Nascimento: " + this.dataNascimento
+                + "\nEndereco: " + this.endereco
+                + "\nCEP: " + this.cep
+                + "\nTelefone: " + this.telefone
+                + "\nEmail: " + this.email;
     }
-
 }

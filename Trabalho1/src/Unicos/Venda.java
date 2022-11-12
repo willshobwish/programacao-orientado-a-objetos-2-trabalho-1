@@ -7,6 +7,7 @@ import Imovel.Imovel;
 import Pagamento.Pagamento;
 import Usuario.Cliente;
 import Usuario.Corretor;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /*
@@ -16,7 +17,7 @@ import java.time.LocalDate;
  * Willian Yoshio Murayama
  *
  */
-public class Venda {
+public class Venda implements Serializable {
 
     private int codigoVenda;
     private Cliente cliente;
@@ -102,5 +103,4 @@ public class Venda {
                 + this.dataVenda + "\nValor total da venda: " + this.valorTotalVenda + "\nForma de pagamento: "
                 + this.formaPagamento.getTipoPagamento();
     }
-
 }

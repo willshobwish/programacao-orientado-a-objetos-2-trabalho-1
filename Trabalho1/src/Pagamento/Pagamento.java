@@ -5,7 +5,9 @@
  */
 package Pagamento;
 
-public abstract class Pagamento {
+import java.io.Serializable;
+
+public abstract class Pagamento implements Serializable {
 
     private String tipoPagamento;
 
@@ -23,5 +25,4 @@ public abstract class Pagamento {
 
     @Override
     public abstract String toString();
-
 }

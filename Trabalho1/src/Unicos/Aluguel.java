@@ -7,6 +7,7 @@ import Imovel.Imovel;
 import Pagamento.Pagamento;
 import Usuario.Cliente;
 import Usuario.Corretor;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -17,7 +18,7 @@ import java.util.ArrayList;
  * Willian Yoshio Murayama
  *
  */
-public class Aluguel {
+public class Aluguel implements Serializable {
 
     private int codigoAluguel;
     private Cliente cliente;
@@ -141,7 +142,6 @@ public class Aluguel {
 
     public float calcularValorTotal() {
         float valorTotal = 0;
-
         for (Seguro seguro : segurosContratados) {
             valorTotal += seguro.getValor();
         }
@@ -155,7 +155,7 @@ public class Aluguel {
 
     public boolean verificarAtraso() {
         return dataPagamentoMensal.isBefore(dataAluguel); // retorna verdadeiro se a data de pagamento mensal for
-                                                          // anterior a data do aluguel
+        // anterior a data do aluguel
     }
 
     @Override

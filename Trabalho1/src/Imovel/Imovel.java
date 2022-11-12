@@ -3,6 +3,7 @@
  */
 package Imovel;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /*
@@ -12,7 +13,7 @@ import java.time.LocalDate;
  * Willian Yoshio Murayama
  *
  */
-abstract public class Imovel {
+abstract public class Imovel implements Serializable {
 
     protected int codigoImovel;
     protected String endereco;
@@ -131,17 +132,16 @@ abstract public class Imovel {
     }
 
     public String toString() {
-        return "Codigo do imovel: " + this.codigoImovel +
-                "\nEndereco: " + this.endereco +
-                "\nData de construcao: " + this.dataConstrucao +
-                "\nArea total: " + this.areaTotal +
-                "\nArea construida: " + this.areaConstruida +
-                "\nQuantidade de dormitorios: " + this.qtdDormitorios +
-                "\nQuantidade de banheiros: " + this.qtdBanheiros +
-                "\nQuantidade de vagas na garagem: " + this.qtdVagasGaragem +
-                "\nValor do IPTU: " + this.valorIPTU +
-                "\nValor de venda: " + this.valorVenda +
-                "\nValor de aluguel: " + this.valorAluguel;
+        return "Codigo do imovel: " + this.codigoImovel
+                + "\nEndereco: " + this.endereco
+                + "\nData de construcao: " + this.dataConstrucao
+                + "\nArea total: " + this.areaTotal
+                + "\nArea construida: " + this.areaConstruida
+                + "\nQuantidade de dormitorios: " + this.qtdDormitorios
+                + "\nQuantidade de banheiros: " + this.qtdBanheiros
+                + "\nQuantidade de vagas na garagem: " + this.qtdVagasGaragem
+                + "\nValor do IPTU: " + this.valorIPTU
+                + "\nValor de venda: " + this.valorVenda
+                + "\nValor de aluguel: " + this.valorAluguel;
     }
-
 }

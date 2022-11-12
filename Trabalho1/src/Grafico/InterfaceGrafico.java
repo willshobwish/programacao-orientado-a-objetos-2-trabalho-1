@@ -18,10 +18,8 @@ public class InterfaceGrafico extends javax.swing.JFrame {
      * Creates new form InterfaceGrafico
      */
     public InterfaceGrafico() {
-
         initComponents();
         System.out.println(Controlador.toString());
-
     }
 
     private void Limpar() {
@@ -36,7 +34,7 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
@@ -48,8 +46,6 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         Cliente = new javax.swing.JMenuItem();
         Corretores = new javax.swing.JMenuItem();
         CasaResidencial = new javax.swing.JMenuItem();
-        ApartamentoResidencial = new javax.swing.JMenuItem();
-        Comercial = new javax.swing.JMenuItem();
         ImovelMenu = new javax.swing.JMenu();
         ListarMenu = new javax.swing.JMenu();
         Todos = new javax.swing.JMenu();
@@ -94,29 +90,13 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         });
         jMenu1.add(Corretores);
 
-        CasaResidencial.setText("Casa residencial");
+        CasaResidencial.setText("Imovel");
         CasaResidencial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CasaResidencialActionPerformed(evt);
             }
         });
         jMenu1.add(CasaResidencial);
-
-        ApartamentoResidencial.setText("Apartamento residencial");
-        ApartamentoResidencial.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ApartamentoResidencialActionPerformed(evt);
-            }
-        });
-        jMenu1.add(ApartamentoResidencial);
-
-        Comercial.setText("Comercial");
-        Comercial.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ComercialActionPerformed(evt);
-            }
-        });
-        jMenu1.add(Comercial);
 
         BarraMenu.add(jMenu1);
 
@@ -222,19 +202,19 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(TextoExibicaoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 908,
-                                        Short.MAX_VALUE)
-                                .addContainerGap()));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(TextoExibicaoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 908, Short.MAX_VALUE)
+                .addContainerGap())
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(TextoExibicaoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 505,
-                                        Short.MAX_VALUE)
-                                .addContainerGap()));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(TextoExibicaoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -250,19 +230,18 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         Limpar();
         TextoExibicao.setText("Corretores cadastrados:");
         TextoExibicao.setText(Controlador.mostrarCorretores());
-
     }// GEN-LAST:event_CorretoresCadastradosActionPerformed
 
     private void CategoriaApartamentoResidencialActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CategoriaApartamentoResidencialActionPerformed
         // TODO add your handling code here:
         Limpar();
-        TextoExibicao.setText("Lista de categoria de apartamento residencial:");
+        TextoExibicao.setText("Lista de categoria de apartamento residencial:\n");
     }// GEN-LAST:event_CategoriaApartamentoResidencialActionPerformed
 
     private void CategoriaCasaResidencialActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CategoriaCasaResidencialActionPerformed
         // TODO add your handling code here:
         Limpar();
-        TextoExibicao.setText("Lista de categoria de casa residencial:");
+        TextoExibicao.setText("Lista de categoria de casa residencial:\n" + Controlador.exibirTodasCasas());
     }// GEN-LAST:event_CategoriaCasaResidencialActionPerformed
 
     private void CategoriaComercialActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CategoriaComercialActionPerformed
@@ -307,13 +286,12 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         CadastroCorretor CadastroCorretores = new CadastroCorretor();
         CadastroCorretores.setLocationRelativeTo(this);
         CadastroCorretores.setVisible(true);
-
     }// GEN-LAST:event_CorretoresActionPerformed
 
     private void CasaResidencialActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CasaResidencialActionPerformed
         // TODO add your handling code here:
         CadastroImovel CadastroCasaResidencial = new CadastroImovel(this, true);
-        CadastroCasaResidencial.CadastroCasaResidencial();
+//        CadastroCasaResidencial.CadastroCasaResidencial();
         CadastroCasaResidencial.setLocationRelativeTo(this);
         CadastroCasaResidencial.setVisible(true);
     }// GEN-LAST:event_CasaResidencialActionPerformed
@@ -321,7 +299,7 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private void ApartamentoResidencialActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ApartamentoResidencialActionPerformed
         // TODO add your handling code here:
         CadastroImovel CadastroApartamentoResidencial = new CadastroImovel(this, true);
-        CadastroApartamentoResidencial.CadastroApartamentoResidencial();
+//        CadastroApartamentoResidencial.CadastroApartamentoResidencial();
         CadastroApartamentoResidencial.setLocationRelativeTo(this);
         CadastroApartamentoResidencial.setVisible(true);
     }// GEN-LAST:event_ApartamentoResidencialActionPerformed
@@ -352,21 +330,17 @@ public class InterfaceGrafico extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-
                 }
             }
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(InterfaceGrafico.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
         } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(InterfaceGrafico.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
         } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(InterfaceGrafico.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(InterfaceGrafico.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
@@ -380,9 +354,7 @@ public class InterfaceGrafico extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem ApartamentoResidencial;
     private javax.swing.JMenuBar BarraMenu;
     private javax.swing.JMenuItem CasaResidencial;
     private javax.swing.JMenuItem CategoriaApartamentoResidencial;
@@ -390,7 +362,6 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private javax.swing.JMenuItem CategoriaComercial;
     private javax.swing.JMenuItem Cliente;
     private javax.swing.JMenuItem ClientesCadastrados;
-    private javax.swing.JMenuItem Comercial;
     private javax.swing.JMenuItem Corretores;
     private javax.swing.JMenuItem CorretoresCadastrados;
     private javax.swing.JMenuItem DisponivelVenda;

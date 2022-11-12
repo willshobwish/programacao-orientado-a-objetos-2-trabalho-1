@@ -38,26 +38,10 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="CasaResidencial">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Casa residencial"/>
+                <Property name="text" type="java.lang.String" value="Imovel"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CasaResidencialActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="ApartamentoResidencial">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Apartamento residencial"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ApartamentoResidencialActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="Comercial">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Comercial"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ComercialActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>

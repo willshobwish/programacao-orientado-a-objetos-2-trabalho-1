@@ -5,6 +5,7 @@ package Grafico.Cadastro;
 
 import Controlador.Controlador;
 import java.time.LocalDate;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -140,6 +141,7 @@ public class CadastroImovel extends javax.swing.JDialog {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro de imóvel");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         Cadastrar.setText("Cadastrar");
@@ -202,7 +204,11 @@ public class CadastroImovel extends javax.swing.JDialog {
 
         AndarLabel.setText("Andar");
 
+        ValorCondominio.setText("0");
+
         ValorCondominioLabel.setText("Valor do condominio");
+
+        TaxaImpostoFederal.setText("0");
 
         TaxaImpostoFederalLabel.setText("Taxa do importo federal");
 
@@ -378,21 +384,29 @@ public class CadastroImovel extends javax.swing.JDialog {
         float valorIPTU = Float.parseFloat(IPTU.getText());
         float valorVenda = Float.parseFloat(ValorVenda.getText());
         float valorAluguel = Float.parseFloat(ValorAluguel.getText());
+        int andar = (Integer) Andar.getValue();
+        float valorCondominio = Float.parseFloat(ValorCondominio.getText());
+        float taxaImpostoFederal = Float.parseFloat(TaxaImpostoFederal.getText());
         if (TipoImovel.getSelectedItem().equals("Casa residencial")) {
             controlador.cadastroCasaResidencial(codigoImovel, endereco, dataConstrucao, areaTotal, areaConstruida, qtdDormitorios, qtdBanheiros, qtdVagasGaragem, valorIPTU, valorVenda, valorAluguel);
+            JOptionPane.showMessageDialog(this, "Casa residencial cadastrado com sucesso");
         }
         if (TipoImovel.getSelectedItem().equals("Apartamento residencial")) {
             Andar.setEnabled(true);
             ValorCondominio.setEnabled(true);
             TaxaImpostoFederal.setEnabled(false);
+            controlador.CadastroApartamentoResidencial(andar, valorCondominio, codigoImovel, endereco, dataConstrucao, areaTotal, areaConstruida, qtdDormitorios, qtdBanheiros, qtdVagasGaragem, valorIPTU, valorVenda, valorAluguel);
+            JOptionPane.showMessageDialog(this, "Apartamento residencial cadastrado com sucesso");
         }
         if (TipoImovel.getSelectedItem().equals("Comercial")) {
             Andar.setEnabled(false);
             ValorCondominio.setEnabled(false);
             TaxaImpostoFederal.setEnabled(true);
+            controlador.CadastrarComercial(taxaImpostoFederal, codigoImovel, endereco, dataConstrucao, areaTotal, areaConstruida, qtdDormitorios, qtdBanheiros, qtdVagasGaragem, valorIPTU, valorVenda, valorAluguel);
+            JOptionPane.showMessageDialog(this, "Comercial cadastrado com sucesso");
         }
+        Codigo.setText(String.valueOf(controlador.geradorCodigoImovel()));
     }//GEN-LAST:event_CadastrarActionPerformed
-
     private void AreaConstruidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AreaConstruidaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AreaConstruidaActionPerformed
@@ -437,13 +451,17 @@ public class CadastroImovel extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastroImovel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroImovel.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastroImovel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroImovel.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastroImovel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroImovel.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastroImovel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroImovel.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>

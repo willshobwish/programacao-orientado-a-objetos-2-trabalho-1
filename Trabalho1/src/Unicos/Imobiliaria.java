@@ -3,7 +3,9 @@
  */
 package Unicos;
 
+import Imovel.ApartamentoResidencial;
 import Imovel.CasaResidencial;
+import Imovel.Comercial;
 import Imovel.Imovel;
 import Usuario.Cliente;
 import Usuario.Corretor;
@@ -250,7 +252,6 @@ public class Imobiliaria {
     // return false;
     // }
     // }
-
     public Usuario buscarCorretor(int codigo) {
         try {
             for (Usuario corretor : usuarios) {
@@ -351,6 +352,20 @@ public class Imobiliaria {
         } catch (Exception e) {
             return false;
         }
+    }
+
+//Comercial
+    public void CadastrarComercial(Comercial Comercial) {
+        imoveis.add(Comercial);
+        System.out.println(Comercial.toString());
+        salvarImoveis();
+    }
+
+//Apartamento residencial
+    public void CadastrarApartamentoResidencial(ApartamentoResidencial Apartamento) {
+        imoveis.add(Apartamento);
+        System.out.println(Apartamento.toString());
+        salvarImoveis();
     }
 
     public boolean adicionarCasaResidencial(CasaResidencial CasaResidencial) {

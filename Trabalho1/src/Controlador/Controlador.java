@@ -73,7 +73,28 @@ public class Controlador {
         return Dados;
     }
 
-    // Corretores
+    public ArrayList<String> NomesClientesArray() {
+        ArrayList<String> Nomes = new ArrayList<String>();
+        ArrayList<Usuario> Usuarios = Imobiliaria.getUsuarios();
+        for (Usuario U : Usuarios) {
+            if (U instanceof Cliente) {
+                Nomes.add(U.getNome());
+            }
+        }
+        return Nomes;
+    }
+
+    public Cliente getClientePorNome(String Nome) {
+        ArrayList<Usuario> Clientes = Imobiliaria.getUsuarios();
+        for (Usuario C : Clientes) {
+            if ((C.getNome().equals(Nome)) && (C instanceof Cliente)) {
+                return (Cliente) C;
+            }
+        }
+        return null;
+    }
+
+// Corretores
     public void adicionarCorretores(String creci, float salario, String pis, int codigoUsuario, String nome,
             String cpf, String rg, LocalDate DataNascimento, LocalDate dataAdmissao, String endereco, String cep,
             String telefone, String email) {
@@ -113,6 +134,16 @@ public class Controlador {
         return Nomes;
     }
 
+    public Corretor getCorretorPorNome(String Nome) {
+        ArrayList<Usuario> Corretor = Imobiliaria.getUsuarios();
+        for (Usuario C : Corretor) {
+            if ((C.getNome().equals(Nome)) && (C instanceof Corretor)) {
+                return (Corretor) C;
+            }
+        }
+        return null;
+    }
+
 //    Imoveis
     public ArrayList<String> CodigosImoveisArray() {
         ArrayList<String> CodigosImoveis = new ArrayList<String>();
@@ -124,7 +155,7 @@ public class Controlador {
     }
 
     public Imovel BuscarImovel(String Codigo) {
-        ArrayList<String> CodigosImoveis = new ArrayList<String>();
+//        ArrayList<String> CodigosImoveis = new ArrayList<String>();
         ArrayList<Imovel> Imoveis = Imobiliaria.getImoveis();
         for (Imovel I : Imoveis) {
             if (I.getCodigoImovel() == Integer.parseInt(Codigo)) {
@@ -157,7 +188,17 @@ public class Controlador {
 //Apartamento residencial
 //Comercial
 //Locacao
+    public void CadastroLocacao(Aluguel Alguel) {
+        System.out.println(Alguel.toString());
+        Imobiliaria.CadastroLocacao(Alguel);
+    }
+
+    public int geracaoCodigoAluguel() {
+        ArrayList<Aluguel> Algueis = Imobiliaria.getAlugueis();
+        return Algueis.size();
+    }
 //Seguro
+
     public void CadastroSeguro(int codigoSeguro, String nomeSeguradora, String tipo, String descricao, float valor) {
         Seguro Seguro = new Seguro(codigoSeguro, nomeSeguradora, tipo, descricao, valor);
         Imobiliaria.CadastrarSeguro(Seguro);
@@ -179,6 +220,16 @@ public class Controlador {
             DadosSeguro = DadosSeguro + S.toString();
         }
         return DadosSeguro;
+    }
+
+    public Seguro BuscarSeguro(String Tipo) {
+        ArrayList<Seguro> Seguros = Imobiliaria.getSeguros();
+        for (Seguro S : Seguros) {
+            if (S.getTipo().equals(Tipo)) {
+                return S;
+            }
+        }
+        return null;
     }
 
     // Outros

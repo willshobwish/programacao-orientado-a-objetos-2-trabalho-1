@@ -5,8 +5,17 @@ package Grafico.Cadastro;
 
 import Controlador.Controlador;
 import Imovel.Imovel;
+import Pagamento.Cartao;
+import Pagamento.Dinheiro;
+import Pagamento.Pagamento;
+import Unicos.Aluguel;
+import Unicos.Seguro;
+import Usuario.Cliente;
+import Usuario.Corretor;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,27 +24,34 @@ import javax.swing.DefaultComboBoxModel;
 public class CadastroLocacao extends javax.swing.JFrame {
 
     public Controlador Controlador = new Controlador();
+    private ArrayList<Seguro> SegurosSelecionados = new ArrayList<Seguro>();
 
     /**
      * Creates new form CadastroVenda
      */
     public CadastroLocacao() {
         initComponents();
-        jComboBox1.setEnabled(false);
+        SegurosSelecao.setEnabled(false);
+        Seguros.setEnabled(false);
+        AdicionarSeguro.setEnabled(false);
         String[] NomesCorretores = Controlador.NomesCorretoresArray().toArray(new String[0]);
-        DefaultComboBoxModel model = new DefaultComboBoxModel(NomesCorretores);
-        Corretor.setModel(model);
+        DefaultComboBoxModel CorretorModel = new DefaultComboBoxModel(NomesCorretores);
+        Corretor.setModel(CorretorModel);
         String[] CodigosImoveis = Controlador.CodigosImoveisArray().toArray(new String[0]);
-        model = new DefaultComboBoxModel(CodigosImoveis);
+        DefaultComboBoxModel CodigoModel = new DefaultComboBoxModel(CodigosImoveis);
+        ImovelCodigo.setModel(CodigoModel);
         String[] TipoSeguros = Controlador.NomeSeguroArray().toArray(new String[0]);
-        model = new DefaultComboBoxModel(TipoSeguros);
-        jComboBox1.setModel(model);
-        jRadioButton1.setSelected(true);
+        DefaultComboBoxModel SeguroModel = new DefaultComboBoxModel(TipoSeguros);
+        SegurosSelecao.setModel(SeguroModel);
+        String[] ClientesNomes = Controlador.NomesClientesArray().toArray(new String[0]);
+        DefaultComboBoxModel ClientesNomesModel = new DefaultComboBoxModel(ClientesNomes);
+        ClientesNomeBox.setModel(ClientesNomesModel);
+        Dinheiro.setSelected(true);
         disableCartao();
-        ImovelCodigo.setModel(model);
-        DiaCadastro.setValue(DataDia());
-        MesCadastro.setValue(DataMes());
-        AnoCadastro.setValue(DataAno());
+        Codigo.setText(String.valueOf(Controlador.geracaoCodigoAluguel()));
+        DiaLocacao.setValue(DataDia());
+        MesLocacao.setValue(DataMes());
+        AnoLocacao.setValue(DataAno());
     }
 
     public int DataAno() {
@@ -84,31 +100,31 @@ public class CadastroLocacao extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         ImovelCodigo = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
-        DiaCadastro = new javax.swing.JSpinner();
-        MesCadastro = new javax.swing.JSpinner();
-        AnoCadastro = new javax.swing.JSpinner();
+        DiaLocacao = new javax.swing.JSpinner();
+        MesLocacao = new javax.swing.JSpinner();
+        AnoLocacao = new javax.swing.JSpinner();
         AnoCadastroLabel = new javax.swing.JLabel();
         MesCadastroLabel = new javax.swing.JLabel();
         DiaCadastroLabel = new javax.swing.JLabel();
         DataCadastroLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        DadosImovel = new javax.swing.JTextArea();
         jCheckBox1 = new javax.swing.JCheckBox();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton2 = new javax.swing.JButton();
+        SegurosSelecao = new javax.swing.JComboBox<>();
+        AdicionarSeguro = new javax.swing.JButton();
         DataCadastroLabel1 = new javax.swing.JLabel();
-        DiaCadastro1 = new javax.swing.JSpinner();
-        MesCadastro1 = new javax.swing.JSpinner();
-        AnoCadastro1 = new javax.swing.JSpinner();
+        DiaDevolucao = new javax.swing.JSpinner();
+        MesDevolucao = new javax.swing.JSpinner();
+        AnoDevolucao = new javax.swing.JSpinner();
         AnoCadastroLabel1 = new javax.swing.JLabel();
         MesCadastroLabel1 = new javax.swing.JLabel();
         DiaCadastroLabel1 = new javax.swing.JLabel();
         DataCadastroLabel2 = new javax.swing.JLabel();
-        DiaCadastro2 = new javax.swing.JSpinner();
+        DiaPagamento = new javax.swing.JSpinner();
         DiaCadastroLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        Dinheiro = new javax.swing.JRadioButton();
+        Cartao = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
         NomeCartao = new javax.swing.JTextField();
         BandeiraCartao = new javax.swing.JTextField();
@@ -116,9 +132,16 @@ public class CadastroLocacao extends javax.swing.JFrame {
         NumeroCartao = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Seguros = new javax.swing.JTextArea();
+        Codigo = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        ClientesNomeBox = new javax.swing.JComboBox<>();
 
-        buttonGroup3.add(jRadioButton1);
-        buttonGroup3.add(jRadioButton2);
+        buttonGroup3.add(Dinheiro);
+        buttonGroup3.add(Cartao);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Locação de imóvel");
@@ -134,26 +157,25 @@ public class CadastroLocacao extends javax.swing.JFrame {
 
         jLabel2.setText("Imovel");
 
-        ImovelCodigo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         ImovelCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ImovelCodigoActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Comprar");
+        jButton1.setText("Alugar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        DiaCadastro.setValue(DataDia());
+        DiaLocacao.setValue(DataDia());
 
-        MesCadastro.setValue(DataMes());
+        MesLocacao.setValue(DataMes());
 
-        AnoCadastro.setName(""); // NOI18N
-        AnoCadastro.setValue(DataAno());
+        AnoLocacao.setName(""); // NOI18N
+        AnoLocacao.setValue(DataAno());
 
         AnoCadastroLabel.setText("Ano");
 
@@ -163,10 +185,10 @@ public class CadastroLocacao extends javax.swing.JFrame {
 
         DataCadastroLabel.setText("Data da locação");
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        DadosImovel.setEditable(false);
+        DadosImovel.setColumns(20);
+        DadosImovel.setRows(5);
+        jScrollPane1.setViewportView(DadosImovel);
 
         jCheckBox1.setText("Adicionar seguro");
         jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -175,23 +197,27 @@ public class CadastroLocacao extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        SegurosSelecao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                SegurosSelecaoActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Adicionar seguro");
+        AdicionarSeguro.setText("Adicionar seguro");
+        AdicionarSeguro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdicionarSeguroActionPerformed(evt);
+            }
+        });
 
         DataCadastroLabel1.setText("Data da devolução");
 
-        DiaCadastro1.setValue(DataDia());
+        DiaDevolucao.setValue(DataDia());
 
-        MesCadastro1.setValue(DataMes());
+        MesDevolucao.setValue(DataMes());
 
-        AnoCadastro1.setName(""); // NOI18N
-        AnoCadastro1.setValue(DataAno());
+        AnoDevolucao.setName(""); // NOI18N
+        AnoDevolucao.setValue(DataAno());
 
         AnoCadastroLabel1.setText("Ano");
 
@@ -201,23 +227,23 @@ public class CadastroLocacao extends javax.swing.JFrame {
 
         DataCadastroLabel2.setText("Data do pagamento");
 
-        DiaCadastro2.setValue(DataDia());
+        DiaPagamento.setValue(DataDia());
 
         DiaCadastroLabel2.setText("Dia");
 
         jLabel3.setText("Forma de pagamento");
 
-        jRadioButton1.setText("Dinheiro");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        Dinheiro.setText("Dinheiro");
+        Dinheiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                DinheiroActionPerformed(evt);
             }
         });
 
-        jRadioButton2.setText("Cartão");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        Cartao.setText("Cartão");
+        Cartao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                CartaoActionPerformed(evt);
             }
         });
 
@@ -229,6 +255,21 @@ public class CadastroLocacao extends javax.swing.JFrame {
 
         jLabel7.setText("Dados do imóvel");
 
+        jLabel8.setText("Seguros");
+
+        Seguros.setEditable(false);
+        Seguros.setColumns(20);
+        Seguros.setRows(5);
+        jScrollPane2.setViewportView(Seguros);
+
+        Codigo.setEditable(false);
+
+        jLabel9.setText("Código");
+
+        jLabel10.setText("Cliente");
+
+        ClientesNomeBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -236,60 +277,67 @@ public class CadastroLocacao extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jRadioButton2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Dinheiro)
+                            .addComponent(Cartao)
                             .addComponent(jLabel4)
-                            .addComponent(NomeCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NomeCartao)
                             .addComponent(jLabel5)
-                            .addComponent(BandeiraCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BandeiraCartao)
                             .addComponent(jLabel6)
-                            .addComponent(NumeroCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(Corretor, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(ImovelCodigo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(DataCadastroLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(DiaCadastro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(DiaCadastroLabel))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(MesCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(MesCadastroLabel))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(AnoCadastroLabel)
-                                        .addComponent(AnoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(jCheckBox1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(DataCadastroLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(DiaCadastro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(DiaCadastroLabel1))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(MesCadastro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(MesCadastroLabel1))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(AnoCadastroLabel1)
-                                        .addComponent(AnoCadastro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(DataCadastroLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(DiaCadastro2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(DiaCadastroLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)))
+                            .addComponent(jLabel1)
+                            .addComponent(Corretor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2)
+                            .addComponent(ImovelCodigo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(DataCadastroLabel)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(DiaLocacao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(DiaCadastroLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(MesLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(MesCadastroLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(AnoCadastroLabel)
+                                    .addComponent(AnoLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(DataCadastroLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(DiaDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(DiaCadastroLabel1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(MesDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(MesCadastroLabel1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(AnoCadastroLabel1)
+                                    .addComponent(AnoDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(DataCadastroLabel2)
+                            .addComponent(DiaPagamento)
+                            .addComponent(DiaCadastroLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel9)
+                            .addComponent(Codigo)
+                            .addComponent(NumeroCartao)
+                            .addComponent(jLabel10)
+                            .addComponent(ClientesNomeBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jCheckBox1)
+                                .addComponent(AdicionarSeguro, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                                .addComponent(jLabel8)
+                                .addComponent(jLabel7)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(SegurosSelecao, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -297,12 +345,20 @@ public class CadastroLocacao extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(jLabel9)
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Corretor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ClientesNomeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -316,9 +372,9 @@ public class CadastroLocacao extends javax.swing.JFrame {
                             .addComponent(DiaCadastroLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(DiaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(AnoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(MesCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(DiaLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AnoLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MesLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(DataCadastroLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -328,21 +384,21 @@ public class CadastroLocacao extends javax.swing.JFrame {
                             .addComponent(DiaCadastroLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(DiaCadastro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(AnoCadastro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(MesCadastro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(DiaDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AnoDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MesDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(DataCadastroLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(DiaCadastroLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(DiaCadastro2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(DiaPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton1)
+                        .addComponent(Dinheiro)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton2)
+                        .addComponent(Cartao)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -354,17 +410,22 @@ public class CadastroLocacao extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(NumeroCartao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(NumeroCartao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jCheckBox1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(SegurosSelecao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2))
-                    .addComponent(jScrollPane1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(AdicionarSeguro)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -376,36 +437,75 @@ public class CadastroLocacao extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        int codigoAluguel = Integer.parseInt(Codigo.getText());
+        Cliente cliente = Controlador.getClientePorNome(ClientesNomeBox.getSelectedItem().toString());
+        Corretor corretor = Controlador.getCorretorPorNome(Corretor.getSelectedItem().toString());
+        Imovel imovel = Controlador.BuscarImovel(ImovelCodigo.getSelectedItem().toString());
+        LocalDate dataAluguel = LocalDate.parse(AnoLocacao.getValue().toString() + "-" + MesLocacao.getValue().toString() + "-" + DiaLocacao.getValue().toString());
+        LocalDate dataDevolucao = LocalDate.parse(AnoDevolucao.getValue().toString() + "-" + MesDevolucao.getValue().toString() + "-" + DiaDevolucao.getValue().toString());
+        LocalDate DataAgora = LocalDate.now();
+        LocalDate dataPagamentoMensal = LocalDate.parse(DataAgora.getYear() + "-" + DataAgora.getMonthValue() + "-" + DiaPagamento.getValue().toString());
+        float valorTotalAluguel = imovel.getValorAluguel();
+        Pagamento formaPagamento = null;
+        if (Dinheiro.isSelected()) {
+            formaPagamento = new Dinheiro();
+        }
+        if (Cartao.isSelected()) {
+            formaPagamento = new Cartao(NomeCartao.getText(), NumeroCartao.getText(), BandeiraCartao.getText());
+        }
+        ArrayList<Seguro> segurosContratados = SegurosSelecionados;
+        boolean pago = false;
+        Controlador.CadastroLocacao(new Aluguel(codigoAluguel, cliente, corretor, imovel, dataAluguel, dataDevolucao, dataPagamentoMensal, valorTotalAluguel, formaPagamento, segurosContratados, pago));
+        System.out.println("cadastrado");
     }//GEN-LAST:event_jButton1ActionPerformed
-
     private void ImovelCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImovelCodigoActionPerformed
         // TODO add your handling code here:
         Imovel ImovelExibicao = Controlador.BuscarImovel(ImovelCodigo.getSelectedItem().toString());
-        jTextArea1.setText(ImovelExibicao.toString());
+        DadosImovel.setText(ImovelExibicao.toString());
     }//GEN-LAST:event_ImovelCodigoActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
         if (jCheckBox1.isSelected()) {
-            jComboBox1.setEnabled(true);
+            SegurosSelecao.setEnabled(true);
+            Seguros.setEnabled(true);
+            AdicionarSeguro.setEnabled(true);
         } else {
-            jComboBox1.setEnabled(false);
+            SegurosSelecao.setEnabled(false);
+            Seguros.setEnabled(false);
+            AdicionarSeguro.setEnabled(false);
         }
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void DinheiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DinheiroActionPerformed
         // TODO add your handling code here:
         disableCartao();
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_DinheiroActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void CartaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CartaoActionPerformed
         // TODO add your handling code here:
         enableCartao();
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_CartaoActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void SegurosSelecaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SegurosSelecaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_SegurosSelecaoActionPerformed
+
+    private void AdicionarSeguroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdicionarSeguroActionPerformed
+        // TODO add your handling code here:
+        System.out.println(SegurosSelecionados.contains(Controlador.BuscarSeguro(SegurosSelecao.getSelectedItem().toString())));
+        if (SegurosSelecionados.contains(Controlador.BuscarSeguro(SegurosSelecao.getSelectedItem().toString()))) {
+            JOptionPane.showMessageDialog(this,
+                    "Seguro já cadastrado",
+                    "Seguro",
+                    JOptionPane.WARNING_MESSAGE);
+        } else {
+            SegurosSelecionados.add(Controlador.BuscarSeguro(SegurosSelecao.getSelectedItem().toString()));
+            String SegurosListados = Seguros.getText();
+            SegurosListados = SegurosListados + SegurosSelecao.getSelectedItem().toString() + "\n";
+            Seguros.setText(SegurosListados);
+        }
+    }//GEN-LAST:event_AdicionarSeguroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -424,13 +524,17 @@ public class CadastroLocacao extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastroLocacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroLocacao.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastroLocacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroLocacao.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastroLocacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroLocacao.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastroLocacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroLocacao.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -443,43 +547,50 @@ public class CadastroLocacao extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JSpinner AnoCadastro;
-    private javax.swing.JSpinner AnoCadastro1;
+    private javax.swing.JButton AdicionarSeguro;
     private javax.swing.JLabel AnoCadastroLabel;
     private javax.swing.JLabel AnoCadastroLabel1;
+    private javax.swing.JSpinner AnoDevolucao;
+    private javax.swing.JSpinner AnoLocacao;
     private javax.swing.JTextField BandeiraCartao;
+    private javax.swing.JRadioButton Cartao;
+    private javax.swing.JComboBox<String> ClientesNomeBox;
+    private javax.swing.JTextField Codigo;
     private javax.swing.JComboBox<String> Corretor;
+    private javax.swing.JTextArea DadosImovel;
     private javax.swing.JLabel DataCadastroLabel;
     private javax.swing.JLabel DataCadastroLabel1;
     private javax.swing.JLabel DataCadastroLabel2;
-    private javax.swing.JSpinner DiaCadastro;
-    private javax.swing.JSpinner DiaCadastro1;
-    private javax.swing.JSpinner DiaCadastro2;
     private javax.swing.JLabel DiaCadastroLabel;
     private javax.swing.JLabel DiaCadastroLabel1;
     private javax.swing.JLabel DiaCadastroLabel2;
+    private javax.swing.JSpinner DiaDevolucao;
+    private javax.swing.JSpinner DiaLocacao;
+    private javax.swing.JSpinner DiaPagamento;
+    private javax.swing.JRadioButton Dinheiro;
     private javax.swing.JComboBox<String> ImovelCodigo;
-    private javax.swing.JSpinner MesCadastro;
-    private javax.swing.JSpinner MesCadastro1;
     private javax.swing.JLabel MesCadastroLabel;
     private javax.swing.JLabel MesCadastroLabel1;
+    private javax.swing.JSpinner MesDevolucao;
+    private javax.swing.JSpinner MesLocacao;
     private javax.swing.JTextField NomeCartao;
     private javax.swing.JTextField NumeroCartao;
+    private javax.swing.JTextArea Seguros;
+    private javax.swing.JComboBox<String> SegurosSelecao;
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

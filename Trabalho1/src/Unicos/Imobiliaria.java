@@ -297,6 +297,7 @@ public class Imobiliaria {
             return null;
         }
     }
+//Algueis
 
     public Aluguel buscarAluguel(int codigo) {
         try {
@@ -310,6 +311,10 @@ public class Imobiliaria {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    public void CadastroLocacao(Aluguel Alguel) {
+        alugueis.add(Alguel);
     }
 
     public Imovel buscarImovel(int codigo) {

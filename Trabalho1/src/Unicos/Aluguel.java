@@ -160,13 +160,23 @@ public class Aluguel implements Serializable {
 
     @Override
     public String toString() {
-        return "Aluguel [codigoAluguel = " + this.codigoAluguel + ", cliente = " + this.cliente + ", corretor = "
-                + this.corretor
-                + ", dataAluguel = "
-                + this.dataAluguel + ", dataDevolucao = " + this.dataDevolucao + ", dataPagamentoMensal = "
-                + this.dataPagamentoMensal
-                + ", formaPagamento = " + this.formaPagamento + ", imovel = " + this.imovel + ", pago = " + this.pago
-                + ", segurosContratados = "
-                + this.segurosContratados + ", valorTotalAluguel = " + this.valorTotalAluguel + "]";
+        String Seguros = "";
+        for (Seguro S : segurosContratados) {
+            Seguros += S.toString();
+        }
+        return "Aluguel:\n"
+                + "Codigo do aluguel: " + this.codigoAluguel + "\n"
+                + "Cliente:\n" + this.cliente + "\n"
+                + "---------\n"
+                + "Corretor:\n" + this.corretor + "\n"
+                + "---------\n"
+                + "Data do aluguel: " + this.dataAluguel + "\n"
+                + "Data de devolucao: " + this.dataDevolucao + "\n"
+                + "Data do pagamento mensal: " + this.dataPagamentoMensal + "\n"
+                + "Forma de pagamento: " + this.formaPagamento + "\n"
+                + "Imovel: " + this.imovel + "\n"
+                + "Pago: " + this.pago + "\n"
+                + "Seguros contratados:\n" + Seguros
+                + "Valor total do aluguel: " + this.valorTotalAluguel + "\n";
     }
 }

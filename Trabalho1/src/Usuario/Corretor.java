@@ -64,7 +64,7 @@ public class Corretor extends Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return super.toString() + "\nCreci" + this.creci
+        return super.toString() + "\nCreci: " + this.creci
                 + "\nSalario: " + this.salario
                 + "\nPis: " + this.pis
                 + "\nData de admissao: " + this.dataAdmissao;

@@ -80,7 +80,7 @@ public class Seguro implements Serializable {
                Tipo: %s
                Descricao: %s
                Valor: R$ %.2f
-               --------------------
+               ----------------------
                """.formatted(codigoSeguro, nomeSeguradora, tipo, descricao, valor);
     }
 }

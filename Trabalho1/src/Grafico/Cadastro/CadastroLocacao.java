@@ -27,6 +27,9 @@ public class CadastroLocacao extends javax.swing.JFrame {
         Corretor.setModel(model);
         String[] CodigosImoveis = Controlador.CodigosImoveisArray().toArray(new String[0]);
         model = new DefaultComboBoxModel(CodigosImoveis);
+        String[] TipoSeguros = Controlador.NomeSeguroArray().toArray(new String[0]);
+        model = new DefaultComboBoxModel(TipoSeguros);
+        jComboBox1.setModel(model);
         jRadioButton1.setSelected(true);
         disableCartao();
         ImovelCodigo.setModel(model);
@@ -173,6 +176,11 @@ public class CadastroLocacao extends javax.swing.JFrame {
         });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Adicionar seguro");
 
@@ -278,10 +286,9 @@ public class CadastroLocacao extends javax.swing.JFrame {
                                 .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)))
+                            .addComponent(jLabel7)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -395,6 +402,10 @@ public class CadastroLocacao extends javax.swing.JFrame {
         // TODO add your handling code here:
         enableCartao();
     }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments

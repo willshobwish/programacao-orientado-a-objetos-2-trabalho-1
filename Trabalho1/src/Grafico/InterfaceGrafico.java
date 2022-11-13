@@ -46,6 +46,8 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         Cliente = new javax.swing.JMenuItem();
         Corretores = new javax.swing.JMenuItem();
         CasaResidencial = new javax.swing.JMenuItem();
+        VendaCadastro = new javax.swing.JMenuItem();
+        LocacaoCadastro = new javax.swing.JMenuItem();
         ImovelMenu = new javax.swing.JMenu();
         Todos = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -97,6 +99,17 @@ public class InterfaceGrafico extends javax.swing.JFrame {
             }
         });
         jMenu1.add(CasaResidencial);
+
+        VendaCadastro.setText("Venda");
+        VendaCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VendaCadastroActionPerformed(evt);
+            }
+        });
+        jMenu1.add(VendaCadastro);
+
+        LocacaoCadastro.setText("Locação");
+        jMenu1.add(LocacaoCadastro);
 
         BarraMenu.add(jMenu1);
 
@@ -226,6 +239,13 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void VendaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VendaCadastroActionPerformed
+        // TODO add your handling code here:
+        CadastroVenda CadastroVenda = new CadastroVenda();
+        CadastroVenda.setLocationRelativeTo(this);
+        CadastroVenda.setVisible(true);
+    }//GEN-LAST:event_VendaCadastroActionPerformed
 
     private void ClientesCadastradosActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ClientesCadastradosActionPerformed
         // TODO add your handling code here:
@@ -378,11 +398,13 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private javax.swing.JMenuItem ListaDisponivel;
     private javax.swing.JMenuItem ListaIndisponivel;
     private javax.swing.JMenu Locacao;
+    private javax.swing.JMenuItem LocacaoCadastro;
     private javax.swing.JMenu PagamentoMenu;
     private javax.swing.JTextArea TextoExibicao;
     private javax.swing.JScrollPane TextoExibicaoScroll;
     private javax.swing.JMenu Todos;
     private javax.swing.JMenu UsuarioMenu;
+    private javax.swing.JMenuItem VendaCadastro;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem5;

@@ -67,14 +67,37 @@ public class Imobiliaria {
         return usuarios;
     }
 
+    public ArrayList<Aluguel> getAlugueis() {
+        return alugueis;
+    }
+
+    public void setAlugueis(ArrayList<Aluguel> alugueis) {
+        this.alugueis = alugueis;
+    }
+
+    public ArrayList<Venda> getVendas() {
+        return vendas;
+    }
+
+    public void setVendas(ArrayList<Venda> vendas) {
+        this.vendas = vendas;
+    }
+
+    public ArrayList<Seguro> getSeguros() {
+        return seguros;
+    }
+
+    public void setSeguros(ArrayList<Seguro> seguros) {
+        this.seguros = seguros;
+    }
+
     public void carregarSeguros() {
         try {
             FileInputStream Filename = new FileInputStream(configuracoes.getArquivoSeguros());
             ObjectInputStream LoadObject = new ObjectInputStream(Filename);
-            if ((ArrayList<Seguro>) LoadObject.readObject() == null) {
+            seguros = (ArrayList<Seguro>) LoadObject.readObject();
+            if (seguros == null) {
                 seguros = new ArrayList<>();
-            } else {
-                seguros = (ArrayList<Seguro>) LoadObject.readObject();
             }
             LoadObject.close();
             Filename.close();
@@ -92,9 +115,6 @@ public class Imobiliaria {
             imoveis = (ArrayList<Imovel>) LoadObject.readObject();
             if (imoveis == null) {
                 imoveis = new ArrayList<Imovel>();
-                System.out.println("Imoveis nao carregados");
-            } else {
-                System.out.println("Imoveis carregados");
             }
             LoadObject.close();
             Filename.close();
@@ -109,10 +129,9 @@ public class Imobiliaria {
         try {
             FileInputStream Filename = new FileInputStream(configuracoes.getArquivoVendas());
             ObjectInputStream LoadObject = new ObjectInputStream(Filename);
-            if ((ArrayList<Venda>) LoadObject.readObject() == null) {
+            vendas = (ArrayList<Venda>) LoadObject.readObject();
+            if (vendas == null) {
                 vendas = new ArrayList<Venda>();
-            } else {
-                vendas = (ArrayList<Venda>) LoadObject.readObject();
             }
             LoadObject.close();
             Filename.close();
@@ -127,10 +146,9 @@ public class Imobiliaria {
         try {
             FileInputStream Filename = new FileInputStream(configuracoes.getArquivoAlugueis());
             ObjectInputStream LoadObject = new ObjectInputStream(Filename);
-            if ((ArrayList<Aluguel>) LoadObject.readObject() == null) {
+            alugueis = (ArrayList<Aluguel>) LoadObject.readObject();
+            if (alugueis == null) {
                 alugueis = new ArrayList<Aluguel>();
-            } else {
-                alugueis = (ArrayList<Aluguel>) LoadObject.readObject();
             }
             LoadObject.close();
             Filename.close();
@@ -246,6 +264,12 @@ public class Imobiliaria {
         }
     }
 
+    public void cadastrarCliente(Cliente cliente) {
+        usuarios.add(cliente);
+        salvarUsuarios();
+        System.out.println("Cliente cadastrado");
+    }
+
     public Usuario buscarCliente(int codigo) {
         try {
             for (Usuario cliente : usuarios) {
@@ -302,30 +326,10 @@ public class Imobiliaria {
         }
     }
 
-    public Seguro buscarSeguro(int codigo) {
-        try {
-            for (Seguro seguro : seguros) {
-                if (seguro.getCodigoSeguro() == codigo) {
-                    return seguro;
-                }
-            }
-            System.out.println("Seguro não encontrado");
-            return null;
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
     public void cadastrarCorretor(Corretor corretor) {
         usuarios.add(corretor);
         salvarUsuarios();
         System.out.println("Corretor cadastrado");
-    }
-
-    public void cadastrarCliente(Cliente cliente) {
-        usuarios.add(cliente);
-        salvarUsuarios();
-        System.out.println("Cliente cadastrado");
     }
 
     public boolean cadastrarImovel(Imovel imovel) {
@@ -373,5 +377,25 @@ public class Imobiliaria {
         imoveis.add(CasaResidencial);
         salvarImoveis();
         return true;
+    }
+
+    //Seguro
+    public void CadastrarSeguro(Seguro Seguro) {
+        seguros.add(Seguro);
+        salvarSeguros();
+    }
+
+    public Seguro buscarSeguro(int codigo) {
+        try {
+            for (Seguro seguro : seguros) {
+                if (seguro.getCodigoSeguro() == codigo) {
+                    return seguro;
+                }
+            }
+            System.out.println("Seguro não encontrado");
+            return null;
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

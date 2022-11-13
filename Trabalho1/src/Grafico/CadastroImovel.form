@@ -48,33 +48,36 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="Dormitorios" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="Banheiros" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="VagasGaragem" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Dormitorios" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Banheiros" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="VagasGaragem" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="Endereco" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="AreaConstruida" alignment="0" max="32767" attributes="0"/>
+                              <Component id="AreaTotal" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="Dia1" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -91,15 +94,14 @@
                                       <Component id="Ano1" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="AreaConstruida" alignment="0" max="32767" attributes="0"/>
-                              <Component id="Codigo" alignment="0" max="32767" attributes="0"/>
-                              <Component id="AreaTotal" alignment="0" max="32767" attributes="0"/>
-                              <Component id="Endereco" alignment="0" min="-2" pref="237" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="TipoImovel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="Codigo" alignment="0" pref="204" max="32767" attributes="0"/>
+                              <Component id="TipoImovel" alignment="0" pref="204" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="22" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -107,12 +109,12 @@
                           <Component id="AndarLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="ValorCondominioLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="TaxaImpostoFederalLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="IPTU" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
-                          <Component id="ValorVenda" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
-                          <Component id="ValorCondominio" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
-                          <Component id="TaxaImpostoFederal" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
-                          <Component id="ValorAluguel" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
-                          <Component id="Andar" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
+                          <Component id="IPTU" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
+                          <Component id="ValorVenda" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
+                          <Component id="ValorCondominio" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
+                          <Component id="TaxaImpostoFederal" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
+                          <Component id="ValorAluguel" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
+                          <Component id="Andar" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="Cadastrar" alignment="0" max="32767" attributes="0"/>

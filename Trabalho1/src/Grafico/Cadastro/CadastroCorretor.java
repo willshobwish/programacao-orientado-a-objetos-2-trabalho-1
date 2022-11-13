@@ -1,7 +1,7 @@
 /*
  * Trabalho de programacao orientado a objetos II
  */
-package Grafico;
+package Grafico.Cadastro;
 
 import Controlador.Controlador;
 import java.time.LocalDate;

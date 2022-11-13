@@ -1,7 +1,7 @@
 /*
  * Trabalho de programacao orientado a objetos II
  */
-package Grafico;
+package Grafico.Cadastro;
 
 import Controlador.Controlador;
 import java.time.LocalDate;
@@ -330,6 +330,12 @@ public class CadastroCliente extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(CadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

@@ -154,6 +154,33 @@ public class Controlador {
         return Dados;
     }
 
+//Apartamento residencial
+//Comercial
+//Locacao
+//Seguro
+    public void CadastroSeguro(int codigoSeguro, String nomeSeguradora, String tipo, String descricao, float valor) {
+        Seguro Seguro = new Seguro(codigoSeguro, nomeSeguradora, tipo, descricao, valor);
+        Imobiliaria.CadastrarSeguro(Seguro);
+    }
+
+    public ArrayList<String> NomeSeguroArray() {
+        ArrayList<Seguro> Seguros = Imobiliaria.getSeguros();
+        ArrayList<String> SeguroDescricao = new ArrayList<String>();
+        for (Seguro S : Seguros) {
+            SeguroDescricao.add(S.getTipo());
+        }
+        return SeguroDescricao;
+    }
+
+    public String ExibirTodosSeguros() {
+        ArrayList<Seguro> Seguros = Imobiliaria.getSeguros();
+        String DadosSeguro = "";
+        for (Seguro S : Seguros) {
+            DadosSeguro = DadosSeguro + S.toString();
+        }
+        return DadosSeguro;
+    }
+
     // Outros
     public int geradorCodigoUsuario() {
         ArrayList<Usuario> Usuarios = Imobiliaria.getUsuarios();
@@ -165,5 +192,11 @@ public class Controlador {
         ArrayList<Imovel> Imoveis = Imobiliaria.getImoveis();
         System.out.println("Gerador de codigo de imoveis acionado");
         return Imoveis.size();
+    }
+
+    public int geradorCodigoSeguro() {
+        ArrayList<Seguro> Seguros = Imobiliaria.getSeguros();
+        System.out.println("Gerador de codigo de Seguros acionado");
+        return Seguros.size();
     }
 }

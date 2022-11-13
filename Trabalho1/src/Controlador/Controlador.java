@@ -5,6 +5,7 @@ package Controlador;
 
 import Imovel.CasaResidencial;
 import Imovel.Imovel;
+import Pagamento.Pagamento;
 import Unicos.Aluguel;
 import Unicos.Imobiliaria;
 import Unicos.Seguro;
@@ -187,6 +188,11 @@ public class Controlador {
 
 //Apartamento residencial
 //Comercial
+//Vendas
+    public void CadastroVenda(int codigoVenda, Cliente cliente, Corretor corretor, Imovel imovel, LocalDate dataVenda, float valorTotalVenda, Pagamento formaPagamento) {
+        Imobiliaria.CadastrarVenda(new Venda(codigoVenda, cliente, corretor, imovel, dataVenda, valorTotalVenda, formaPagamento));
+    }
+
 //Locacao
     public void CadastroLocacao(Aluguel Alguel) {
         System.out.println(Alguel.toString());
@@ -194,11 +200,21 @@ public class Controlador {
     }
 
     public int geracaoCodigoAluguel() {
-        ArrayList<Aluguel> Algueis = Imobiliaria.getAlugueis();
-        return Algueis.size();
+        ArrayList<Aluguel> Alugueis = Imobiliaria.getAlugueis();
+        return Alugueis.size();
     }
-//Seguro
 
+    public String ExibirTodasLocacoes() {
+        String Dados = "Todas locações:\n";
+        ArrayList<Aluguel> Alugueis = Imobiliaria.getAlugueis();
+        for (Aluguel A : Alugueis) {
+            Dados += A.toString();
+            Dados += "-----------";
+        }
+        return Dados;
+    }
+
+//Seguro
     public void CadastroSeguro(int codigoSeguro, String nomeSeguradora, String tipo, String descricao, float valor) {
         Seguro Seguro = new Seguro(codigoSeguro, nomeSeguradora, tipo, descricao, valor);
         Imobiliaria.CadastrarSeguro(Seguro);
@@ -249,5 +265,11 @@ public class Controlador {
         ArrayList<Seguro> Seguros = Imobiliaria.getSeguros();
         System.out.println("Gerador de codigo de Seguros acionado");
         return Seguros.size();
+    }
+
+    public int geradorCodigoVenda() {
+        ArrayList<Venda> Vendas = Imobiliaria.getVendas();
+        System.out.println("Gerador de codigo de vendas acionado");
+        return Vendas.size();
     }
 }

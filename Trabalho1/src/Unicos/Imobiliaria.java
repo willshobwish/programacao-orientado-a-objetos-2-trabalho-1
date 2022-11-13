@@ -242,14 +242,15 @@ public class Imobiliaria {
         }
     }
 
-//    public boolean salvarArquivos() {
-//        if (salvarAlugueis() && salvarVendas() && salvarImoveis() && salvarUsuarios()
-//                && salvarSeguros()) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
+    // public boolean salvarArquivos() {
+    // if (salvarAlugueis() && salvarVendas() && salvarImoveis() && salvarUsuarios()
+    // && salvarSeguros()) {
+    // return true;
+    // } else {
+    // return false;
+    // }
+    // }
+
     public Usuario buscarCorretor(int codigo) {
         try {
             for (Usuario corretor : usuarios) {
@@ -297,7 +298,7 @@ public class Imobiliaria {
             return null;
         }
     }
-//Algueis
+    // Algueis
 
     public Aluguel buscarAluguel(int codigo) {
         try {
@@ -313,8 +314,8 @@ public class Imobiliaria {
         }
     }
 
-    public void CadastroLocacao(Aluguel Alguel) {
-        alugueis.add(Alguel);
+    public void CadastroLocacao(Aluguel Aluguel) {
+        alugueis.add(Aluguel);
     }
 
     public Imovel buscarImovel(int codigo) {
@@ -367,24 +368,24 @@ public class Imobiliaria {
     }
 
     public boolean adicionarCasaResidencial(CasaResidencial CasaResidencial) {
-//        try {
-//            if (buscarImovel(CasaResidencial.getCodigoImovel()) == null) {
-//                imoveis.add(CasaResidencial);
-//                salvarImoveis();
-//                return true;
-//            } else {
-//                System.out.println("CasaResidencial ja cadastrado");
-//                return false;
-//            }
-//        } catch (Exception e) {
-//            return false;
-//        }
+        // try {
+        // if (buscarImovel(CasaResidencial.getCodigoImovel()) == null) {
+        // imoveis.add(CasaResidencial);
+        // salvarImoveis();
+        // return true;
+        // } else {
+        // System.out.println("CasaResidencial ja cadastrado");
+        // return false;
+        // }
+        // } catch (Exception e) {
+        // return false;
+        // }
         imoveis.add(CasaResidencial);
         salvarImoveis();
         return true;
     }
 
-    //Seguro
+    // Seguro
     public void CadastrarSeguro(Seguro Seguro) {
         seguros.add(Seguro);
         salvarSeguros();

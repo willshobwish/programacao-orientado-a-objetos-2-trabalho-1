@@ -196,7 +196,20 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Im&#xf3;veis comprados por um cliente"/>
+                <Property name="text" type="java.lang.String" value="Loca&#xe7;&#xf5;es finalizadas ou n&#xe3;o"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem8ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem9">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Loca&#xe7;&#xf5;es finalizadas"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem10">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Loca&#xe7;&#xf5;es n&#xe3;o finalizadas"/>
               </Properties>
             </MenuItem>
           </SubComponents>

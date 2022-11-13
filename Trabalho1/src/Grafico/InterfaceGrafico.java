@@ -73,6 +73,8 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
 
@@ -248,8 +250,19 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         jMenuItem7.setText("Clientes com alugueis em atraso");
         PagamentoMenu.add(jMenuItem7);
 
-        jMenuItem8.setText("Imóveis comprados por um cliente");
+        jMenuItem8.setText("Locações finalizadas ou não");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
         PagamentoMenu.add(jMenuItem8);
+
+        jMenuItem9.setText("Locações finalizadas");
+        PagamentoMenu.add(jMenuItem9);
+
+        jMenuItem10.setText("Locações não finalizadas");
+        PagamentoMenu.add(jMenuItem10);
 
         BarraMenu.add(PagamentoMenu);
 
@@ -316,6 +329,12 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         // TODO add your handling code here:
         TextoExibicao.setText(Controlador.ExibirTodosSeguros());
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        // TODO add your handling code here:
+        Limpar();
+        TextoExibicao.setText(Controlador.ExibirTodasLocacoes());
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void ClientesCadastradosActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ClientesCadastradosActionPerformed
         // TODO add your handling code here:
@@ -461,6 +480,7 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
@@ -468,5 +488,6 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
 }

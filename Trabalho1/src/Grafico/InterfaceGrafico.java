@@ -5,6 +5,12 @@
 package Grafico;
 
 import Controlador.Controlador;
+import Grafico.Cadastro.CadastroCliente;
+import Grafico.Cadastro.CadastroCorretor;
+import Grafico.Cadastro.CadastroImovel;
+import Grafico.Cadastro.CadastroLocacao;
+import Grafico.Cadastro.CadastroSeguro;
+import Grafico.Cadastro.CadastroVenda;
 
 /**
  *
@@ -37,8 +43,6 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPopupMenu1 = new javax.swing.JPopupMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
         TextoExibicaoScroll = new javax.swing.JScrollPane();
         TextoExibicao = new javax.swing.JTextArea();
         BarraMenu = new javax.swing.JMenuBar();
@@ -48,6 +52,7 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         CasaResidencial = new javax.swing.JMenuItem();
         VendaCadastro = new javax.swing.JMenuItem();
         LocacaoCadastro = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         ImovelMenu = new javax.swing.JMenu();
         Todos = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -63,8 +68,8 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         ClientesCadastrados = new javax.swing.JMenuItem();
         CorretoresCadastrados = new javax.swing.JMenuItem();
         PagamentoMenu = new javax.swing.JMenu();
-
-        jMenuItem5.setText("jMenuItem5");
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Trabalho 01");
@@ -109,7 +114,20 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         jMenu1.add(VendaCadastro);
 
         LocacaoCadastro.setText("Locação");
+        LocacaoCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LocacaoCadastroActionPerformed(evt);
+            }
+        });
         jMenu1.add(LocacaoCadastro);
+
+        jMenuItem2.setText("Seguro");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
 
         BarraMenu.add(jMenu1);
 
@@ -214,6 +232,18 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         PagamentoMenu.setText("Pagamento");
         BarraMenu.add(PagamentoMenu);
 
+        jMenu4.setText("Seguro");
+
+        jMenuItem4.setText("Exibir todos");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem4);
+
+        BarraMenu.add(jMenu4);
+
         setJMenuBar(BarraMenu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -246,6 +276,25 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         CadastroVenda.setLocationRelativeTo(this);
         CadastroVenda.setVisible(true);
     }//GEN-LAST:event_VendaCadastroActionPerformed
+
+    private void LocacaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LocacaoCadastroActionPerformed
+        // TODO add your handling code here:
+        CadastroLocacao CadastroLocacao = new CadastroLocacao();
+        CadastroLocacao.setLocationRelativeTo(this);
+        CadastroLocacao.setVisible(true);
+    }//GEN-LAST:event_LocacaoCadastroActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        CadastroSeguro CadastroSeguro = new CadastroSeguro();
+        CadastroSeguro.setLocationRelativeTo(this);
+        CadastroSeguro.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        TextoExibicao.setText(Controlador.ExibirTodosSeguros());
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void ClientesCadastradosActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ClientesCadastradosActionPerformed
         // TODO add your handling code here:
@@ -319,26 +368,9 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private void CasaResidencialActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CasaResidencialActionPerformed
         // TODO add your handling code here:
         CadastroImovel CadastroCasaResidencial = new CadastroImovel(this, true);
-//        CadastroCasaResidencial.CadastroCasaResidencial();
         CadastroCasaResidencial.setLocationRelativeTo(this);
         CadastroCasaResidencial.setVisible(true);
     }// GEN-LAST:event_CasaResidencialActionPerformed
-
-    private void ApartamentoResidencialActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ApartamentoResidencialActionPerformed
-        // TODO add your handling code here:
-        CadastroImovel CadastroApartamentoResidencial = new CadastroImovel(this, true);
-//        CadastroApartamentoResidencial.CadastroApartamentoResidencial();
-        CadastroApartamentoResidencial.setLocationRelativeTo(this);
-        CadastroApartamentoResidencial.setVisible(true);
-    }// GEN-LAST:event_ApartamentoResidencialActionPerformed
-
-    private void ComercialActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ComercialActionPerformed
-        // TODO add your handling code here:
-        CadastroImovel CadastroComercial = new CadastroImovel(this, true);
-        CadastroComercial.CadastroComercial();
-        CadastroComercial.setLocationRelativeTo(this);
-        CadastroComercial.setVisible(true);
-    }// GEN-LAST:event_ComercialActionPerformed
 
     /**
      * @param args the command line arguments
@@ -406,8 +438,9 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private javax.swing.JMenu UsuarioMenu;
     private javax.swing.JMenuItem VendaCadastro;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem4;
     // End of variables declaration//GEN-END:variables
 }

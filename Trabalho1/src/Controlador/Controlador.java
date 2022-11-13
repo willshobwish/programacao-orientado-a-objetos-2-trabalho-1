@@ -102,7 +102,39 @@ public class Controlador {
         return Dados;
     }
 
-    // Casa residencial
+    public ArrayList<String> NomesCorretoresArray() {
+        ArrayList<String> Nomes = new ArrayList<String>();
+        ArrayList<Usuario> Usuarios = Imobiliaria.getUsuarios();
+        for (Usuario U : Usuarios) {
+            if (U instanceof Corretor) {
+                Nomes.add(U.getNome());
+            }
+        }
+        return Nomes;
+    }
+
+//    Imoveis
+    public ArrayList<String> CodigosImoveisArray() {
+        ArrayList<String> CodigosImoveis = new ArrayList<String>();
+        ArrayList<Imovel> Imoveis = Imobiliaria.getImoveis();
+        for (Imovel I : Imoveis) {
+            CodigosImoveis.add(String.valueOf(I.getCodigoImovel()));
+        }
+        return CodigosImoveis;
+    }
+
+    public Imovel BuscarImovel(String Codigo) {
+        ArrayList<String> CodigosImoveis = new ArrayList<String>();
+        ArrayList<Imovel> Imoveis = Imobiliaria.getImoveis();
+        for (Imovel I : Imoveis) {
+            if (I.getCodigoImovel() == Integer.parseInt(Codigo)) {
+                return I;
+            }
+        }
+        return null;
+    }
+
+// Casa residencial
     public void cadastroCasaResidencial(int codigoImovel, String endereco, LocalDate dataConstrucao, float areaTotal,
             float areaConstruida, int qtdDormitorios, int qtdBanheiros, int qtdVagasGaragem, float valorIPTU,
             float valorVenda, float valorAluguel) {

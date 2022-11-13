@@ -68,6 +68,11 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         ClientesCadastrados = new javax.swing.JMenuItem();
         CorretoresCadastrados = new javax.swing.JMenuItem();
         PagamentoMenu = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
 
@@ -230,6 +235,22 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         BarraMenu.add(UsuarioMenu);
 
         PagamentoMenu.setText("Pagamento");
+
+        jMenuItem3.setText("Alugueis com atraso no pagamento");
+        PagamentoMenu.add(jMenuItem3);
+
+        jMenuItem5.setText("Funcionário do mês");
+        PagamentoMenu.add(jMenuItem5);
+
+        jMenuItem6.setText("Imóveis comprados por um cliente");
+        PagamentoMenu.add(jMenuItem6);
+
+        jMenuItem7.setText("Clientes com alugueis em atraso");
+        PagamentoMenu.add(jMenuItem7);
+
+        jMenuItem8.setText("Imóveis comprados por um cliente");
+        PagamentoMenu.add(jMenuItem8);
+
         BarraMenu.add(PagamentoMenu);
 
         jMenu4.setText("Seguro");
@@ -441,6 +462,11 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     // End of variables declaration//GEN-END:variables
 }

@@ -298,24 +298,10 @@ public class Imobiliaria {
             return null;
         }
     }
-    // Algueis
 
-    public Aluguel buscarAluguel(int codigo) {
-        try {
-            for (Aluguel aluguel : alugueis) {
-                if (aluguel.getCodigoAluguel() == codigo) {
-                    return aluguel;
-                }
-            }
-            System.out.println("Aluguel não encontrado");
-            return null;
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    public void CadastroLocacao(Aluguel Aluguel) {
-        alugueis.add(Aluguel);
+    public void CadastroLocacao(Aluguel Alguel) {
+        alugueis.add(Alguel);
+        salvarAlugueis();
     }
 
     public Imovel buscarImovel(int codigo) {
@@ -383,6 +369,28 @@ public class Imobiliaria {
         imoveis.add(CasaResidencial);
         salvarImoveis();
         return true;
+    }
+
+    // Vendas
+    public void CadastrarVenda(Venda Venda) {
+        vendas.add(Venda);
+        System.out.println(Venda.toString());
+        salvarVendas();
+    }
+
+    // Algueis
+    public Aluguel buscarAluguel(int codigo) {
+        try {
+            for (Aluguel aluguel : alugueis) {
+                if (aluguel.getCodigoAluguel() == codigo) {
+                    return aluguel;
+                }
+            }
+            System.out.println("Aluguel não encontrado");
+            return null;
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     // Seguro

@@ -456,7 +456,7 @@ public class CadastroLocacao extends javax.swing.JFrame {
         ArrayList<Seguro> segurosContratados = SegurosSelecionados;
         boolean pago = false;
         Controlador.CadastroLocacao(new Aluguel(codigoAluguel, cliente, corretor, imovel, dataAluguel, dataDevolucao, dataPagamentoMensal, valorTotalAluguel, formaPagamento, segurosContratados, pago));
-        System.out.println("cadastrado");
+        JOptionPane.showMessageDialog(this, "Locação cadastrado com sucesso");
     }//GEN-LAST:event_jButton1ActionPerformed
     private void ImovelCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImovelCodigoActionPerformed
         // TODO add your handling code here:

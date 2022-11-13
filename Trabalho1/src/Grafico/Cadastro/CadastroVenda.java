@@ -11,6 +11,7 @@ import Usuario.Cliente;
 import Usuario.Corretor;
 import java.time.LocalDate;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -235,6 +236,7 @@ public class CadastroVenda extends javax.swing.JFrame {
         float valorTotalVenda = imovel.getValorVenda();
         Pagamento formaPagamento = new Dinheiro();
         Controlador.CadastroVenda(codigoVenda, cliente, corretor, imovel, dataVenda, valorTotalVenda, formaPagamento);
+        JOptionPane.showMessageDialog(this, "Venda cadastrado com sucesso");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void ImovelCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImovelCodigoActionPerformed

@@ -51,7 +51,7 @@ public class ApartamentoResidencial extends Imovel implements Serializable {
     @Override
     public String toString() {
         return super.toString()
-                + "Andar: " + andar
-                + "Valor do condominio: " + valorCondominio;
+                + "\nAndar: " + andar + "\n"
+                + "Valor do condominio: " + valorCondominio + "\n";
     }
 }

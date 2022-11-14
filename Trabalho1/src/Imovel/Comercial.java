@@ -40,7 +40,7 @@ public class Comercial extends Imovel implements Serializable {
 
     @Override
     public String toString() {
-        return super.toString()
+        return "Tipo do imovel: Comercial\n" + super.toString()
                 + "\nTaxa de imposto federal: " + this.taxaImpostoFederal;
     }
 }

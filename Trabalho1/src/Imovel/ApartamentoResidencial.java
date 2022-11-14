@@ -50,7 +50,7 @@ public class ApartamentoResidencial extends Imovel implements Serializable {
 
     @Override
     public String toString() {
-        return super.toString()
+        return "Tipo do imovel: Apartamento residencial\n" + super.toString()
                 + "\nAndar: " + andar + "\n"
                 + "Valor do condominio: " + valorCondominio + "\n";
     }

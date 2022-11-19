@@ -5,6 +5,7 @@ package Usuario;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /*
  *
@@ -67,6 +68,6 @@ public class Corretor extends Usuario implements Serializable {
         return super.toString() + "\nCreci: " + this.creci
                 + "\nSalario: " + this.salario
                 + "\nPis: " + this.pis
-                + "\nData de admissao: " + this.dataAdmissao;
+                + "\nData de admissao: " + this.dataAdmissao.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 }

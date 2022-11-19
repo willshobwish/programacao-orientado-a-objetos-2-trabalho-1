@@ -5,6 +5,7 @@ package Usuario;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /*
  *
@@ -33,6 +34,7 @@ public class Cliente extends Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return super.toString() + "\nData de cadastro: " + this.dataCadastro;
+        return super.toString() + "\nData de cadastro: "
+                + this.dataCadastro.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 }

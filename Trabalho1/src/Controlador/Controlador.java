@@ -147,6 +147,17 @@ public class Controlador {
         return null;
     }
 
+    public Corretor getCorretorDoMes() {
+        ArrayList<Corretor> Corretores = Imobiliaria.getCorretores();
+        Corretor CorretorDoMes = null;
+        for (Corretor C : Corretores) {
+            if (C.getVendas() >= CorretorDoMes.getVendas()) {
+                CorretorDoMes = (Corretor) C;
+            }
+        }
+        return CorretorDoMes;
+    }
+
     // Imoveis
     public ArrayList<String> CodigosImoveisArray() {
         ArrayList<String> CodigosImoveis = new ArrayList<String>();
@@ -211,6 +222,7 @@ public class Controlador {
             float valorTotalVenda, Pagamento formaPagamento) {
         Imobiliaria.CadastrarVenda(
                 new Venda(codigoVenda, cliente, corretor, imovel, dataVenda, valorTotalVenda, formaPagamento));
+        corretor.addVenda();
     }
 
     // Locacao

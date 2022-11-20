@@ -199,6 +199,45 @@ public class Controlador {
         return Dados;
     }
 
+    // exibe todos os imoveis da classe Comercial
+    public String exibirComerciais() {
+        String Dados = "";
+        ArrayList<Imovel> Comercial = Imobiliaria.getImoveis();
+        for (Imovel ComercialExibicao : Comercial) {
+            if (ComercialExibicao instanceof Comercial) {
+                System.out.println(ComercialExibicao.toString());
+                Dados = Dados + ComercialExibicao.toString();
+            }
+        }
+        return Dados;
+    }
+
+    // exibe todos os imoveis da classe CasaResidencial
+    public String exibirCasasResidenciais() {
+        String Dados = "";
+        ArrayList<Imovel> Residencial = Imobiliaria.getImoveis();
+        for (Imovel ResidencialExibicao : Residencial) {
+            if (ResidencialExibicao instanceof CasaResidencial) {
+                System.out.println(ResidencialExibicao.toString());
+                Dados = Dados + ResidencialExibicao.toString();
+            }
+        }
+        return Dados;
+    }
+
+    // exibe todos os imoveis da classe ApartamentoResidencial
+    public String exibirApartamentosResidenciais() {
+        String Dados = "";
+        ArrayList<Imovel> Residencial = Imobiliaria.getImoveis();
+        for (Imovel ResidencialExibicao : Residencial) {
+            if (ResidencialExibicao instanceof ApartamentoResidencial) {
+                System.out.println(ResidencialExibicao.toString());
+                Dados = Dados + ResidencialExibicao.toString();
+            }
+        }
+        return Dados;
+    }
+
     // Apartamento residencial
     public void CadastroApartamentoResidencial(int andar, float valorCondominio, int codigoImovel, String endereco,
             LocalDate dataConstrucao, float areaTotal, float areaConstruida, int qtdDormitorios, int qtdBanheiros,

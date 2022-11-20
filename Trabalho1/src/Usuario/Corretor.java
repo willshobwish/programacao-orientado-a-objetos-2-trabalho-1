@@ -20,6 +20,7 @@ public class Corretor extends Usuario implements Serializable {
     protected float salario;
     protected String pis;
     protected LocalDate dataAdmissao;
+    protected int numeroVendas;
 
     public Corretor(String creci, float salario, String pis, LocalDate dataAdmissao, int codigoUsuario, String nome,
             String cpf, String rg, LocalDate dataNascimento, String endereco, String cep, String telefone,
@@ -61,6 +62,14 @@ public class Corretor extends Usuario implements Serializable {
 
     public void setDataAdmissao(LocalDate dataAdmissao) {
         this.dataAdmissao = dataAdmissao;
+    }
+
+    public void addVenda() {
+        this.numeroVendas++;
+    }
+
+    public int getVendas() {
+        return numeroVendas;
     }
 
     @Override

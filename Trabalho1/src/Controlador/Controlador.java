@@ -238,6 +238,18 @@ public class Controlador {
         return Dados;
     }
 
+    public ArrayList<Imovel> getImoveisDisponiveis() {
+        ArrayList<Imovel> Imoveis = Imobiliaria.getImoveis();
+        ArrayList<Imovel> ImoveisDisponiveis = new ArrayList<Imovel>();
+
+        for (Imovel I : Imoveis) {
+            if (I.isDisponivel()) {
+                ImoveisDisponiveis.add(I);
+            }
+        }
+        return ImoveisDisponiveis;
+    }
+
     // Apartamento residencial
     public void CadastroApartamentoResidencial(int andar, float valorCondominio, int codigoImovel, String endereco,
             LocalDate dataConstrucao, float areaTotal, float areaConstruida, int qtdDormitorios, int qtdBanheiros,
@@ -262,6 +274,7 @@ public class Controlador {
         Imobiliaria.CadastrarVenda(
                 new Venda(codigoVenda, cliente, corretor, imovel, dataVenda, valorTotalVenda, formaPagamento));
         corretor.addVenda();
+        imovel.setDisponibilidade();
     }
 
     // Locacao

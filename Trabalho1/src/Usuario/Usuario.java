@@ -5,6 +5,7 @@ package Usuario;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /*
  *
@@ -132,7 +133,7 @@ abstract public class Usuario implements Serializable {
                 + "\nNome: " + this.nome
                 + "\nCPF: " + this.cpf
                 + "\nRG: " + this.rg
-                + "\nData de Nascimento: " + this.dataNascimento
+                + "\nData de Nascimento: " + this.dataNascimento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
                 + "\nEndereco: " + this.endereco
                 + "\nCEP: " + this.cep
                 + "\nTelefone: " + this.telefone

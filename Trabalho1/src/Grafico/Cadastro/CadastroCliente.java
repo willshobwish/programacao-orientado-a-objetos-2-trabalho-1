@@ -25,19 +25,16 @@ public class CadastroCliente extends javax.swing.JFrame {
 
     public int DataAno() {
         LocalDate localdate = LocalDate.now();
-//        System.out.println(localdate.getYear());
         return localdate.getYear();
     }
 
     public int DataMes() {
         LocalDate localdate = LocalDate.now();
-//        System.out.println(localdate.getYear());
         return localdate.getMonthValue();
     }
 
     public int DataDia() {
         LocalDate localdate = LocalDate.now();
-//        System.out.println(localdate.getYear());
         return localdate.getDayOfMonth();
     }
 
@@ -86,6 +83,8 @@ public class CadastroCliente extends javax.swing.JFrame {
         setTitle("Cadastro de cliente");
 
         jLabel1.setText("Código usuário");
+
+        CodigoCliente.setEditable(false);
 
         jLabel2.setText("Nome");
 

@@ -69,6 +69,26 @@ public class Imobiliaria {
         return usuarios;
     }
 
+    public ArrayList<Corretor> getCorretores() {
+        ArrayList<Corretor> corretores = new ArrayList<Corretor>();
+        for (Usuario usuario : usuarios) {
+            if (usuario instanceof Corretor) {
+                corretores.add((Corretor) usuario);
+            }
+        }
+        return corretores;
+    }
+
+    public ArrayList<Cliente> getClientes() {
+        ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+        for (Usuario usuario : usuarios) {
+            if (usuario instanceof Cliente) {
+                clientes.add((Cliente) usuario);
+            }
+        }
+        return clientes;
+    }
+
     public ArrayList<Aluguel> getAlugueis() {
         return alugueis;
     }
@@ -354,14 +374,14 @@ public class Imobiliaria {
         }
     }
 
-//Comercial
+    // Comercial
     public void CadastrarComercial(Comercial Comercial) {
         imoveis.add(Comercial);
         System.out.println(Comercial.toString());
         salvarImoveis();
     }
 
-//Apartamento residencial
+    // Apartamento residencial
     public void CadastrarApartamentoResidencial(ApartamentoResidencial Apartamento) {
         imoveis.add(Apartamento);
         System.out.println(Apartamento.toString());

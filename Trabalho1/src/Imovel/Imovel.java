@@ -26,6 +26,7 @@ abstract public class Imovel implements Serializable {
     protected float valorIPTU;
     protected float valorVenda;
     protected float valorAluguel;
+    protected boolean disponivelVenda = true;
 
     public Imovel(int codigoImovel, String endereco, LocalDate dataConstrucao, float areaTotal, float areaConstruida,
             int qtdDormitorios, int qtdBanheiros, int qtdVagasGaragem, float valorIPTU, float valorVenda,
@@ -129,6 +130,18 @@ abstract public class Imovel implements Serializable {
 
     public void setValorAluguel(float valorAluguel) {
         this.valorAluguel = valorAluguel;
+    }
+
+    public void setDisponibilidade() {
+        if (disponivelVenda == true) {
+            disponivelVenda = false;
+        } else {
+            disponivelVenda = true;
+        }
+    }
+
+    public boolean isDisponivel() {
+        return disponivelVenda;
     }
 
     public String toString() {

@@ -75,12 +75,13 @@ public class Seguro implements Serializable {
     @Override
     public String toString() {
         return """
-               Codigo do seguro: %d
-               Nome da seguradora: %s
-               Tipo: %s
-               Descricao: %s
-               Valor: R$ %.2f
-               ----------------------
-               """.formatted(codigoSeguro, nomeSeguradora, tipo, descricao, valor);
+                Codigo do seguro: %d
+                Nome da seguradora: %s
+                Tipo: %s
+                Descricao: %s
+                Valor: R$ %.2f
+                -----------------------------------------------------------------
+
+                """.formatted(codigoSeguro, nomeSeguradora, tipo, descricao, valor);
     }
 }

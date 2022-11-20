@@ -66,7 +66,7 @@ public class Controlador {
         for (Usuario U : Usuarios) {
             if (U instanceof Cliente) {
                 existe = true;
-                Dados = Dados + U.toString() + "\n-----------------------\n";
+                Dados = Dados + U.toString() + "\n------------------------------------------------\n";
             }
         }
         if (!existe) {
@@ -97,7 +97,7 @@ public class Controlador {
         return null;
     }
 
-// Corretores
+    // Corretores
     public void adicionarCorretores(String creci, float salario, String pis, int codigoUsuario, String nome,
             String cpf, String rg, LocalDate DataNascimento, LocalDate dataAdmissao, String endereco, String cep,
             String telefone, String email) {
@@ -147,7 +147,7 @@ public class Controlador {
         return null;
     }
 
-//    Imoveis
+    // Imoveis
     public ArrayList<String> CodigosImoveisArray() {
         ArrayList<String> CodigosImoveis = new ArrayList<String>();
         ArrayList<Imovel> Imoveis = Imobiliaria.getImoveis();
@@ -158,7 +158,7 @@ public class Controlador {
     }
 
     public Imovel BuscarImovel(String Codigo) {
-//        ArrayList<String> CodigosImoveis = new ArrayList<String>();
+        // ArrayList<String> CodigosImoveis = new ArrayList<String>();
         ArrayList<Imovel> Imoveis = Imobiliaria.getImoveis();
         for (Imovel I : Imoveis) {
             if (I.getCodigoImovel() == Integer.parseInt(Codigo)) {
@@ -168,7 +168,7 @@ public class Controlador {
         return null;
     }
 
-// Casa residencial
+    // Casa residencial
     public void cadastroCasaResidencial(int codigoImovel, String endereco, LocalDate dataConstrucao, float areaTotal,
             float areaConstruida, int qtdDormitorios, int qtdBanheiros, int qtdVagasGaragem, float valorIPTU,
             float valorVenda, float valorAluguel) {
@@ -188,22 +188,32 @@ public class Controlador {
         return Dados;
     }
 
-//Apartamento residencial
-    public void CadastroApartamentoResidencial(int andar, float valorCondominio, int codigoImovel, String endereco, LocalDate dataConstrucao, float areaTotal, float areaConstruida, int qtdDormitorios, int qtdBanheiros, int qtdVagasGaragem, float valorIPTU, float valorVenda, float valorAluguel) {
-        Imobiliaria.CadastrarApartamentoResidencial(new ApartamentoResidencial(andar, valorCondominio, codigoImovel, endereco, dataConstrucao, areaTotal, areaConstruida, qtdDormitorios, qtdBanheiros, qtdVagasGaragem, valorIPTU, valorVenda, valorAluguel));
+    // Apartamento residencial
+    public void CadastroApartamentoResidencial(int andar, float valorCondominio, int codigoImovel, String endereco,
+            LocalDate dataConstrucao, float areaTotal, float areaConstruida, int qtdDormitorios, int qtdBanheiros,
+            int qtdVagasGaragem, float valorIPTU, float valorVenda, float valorAluguel) {
+        Imobiliaria.CadastrarApartamentoResidencial(new ApartamentoResidencial(andar, valorCondominio, codigoImovel,
+                endereco, dataConstrucao, areaTotal, areaConstruida, qtdDormitorios, qtdBanheiros, qtdVagasGaragem,
+                valorIPTU, valorVenda, valorAluguel));
     }
 
-//Comercial
-    public void CadastrarComercial(float taxaImpostoFederal, int codigoImovel, String endereco, LocalDate dataConstrucao, float areaTotal, float areaConstruida, int qtdDormitorios, int qtdBanheiros, int qtdVagasGaragem, float valorIPTU, float valorVenda, float valorAluguel) {
-        Imobiliaria.CadastrarComercial(new Comercial(taxaImpostoFederal, codigoImovel, endereco, dataConstrucao, areaTotal, areaConstruida, qtdDormitorios, qtdBanheiros, qtdVagasGaragem, valorIPTU, valorVenda, valorAluguel));
+    // Comercial
+    public void CadastrarComercial(float taxaImpostoFederal, int codigoImovel, String endereco,
+            LocalDate dataConstrucao, float areaTotal, float areaConstruida, int qtdDormitorios, int qtdBanheiros,
+            int qtdVagasGaragem, float valorIPTU, float valorVenda, float valorAluguel) {
+        Imobiliaria.CadastrarComercial(
+                new Comercial(taxaImpostoFederal, codigoImovel, endereco, dataConstrucao, areaTotal, areaConstruida,
+                        qtdDormitorios, qtdBanheiros, qtdVagasGaragem, valorIPTU, valorVenda, valorAluguel));
     }
 
-//Vendas
-    public void CadastroVenda(int codigoVenda, Cliente cliente, Corretor corretor, Imovel imovel, LocalDate dataVenda, float valorTotalVenda, Pagamento formaPagamento) {
-        Imobiliaria.CadastrarVenda(new Venda(codigoVenda, cliente, corretor, imovel, dataVenda, valorTotalVenda, formaPagamento));
+    // Vendas
+    public void CadastroVenda(int codigoVenda, Cliente cliente, Corretor corretor, Imovel imovel, LocalDate dataVenda,
+            float valorTotalVenda, Pagamento formaPagamento) {
+        Imobiliaria.CadastrarVenda(
+                new Venda(codigoVenda, cliente, corretor, imovel, dataVenda, valorTotalVenda, formaPagamento));
     }
 
-//Locacao
+    // Locacao
     public void CadastroLocacao(Aluguel Alguel) {
         System.out.println(Alguel.toString());
         Imobiliaria.CadastroLocacao(Alguel);
@@ -224,7 +234,7 @@ public class Controlador {
         return Dados;
     }
 
-//Seguro
+    // Seguro
     public void CadastroSeguro(int codigoSeguro, String nomeSeguradora, String tipo, String descricao, float valor) {
         Seguro Seguro = new Seguro(codigoSeguro, nomeSeguradora, tipo, descricao, valor);
         Imobiliaria.CadastrarSeguro(Seguro);

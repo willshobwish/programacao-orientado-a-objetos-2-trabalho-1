@@ -52,6 +52,7 @@ public class ApartamentoResidencial extends Imovel implements Serializable {
     public String toString() {
         return "Tipo do imovel: Apartamento residencial\n" + super.toString()
                 + "\nAndar: " + andar + "\n"
-                + "Valor do condominio: " + valorCondominio + "\n";
+                + "Valor do condominio: " + valorCondominio
+                + "\n-----------------------------------------------------------------\n";
     }
 }

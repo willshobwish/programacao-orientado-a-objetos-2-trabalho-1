@@ -177,6 +177,7 @@ public class Aluguel implements Serializable {
                 + "Imovel: " + this.imovel + "\n"
                 + "Pago: " + this.pago + "\n"
                 + "Seguros contratados:\n" + Seguros
-                + "Valor total do aluguel: " + this.valorTotalAluguel + "\n";
+                + "Valor total do aluguel: " + this.valorTotalAluguel
+                + "\n-----------------------------------------------------------------\n";
     }
 }

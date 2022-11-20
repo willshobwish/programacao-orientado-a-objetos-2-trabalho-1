@@ -15,6 +15,7 @@ public class Dinheiro extends Pagamento implements Serializable {
 
     @Override
     public String toString() {
-        return "\nTipo de Pagamento: " + getTipoPagamento();
+        return "\nTipo de Pagamento: " + getTipoPagamento()
+                + "\n-----------------------------------------------------------------\n";
     }
 }

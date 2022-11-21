@@ -26,7 +26,7 @@ abstract public class Imovel implements Serializable {
     protected float valorIPTU;
     protected float valorVenda;
     protected float valorAluguel;
-    protected boolean disponivelVenda = true;
+    protected boolean disponivel = true;
 
     public Imovel(int codigoImovel, String endereco, LocalDate dataConstrucao, float areaTotal, float areaConstruida,
             int qtdDormitorios, int qtdBanheiros, int qtdVagasGaragem, float valorIPTU, float valorVenda,
@@ -133,15 +133,15 @@ abstract public class Imovel implements Serializable {
     }
 
     public void setDisponibilidade() {
-        if (disponivelVenda == true) {
-            disponivelVenda = false;
+        if (disponivel == true) {
+            disponivel = false;
         } else {
-            disponivelVenda = true;
+            disponivel = true;
         }
     }
 
     public boolean isDisponivel() {
-        return disponivelVenda;
+        return disponivel;
     }
 
     public String toString() {

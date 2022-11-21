@@ -278,7 +278,6 @@ public class Controlador {
             Imobiliaria.CadastrarVenda(
                     new Venda(codigoVenda, cliente, corretor, imovel, dataVenda, valorTotalVenda, formaPagamento));
             corretor.addVenda();
-
             imovel.setDisponibilidade();
             cliente.comprarImovel(imovel);
         } else {
@@ -287,9 +286,21 @@ public class Controlador {
     }
 
     // Locacao
-    public void CadastroLocacao(Aluguel Aluguel) {
-        System.out.println(Aluguel.toString());
-        Imobiliaria.CadastroLocacao(Aluguel);
+    public void CadastroLocacao(int codigoAluguel, Cliente cliente, Corretor corretor, Imovel imovel,
+            LocalDate dataAluguel, LocalDate dataDevolucao, LocalDate dataPagamentoMensal, float valorTotalAluguel,
+            Pagamento formaPagamento, ArrayList<Seguro> segurosContratados, boolean pago) {
+
+        if (imovel.isDisponivel()) {
+            Imobiliaria.CadastroLocacao(
+                    new Aluguel(codigoAluguel, cliente, corretor, imovel, dataAluguel, dataDevolucao,
+                            dataPagamentoMensal,
+                            valorTotalAluguel, formaPagamento, segurosContratados, pago));
+            corretor.addAluguel();
+            imovel.setDisponibilidade();
+            cliente.alugarImovel(imovel);
+        } else {
+            System.out.println("Imovel nao disponivel para locacao");
+        }
     }
 
     public int geracaoCodigoAluguel() {

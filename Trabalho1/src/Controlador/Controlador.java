@@ -59,6 +59,10 @@ public class Controlador {
         System.out.println(Cliente.toString());
     }
 
+    public ArrayList<Imovel> getImoveisCompradosCliente(Cliente cliente) {
+        return cliente.getImoveisComprados();
+    }
+
     public String mostrarClientes() {
         boolean existe = false;
         String Dados = "Clientes cadastrados:\n";
@@ -168,7 +172,7 @@ public class Controlador {
         return CodigosImoveis;
     }
 
-    public Imovel BuscarImovel(String Codigo) {
+    public Imovel buscarImovel(String Codigo) {
         // ArrayList<String> CodigosImoveis = new ArrayList<String>();
         ArrayList<Imovel> Imoveis = Imobiliaria.getImoveis();
         for (Imovel I : Imoveis) {
@@ -189,7 +193,7 @@ public class Controlador {
         System.out.println("Casa residencial cadastrado:\n" + CasaResidencial.toString());
     }
 
-    public String exibirTodasCasas() {
+    public String exibirCasasResidenciais() {
         String Dados = "";
         ArrayList<Imovel> Casas = Imobiliaria.getImoveis();
         for (Imovel CasaExibicao : Casas) {
@@ -207,19 +211,6 @@ public class Controlador {
             if (ComercialExibicao instanceof Comercial) {
                 System.out.println(ComercialExibicao.toString());
                 Dados = Dados + ComercialExibicao.toString();
-            }
-        }
-        return Dados;
-    }
-
-    // exibe todos os imoveis da classe CasaResidencial
-    public String exibirCasasResidenciais() {
-        String Dados = "";
-        ArrayList<Imovel> Residencial = Imobiliaria.getImoveis();
-        for (Imovel ResidencialExibicao : Residencial) {
-            if (ResidencialExibicao instanceof CasaResidencial) {
-                System.out.println(ResidencialExibicao.toString());
-                Dados = Dados + ResidencialExibicao.toString();
             }
         }
         return Dados;
@@ -250,6 +241,18 @@ public class Controlador {
         return ImoveisDisponiveis;
     }
 
+    public ArrayList<Imovel> getImoveisNaoDisponiveis() {
+        ArrayList<Imovel> Imoveis = Imobiliaria.getImoveis();
+        ArrayList<Imovel> ImoveisNaoDisponiveis = new ArrayList<Imovel>();
+
+        for (Imovel I : Imoveis) {
+            if (!I.isDisponivel()) {
+                ImoveisNaoDisponiveis.add(I);
+            }
+        }
+        return ImoveisNaoDisponiveis;
+    }
+
     // Apartamento residencial
     public void CadastroApartamentoResidencial(int andar, float valorCondominio, int codigoImovel, String endereco,
             LocalDate dataConstrucao, float areaTotal, float areaConstruida, int qtdDormitorios, int qtdBanheiros,
@@ -271,16 +274,22 @@ public class Controlador {
     // Vendas
     public void CadastroVenda(int codigoVenda, Cliente cliente, Corretor corretor, Imovel imovel, LocalDate dataVenda,
             float valorTotalVenda, Pagamento formaPagamento) {
-        Imobiliaria.CadastrarVenda(
-                new Venda(codigoVenda, cliente, corretor, imovel, dataVenda, valorTotalVenda, formaPagamento));
-        corretor.addVenda();
-        imovel.setDisponibilidade();
+        if (imovel.isDisponivel()) {
+            Imobiliaria.CadastrarVenda(
+                    new Venda(codigoVenda, cliente, corretor, imovel, dataVenda, valorTotalVenda, formaPagamento));
+            corretor.addVenda();
+
+            imovel.setDisponibilidade();
+            cliente.comprarImovel(imovel);
+        } else {
+            System.out.println("Imovel nao disponivel para venda");
+        }
     }
 
     // Locacao
-    public void CadastroLocacao(Aluguel Alguel) {
-        System.out.println(Alguel.toString());
-        Imobiliaria.CadastroLocacao(Alguel);
+    public void CadastroLocacao(Aluguel Aluguel) {
+        System.out.println(Aluguel.toString());
+        Imobiliaria.CadastroLocacao(Aluguel);
     }
 
     public int geracaoCodigoAluguel() {

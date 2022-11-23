@@ -220,6 +220,19 @@ public class Controlador {
         return alugueisVigentes;
     }
 
+    public ArrayList<Imovel> getCasaResidencialVigente(LocalDate data) {
+        ArrayList<Imovel> casasResidenciaisVigentes = new ArrayList<Imovel>();
+        ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
+
+        for (Aluguel alu : alugueis) {
+            if (alu.getDataPagamentoMensal().isAfter(data) && alu.getImovel() instanceof CasaResidencial) {
+                casasResidenciaisVigentes.add(alu.getImovel());
+            }
+        }
+
+        return casasResidenciaisVigentes;
+    }
+
     public ArrayList<Usuario> getClientesComAluguelAtrasado(LocalDate data) {
         ArrayList<Usuario> clientesAtrasados = new ArrayList<Usuario>();
         ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();

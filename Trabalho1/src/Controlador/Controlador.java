@@ -257,6 +257,19 @@ public class Controlador {
         return Imobiliaria.getAlugueis();
     }
 
+    public ArrayList<Aluguel> getAlugueisFinalizados() {
+        ArrayList<Aluguel> alugueisFinalizados = new ArrayList<Aluguel>();
+        ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
+
+        for (Aluguel alu : alugueis) {
+            if (alu.getDataDevolucao().isBefore(LocalDate.now())) {
+                alugueisFinalizados.add(alu);
+            }
+        }
+
+        return alugueisFinalizados;
+    }
+
     // exibe todos os imoveis da classe ApartamentoResidencial
     public String exibirApartamentosResidenciais() {
         String Dados = "";
@@ -398,23 +411,29 @@ public class Controlador {
         return Vendas;
     }
 
-    public float getValorTotalVendas() {
+    public float getLucroTotalVendas() {
         ArrayList<Venda> Vendas = Imobiliaria.getVendas();
+        ArrayList<Corretor> corretores = Imobiliaria.getCorretores();
         float ValorTotal = 0;
         for (Venda V : Vendas) {
             ValorTotal += V.getValorTotalVenda();
         }
+
+        for (Corretor C : corretores) {
+            ValorTotal -= C.getSalario();
+        }
+
         return ValorTotal;
     }
 
-    public ArrayList<Venda> getVendasDoMes(LocalDate Mes) {
+    public ArrayList<Venda> getVendasDoMes(LocalDate data) {
         ArrayList<Venda> Vendas = Imobiliaria.getVendas();
         ArrayList<Venda> VendasDoMês = new ArrayList<Venda>();
 
         LocalDate DataVenda;
         for (Venda V : Vendas) {
             DataVenda = V.getDataVenda();
-            if (DataVenda.getMonth() == Mes.getMonth()) {
+            if (DataVenda.getMonth() == data.getMonth()) {
                 VendasDoMês.add(V);
             }
         }
@@ -423,6 +442,7 @@ public class Controlador {
 
     public float getLucroDoMes(LocalDate Mes) {
         ArrayList<Venda> Vendas = Imobiliaria.getVendas();
+        ArrayList<Corretor> corretores = Imobiliaria.getCorretores();
         float lucro = 0;
         LocalDate DataVenda;
 
@@ -431,6 +451,10 @@ public class Controlador {
             if (DataVenda.getMonth() == Mes.getMonth()) {
                 lucro += V.getValorTotalVenda();
             }
+        }
+
+        for (Corretor C : corretores) {
+            lucro -= C.getSalario();
         }
 
         return lucro;

@@ -231,6 +231,19 @@ public class Controlador {
         }
 
         return casasResidenciaisVigentes;
+    }// implemented method to return CasasResidenciais with a current contract
+
+    public ArrayList<Imovel> getApartamentoResidencialVigente(LocalDate data) {
+        ArrayList<Imovel> apartamentosResidenciaisVigentes = new ArrayList<Imovel>();
+        ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
+
+        for (Aluguel alu : alugueis) {
+            if (alu.getDataPagamentoMensal().isAfter(data) && alu.getImovel() instanceof ApartamentoResidencial) {
+                apartamentosResidenciaisVigentes.add(alu.getImovel());
+            }
+        }
+
+        return apartamentosResidenciaisVigentes;
     }
 
     public ArrayList<Usuario> getClientesComAluguelAtrasado(LocalDate data) {

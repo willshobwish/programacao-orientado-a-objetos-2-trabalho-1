@@ -391,6 +391,21 @@ public class Controlador {
         return VendasDoMês;
     }
 
+    public float getLucroDoMes(LocalDate Mes) {
+        ArrayList<Venda> Vendas = Imobiliaria.getVendas();
+        float lucro = 0;
+        LocalDate DataVenda;
+
+        for (Venda V : Vendas) {
+            DataVenda = V.getDataVenda();
+            if (DataVenda.getMonth() == Mes.getMonth()) {
+                lucro += V.getValorTotalVenda();
+            }
+        }
+
+        return lucro;
+    }
+
     // Outros
     public int geradorCodigoUsuario() {
         ArrayList<Usuario> Usuarios = Imobiliaria.getUsuarios();

@@ -363,6 +363,11 @@ public class Controlador {
         return null;
     }
 
+    public ArrayList<Venda> getVendas() {
+        ArrayList<Venda> Vendas = Imobiliaria.getVendas();
+        return Vendas;
+    }
+
     // Outros
     public int geradorCodigoUsuario() {
         ArrayList<Usuario> Usuarios = Imobiliaria.getUsuarios();

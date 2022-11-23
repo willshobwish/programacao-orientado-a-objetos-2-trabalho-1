@@ -4,6 +4,8 @@
 package Grafico.Cadastro;
 
 import Controlador.Controlador;
+import Unicos.Aluguel;
+import java.time.format.DateTimeFormatter;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -35,14 +37,40 @@ public class PagarLocacao extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         ImovelCodigo = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        Pagar = new javax.swing.JButton();
+        DataPagamento = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Pagar locação de imóvel");
 
         jLabel1.setText("Selecione o imóvel");
 
-        jButton1.setText("Pagar locação do imóvel");
+        ImovelCodigo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                ImovelCodigoItemStateChanged(evt);
+            }
+        });
+        ImovelCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ImovelCodigoActionPerformed(evt);
+            }
+        });
+
+        Pagar.setText("Pagar locação do imóvel");
+        Pagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PagarActionPerformed(evt);
+            }
+        });
+
+        DataPagamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DataPagamentoActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Data do pagamento");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -50,10 +78,12 @@ public class PagarLocacao extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1)
-                    .addComponent(ImovelCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ImovelCodigo, 0, 200, Short.MAX_VALUE)
+                    .addComponent(Pagar, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(jLabel2)
+                    .addComponent(DataPagamento))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -64,12 +94,36 @@ public class PagarLocacao extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ImovelCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(DataPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                .addComponent(Pagar)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void DataPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DataPagamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DataPagamentoActionPerformed
+
+    private void ImovelCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImovelCodigoActionPerformed
+        // TODO add your handling code here:
+        Aluguel Aluguel = Controlador.getImovelCodigo(Integer.parseInt((String) ImovelCodigo.getSelectedItem()));
+        System.out.println(Aluguel.getDataPagamentoMensal().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        DataPagamento.setText(Aluguel.getDataPagamentoMensal().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+    }//GEN-LAST:event_ImovelCodigoActionPerformed
+
+    private void PagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PagarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PagarActionPerformed
+
+    private void ImovelCodigoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ImovelCodigoItemStateChanged
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_ImovelCodigoItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -107,8 +161,10 @@ public class PagarLocacao extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField DataPagamento;
     private javax.swing.JComboBox<String> ImovelCodigo;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton Pagar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

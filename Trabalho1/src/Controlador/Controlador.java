@@ -377,6 +377,20 @@ public class Controlador {
         return ValorTotal;
     }
 
+    public ArrayList<Venda> getVendasDoMes(LocalDate Mes) {
+        ArrayList<Venda> Vendas = Imobiliaria.getVendas();
+        ArrayList<Venda> VendasDoMês = new ArrayList<Venda>();
+
+        LocalDate DataVenda;
+        for (Venda V : Vendas) {
+            DataVenda = V.getDataVenda();
+            if (DataVenda.getMonth() == Mes.getMonth()) {
+                VendasDoMês.add(V);
+            }
+        }
+        return VendasDoMês;
+    }
+
     // Outros
     public int geradorCodigoUsuario() {
         ArrayList<Usuario> Usuarios = Imobiliaria.getUsuarios();

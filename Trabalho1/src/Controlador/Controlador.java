@@ -207,6 +207,19 @@ public class Controlador {
         return imoveisAtrasados;
     }
 
+    public ArrayList<Usuario> getClientesComAluguelAtrasado(LocalDate data) {
+        ArrayList<Usuario> clientesAtrasados = new ArrayList<Usuario>();
+        ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
+
+        for (Aluguel alu : alugueis) {
+            if (alu.getDataPagamentoMensal().isBefore(data)) {
+                clientesAtrasados.add(alu.getCliente());
+            }
+        }
+
+        return clientesAtrasados;
+    }
+
     // Casa residencial
     public void cadastroCasaResidencial(int codigoImovel, String endereco, LocalDate dataConstrucao, float areaTotal,
             float areaConstruida, int qtdDormitorios, int qtdBanheiros, int qtdVagasGaragem, float valorIPTU,

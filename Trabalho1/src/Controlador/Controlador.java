@@ -368,6 +368,15 @@ public class Controlador {
         return Vendas;
     }
 
+    public float getValorTotalVendas() {
+        ArrayList<Venda> Vendas = Imobiliaria.getVendas();
+        float ValorTotal = 0;
+        for (Venda V : Vendas) {
+            ValorTotal += V.getValorTotalVenda();
+        }
+        return ValorTotal;
+    }
+
     // Outros
     public int geradorCodigoUsuario() {
         ArrayList<Usuario> Usuarios = Imobiliaria.getUsuarios();

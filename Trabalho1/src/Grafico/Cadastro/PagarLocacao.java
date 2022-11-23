@@ -112,7 +112,6 @@ public class PagarLocacao extends javax.swing.JFrame {
     private void ImovelCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImovelCodigoActionPerformed
         // TODO add your handling code here:
         Aluguel Aluguel = Controlador.getImovelCodigo(Integer.parseInt((String) ImovelCodigo.getSelectedItem()));
-        System.out.println(Aluguel.getDataPagamentoMensal().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
         DataPagamento.setText(Aluguel.getDataPagamentoMensal().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
     }//GEN-LAST:event_ImovelCodigoActionPerformed
 

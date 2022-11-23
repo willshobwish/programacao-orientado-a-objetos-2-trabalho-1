@@ -194,30 +194,30 @@ public class Controlador {
         return null;
     }
 
-    public ArrayList<Imovel> getImoveisComAluguelAtrasado(LocalDate data) {
-        ArrayList<Imovel> imoveisAtrasados = new ArrayList<Imovel>();
+    public ArrayList<Aluguel> getImoveisComAluguelAtrasado(LocalDate data) {
+        ArrayList<Aluguel> alugueisAtrasados = new ArrayList<Aluguel>();
         ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
 
         for (Aluguel alu : alugueis) {
             if (alu.getDataPagamentoMensal().isBefore(data)) {
-                imoveisAtrasados.add(alu.getImovel());
+                alugueisAtrasados.add(alu);
             }
         }
 
-        return imoveisAtrasados;
+        return alugueisAtrasados;
     }
 
-    public ArrayList<Imovel> getImoveisComAluguelVigente(LocalDate data) {
-        ArrayList<Imovel> imoveisAtrasados = new ArrayList<Imovel>();
+    public ArrayList<Aluguel> getImoveisComAluguelVigente(LocalDate data) {
+        ArrayList<Aluguel> alugueisVigentes = new ArrayList<Aluguel>();
         ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
 
         for (Aluguel alu : alugueis) {
             if (alu.getDataPagamentoMensal().isAfter(data)) {
-                imoveisAtrasados.add(alu.getImovel());
+                alugueisVigentes.add(alu);
             }
         }
 
-        return imoveisAtrasados;
+        return alugueisVigentes;
     }
 
     public ArrayList<Usuario> getClientesComAluguelAtrasado(LocalDate data) {

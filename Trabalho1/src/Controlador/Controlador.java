@@ -194,7 +194,7 @@ public class Controlador {
         return null;
     }
 
-    public ArrayList<Aluguel> getImoveisComAluguelAtrasado(LocalDate data) {
+    public ArrayList<Aluguel> getAlugueisAtrasado(LocalDate data) {
         ArrayList<Aluguel> alugueisAtrasados = new ArrayList<Aluguel>();
         ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
 
@@ -207,7 +207,7 @@ public class Controlador {
         return alugueisAtrasados;
     }
 
-    public ArrayList<Aluguel> getImoveisComAluguelVigente(LocalDate data) {
+    public ArrayList<Aluguel> getAlugueislVigente(LocalDate data) {
         ArrayList<Aluguel> alugueisVigentes = new ArrayList<Aluguel>();
         ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
 

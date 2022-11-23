@@ -253,6 +253,10 @@ public class Controlador {
         return Dados;
     }
 
+    public ArrayList<Aluguel> getAlugueis() {
+        return Imobiliaria.getAlugueis();
+    }
+
     // exibe todos os imoveis da classe ApartamentoResidencial
     public String exibirApartamentosResidenciais() {
         String Dados = "";

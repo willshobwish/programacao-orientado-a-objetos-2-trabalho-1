@@ -101,6 +101,17 @@ public class Controlador {
         return null;
     }
 
+    public ArrayList<Imovel> listarHistoricoCliente(Cliente cliente) {
+        ArrayList<Imovel> imoveisComprados = cliente.getImoveisComprados();
+        ArrayList<Imovel> imoveisAlugados = cliente.getImoveisAlugados();
+        ArrayList<Imovel> todosImoveis = new ArrayList<Imovel>();
+
+        todosImoveis.addAll(imoveisComprados);
+        todosImoveis.addAll(imoveisAlugados);
+
+        return todosImoveis;
+    }
+
     // Corretores
     public void adicionarCorretores(String creci, float salario, String pis, int codigoUsuario, String nome,
             String cpf, String rg, LocalDate DataNascimento, LocalDate dataAdmissao, String endereco, String cep,

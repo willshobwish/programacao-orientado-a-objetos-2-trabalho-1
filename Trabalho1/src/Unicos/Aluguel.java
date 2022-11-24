@@ -9,6 +9,7 @@ import Usuario.Cliente;
 import Usuario.Corretor;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 /*
@@ -170,9 +171,9 @@ public class Aluguel implements Serializable {
                 + "---------\n"
                 + "Corretor:\n" + this.corretor + "\n"
                 + "---------\n"
-                + "Data do aluguel: " + this.dataAluguel + "\n"
-                + "Data de devolucao: " + this.dataDevolucao + "\n"
-                + "Data do pagamento mensal: " + this.dataPagamentoMensal + "\n"
+                + "Data do aluguel: " + this.dataAluguel.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + "\n"
+                + "Data de devolucao: " + this.dataDevolucao.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + "\n"
+                + "Data do pagamento mensal: " + this.dataPagamentoMensal.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + "\n"
                 + "Forma de pagamento: " + this.formaPagamento + "\n"
                 + "Imovel: " + this.imovel + "\n"
                 + "Pago: " + this.pago + "\n"

@@ -424,6 +424,16 @@ public class Controlador {
         return Dados;
     }
 
+    public Aluguel getImovelCodigo(int codigo) {
+        ArrayList<Aluguel> Alugueis = Imobiliaria.getAlugueis();
+        for (Aluguel A : Alugueis) {
+            if (A.getCodigoAluguel() == codigo) {
+                return A;
+            }
+        }
+        return null;
+    }
+
     // Seguro
     public void CadastroSeguro(int codigoSeguro, String nomeSeguradora, String tipo, String descricao, float valor) {
         Seguro Seguro = new Seguro(codigoSeguro, nomeSeguradora, tipo, descricao, valor);

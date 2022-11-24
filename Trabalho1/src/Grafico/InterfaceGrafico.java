@@ -11,6 +11,7 @@ import Grafico.Cadastro.CadastroImovel;
 import Grafico.Cadastro.CadastroLocacao;
 import Grafico.Cadastro.CadastroSeguro;
 import Grafico.Cadastro.CadastroVenda;
+import Grafico.Cadastro.PagarLocacao;
 
 /**
  *
@@ -44,6 +45,7 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem11 = new javax.swing.JMenuItem();
         TextoExibicaoScroll = new javax.swing.JScrollPane();
         TextoExibicao = new javax.swing.JTextArea();
         BarraMenu = new javax.swing.JMenuBar();
@@ -69,6 +71,7 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         ClientesCadastrados = new javax.swing.JMenuItem();
         CorretoresCadastrados = new javax.swing.JMenuItem();
         PagamentoMenu = new javax.swing.JMenu();
+        jMenuItem12 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
@@ -78,6 +81,8 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
+
+        jMenuItem11.setText("jMenuItem11");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Trabalho 01");
@@ -239,6 +244,14 @@ public class InterfaceGrafico extends javax.swing.JFrame {
 
         PagamentoMenu.setText("Pagamento");
 
+        jMenuItem12.setText("Pagar locação de imóvel");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
+        PagamentoMenu.add(jMenuItem12);
+
         jMenuItem3.setText("Alugueis com atraso no pagamento");
         PagamentoMenu.add(jMenuItem3);
 
@@ -336,6 +349,13 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         Limpar();
         TextoExibicao.setText(Controlador.ExibirTodasLocacoes());
     }// GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+        // TODO add your handling code here:
+        PagarLocacao PagarLocacao = new PagarLocacao();
+        PagarLocacao.setLocationRelativeTo(this);
+        PagarLocacao.setVisible(true);
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     private void ClientesCadastradosActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ClientesCadastradosActionPerformed
         // TODO add your handling code here:
@@ -483,6 +503,8 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;

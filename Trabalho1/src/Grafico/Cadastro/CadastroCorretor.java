@@ -19,7 +19,7 @@ public class CadastroCorretor extends javax.swing.JFrame {
     public CadastroCorretor() {
         initComponents();
         Controlador Controlador = new Controlador();
-        Codigo.setText(Integer.toString(Controlador.geradorCodigoUsuario()));
+        Codigo.setText(Integer.toString(Controlador.getGeradorCodigoUsuario()));
     }
 
     public int DataAno() {
@@ -341,7 +341,7 @@ public class CadastroCorretor extends javax.swing.JFrame {
         LocalDate DataNascimento = LocalDate.parse(Ano.getValue() + "-" + Mes.getValue() + "-" + Dia.getValue());
         LocalDate DataAdmissao = LocalDate.parse(AnoAdmisssao.getValue() + "-" + MesAdmissao.getValue() + "-" + DiaAdmissao.getValue());
         Controlador.adicionarCorretores(CreciText.getText(), Float.parseFloat(SalarioText.getText()), PIS.getText(), Integer.parseInt(Codigo.getText()), Nome.getText(), Cpf.getText(), Rg.getText(), DataNascimento, DataAdmissao, Endereco.getText(), Cep.getText(), Telefone.getText(), Email.getText());
-        Codigo.setText(Integer.toString(Controlador.geradorCodigoUsuario()));
+        Codigo.setText(Integer.toString(Controlador.getGeradorCodigoUsuario()));
         JOptionPane.showMessageDialog(this, "Corretor cadastrado com sucesso");
     }//GEN-LAST:event_jButton1ActionPerformed
 

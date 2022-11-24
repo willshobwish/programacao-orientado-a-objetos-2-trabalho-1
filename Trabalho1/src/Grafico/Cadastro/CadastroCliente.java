@@ -20,7 +20,7 @@ public class CadastroCliente extends javax.swing.JFrame {
      */
     public CadastroCliente() {
         initComponents();
-        CodigoCliente.setText(Integer.toString(Controlador.geradorCodigoUsuario()));
+        CodigoCliente.setText(Integer.toString(Controlador.getGeradorCodigoUsuario()));
     }
 
     public int DataAno() {
@@ -292,7 +292,7 @@ public class CadastroCliente extends javax.swing.JFrame {
 //        Controlador Controlador = new Controlador();
         LocalDate DataNascimeto = LocalDate.parse(AnoNascimento.getValue() + "-" + MesNascimento.getValue() + "-" + DiaNascimento.getValue());
         Controlador.adicionarCliente(LocalDate.now(), Integer.parseInt(CodigoCliente.getText()), NomeCliente.getText(), CPFCliente.getText(), RGCliente.getText(), DataNascimeto, EnderecoCliente.getText(), CEPCliente.getText(), TelefoneCliente.getText(), EmailCliente.getText());
-        CodigoCliente.setText(Integer.toString(Controlador.geradorCodigoUsuario()));
+        CodigoCliente.setText(Integer.toString(Controlador.getGeradorCodigoUsuario()));
         JOptionPane.showMessageDialog(this, "Cliente cadastrado com sucesso");
     }//GEN-LAST:event_CadastrarActionPerformed
 

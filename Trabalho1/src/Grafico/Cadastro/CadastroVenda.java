@@ -35,7 +35,7 @@ public class CadastroVenda extends javax.swing.JFrame {
         String[] ClientesNomes = Controlador.NomesClientesArray().toArray(new String[0]);
         DefaultComboBoxModel ClientesModel = new DefaultComboBoxModel(ClientesNomes);
         ClientesNomeBox.setModel(ClientesModel);
-        Codigo.setText(String.valueOf(Controlador.geradorCodigoVenda()));
+        Codigo.setText(String.valueOf(Controlador.getGeradorCodigoVenda()));
         DiaVenda.setValue(DataDia());
         MesVenda.setValue(DataMes());
         AnoVenda.setValue(DataAno());

@@ -26,8 +26,6 @@ import java.util.ArrayList;
  *
  */
 public class Controlador {
-    // Nao sei se eh necessario ser static, uma vez que esta na classe e nao no
-    // construtor
 
     private static ArrayList<Venda> Venda = new ArrayList<>();
     private static ArrayList<Imovel> Imovel = new ArrayList<>();
@@ -37,8 +35,6 @@ public class Controlador {
     private static Imobiliaria Imobiliaria = new Imobiliaria("Teste", "Endereco teste");
 
     public Controlador() {
-        // Imobiliaria = new Imobiliaria("Teste", "Endereco teste", Aluguel, Venda,
-        // Imovel, Usuario, Seguro, null);
     }
 
     public String toString() {
@@ -105,10 +101,8 @@ public class Controlador {
         ArrayList<Imovel> imoveisComprados = cliente.getImoveisComprados();
         ArrayList<Imovel> imoveisAlugados = cliente.getImoveisAlugados();
         ArrayList<Imovel> todosImoveis = new ArrayList<Imovel>();
-
         todosImoveis.addAll(imoveisComprados);
         todosImoveis.addAll(imoveisAlugados);
-
         return todosImoveis;
     }
 
@@ -197,78 +191,66 @@ public class Controlador {
     public ArrayList<Aluguel> getAlugueisAtrasado(LocalDate data) {
         ArrayList<Aluguel> alugueisAtrasados = new ArrayList<Aluguel>();
         ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
-
         for (Aluguel alu : alugueis) {
             if (alu.getDataPagamentoMensal().isBefore(data)) {
                 alugueisAtrasados.add(alu);
             }
         }
-
         return alugueisAtrasados;
     }
 
     public ArrayList<Aluguel> getAlugueislVigente(LocalDate data) {
         ArrayList<Aluguel> alugueisVigentes = new ArrayList<Aluguel>();
         ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
-
         for (Aluguel alu : alugueis) {
             if (alu.getDataPagamentoMensal().isAfter(data)) {
                 alugueisVigentes.add(alu);
             }
         }
-
         return alugueisVigentes;
     }
 
     public ArrayList<Imovel> getCasaResidencialVigente(LocalDate data) {
         ArrayList<Imovel> casasResidenciaisVigentes = new ArrayList<Imovel>();
         ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
-
         for (Aluguel alu : alugueis) {
             if (alu.getDataPagamentoMensal().isAfter(data) && alu.getImovel() instanceof CasaResidencial) {
                 casasResidenciaisVigentes.add(alu.getImovel());
             }
         }
-
         return casasResidenciaisVigentes;
     }
 
     public ArrayList<Imovel> getApartamentoResidencialVigente(LocalDate data) {
         ArrayList<Imovel> apartamentosResidenciaisVigentes = new ArrayList<Imovel>();
         ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
-
         for (Aluguel alu : alugueis) {
             if (alu.getDataPagamentoMensal().isAfter(data) && alu.getImovel() instanceof ApartamentoResidencial) {
                 apartamentosResidenciaisVigentes.add(alu.getImovel());
             }
         }
-
         return apartamentosResidenciaisVigentes;
     }
 
     public ArrayList<Imovel> getComerciaisVigente(LocalDate data) {
         ArrayList<Imovel> comerciaisVigentes = new ArrayList<Imovel>();
         ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
-
         for (Aluguel alu : alugueis) {
             if (alu.getDataPagamentoMensal().isAfter(data) && alu.getImovel() instanceof Comercial) {
                 comerciaisVigentes.add(alu.getImovel());
             }
         }
-
         return comerciaisVigentes;
     }
 
     public ArrayList<Usuario> getClientesComAluguelAtrasado(LocalDate data) {
         ArrayList<Usuario> clientesAtrasados = new ArrayList<Usuario>();
         ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
-
         for (Aluguel alu : alugueis) {
             if (alu.getDataPagamentoMensal().isBefore(data)) {
                 clientesAtrasados.add(alu.getCliente());
             }
         }
-
         return clientesAtrasados;
     }
 
@@ -282,7 +264,7 @@ public class Controlador {
         System.out.println("Casa residencial cadastrado:\n" + CasaResidencial.toString());
     }
 
-    public String exibirCasasResidenciais() {
+    public String todasCasasResidenciaisToString() {
         String Dados = "";
         ArrayList<Imovel> Casas = Imobiliaria.getImoveis();
         for (Imovel CasaExibicao : Casas) {
@@ -293,7 +275,7 @@ public class Controlador {
     }
 
     // exibe todos os imoveis da classe Comercial
-    public String exibirComerciais() {
+    public String todosComerciaisToString() {
         String Dados = "";
         ArrayList<Imovel> Comercial = Imobiliaria.getImoveis();
         for (Imovel ComercialExibicao : Comercial) {
@@ -312,13 +294,11 @@ public class Controlador {
     public ArrayList<Aluguel> getAlugueisFinalizados() {
         ArrayList<Aluguel> alugueisFinalizados = new ArrayList<Aluguel>();
         ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
-
         for (Aluguel alu : alugueis) {
             if (alu.getDataDevolucao().isBefore(LocalDate.now())) {
                 alugueisFinalizados.add(alu);
             }
         }
-
         return alugueisFinalizados;
     }
 
@@ -338,7 +318,6 @@ public class Controlador {
     public ArrayList<Imovel> getImoveisDisponiveis() {
         ArrayList<Imovel> Imoveis = Imobiliaria.getImoveis();
         ArrayList<Imovel> ImoveisDisponiveis = new ArrayList<Imovel>();
-
         for (Imovel I : Imoveis) {
             if (I.isDisponivel()) {
                 ImoveisDisponiveis.add(I);
@@ -350,7 +329,6 @@ public class Controlador {
     public ArrayList<Imovel> getImoveisNaoDisponiveis() {
         ArrayList<Imovel> Imoveis = Imobiliaria.getImoveis();
         ArrayList<Imovel> ImoveisNaoDisponiveis = new ArrayList<Imovel>();
-
         for (Imovel I : Imoveis) {
             if (!I.isDisponivel()) {
                 ImoveisNaoDisponiveis.add(I);
@@ -395,7 +373,6 @@ public class Controlador {
     public void CadastroLocacao(int codigoAluguel, Cliente cliente, Corretor corretor, Imovel imovel,
             LocalDate dataAluguel, LocalDate dataDevolucao, LocalDate dataPagamentoMensal, float valorTotalAluguel,
             Pagamento formaPagamento, ArrayList<Seguro> segurosContratados, boolean pago) {
-
         if (imovel.isDisponivel()) {
             Imobiliaria.CadastroLocacao(
                     new Aluguel(codigoAluguel, cliente, corretor, imovel, dataAluguel, dataDevolucao,
@@ -409,12 +386,7 @@ public class Controlador {
         }
     }
 
-    public int geracaoCodigoAluguel() {
-        ArrayList<Aluguel> Alugueis = Imobiliaria.getAlugueis();
-        return Alugueis.size();
-    }
-
-    public String ExibirTodasLocacoes() {
+    public String todasLocacoesToString() {
         String Dados = "Todas locações:\n";
         ArrayList<Aluguel> Alugueis = Imobiliaria.getAlugueis();
         for (Aluguel A : Alugueis) {
@@ -440,7 +412,7 @@ public class Controlador {
         Imobiliaria.CadastrarSeguro(Seguro);
     }
 
-    public ArrayList<String> NomeSeguroArray() {
+    public ArrayList<String> getArrayDeNomeDeSeguro() {
         ArrayList<Seguro> Seguros = Imobiliaria.getSeguros();
         ArrayList<String> SeguroDescricao = new ArrayList<String>();
         for (Seguro S : Seguros) {
@@ -449,7 +421,7 @@ public class Controlador {
         return SeguroDescricao;
     }
 
-    public String ExibirTodosSeguros() {
+    public String todosSegurosToString() {
         ArrayList<Seguro> Seguros = Imobiliaria.getSeguros();
         String DadosSeguro = "";
         for (Seguro S : Seguros) {
@@ -458,7 +430,7 @@ public class Controlador {
         return DadosSeguro;
     }
 
-    public Seguro BuscarSeguro(String Tipo) {
+    public Seguro getSeguroPorTipo(String Tipo) {
         ArrayList<Seguro> Seguros = Imobiliaria.getSeguros();
         for (Seguro S : Seguros) {
             if (S.getTipo().equals(Tipo)) {
@@ -468,7 +440,7 @@ public class Controlador {
         return null;
     }
 
-    public ArrayList<Venda> getVendas() {
+    public ArrayList<Venda> getArrayDeVendas() {
         ArrayList<Venda> Vendas = Imobiliaria.getVendas();
         return Vendas;
     }
@@ -480,18 +452,15 @@ public class Controlador {
         for (Venda V : Vendas) {
             ValorTotal += V.getValorTotalVenda();
         }
-
         for (Corretor C : corretores) {
             ValorTotal -= C.getSalario();
         }
-
         return ValorTotal;
     }
 
     public ArrayList<Venda> getVendasDoMes(LocalDate data) {
         ArrayList<Venda> Vendas = Imobiliaria.getVendas();
         ArrayList<Venda> VendasDoMês = new ArrayList<Venda>();
-
         LocalDate DataVenda;
         for (Venda V : Vendas) {
             DataVenda = V.getDataVenda();
@@ -507,43 +476,45 @@ public class Controlador {
         ArrayList<Corretor> corretores = Imobiliaria.getCorretores();
         float lucro = 0;
         LocalDate DataVenda;
-
         for (Venda V : Vendas) {
             DataVenda = V.getDataVenda();
             if (DataVenda.getMonth() == Mes.getMonth()) {
                 lucro += V.getValorTotalVenda();
             }
         }
-
         for (Corretor C : corretores) {
             lucro -= C.getSalario();
         }
-
         return lucro;
     }
 
-    // Outros
-    public int geradorCodigoUsuario() {
+    // Gerador de codigos
+    public int getGeradorCodigoUsuario() {
         ArrayList<Usuario> Usuarios = Imobiliaria.getUsuarios();
         System.out.println("Gerador de codigo de usuario acionado");
         return Usuarios.size();
     }
 
-    public int geradorCodigoImovel() {
+    public int getGeradorCodigoImovel() {
         ArrayList<Imovel> Imoveis = Imobiliaria.getImoveis();
         System.out.println("Gerador de codigo de imoveis acionado");
         return Imoveis.size();
     }
 
-    public int geradorCodigoSeguro() {
+    public int getGeradorCodigoSeguro() {
         ArrayList<Seguro> Seguros = Imobiliaria.getSeguros();
         System.out.println("Gerador de codigo de Seguros acionado");
         return Seguros.size();
     }
 
-    public int geradorCodigoVenda() {
+    public int getGeradorCodigoVenda() {
         ArrayList<Venda> Vendas = Imobiliaria.getVendas();
         System.out.println("Gerador de codigo de vendas acionado");
         return Vendas.size();
+    }
+
+    public int getGeradorCodigoAluguel() {
+        ArrayList<Aluguel> Alugueis = Imobiliaria.getAlugueis();
+        return Alugueis.size();
     }
 }

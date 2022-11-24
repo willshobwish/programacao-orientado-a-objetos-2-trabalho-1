@@ -18,7 +18,7 @@ public class CadastroSeguro extends javax.swing.JFrame {
      */
     public CadastroSeguro() {
         initComponents();
-        Codigo.setText(String.valueOf(Controlador.geradorCodigoSeguro()));
+        Codigo.setText(String.valueOf(Controlador.getGeradorCodigoSeguro()));
     }
 
     /**

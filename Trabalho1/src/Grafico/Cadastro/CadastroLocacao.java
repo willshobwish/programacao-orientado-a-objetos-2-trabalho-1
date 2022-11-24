@@ -8,7 +8,6 @@ import Imovel.Imovel;
 import Pagamento.Cartao;
 import Pagamento.Dinheiro;
 import Pagamento.Pagamento;
-import Unicos.Aluguel;
 import Unicos.Seguro;
 import Usuario.Cliente;
 import Usuario.Corretor;
@@ -40,7 +39,7 @@ public class CadastroLocacao extends javax.swing.JFrame {
         String[] CodigosImoveis = Controlador.CodigosImoveisArray().toArray(new String[0]);
         DefaultComboBoxModel CodigoModel = new DefaultComboBoxModel(CodigosImoveis);
         ImovelCodigo.setModel(CodigoModel);
-        String[] TipoSeguros = Controlador.NomeSeguroArray().toArray(new String[0]);
+        String[] TipoSeguros = Controlador.getArrayDeNomeDeSeguro().toArray(new String[0]);
         DefaultComboBoxModel SeguroModel = new DefaultComboBoxModel(TipoSeguros);
         SegurosSelecao.setModel(SeguroModel);
         String[] ClientesNomes = Controlador.NomesClientesArray().toArray(new String[0]);
@@ -48,7 +47,7 @@ public class CadastroLocacao extends javax.swing.JFrame {
         ClientesNomeBox.setModel(ClientesNomesModel);
         Dinheiro.setSelected(true);
         disableCartao();
-        Codigo.setText(String.valueOf(Controlador.geracaoCodigoAluguel()));
+        Codigo.setText(String.valueOf(Controlador.getGeradorCodigoAluguel()));
         DiaLocacao.setValue(DataDia());
         MesLocacao.setValue(DataMes());
         AnoLocacao.setValue(DataAno());
@@ -523,7 +522,7 @@ public class CadastroLocacao extends javax.swing.JFrame {
         LocalDate DataAgora = LocalDate.now();
         LocalDate dataPagamentoMensal = LocalDate.parse(
                 DataAgora.getYear() + "-" + DataAgora.getMonthValue() + "-"
-                        + DiaPagamento.getValue().toString());
+                + DiaPagamento.getValue().toString());
         float valorTotalAluguel = imovel.getValorAluguel();
         Pagamento formaPagamento = null;
         if (Dinheiro.isSelected()) {
@@ -577,15 +576,15 @@ public class CadastroLocacao extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.out.println(
                 SegurosSelecionados.contains(
-                        Controlador.BuscarSeguro(SegurosSelecao.getSelectedItem().toString())));
+                        Controlador.getSeguroPorTipo(SegurosSelecao.getSelectedItem().toString())));
         if (SegurosSelecionados
-                .contains(Controlador.BuscarSeguro(SegurosSelecao.getSelectedItem().toString()))) {
+                .contains(Controlador.getSeguroPorTipo(SegurosSelecao.getSelectedItem().toString()))) {
             JOptionPane.showMessageDialog(this,
                     "Seguro já cadastrado",
                     "Seguro",
                     JOptionPane.WARNING_MESSAGE);
         } else {
-            SegurosSelecionados.add(Controlador.BuscarSeguro(SegurosSelecao.getSelectedItem().toString()));
+            SegurosSelecionados.add(Controlador.getSeguroPorTipo(SegurosSelecao.getSelectedItem().toString()));
             String SegurosListados = Seguros.getText();
             SegurosListados = SegurosListados + SegurosSelecao.getSelectedItem().toString() + "\n";
             Seguros.setText(SegurosListados);
@@ -636,7 +635,6 @@ public class CadastroLocacao extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AdicionarSeguro;
     private javax.swing.JLabel AnoCadastroLabel;

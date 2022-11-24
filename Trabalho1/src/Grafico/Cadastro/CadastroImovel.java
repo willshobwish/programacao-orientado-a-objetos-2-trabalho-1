@@ -26,7 +26,7 @@ public class CadastroImovel extends javax.swing.JDialog {
             ValorCondominio.setEnabled(false);
             TaxaImpostoFederal.setEnabled(false);
         }
-        Codigo.setText(String.valueOf(controlador.geradorCodigoImovel()));
+        Codigo.setText(String.valueOf(controlador.getGeradorCodigoImovel()));
     }
 
     public void CadastroCasaResidencial() {
@@ -405,7 +405,7 @@ public class CadastroImovel extends javax.swing.JDialog {
             controlador.CadastrarComercial(taxaImpostoFederal, codigoImovel, endereco, dataConstrucao, areaTotal, areaConstruida, qtdDormitorios, qtdBanheiros, qtdVagasGaragem, valorIPTU, valorVenda, valorAluguel);
             JOptionPane.showMessageDialog(this, "Comercial cadastrado com sucesso");
         }
-        Codigo.setText(String.valueOf(controlador.geradorCodigoImovel()));
+        Codigo.setText(String.valueOf(controlador.getGeradorCodigoImovel()));
     }//GEN-LAST:event_CadastrarActionPerformed
     private void AreaConstruidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AreaConstruidaActionPerformed
         // TODO add your handling code here:

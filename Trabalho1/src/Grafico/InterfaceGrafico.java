@@ -341,13 +341,13 @@ public class InterfaceGrafico extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
-        TextoExibicao.setText(Controlador.ExibirTodosSeguros());
+        TextoExibicao.setText(Controlador.todosSegurosToString());
     }// GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem8ActionPerformed
         // TODO add your handling code here:
         Limpar();
-        TextoExibicao.setText(Controlador.ExibirTodasLocacoes());
+        TextoExibicao.setText(Controlador.todasLocacoesToString());
     }// GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
@@ -379,7 +379,7 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private void CategoriaCasaResidencialActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CategoriaCasaResidencialActionPerformed
         // TODO add your handling code here:
         Limpar();
-        TextoExibicao.setText("Lista de categoria de casa residencial:\n" + Controlador.exibirCasasResidenciais());
+        TextoExibicao.setText("Lista de categoria de casa residencial:\n" + Controlador.todasCasasResidenciaisToString());
     }// GEN-LAST:event_CategoriaCasaResidencialActionPerformed
 
     private void CategoriaComercialActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CategoriaComercialActionPerformed

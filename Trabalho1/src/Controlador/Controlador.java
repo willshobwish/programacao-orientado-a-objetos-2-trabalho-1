@@ -59,6 +59,10 @@ public class Controlador {
         System.out.println(Cliente.toString());
     }
 
+    public ArrayList<Imovel> getImoveisCompradosCliente(Cliente cliente) {
+        return cliente.getImoveisComprados();
+    }
+
     public String mostrarClientes() {
         boolean existe = false;
         String Dados = "Clientes cadastrados:\n";
@@ -95,6 +99,17 @@ public class Controlador {
             }
         }
         return null;
+    }
+
+    public ArrayList<Imovel> listarHistoricoCliente(Cliente cliente) {
+        ArrayList<Imovel> imoveisComprados = cliente.getImoveisComprados();
+        ArrayList<Imovel> imoveisAlugados = cliente.getImoveisAlugados();
+        ArrayList<Imovel> todosImoveis = new ArrayList<Imovel>();
+
+        todosImoveis.addAll(imoveisComprados);
+        todosImoveis.addAll(imoveisAlugados);
+
+        return todosImoveis;
     }
 
     // Corretores
@@ -168,7 +183,7 @@ public class Controlador {
         return CodigosImoveis;
     }
 
-    public Imovel BuscarImovel(String Codigo) {
+    public Imovel buscarImovel(String Codigo) {
         // ArrayList<String> CodigosImoveis = new ArrayList<String>();
         ArrayList<Imovel> Imoveis = Imobiliaria.getImoveis();
         for (Imovel I : Imoveis) {
@@ -177,6 +192,84 @@ public class Controlador {
             }
         }
         return null;
+    }
+
+    public ArrayList<Aluguel> getAlugueisAtrasado(LocalDate data) {
+        ArrayList<Aluguel> alugueisAtrasados = new ArrayList<Aluguel>();
+        ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
+
+        for (Aluguel alu : alugueis) {
+            if (alu.getDataPagamentoMensal().isBefore(data)) {
+                alugueisAtrasados.add(alu);
+            }
+        }
+
+        return alugueisAtrasados;
+    }
+
+    public ArrayList<Aluguel> getAlugueislVigente(LocalDate data) {
+        ArrayList<Aluguel> alugueisVigentes = new ArrayList<Aluguel>();
+        ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
+
+        for (Aluguel alu : alugueis) {
+            if (alu.getDataPagamentoMensal().isAfter(data)) {
+                alugueisVigentes.add(alu);
+            }
+        }
+
+        return alugueisVigentes;
+    }
+
+    public ArrayList<Imovel> getCasaResidencialVigente(LocalDate data) {
+        ArrayList<Imovel> casasResidenciaisVigentes = new ArrayList<Imovel>();
+        ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
+
+        for (Aluguel alu : alugueis) {
+            if (alu.getDataPagamentoMensal().isAfter(data) && alu.getImovel() instanceof CasaResidencial) {
+                casasResidenciaisVigentes.add(alu.getImovel());
+            }
+        }
+
+        return casasResidenciaisVigentes;
+    }
+
+    public ArrayList<Imovel> getApartamentoResidencialVigente(LocalDate data) {
+        ArrayList<Imovel> apartamentosResidenciaisVigentes = new ArrayList<Imovel>();
+        ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
+
+        for (Aluguel alu : alugueis) {
+            if (alu.getDataPagamentoMensal().isAfter(data) && alu.getImovel() instanceof ApartamentoResidencial) {
+                apartamentosResidenciaisVigentes.add(alu.getImovel());
+            }
+        }
+
+        return apartamentosResidenciaisVigentes;
+    }
+
+    public ArrayList<Imovel> getComerciaisVigente(LocalDate data) {
+        ArrayList<Imovel> comerciaisVigentes = new ArrayList<Imovel>();
+        ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
+
+        for (Aluguel alu : alugueis) {
+            if (alu.getDataPagamentoMensal().isAfter(data) && alu.getImovel() instanceof Comercial) {
+                comerciaisVigentes.add(alu.getImovel());
+            }
+        }
+
+        return comerciaisVigentes;
+    }
+
+    public ArrayList<Usuario> getClientesComAluguelAtrasado(LocalDate data) {
+        ArrayList<Usuario> clientesAtrasados = new ArrayList<Usuario>();
+        ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
+
+        for (Aluguel alu : alugueis) {
+            if (alu.getDataPagamentoMensal().isBefore(data)) {
+                clientesAtrasados.add(alu.getCliente());
+            }
+        }
+
+        return clientesAtrasados;
     }
 
     // Casa residencial
@@ -189,7 +282,7 @@ public class Controlador {
         System.out.println("Casa residencial cadastrado:\n" + CasaResidencial.toString());
     }
 
-    public String exibirTodasCasas() {
+    public String exibirCasasResidenciais() {
         String Dados = "";
         ArrayList<Imovel> Casas = Imobiliaria.getImoveis();
         for (Imovel CasaExibicao : Casas) {
@@ -212,17 +305,21 @@ public class Controlador {
         return Dados;
     }
 
-    // exibe todos os imoveis da classe CasaResidencial
-    public String exibirCasasResidenciais() {
-        String Dados = "";
-        ArrayList<Imovel> Residencial = Imobiliaria.getImoveis();
-        for (Imovel ResidencialExibicao : Residencial) {
-            if (ResidencialExibicao instanceof CasaResidencial) {
-                System.out.println(ResidencialExibicao.toString());
-                Dados = Dados + ResidencialExibicao.toString();
+    public ArrayList<Aluguel> getAlugueis() {
+        return Imobiliaria.getAlugueis();
+    }
+
+    public ArrayList<Aluguel> getAlugueisFinalizados() {
+        ArrayList<Aluguel> alugueisFinalizados = new ArrayList<Aluguel>();
+        ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
+
+        for (Aluguel alu : alugueis) {
+            if (alu.getDataDevolucao().isBefore(LocalDate.now())) {
+                alugueisFinalizados.add(alu);
             }
         }
-        return Dados;
+
+        return alugueisFinalizados;
     }
 
     // exibe todos os imoveis da classe ApartamentoResidencial
@@ -250,6 +347,18 @@ public class Controlador {
         return ImoveisDisponiveis;
     }
 
+    public ArrayList<Imovel> getImoveisNaoDisponiveis() {
+        ArrayList<Imovel> Imoveis = Imobiliaria.getImoveis();
+        ArrayList<Imovel> ImoveisNaoDisponiveis = new ArrayList<Imovel>();
+
+        for (Imovel I : Imoveis) {
+            if (!I.isDisponivel()) {
+                ImoveisNaoDisponiveis.add(I);
+            }
+        }
+        return ImoveisNaoDisponiveis;
+    }
+
     // Apartamento residencial
     public void CadastroApartamentoResidencial(int andar, float valorCondominio, int codigoImovel, String endereco,
             LocalDate dataConstrucao, float areaTotal, float areaConstruida, int qtdDormitorios, int qtdBanheiros,
@@ -271,16 +380,33 @@ public class Controlador {
     // Vendas
     public void CadastroVenda(int codigoVenda, Cliente cliente, Corretor corretor, Imovel imovel, LocalDate dataVenda,
             float valorTotalVenda, Pagamento formaPagamento) {
-        Imobiliaria.CadastrarVenda(
-                new Venda(codigoVenda, cliente, corretor, imovel, dataVenda, valorTotalVenda, formaPagamento));
-        corretor.addVenda();
-        imovel.setDisponibilidade();
+        if (imovel.isDisponivel()) {
+            Imobiliaria.CadastrarVenda(
+                    new Venda(codigoVenda, cliente, corretor, imovel, dataVenda, valorTotalVenda, formaPagamento));
+            corretor.addVenda();
+            imovel.setDisponibilidade();
+            cliente.comprarImovel(imovel);
+        } else {
+            System.out.println("Imovel nao disponivel para venda");
+        }
     }
 
     // Locacao
-    public void CadastroLocacao(Aluguel Alguel) {
-        System.out.println(Alguel.toString());
-        Imobiliaria.CadastroLocacao(Alguel);
+    public void CadastroLocacao(int codigoAluguel, Cliente cliente, Corretor corretor, Imovel imovel,
+            LocalDate dataAluguel, LocalDate dataDevolucao, LocalDate dataPagamentoMensal, float valorTotalAluguel,
+            Pagamento formaPagamento, ArrayList<Seguro> segurosContratados, boolean pago) {
+
+        if (imovel.isDisponivel()) {
+            Imobiliaria.CadastroLocacao(
+                    new Aluguel(codigoAluguel, cliente, corretor, imovel, dataAluguel, dataDevolucao,
+                            dataPagamentoMensal,
+                            valorTotalAluguel, formaPagamento, segurosContratados, pago));
+            corretor.addAluguel();
+            imovel.setDisponibilidade();
+            cliente.alugarImovel(imovel);
+        } else {
+            System.out.println("Imovel nao disponivel para locacao");
+        }
     }
 
     public int geracaoCodigoAluguel() {
@@ -340,6 +466,60 @@ public class Controlador {
             }
         }
         return null;
+    }
+
+    public ArrayList<Venda> getVendas() {
+        ArrayList<Venda> Vendas = Imobiliaria.getVendas();
+        return Vendas;
+    }
+
+    public float getLucroTotalVendas() {
+        ArrayList<Venda> Vendas = Imobiliaria.getVendas();
+        ArrayList<Corretor> corretores = Imobiliaria.getCorretores();
+        float ValorTotal = 0;
+        for (Venda V : Vendas) {
+            ValorTotal += V.getValorTotalVenda();
+        }
+
+        for (Corretor C : corretores) {
+            ValorTotal -= C.getSalario();
+        }
+
+        return ValorTotal;
+    }
+
+    public ArrayList<Venda> getVendasDoMes(LocalDate data) {
+        ArrayList<Venda> Vendas = Imobiliaria.getVendas();
+        ArrayList<Venda> VendasDoMês = new ArrayList<Venda>();
+
+        LocalDate DataVenda;
+        for (Venda V : Vendas) {
+            DataVenda = V.getDataVenda();
+            if (DataVenda.getMonth() == data.getMonth()) {
+                VendasDoMês.add(V);
+            }
+        }
+        return VendasDoMês;
+    }
+
+    public float getLucroDoMes(LocalDate Mes) {
+        ArrayList<Venda> Vendas = Imobiliaria.getVendas();
+        ArrayList<Corretor> corretores = Imobiliaria.getCorretores();
+        float lucro = 0;
+        LocalDate DataVenda;
+
+        for (Venda V : Vendas) {
+            DataVenda = V.getDataVenda();
+            if (DataVenda.getMonth() == Mes.getMonth()) {
+                lucro += V.getValorTotalVenda();
+            }
+        }
+
+        for (Corretor C : corretores) {
+            lucro -= C.getSalario();
+        }
+
+        return lucro;
     }
 
     // Outros

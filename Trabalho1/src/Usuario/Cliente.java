@@ -6,6 +6,9 @@ package Usuario;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+
+import Imovel.Imovel;
 
 /*
  *
@@ -17,6 +20,8 @@ import java.time.format.DateTimeFormatter;
 public class Cliente extends Usuario implements Serializable {
 
     protected LocalDate dataCadastro;
+    protected ArrayList<Imovel> imoveisComprados;
+    protected ArrayList<Imovel> imoveisAlugados;
 
     public Cliente(LocalDate dataCadastro, int codigoUsuario, String nome, String cpf, String rg,
             LocalDate dataNascimento, String endereco, String cep, String telefone, String email) {
@@ -30,6 +35,22 @@ public class Cliente extends Usuario implements Serializable {
 
     public void setDataCadastro(LocalDate dataCadastro) {
         this.dataCadastro = dataCadastro;
+    }
+
+    public void comprarImovel(Imovel i) {
+        imoveisComprados.add(i);
+    }
+
+    public ArrayList<Imovel> getImoveisComprados() {
+        return imoveisComprados;
+    }
+
+    public void alugarImovel(Imovel i) {
+        imoveisAlugados.add(i);
+    }
+
+    public ArrayList<Imovel> getImoveisAlugados() {
+        return imoveisAlugados;
     }
 
     @Override

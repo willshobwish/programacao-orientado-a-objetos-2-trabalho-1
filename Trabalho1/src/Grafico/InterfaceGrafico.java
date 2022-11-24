@@ -41,7 +41,8 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jMenuItem11 = new javax.swing.JMenuItem();
@@ -296,58 +297,58 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(TextoExibicaoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 908, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(TextoExibicaoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 908,
+                                        Short.MAX_VALUE)
+                                .addContainerGap()));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(TextoExibicaoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(TextoExibicaoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 505,
+                                        Short.MAX_VALUE)
+                                .addContainerGap()));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }// GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void VendaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VendaCadastroActionPerformed
+    private void VendaCadastroActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_VendaCadastroActionPerformed
         // TODO add your handling code here:
         CadastroVenda CadastroVenda = new CadastroVenda();
         CadastroVenda.setLocationRelativeTo(this);
         CadastroVenda.setVisible(true);
-    }//GEN-LAST:event_VendaCadastroActionPerformed
+    }// GEN-LAST:event_VendaCadastroActionPerformed
 
-    private void LocacaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LocacaoCadastroActionPerformed
+    private void LocacaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_LocacaoCadastroActionPerformed
         // TODO add your handling code here:
         CadastroLocacao CadastroLocacao = new CadastroLocacao();
         CadastroLocacao.setLocationRelativeTo(this);
         CadastroLocacao.setVisible(true);
-    }//GEN-LAST:event_LocacaoCadastroActionPerformed
+    }// GEN-LAST:event_LocacaoCadastroActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
         CadastroSeguro CadastroSeguro = new CadastroSeguro();
         CadastroSeguro.setLocationRelativeTo(this);
         CadastroSeguro.setVisible(true);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }// GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
         TextoExibicao.setText(Controlador.ExibirTodosSeguros());
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }// GEN-LAST:event_jMenuItem4ActionPerformed
 
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem8ActionPerformed
         // TODO add your handling code here:
         Limpar();
         TextoExibicao.setText(Controlador.ExibirTodasLocacoes());
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
+    }// GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
         // TODO add your handling code here:
@@ -378,7 +379,7 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private void CategoriaCasaResidencialActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CategoriaCasaResidencialActionPerformed
         // TODO add your handling code here:
         Limpar();
-        TextoExibicao.setText("Lista de categoria de casa residencial:\n" + Controlador.exibirTodasCasas());
+        TextoExibicao.setText("Lista de categoria de casa residencial:\n" + Controlador.exibirCasasResidenciais());
     }// GEN-LAST:event_CategoriaCasaResidencialActionPerformed
 
     private void CategoriaComercialActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CategoriaComercialActionPerformed
@@ -474,6 +475,7 @@ public class InterfaceGrafico extends javax.swing.JFrame {
             }
         });
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar BarraMenu;
     private javax.swing.JMenuItem CasaResidencial;

@@ -5,6 +5,7 @@ package Imovel;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /*
  *
@@ -147,7 +148,7 @@ abstract public class Imovel implements Serializable {
     public String toString() {
         return "Codigo do imovel: " + this.codigoImovel
                 + "\nEndereco: " + this.endereco
-                + "\nData de construcao: " + this.dataConstrucao
+                + "\nData de construcao: " + this.dataConstrucao.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
                 + "\nArea total: " + this.areaTotal
                 + "\nArea construida: " + this.areaConstruida
                 + "\nQuantidade de dormitorios: " + this.qtdDormitorios

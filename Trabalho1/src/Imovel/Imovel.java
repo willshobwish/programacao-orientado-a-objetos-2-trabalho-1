@@ -134,7 +134,7 @@ abstract public class Imovel implements Serializable {
     }
 
     public void setDisponibilidade() {
-        if (disponivel == true) {
+        if (disponivel) {
             disponivel = false;
         } else {
             disponivel = true;

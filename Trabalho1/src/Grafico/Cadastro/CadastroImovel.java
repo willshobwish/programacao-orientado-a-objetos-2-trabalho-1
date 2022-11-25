@@ -395,14 +395,14 @@ public class CadastroImovel extends javax.swing.JDialog {
             Andar.setEnabled(true);
             ValorCondominio.setEnabled(true);
             TaxaImpostoFederal.setEnabled(false);
-            controlador.CadastroApartamentoResidencial(andar, valorCondominio, codigoImovel, endereco, dataConstrucao, areaTotal, areaConstruida, qtdDormitorios, qtdBanheiros, qtdVagasGaragem, valorIPTU, valorVenda, valorAluguel);
+            controlador.cadastroApartamentoResidencial(andar, valorCondominio, codigoImovel, endereco, dataConstrucao, areaTotal, areaConstruida, qtdDormitorios, qtdBanheiros, qtdVagasGaragem, valorIPTU, valorVenda, valorAluguel);
             JOptionPane.showMessageDialog(this, "Apartamento residencial cadastrado com sucesso");
         }
         if (TipoImovel.getSelectedItem().equals("Comercial")) {
             Andar.setEnabled(false);
             ValorCondominio.setEnabled(false);
             TaxaImpostoFederal.setEnabled(true);
-            controlador.CadastrarComercial(taxaImpostoFederal, codigoImovel, endereco, dataConstrucao, areaTotal, areaConstruida, qtdDormitorios, qtdBanheiros, qtdVagasGaragem, valorIPTU, valorVenda, valorAluguel);
+            controlador.cadastrarComercial(taxaImpostoFederal, codigoImovel, endereco, dataConstrucao, areaTotal, areaConstruida, qtdDormitorios, qtdBanheiros, qtdVagasGaragem, valorIPTU, valorVenda, valorAluguel);
             JOptionPane.showMessageDialog(this, "Comercial cadastrado com sucesso");
         }
         Codigo.setText(String.valueOf(controlador.getGeradorCodigoImovel()));

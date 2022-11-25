@@ -33,16 +33,16 @@ public class CadastroLocacao extends javax.swing.JFrame {
         SegurosSelecao.setEnabled(false);
         Seguros.setEnabled(false);
         AdicionarSeguro.setEnabled(false);
-        String[] NomesCorretores = Controlador.NomesCorretoresArray().toArray(new String[0]);
+        String[] NomesCorretores = Controlador.nomesCorretoresArray().toArray(new String[0]);
         DefaultComboBoxModel CorretorModel = new DefaultComboBoxModel(NomesCorretores);
         Corretor.setModel(CorretorModel);
-        String[] CodigosImoveis = Controlador.CodigosImoveisArray().toArray(new String[0]);
+        String[] CodigosImoveis = Controlador.codigosImoveisArray().toArray(new String[0]);
         DefaultComboBoxModel CodigoModel = new DefaultComboBoxModel(CodigosImoveis);
         ImovelCodigo.setModel(CodigoModel);
         String[] TipoSeguros = Controlador.getArrayDeNomeDeSeguro().toArray(new String[0]);
         DefaultComboBoxModel SeguroModel = new DefaultComboBoxModel(TipoSeguros);
         SegurosSelecao.setModel(SeguroModel);
-        String[] ClientesNomes = Controlador.NomesClientesArray().toArray(new String[0]);
+        String[] ClientesNomes = Controlador.nomesClientesArray().toArray(new String[0]);
         DefaultComboBoxModel ClientesNomesModel = new DefaultComboBoxModel(ClientesNomes);
         ClientesNomeBox.setModel(ClientesNomesModel);
         Dinheiro.setSelected(true);
@@ -534,7 +534,7 @@ public class CadastroLocacao extends javax.swing.JFrame {
         }
         ArrayList<Seguro> segurosContratados = SegurosSelecionados;
         boolean pago = false;
-        Controlador.CadastroLocacao(codigoAluguel, cliente, corretor, imovel, dataAluguel, dataDevolucao,
+        Controlador.cadastroAluguel(codigoAluguel, cliente, corretor, imovel, dataAluguel, dataDevolucao,
                 dataPagamentoMensal, valorTotalAluguel, formaPagamento, segurosContratados, pago);
         JOptionPane.showMessageDialog(this, "Locação cadastrado com sucesso");
     }// GEN-LAST:event_jButton1ActionPerformed

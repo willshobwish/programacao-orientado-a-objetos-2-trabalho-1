@@ -76,7 +76,7 @@ public class Controlador {
         return Dados;
     }
 
-    public ArrayList<String> NomesClientesArray() {
+    public ArrayList<String> nomesClientesArray() {
         ArrayList<String> Nomes = new ArrayList<String>();
         ArrayList<Usuario> Usuarios = Imobiliaria.getUsuarios();
         for (Usuario U : Usuarios) {
@@ -135,7 +135,7 @@ public class Controlador {
         return Dados;
     }
 
-    public ArrayList<String> NomesCorretoresArray() {
+    public ArrayList<String> nomesCorretoresArray() {
         ArrayList<String> Nomes = new ArrayList<String>();
         ArrayList<Usuario> Usuarios = Imobiliaria.getUsuarios();
         for (Usuario U : Usuarios) {
@@ -168,7 +168,7 @@ public class Controlador {
     }
 
     // Imoveis
-    public ArrayList<String> CodigosImoveisArray() {
+    public ArrayList<String> codigosImoveisArray() {
         ArrayList<String> CodigosImoveis = new ArrayList<String>();
         ArrayList<Imovel> Imoveis = Imobiliaria.getImoveis();
         for (Imovel I : Imoveis) {
@@ -338,7 +338,7 @@ public class Controlador {
     }
 
     // Apartamento residencial
-    public void CadastroApartamentoResidencial(int andar, float valorCondominio, int codigoImovel, String endereco,
+    public void cadastroApartamentoResidencial(int andar, float valorCondominio, int codigoImovel, String endereco,
             LocalDate dataConstrucao, float areaTotal, float areaConstruida, int qtdDormitorios, int qtdBanheiros,
             int qtdVagasGaragem, float valorIPTU, float valorVenda, float valorAluguel) {
         Imobiliaria.CadastrarApartamentoResidencial(new ApartamentoResidencial(andar, valorCondominio, codigoImovel,
@@ -347,7 +347,7 @@ public class Controlador {
     }
 
     // Comercial
-    public void CadastrarComercial(float taxaImpostoFederal, int codigoImovel, String endereco,
+    public void cadastrarComercial(float taxaImpostoFederal, int codigoImovel, String endereco,
             LocalDate dataConstrucao, float areaTotal, float areaConstruida, int qtdDormitorios, int qtdBanheiros,
             int qtdVagasGaragem, float valorIPTU, float valorVenda, float valorAluguel) {
         Imobiliaria.CadastrarComercial(
@@ -356,7 +356,7 @@ public class Controlador {
     }
 
     // Vendas
-    public void CadastroVenda(int codigoVenda, Cliente cliente, Corretor corretor, Imovel imovel, LocalDate dataVenda,
+    public void cadastroVenda(int codigoVenda, Cliente cliente, Corretor corretor, Imovel imovel, LocalDate dataVenda,
             float valorTotalVenda, Pagamento formaPagamento) {
         if (imovel.isDisponivel()) {
             Imobiliaria.CadastrarVenda(
@@ -370,7 +370,7 @@ public class Controlador {
     }
 
     // Locacao
-    public void CadastroLocacao(int codigoAluguel, Cliente cliente, Corretor corretor, Imovel imovel,
+    public void cadastroAluguel(int codigoAluguel, Cliente cliente, Corretor corretor, Imovel imovel,
             LocalDate dataAluguel, LocalDate dataDevolucao, LocalDate dataPagamentoMensal, float valorTotalAluguel,
             Pagamento formaPagamento, ArrayList<Seguro> segurosContratados, boolean pago) {
         if (imovel.isDisponivel()) {
@@ -407,7 +407,7 @@ public class Controlador {
     }
 
     // Seguro
-    public void CadastroSeguro(int codigoSeguro, String nomeSeguradora, String tipo, String descricao, float valor) {
+    public void cadastroSeguro(int codigoSeguro, String nomeSeguradora, String tipo, String descricao, float valor) {
         Seguro Seguro = new Seguro(codigoSeguro, nomeSeguradora, tipo, descricao, valor);
         Imobiliaria.CadastrarSeguro(Seguro);
     }

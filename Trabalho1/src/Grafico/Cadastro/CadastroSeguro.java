@@ -123,7 +123,7 @@ public class CadastroSeguro extends javax.swing.JFrame {
         String tipo = Tipo.getText();
         String descricao = Descricao.getText();
         float valor = Float.parseFloat(Valor.getText());
-        Controlador.CadastroSeguro(codigoSeguro, nomeSeguradora, tipo, descricao, valor);
+        Controlador.cadastroSeguro(codigoSeguro, nomeSeguradora, tipo, descricao, valor);
     }//GEN-LAST:event_CadastrarActionPerformed
 
     /**

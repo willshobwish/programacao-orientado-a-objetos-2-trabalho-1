@@ -350,12 +350,12 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         TextoExibicao.setText(Controlador.todasLocacoesToString());
     }// GEN-LAST:event_jMenuItem8ActionPerformed
 
-    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem12ActionPerformed
         // TODO add your handling code here:
         PagarLocacao PagarLocacao = new PagarLocacao();
         PagarLocacao.setLocationRelativeTo(this);
         PagarLocacao.setVisible(true);
-    }//GEN-LAST:event_jMenuItem12ActionPerformed
+    }// GEN-LAST:event_jMenuItem12ActionPerformed
 
     private void ClientesCadastradosActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ClientesCadastradosActionPerformed
         // TODO add your handling code here:
@@ -379,7 +379,8 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private void CategoriaCasaResidencialActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CategoriaCasaResidencialActionPerformed
         // TODO add your handling code here:
         Limpar();
-        TextoExibicao.setText("Lista de categoria de casa residencial:\n" + Controlador.todasCasasResidenciaisToString());
+        TextoExibicao
+                .setText("Lista de categoria de casa residencial:\n" + Controlador.todasCasasResidenciaisToString());
     }// GEN-LAST:event_CategoriaCasaResidencialActionPerformed
 
     private void CategoriaComercialActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CategoriaComercialActionPerformed
@@ -403,7 +404,7 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private void ListaDisponivelActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ListaDisponivelActionPerformed
         // TODO add your handling code here:
         Limpar();
-        TextoExibicao.setText("Casas disponiveis para locacao:");
+        TextoExibicao.setText("Todos imóveis disponiveis para locação:");
     }// GEN-LAST:event_ListaDisponivelActionPerformed
 
     private void ListaIndisponivelActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ListaIndisponivelActionPerformed

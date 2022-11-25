@@ -26,13 +26,13 @@ public class CadastroVenda extends javax.swing.JFrame {
      */
     public CadastroVenda() {
         initComponents();
-        String[] NomesCorretores = Controlador.NomesCorretoresArray().toArray(new String[0]);
+        String[] NomesCorretores = Controlador.nomesCorretoresArray().toArray(new String[0]);
         DefaultComboBoxModel model = new DefaultComboBoxModel(NomesCorretores);
         Corretor.setModel(model);
-        String[] CodigosImoveis = Controlador.CodigosImoveisArray().toArray(new String[0]);
+        String[] CodigosImoveis = Controlador.codigosImoveisArray().toArray(new String[0]);
         DefaultComboBoxModel CodigosModel = new DefaultComboBoxModel(CodigosImoveis);
         ImovelCodigo.setModel(CodigosModel);
-        String[] ClientesNomes = Controlador.NomesClientesArray().toArray(new String[0]);
+        String[] ClientesNomes = Controlador.nomesClientesArray().toArray(new String[0]);
         DefaultComboBoxModel ClientesModel = new DefaultComboBoxModel(ClientesNomes);
         ClientesNomeBox.setModel(ClientesModel);
         Codigo.setText(String.valueOf(Controlador.getGeradorCodigoVenda()));
@@ -266,7 +266,7 @@ public class CadastroVenda extends javax.swing.JFrame {
                 .parse(AnoVenda.getValue() + "-" + MesVenda.getValue() + "-" + DiaVenda.getValue());
         float valorTotalVenda = imovel.getValorVenda();
         Pagamento formaPagamento = new Dinheiro();
-        Controlador.CadastroVenda(codigoVenda, cliente, corretor, imovel, dataVenda, valorTotalVenda, formaPagamento);
+        Controlador.cadastroVenda(codigoVenda, cliente, corretor, imovel, dataVenda, valorTotalVenda, formaPagamento);
         JOptionPane.showMessageDialog(this, "Venda cadastrado com sucesso");
     }// GEN-LAST:event_jButton1ActionPerformed
 

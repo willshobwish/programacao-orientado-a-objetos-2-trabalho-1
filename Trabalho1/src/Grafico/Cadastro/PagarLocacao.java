@@ -21,7 +21,7 @@ public class PagarLocacao extends javax.swing.JFrame {
      */
     public PagarLocacao() {
         initComponents();
-        String[] CodigosImoveis = Controlador.CodigosImoveisArray().toArray(new String[0]);
+        String[] CodigosImoveis = Controlador.codigosImoveisArray().toArray(new String[0]);
         DefaultComboBoxModel CodigosModel = new DefaultComboBoxModel(CodigosImoveis);
         ImovelCodigo.setModel(CodigosModel);
     }

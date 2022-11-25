@@ -264,16 +264,6 @@ public class Controlador {
         System.out.println("Casa residencial cadastrado:\n" + CasaResidencial.toString());
     }
 
-    public String todasCasasResidenciaisToString() {
-        String Dados = "";
-        ArrayList<Imovel> Casas = Imobiliaria.getImoveis();
-        for (Imovel CasaExibicao : Casas) {
-            System.out.println(CasaExibicao.toString());
-            Dados = Dados + CasaExibicao.toString();
-        }
-        return Dados;
-    }
-
     // exibe todos os imoveis da classe Comercial
     public String todosComerciaisToString() {
         String Dados = "";
@@ -305,11 +295,35 @@ public class Controlador {
     // exibe todos os imoveis da classe ApartamentoResidencial
     public String exibirApartamentosResidenciais() {
         String Dados = "";
-        ArrayList<Imovel> Residencial = Imobiliaria.getImoveis();
-        for (Imovel ResidencialExibicao : Residencial) {
-            if (ResidencialExibicao instanceof ApartamentoResidencial) {
-                System.out.println(ResidencialExibicao.toString());
-                Dados = Dados + ResidencialExibicao.toString();
+        ArrayList<Imovel> Apartamento = Imobiliaria.getImoveis();
+        for (Imovel ApartamentoResidencial : Apartamento) {
+            if (ApartamentoResidencial instanceof ApartamentoResidencial) {
+                System.out.println(ApartamentoResidencial.toString());
+                Dados = Dados + ApartamentoResidencial.toString();
+            }
+        }
+        return Dados;
+    }
+
+    public String exibirCasasResidenciais() {
+        String Dados = "";
+        ArrayList<Imovel> CasaResidencial = Imobiliaria.getImoveis();
+        for (Imovel CasaResidencialExibicao : CasaResidencial) {
+            if (CasaResidencialExibicao instanceof CasaResidencial) {
+                System.out.println(CasaResidencialExibicao.toString());
+                Dados = Dados + CasaResidencialExibicao.toString();
+            }
+        }
+        return Dados;
+    }
+
+    public String exibirComercio() {
+        String Dados = "";
+        ArrayList<Imovel> Comercio = Imobiliaria.getImoveis();
+        for (Imovel ComercioExibicao : Comercio) {
+            if (ComercioExibicao instanceof Comercial) {
+                System.out.println(ComercioExibicao.toString());
+                Dados = Dados + ComercioExibicao.toString();
             }
         }
         return Dados;

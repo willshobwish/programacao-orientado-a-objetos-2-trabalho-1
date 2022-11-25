@@ -12,6 +12,7 @@ import Grafico.Cadastro.CadastroLocacao;
 import Grafico.Cadastro.CadastroSeguro;
 import Grafico.Cadastro.CadastroVenda;
 import Grafico.Cadastro.PagarLocacao;
+import Imovel.Imovel;
 
 /**
  *
@@ -42,7 +43,7 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jMenuItem11 = new javax.swing.JMenuItem();
@@ -58,7 +59,7 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         ImovelMenu = new javax.swing.JMenu();
         Todos = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        TodasCategorias = new javax.swing.JMenuItem();
         CategoriaApartamentoResidencial = new javax.swing.JMenuItem();
         CategoriaCasaResidencial = new javax.swing.JMenuItem();
         CategoriaComercial = new javax.swing.JMenuItem();
@@ -148,13 +149,13 @@ public class InterfaceGrafico extends javax.swing.JFrame {
 
         Todos.setText("Todos");
 
-        jMenuItem1.setText("Todas categorias");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        TodasCategorias.setText("Todas categorias ");
+        TodasCategorias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                TodasCategoriasActionPerformed(evt);
             }
         });
-        Todos.add(jMenuItem1);
+        Todos.add(TodasCategorias);
 
         CategoriaApartamentoResidencial.setText("Apartamento Residencial");
         CategoriaApartamentoResidencial.setToolTipText("");
@@ -297,22 +298,28 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(TextoExibicaoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 908,
-                                        Short.MAX_VALUE)
-                                .addContainerGap()));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(TextoExibicaoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 908, Short.MAX_VALUE)
+                .addContainerGap())
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(TextoExibicaoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 505,
-                                        Short.MAX_VALUE)
-                                .addContainerGap()));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(TextoExibicaoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void TodasCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TodasCategoriasActionPerformed
+        // TODO add your handling code here:
+        TextoExibicao.setText(Controlador.exibirCasasResidenciais() + Controlador.exibirApartamentosResidenciais() + Controlador.exibirComercio());
+
+    }//GEN-LAST:event_TodasCategoriasActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
@@ -373,20 +380,20 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private void CategoriaApartamentoResidencialActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CategoriaApartamentoResidencialActionPerformed
         // TODO add your handling code here:
         Limpar();
-        TextoExibicao.setText("Lista de categoria de apartamento residencial:\n");
+        TextoExibicao.setText("Lista de categoria de apartamento residencial:\n" + Controlador.exibirApartamentosResidenciais());
     }// GEN-LAST:event_CategoriaApartamentoResidencialActionPerformed
 
     private void CategoriaCasaResidencialActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CategoriaCasaResidencialActionPerformed
         // TODO add your handling code here:
         Limpar();
         TextoExibicao
-                .setText("Lista de categoria de casa residencial:\n" + Controlador.todasCasasResidenciaisToString());
+                .setText("Lista de categoria de casa residencial:\n" + Controlador.exibirCasasResidenciais());
     }// GEN-LAST:event_CategoriaCasaResidencialActionPerformed
 
     private void CategoriaComercialActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CategoriaComercialActionPerformed
         // TODO add your handling code here:
         Limpar();
-        TextoExibicao.setText("Lista de categoria de comercio:");
+        TextoExibicao.setText("Lista de categoria de comercio:" + Controlador.exibirComercio());
     }// GEN-LAST:event_CategoriaComercialActionPerformed
 
     private void DisponivelVendaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_DisponivelVendaActionPerformed
@@ -398,19 +405,27 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private void IndisponivelVendaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_IndisponivelVendaActionPerformed
         // TODO add your handling code here:
         Limpar();
-        TextoExibicao.setText("Casas indisponiveis para venda ou aluguel:");
+        TextoExibicao.setText("Casas indisponíveis para venda ou aluguel:");
     }// GEN-LAST:event_IndisponivelVendaActionPerformed
 
     private void ListaDisponivelActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ListaDisponivelActionPerformed
         // TODO add your handling code here:
         Limpar();
-        TextoExibicao.setText("Todos imóveis disponiveis para locação:");
+        String Dados = "";
+        for (Imovel I : Controlador.getImoveisDisponiveis()) {
+            Dados += I.toString();
+        }
+        TextoExibicao.setText("Todos imóveis disponiveis para locação:\n" + Dados);
     }// GEN-LAST:event_ListaDisponivelActionPerformed
 
     private void ListaIndisponivelActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ListaIndisponivelActionPerformed
         // TODO add your handling code here:
         Limpar();
-        TextoExibicao.setText("Casas indisponiveis para locacao:");
+        String Dados = "";
+        for (Imovel I : Controlador.getImoveisNaoDisponiveis()) {
+            Dados += I.toString();
+        }
+        TextoExibicao.setText("Casas indisponiveis para locação:\n" + Dados);
     }// GEN-LAST:event_ListaIndisponivelActionPerformed
 
     private void ClienteActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ClienteActionPerformed
@@ -497,12 +512,12 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private javax.swing.JMenu PagamentoMenu;
     private javax.swing.JTextArea TextoExibicao;
     private javax.swing.JScrollPane TextoExibicaoScroll;
+    private javax.swing.JMenuItem TodasCategorias;
     private javax.swing.JMenu Todos;
     private javax.swing.JMenu UsuarioMenu;
     private javax.swing.JMenuItem VendaCadastro;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;

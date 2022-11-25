@@ -3,12 +3,11 @@
  */
 package Usuario;
 
+import Imovel.Imovel;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-
-import Imovel.Imovel;
 
 /*
  *
@@ -20,8 +19,8 @@ import Imovel.Imovel;
 public class Cliente extends Usuario implements Serializable {
 
     protected LocalDate dataCadastro;
-    protected ArrayList<Imovel> imoveisComprados;
-    protected ArrayList<Imovel> imoveisAlugados;
+    protected ArrayList<Imovel> imoveisComprados = new ArrayList<Imovel>();
+    protected ArrayList<Imovel> imoveisAlugados = new ArrayList<Imovel>();
 
     public Cliente(LocalDate dataCadastro, int codigoUsuario, String nome, String cpf, String rg,
             LocalDate dataNascimento, String endereco, String cep, String telefone, String email) {

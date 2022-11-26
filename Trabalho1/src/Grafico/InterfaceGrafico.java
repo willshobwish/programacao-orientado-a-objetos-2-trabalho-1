@@ -11,7 +11,10 @@ import Grafico.Cadastro.CadastroImovel;
 import Grafico.Cadastro.CadastroLocacao;
 import Grafico.Cadastro.CadastroSeguro;
 import Grafico.Cadastro.CadastroVenda;
-import Grafico.Cadastro.PagarLocacao;
+import Grafico.Outros.PagarLocacao;
+import Grafico.Outros.historicoDeComprasCliente;
+import Grafico.Outros.imoveisAlugadosPorCliente;
+import Grafico.Outros.imoveisCompradosPorUmCliente;
 import Imovel.Imovel;
 import Unicos.Aluguel;
 import Unicos.Venda;
@@ -75,6 +78,8 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         ListaIndisponivel = new javax.swing.JMenuItem();
         DisponivelVenda = new javax.swing.JMenuItem();
         IndisponivelVenda = new javax.swing.JMenuItem();
+        imoveisAlugadosPorUmCliente = new javax.swing.JMenuItem();
+        imoveisCompradosPorUmCliente = new javax.swing.JMenuItem();
         UsuarioMenu = new javax.swing.JMenu();
         ClientesCadastrados = new javax.swing.JMenuItem();
         CorretoresCadastrados = new javax.swing.JMenuItem();
@@ -91,6 +96,7 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         todasVendas = new javax.swing.JMenuItem();
         todasVendasELucro = new javax.swing.JMenuItem();
+        historicoDeComprasDeUmCliente = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
 
@@ -232,6 +238,22 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         });
         ImovelMenu.add(IndisponivelVenda);
 
+        imoveisAlugadosPorUmCliente.setText("Imóveis alugados por um cliente");
+        imoveisAlugadosPorUmCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imoveisAlugadosPorUmClienteActionPerformed(evt);
+            }
+        });
+        ImovelMenu.add(imoveisAlugadosPorUmCliente);
+
+        imoveisCompradosPorUmCliente.setText("Imóveis comprados por um cliente");
+        imoveisCompradosPorUmCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imoveisCompradosPorUmClienteActionPerformed(evt);
+            }
+        });
+        ImovelMenu.add(imoveisCompradosPorUmCliente);
+
         BarraMenu.add(ImovelMenu);
 
         UsuarioMenu.setText("Usuario");
@@ -333,6 +355,14 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         });
         jMenu2.add(todasVendasELucro);
 
+        historicoDeComprasDeUmCliente.setText("Histórico de compras de um cliente");
+        historicoDeComprasDeUmCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                historicoDeComprasDeUmClienteActionPerformed(evt);
+            }
+        });
+        jMenu2.add(historicoDeComprasDeUmCliente);
+
         BarraMenu.add(jMenu2);
 
         jMenu4.setText("Seguro");
@@ -400,6 +430,27 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         TextoExibicao.setText(Dados);
     }//GEN-LAST:event_todasVendasELucroActionPerformed
 
+    private void historicoDeComprasDeUmClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historicoDeComprasDeUmClienteActionPerformed
+        // TODO add your handling code here:
+        historicoDeComprasCliente historico = new historicoDeComprasCliente();
+        historico.setLocationRelativeTo(this);
+        historico.setVisible(true);
+    }//GEN-LAST:event_historicoDeComprasDeUmClienteActionPerformed
+
+    private void imoveisAlugadosPorUmClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imoveisAlugadosPorUmClienteActionPerformed
+        // TODO add your handling code here:
+        imoveisAlugadosPorCliente imoveisAlugadosPorCliente = new imoveisAlugadosPorCliente();
+        imoveisAlugadosPorCliente.setLocationRelativeTo(this);
+        imoveisAlugadosPorCliente.setVisible(true);
+    }//GEN-LAST:event_imoveisAlugadosPorUmClienteActionPerformed
+
+    private void imoveisCompradosPorUmClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imoveisCompradosPorUmClienteActionPerformed
+        // TODO add your handling code here:
+        imoveisCompradosPorUmCliente imoveisCompradosPorUmCliente = new imoveisCompradosPorUmCliente();
+        imoveisCompradosPorUmCliente.setLocationRelativeTo(this);
+        imoveisCompradosPorUmCliente.setVisible(true);
+    }//GEN-LAST:event_imoveisCompradosPorUmClienteActionPerformed
+
     private void funcionarioDoMesActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_funcionarioDoMesActionPerformed
         // TODO add your handling code here:
     }// GEN-LAST:event_funcionarioDoMesActionPerformed
@@ -445,10 +496,6 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         TextoExibicao.setText(Controlador.exibirCasasResidenciais() + Controlador.exibirApartamentosResidenciais()
                 + Controlador.exibirComercio());
     }// GEN-LAST:event_TodasCategoriasActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void VendaCadastroActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_VendaCadastroActionPerformed
         // TODO add your handling code here:
@@ -654,8 +701,11 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private javax.swing.JMenuItem alugueisNaoFinalizadosOuFinalizados;
     private javax.swing.JMenuItem clientesComAlugueisEmAtraso;
     private javax.swing.JMenuItem funcionarioDoMes;
+    private javax.swing.JMenuItem historicoDeComprasDeUmCliente;
+    private javax.swing.JMenuItem imoveisAlugadosPorUmCliente;
     private javax.swing.JMenuItem imoveisComAtrasoPagamento;
     private javax.swing.JMenuItem imoveisCompradosPorCliente;
+    private javax.swing.JMenuItem imoveisCompradosPorUmCliente;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;

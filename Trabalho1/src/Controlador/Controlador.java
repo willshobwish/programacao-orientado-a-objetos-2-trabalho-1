@@ -27,11 +27,6 @@ import java.util.ArrayList;
  */
 public class Controlador {
 
-    private static ArrayList<Venda> Venda = new ArrayList<>();
-    private static ArrayList<Imovel> Imovel = new ArrayList<>();
-    private static ArrayList<Usuario> Usuario = new ArrayList<>();
-    private static ArrayList<Seguro> Seguro = new ArrayList<>();
-    private static ArrayList<Aluguel> Aluguel = new ArrayList<>();
     private static Imobiliaria Imobiliaria = new Imobiliaria("Teste", "Endereco teste");
 
     public Controlador() {
@@ -76,7 +71,7 @@ public class Controlador {
         return Dados;
     }
 
-    public ArrayList<String> nomesClientesArray() {
+    public ArrayList<String> getNomesClientesArray() {
         ArrayList<String> Nomes = new ArrayList<String>();
         ArrayList<Usuario> Usuarios = Imobiliaria.getUsuarios();
         for (Usuario U : Usuarios) {
@@ -192,7 +187,7 @@ public class Controlador {
         ArrayList<Aluguel> alugueisAtrasados = new ArrayList<Aluguel>();
         ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
         for (Aluguel alu : alugueis) {
-            if (alu.getDataPagamentoMensal().isBefore(data)) {
+            if (alu.getDataPagamentoMensal().isBefore(data) && !alu.isPago()) {
                 alugueisAtrasados.add(alu);
             }
         }
@@ -364,8 +359,6 @@ public class Controlador {
                         qtdDormitorios, qtdBanheiros, qtdVagasGaragem, valorIPTU, valorVenda, valorAluguel));
     }
 
-
-
     // Locacao
     public void cadastroAluguel(int codigoAluguel, Cliente cliente, Corretor corretor, Imovel imovel,
             LocalDate dataAluguel, LocalDate dataDevolucao, LocalDate dataPagamentoMensal, float valorTotalAluguel,
@@ -455,7 +448,7 @@ public class Controlador {
             System.out.println("Imovel nao disponivel para venda");
         }
     }
-    
+
     public ArrayList<Venda> getArrayDeVendas() {
         ArrayList<Venda> Vendas = Imobiliaria.getVendas();
         return Vendas;

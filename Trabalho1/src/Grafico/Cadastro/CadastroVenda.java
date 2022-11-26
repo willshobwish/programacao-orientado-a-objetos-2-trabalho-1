@@ -32,7 +32,7 @@ public class CadastroVenda extends javax.swing.JFrame {
         String[] CodigosImoveis = Controlador.codigosImoveisArray().toArray(new String[0]);
         DefaultComboBoxModel CodigosModel = new DefaultComboBoxModel(CodigosImoveis);
         ImovelCodigo.setModel(CodigosModel);
-        String[] ClientesNomes = Controlador.nomesClientesArray().toArray(new String[0]);
+        String[] ClientesNomes = Controlador.getNomesClientesArray().toArray(new String[0]);
         DefaultComboBoxModel ClientesModel = new DefaultComboBoxModel(ClientesNomes);
         ClientesNomeBox.setModel(ClientesModel);
         Codigo.setText(String.valueOf(Controlador.getGeradorCodigoVenda()));

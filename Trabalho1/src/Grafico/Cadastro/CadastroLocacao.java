@@ -42,7 +42,7 @@ public class CadastroLocacao extends javax.swing.JFrame {
         String[] TipoSeguros = Controlador.getArrayDeNomeDeSeguro().toArray(new String[0]);
         DefaultComboBoxModel SeguroModel = new DefaultComboBoxModel(TipoSeguros);
         SegurosSelecao.setModel(SeguroModel);
-        String[] ClientesNomes = Controlador.nomesClientesArray().toArray(new String[0]);
+        String[] ClientesNomes = Controlador.getNomesClientesArray().toArray(new String[0]);
         DefaultComboBoxModel ClientesNomesModel = new DefaultComboBoxModel(ClientesNomes);
         ClientesNomeBox.setModel(ClientesNomesModel);
         Dinheiro.setSelected(true);

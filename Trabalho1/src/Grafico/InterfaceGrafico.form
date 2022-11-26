@@ -208,6 +208,14 @@
                 <Property name="text" type="java.lang.String" value="Im&#xf3;veis comprados por um cliente"/>
               </Properties>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="imoveisComAtrasoPagamento">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Im&#xf3;veis com atraso no pagamento do aluguel"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="imoveisComAtrasoPagamentoActionPerformed"/>
+              </Events>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="clientesComAlugueisEmAtraso">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Clientes com alugueis em atraso"/>
@@ -233,6 +241,26 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alugueisNaoFinalizadasActionPerformed"/>
               </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Vendas"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="todasVendas">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Todas vendas realizadas"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="todasVendasActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="todasVendasELucro">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Todas vendas realizadas e o lucro total"/>
+              </Properties>
             </MenuItem>
           </SubComponents>
         </Menu>

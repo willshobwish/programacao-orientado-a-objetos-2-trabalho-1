@@ -375,35 +375,39 @@ public class CadastroImovel extends javax.swing.JDialog {
         // TODO add your handling code here:
         int codigoImovel = Integer.parseInt(Codigo.getText());
         String endereco = Endereco.getText();
-        LocalDate dataConstrucao = LocalDate.parse(Ano1.getValue() + "-" + Mes1.getValue() + "-" + Dia1.getValue());
         float areaTotal = Float.parseFloat(AreaTotal.getText());
         float areaConstruida = Float.parseFloat(AreaConstruida.getText());
-        int qtdDormitorios = (Integer) Dormitorios.getValue();
-        int qtdBanheiros = (Integer) Banheiros.getValue();
-        int qtdVagasGaragem = (Integer) VagasGaragem.getValue();
+        int qtdDormitorios = (int) Dormitorios.getValue();
+        int qtdBanheiros = (int) Banheiros.getValue();
+        int qtdVagasGaragem = (int) VagasGaragem.getValue();
         float valorIPTU = Float.parseFloat(IPTU.getText());
         float valorVenda = Float.parseFloat(ValorVenda.getText());
         float valorAluguel = Float.parseFloat(ValorAluguel.getText());
-        int andar = (Integer) Andar.getValue();
+        int andar = (int) Andar.getValue();
         float valorCondominio = Float.parseFloat(ValorCondominio.getText());
         float taxaImpostoFederal = Float.parseFloat(TaxaImpostoFederal.getText());
-        if (TipoImovel.getSelectedItem().equals("Casa residencial")) {
-            controlador.cadastroCasaResidencial(codigoImovel, endereco, dataConstrucao, areaTotal, areaConstruida, qtdDormitorios, qtdBanheiros, qtdVagasGaragem, valorIPTU, valorVenda, valorAluguel);
-            JOptionPane.showMessageDialog(this, "Casa residencial cadastrado com sucesso");
-        }
-        if (TipoImovel.getSelectedItem().equals("Apartamento residencial")) {
-            Andar.setEnabled(true);
-            ValorCondominio.setEnabled(true);
-            TaxaImpostoFederal.setEnabled(false);
-            controlador.cadastroApartamentoResidencial(andar, valorCondominio, codigoImovel, endereco, dataConstrucao, areaTotal, areaConstruida, qtdDormitorios, qtdBanheiros, qtdVagasGaragem, valorIPTU, valorVenda, valorAluguel);
-            JOptionPane.showMessageDialog(this, "Apartamento residencial cadastrado com sucesso");
-        }
-        if (TipoImovel.getSelectedItem().equals("Comercial")) {
-            Andar.setEnabled(false);
-            ValorCondominio.setEnabled(false);
-            TaxaImpostoFederal.setEnabled(true);
-            controlador.cadastrarComercial(taxaImpostoFederal, codigoImovel, endereco, dataConstrucao, areaTotal, areaConstruida, qtdDormitorios, qtdBanheiros, qtdVagasGaragem, valorIPTU, valorVenda, valorAluguel);
-            JOptionPane.showMessageDialog(this, "Comercial cadastrado com sucesso");
+        if ((int) Ano1.getValue() < 1 || ((int) Mes1.getValue() < 1 || (int) Mes1.getValue() > 12) || ((int) Dia1.getValue() < 1 || (int) Dia1.getValue() > 31)) {
+            JOptionPane.showMessageDialog(this, "Insira uma data de construção válida", "Data incorreta", JOptionPane.WARNING_MESSAGE);
+        } else {
+            LocalDate dataConstrucao = LocalDate.parse(Ano1.getValue() + "-" + Mes1.getValue() + "-" + Dia1.getValue());
+            if (TipoImovel.getSelectedItem().equals("Casa residencial")) {
+                controlador.cadastroCasaResidencial(codigoImovel, endereco, dataConstrucao, areaTotal, areaConstruida, qtdDormitorios, qtdBanheiros, qtdVagasGaragem, valorIPTU, valorVenda, valorAluguel);
+                JOptionPane.showMessageDialog(this, "Casa residencial cadastrado com sucesso");
+            }
+            if (TipoImovel.getSelectedItem().equals("Apartamento residencial")) {
+                Andar.setEnabled(true);
+                ValorCondominio.setEnabled(true);
+                TaxaImpostoFederal.setEnabled(false);
+                controlador.cadastroApartamentoResidencial(andar, valorCondominio, codigoImovel, endereco, dataConstrucao, areaTotal, areaConstruida, qtdDormitorios, qtdBanheiros, qtdVagasGaragem, valorIPTU, valorVenda, valorAluguel);
+                JOptionPane.showMessageDialog(this, "Apartamento residencial cadastrado com sucesso");
+            }
+            if (TipoImovel.getSelectedItem().equals("Comercial")) {
+                Andar.setEnabled(false);
+                ValorCondominio.setEnabled(false);
+                TaxaImpostoFederal.setEnabled(true);
+                controlador.cadastrarComercial(taxaImpostoFederal, codigoImovel, endereco, dataConstrucao, areaTotal, areaConstruida, qtdDormitorios, qtdBanheiros, qtdVagasGaragem, valorIPTU, valorVenda, valorAluguel);
+                JOptionPane.showMessageDialog(this, "Comercial cadastrado com sucesso");
+            }
         }
         Codigo.setText(String.valueOf(controlador.getGeradorCodigoImovel()));
     }//GEN-LAST:event_CadastrarActionPerformed

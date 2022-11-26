@@ -258,16 +258,20 @@ public class CadastroVenda extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        int codigoVenda = Integer.parseInt(Codigo.getText());
-        Cliente cliente = Controlador.getClientePorNome(ClientesNomeBox.getSelectedItem().toString());
-        Corretor corretor = Controlador.getCorretorPorNome(Corretor.getSelectedItem().toString());
-        Imovel imovel = Controlador.buscarImovel(ImovelCodigo.getSelectedItem().toString());
-        LocalDate dataVenda = LocalDate
-                .parse(AnoVenda.getValue() + "-" + MesVenda.getValue() + "-" + DiaVenda.getValue());
-        float valorTotalVenda = imovel.getValorVenda();
-        Pagamento formaPagamento = new Dinheiro();
-        Controlador.cadastroVenda(codigoVenda, cliente, corretor, imovel, dataVenda, valorTotalVenda, formaPagamento);
-        JOptionPane.showMessageDialog(this, "Venda cadastrado com sucesso");
+        if ((int) AnoVenda.getValue() < 1 || ((int) MesVenda.getValue() < 1 || (int) MesVenda.getValue() > 12) || ((int) DiaVenda.getValue() < 1 || (int) DiaVenda.getValue() > 31)) {
+            JOptionPane.showMessageDialog(this, "Insira uma data de venda válida", "Data incorreta", JOptionPane.WARNING_MESSAGE);
+        } else {
+            int codigoVenda = Integer.parseInt(Codigo.getText());
+            Cliente cliente = Controlador.getClientePorNome(ClientesNomeBox.getSelectedItem().toString());
+            Corretor corretor = Controlador.getCorretorPorNome(Corretor.getSelectedItem().toString());
+            Imovel imovel = Controlador.buscarImovel(ImovelCodigo.getSelectedItem().toString());
+            LocalDate dataVenda = LocalDate
+                    .parse(AnoVenda.getValue() + "-" + MesVenda.getValue() + "-" + DiaVenda.getValue());
+            float valorTotalVenda = imovel.getValorVenda();
+            Pagamento formaPagamento = new Dinheiro();
+            Controlador.cadastroVenda(codigoVenda, cliente, corretor, imovel, dataVenda, valorTotalVenda, formaPagamento);
+            JOptionPane.showMessageDialog(this, "Venda cadastrado com sucesso");
+        }
     }// GEN-LAST:event_jButton1ActionPerformed
 
     private void ImovelCodigoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ImovelCodigoActionPerformed
@@ -318,7 +322,6 @@ public class CadastroVenda extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AnoCadastroLabel;
     private javax.swing.JSpinner AnoVenda;

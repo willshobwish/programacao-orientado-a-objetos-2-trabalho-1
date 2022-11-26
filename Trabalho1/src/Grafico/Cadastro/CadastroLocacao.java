@@ -511,6 +511,13 @@ public class CadastroLocacao extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        if ((int) AnoLocacao.getValue() < 1 || ((int) MesLocacao.getValue() < 1 || (int) MesLocacao.getValue() > 12) || ((int) DiaLocacao.getValue() < 1 || (int) DiaLocacao.getValue() > 31)) {
+                JOptionPane.showMessageDialog(this, "Insira uma data de locação válida", "Data incorreta", JOptionPane.WARNING_MESSAGE);
+            } else if ((int) AnoDevolucao.getValue() < 1 || ((int) MesDevolucao.getValue() < 1 || (int) MesDevolucao.getValue() > 12) || ((int) DiaDevolucao.getValue() < 1 || (int) DiaDevolucao.getValue() > 31)) {
+                JOptionPane.showMessageDialog(this, "Insira uma data de devolução válida", "Data incorreta", JOptionPane.WARNING_MESSAGE);
+            } else if ((int) DiaPagamento.getValue() < 1 || (int) DiaPagamento.getValue() > 31) {
+                JOptionPane.showMessageDialog(this, "Insira uma data de pagamento válida", "Data incorreta", JOptionPane.WARNING_MESSAGE);
+            }else {
         int codigoAluguel = Integer.parseInt(Codigo.getText());
         Cliente cliente = Controlador.getClientePorNome(ClientesNomeBox.getSelectedItem().toString());
         Corretor corretor = Controlador.getCorretorPorNome(Corretor.getSelectedItem().toString());
@@ -536,7 +543,7 @@ public class CadastroLocacao extends javax.swing.JFrame {
         boolean pago = false;
         Controlador.cadastroAluguel(codigoAluguel, cliente, corretor, imovel, dataAluguel, dataDevolucao,
                 dataPagamentoMensal, valorTotalAluguel, formaPagamento, segurosContratados, pago);
-        JOptionPane.showMessageDialog(this, "Locação cadastrado com sucesso");
+        JOptionPane.showMessageDialog(this, "Locação cadastrado com sucesso");}
     }// GEN-LAST:event_jButton1ActionPerformed
 
     private void ImovelCodigoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ImovelCodigoActionPerformed

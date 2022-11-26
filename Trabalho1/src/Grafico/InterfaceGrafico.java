@@ -15,6 +15,7 @@ import Grafico.Outros.PagarLocacao;
 import Grafico.Outros.historicoDeComprasCliente;
 import Grafico.Outros.imoveisAlugadosPorCliente;
 import Grafico.Outros.imoveisCompradosPorUmCliente;
+import Grafico.Outros.vendasRealizadasEmMes;
 import Imovel.Imovel;
 import Unicos.Aluguel;
 import Unicos.Venda;
@@ -97,6 +98,7 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         todasVendas = new javax.swing.JMenuItem();
         todasVendasELucro = new javax.swing.JMenuItem();
         historicoDeComprasDeUmCliente = new javax.swing.JMenuItem();
+        vendasRealizadasMesEspecifico = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
 
@@ -363,6 +365,14 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         });
         jMenu2.add(historicoDeComprasDeUmCliente);
 
+        vendasRealizadasMesEspecifico.setText("Vendas realizadas em um mês especifico");
+        vendasRealizadasMesEspecifico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vendasRealizadasMesEspecificoActionPerformed(evt);
+            }
+        });
+        jMenu2.add(vendasRealizadasMesEspecifico);
+
         BarraMenu.add(jMenu2);
 
         jMenu4.setText("Seguro");
@@ -450,6 +460,13 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         imoveisCompradosPorUmCliente.setLocationRelativeTo(this);
         imoveisCompradosPorUmCliente.setVisible(true);
     }//GEN-LAST:event_imoveisCompradosPorUmClienteActionPerformed
+
+    private void vendasRealizadasMesEspecificoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vendasRealizadasMesEspecificoActionPerformed
+        // TODO add your handling code here:
+        vendasRealizadasEmMes vendasRealizadasEmMes = new vendasRealizadasEmMes();
+        vendasRealizadasEmMes.setLocationRelativeTo(this);
+        vendasRealizadasEmMes.setVisible(true);
+    }//GEN-LAST:event_vendasRealizadasMesEspecificoActionPerformed
 
     private void funcionarioDoMesActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_funcionarioDoMesActionPerformed
         // TODO add your handling code here:
@@ -715,5 +732,6 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private javax.swing.JMenuItem pagarAluguelDeImovel;
     private javax.swing.JMenuItem todasVendas;
     private javax.swing.JMenuItem todasVendasELucro;
+    private javax.swing.JMenuItem vendasRealizadasMesEspecifico;
     // End of variables declaration//GEN-END:variables
 }

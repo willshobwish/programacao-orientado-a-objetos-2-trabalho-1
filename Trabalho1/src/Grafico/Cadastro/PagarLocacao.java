@@ -7,6 +7,7 @@ import Controlador.Controlador;
 import Unicos.Aluguel;
 import java.time.format.DateTimeFormatter;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -97,7 +98,7 @@ public class PagarLocacao extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(DataPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Pagar)
                 .addContainerGap())
         );
@@ -117,11 +118,13 @@ public class PagarLocacao extends javax.swing.JFrame {
 
     private void PagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PagarActionPerformed
         // TODO add your handling code here:
+        Aluguel Aluguel = Controlador.getImovelCodigo(Integer.parseInt((String) ImovelCodigo.getSelectedItem()));
+        Aluguel.setPago(true);
+        JOptionPane.showMessageDialog(this, "Imóvel pago com sucesso!");
     }//GEN-LAST:event_PagarActionPerformed
 
     private void ImovelCodigoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ImovelCodigoItemStateChanged
         // TODO add your handling code here:
-
     }//GEN-LAST:event_ImovelCodigoItemStateChanged
 
     /**
@@ -158,7 +161,6 @@ public class PagarLocacao extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField DataPagamento;
     private javax.swing.JComboBox<String> ImovelCodigo;

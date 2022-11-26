@@ -13,6 +13,8 @@ import Grafico.Cadastro.CadastroSeguro;
 import Grafico.Cadastro.CadastroVenda;
 import Grafico.Cadastro.PagarLocacao;
 import Imovel.Imovel;
+import Unicos.Aluguel;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -45,7 +47,9 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jMenuItem11 = new javax.swing.JMenuItem();
@@ -74,14 +78,14 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         ClientesCadastrados = new javax.swing.JMenuItem();
         CorretoresCadastrados = new javax.swing.JMenuItem();
         PagamentoMenu = new javax.swing.JMenu();
-        jMenuItem12 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
+        pagarAluguelDeImovel = new javax.swing.JMenuItem();
+        alugueisComAtrasoNoPagamento = new javax.swing.JMenuItem();
+        funcionarioDoMes = new javax.swing.JMenuItem();
+        imoveisCompradosPorCliente = new javax.swing.JMenuItem();
+        clientesComAlugueisEmAtraso = new javax.swing.JMenuItem();
+        alugueisNaoFinalizadosOuFinalizados = new javax.swing.JMenuItem();
+        alugueisFinalizadas = new javax.swing.JMenuItem();
+        alugueisNaoFinalizadas = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
 
@@ -247,39 +251,54 @@ public class InterfaceGrafico extends javax.swing.JFrame {
 
         PagamentoMenu.setText("Pagamento");
 
-        jMenuItem12.setText("Pagar locação de imóvel");
-        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+        pagarAluguelDeImovel.setText("Pagar aluguel de um imóvel");
+        pagarAluguelDeImovel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem12ActionPerformed(evt);
+                pagarAluguelDeImovelActionPerformed(evt);
             }
         });
-        PagamentoMenu.add(jMenuItem12);
+        PagamentoMenu.add(pagarAluguelDeImovel);
 
-        jMenuItem3.setText("Alugueis com atraso no pagamento");
-        PagamentoMenu.add(jMenuItem3);
-
-        jMenuItem5.setText("Funcionário do mês");
-        PagamentoMenu.add(jMenuItem5);
-
-        jMenuItem6.setText("Imóveis comprados por um cliente");
-        PagamentoMenu.add(jMenuItem6);
-
-        jMenuItem7.setText("Clientes com alugueis em atraso");
-        PagamentoMenu.add(jMenuItem7);
-
-        jMenuItem8.setText("Locações finalizadas ou não");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+        alugueisComAtrasoNoPagamento.setText("Alugueis com atraso no pagamento");
+        alugueisComAtrasoNoPagamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
+                alugueisComAtrasoNoPagamentoActionPerformed(evt);
             }
         });
-        PagamentoMenu.add(jMenuItem8);
+        PagamentoMenu.add(alugueisComAtrasoNoPagamento);
 
-        jMenuItem9.setText("Locações finalizadas");
-        PagamentoMenu.add(jMenuItem9);
+        funcionarioDoMes.setText("Funcionário do mês");
+        funcionarioDoMes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                funcionarioDoMesActionPerformed(evt);
+            }
+        });
+        PagamentoMenu.add(funcionarioDoMes);
 
-        jMenuItem10.setText("Locações não finalizadas");
-        PagamentoMenu.add(jMenuItem10);
+        imoveisCompradosPorCliente.setText("Imóveis comprados por um cliente");
+        PagamentoMenu.add(imoveisCompradosPorCliente);
+
+        clientesComAlugueisEmAtraso.setText("Clientes com alugueis em atraso");
+        PagamentoMenu.add(clientesComAlugueisEmAtraso);
+
+        alugueisNaoFinalizadosOuFinalizados.setText("Alugueis finalizados ou não finalizados");
+        alugueisNaoFinalizadosOuFinalizados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alugueisNaoFinalizadosOuFinalizadosActionPerformed(evt);
+            }
+        });
+        PagamentoMenu.add(alugueisNaoFinalizadosOuFinalizados);
+
+        alugueisFinalizadas.setText("Alugueis finalizadas");
+        PagamentoMenu.add(alugueisFinalizadas);
+
+        alugueisNaoFinalizadas.setText("Alugueis não finalizadas");
+        alugueisNaoFinalizadas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alugueisNaoFinalizadasActionPerformed(evt);
+            }
+        });
+        PagamentoMenu.add(alugueisNaoFinalizadas);
 
         BarraMenu.add(PagamentoMenu);
 
@@ -300,22 +319,62 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(TextoExibicaoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 908,
-                                        Short.MAX_VALUE)
-                                .addContainerGap()));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(TextoExibicaoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 908, Short.MAX_VALUE)
+                .addContainerGap())
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(TextoExibicaoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 505,
-                                        Short.MAX_VALUE)
-                                .addContainerGap()));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(TextoExibicaoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void funcionarioDoMesActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_funcionarioDoMesActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_funcionarioDoMesActionPerformed
+
+    private void pagarAluguelDeImovelActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_pagarAluguelDeImovelActionPerformed
+        // TODO add your handling code here:
+        PagarLocacao PagarLocacao = new PagarLocacao();
+        PagarLocacao.setLocationRelativeTo(this);
+        PagarLocacao.setVisible(true);
+    }// GEN-LAST:event_pagarAluguelDeImovelActionPerformed
+
+    private void alugueisNaoFinalizadosOuFinalizadosActionPerformed(java.awt.event.ActionEvent evt) {
+        String Dados = "Algueis finalizados:\n";
+        for (Aluguel A : Controlador.getAlugueisFinalizados()) {
+            Dados += A.toString();
+        }
+        Dados += "Alugueis não finalizados:\n";
+        for (Aluguel A : Controlador.getAlugueislVigente(LocalDate.now())) {
+            Dados += A.toString();
+        }
+        TextoExibicao.setText("Alugueis finalizados ou não finalizados:\n" + Dados);
+    }
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void alugueisComAtrasoNoPagamentoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_alugueisComAtrasoNoPagamentoActionPerformed
+        // TODO add your handling code here:
+        String Dados = "";
+        for (Aluguel A : Controlador.getAlugueisAtrasado(LocalDate.now())) {
+            Dados += A.toString();
+        }
+        TextoExibicao.setText("Alugueis com atraso no pagamento:\n" + Dados);
+    }// GEN-LAST:event_alugueisComAtrasoNoPagamentoActionPerformed
+
+    private void alugueisNaoFinalizadasActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_alugueisNaoFinalizadasActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_alugueisNaoFinalizadasActionPerformed
 
     private void TodasCategoriasActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_TodasCategoriasActionPerformed
         // TODO add your handling code here:
@@ -361,9 +420,6 @@ public class InterfaceGrafico extends javax.swing.JFrame {
 
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem12ActionPerformed
         // TODO add your handling code here:
-        PagarLocacao PagarLocacao = new PagarLocacao();
-        PagarLocacao.setLocationRelativeTo(this);
-        PagarLocacao.setVisible(true);
     }// GEN-LAST:event_jMenuItem12ActionPerformed
 
     private void ClientesCadastradosActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ClientesCadastradosActionPerformed
@@ -419,7 +475,6 @@ public class InterfaceGrafico extends javax.swing.JFrame {
             Dados += I.toString();
         }
         TextoExibicao.setText("Imóveis indisponíveis para venda ou aluguel:" + Dados);
-
     }// GEN-LAST:event_IndisponivelVendaActionPerformed
 
     private void ListaDisponivelActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ListaDisponivelActionPerformed
@@ -505,7 +560,6 @@ public class InterfaceGrafico extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar BarraMenu;
     private javax.swing.JMenuItem CasaResidencial;
@@ -530,18 +584,18 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private javax.swing.JMenu Todos;
     private javax.swing.JMenu UsuarioMenu;
     private javax.swing.JMenuItem VendaCadastro;
+    private javax.swing.JMenuItem alugueisComAtrasoNoPagamento;
+    private javax.swing.JMenuItem alugueisFinalizadas;
+    private javax.swing.JMenuItem alugueisNaoFinalizadas;
+    private javax.swing.JMenuItem alugueisNaoFinalizadosOuFinalizados;
+    private javax.swing.JMenuItem clientesComAlugueisEmAtraso;
+    private javax.swing.JMenuItem funcionarioDoMes;
+    private javax.swing.JMenuItem imoveisCompradosPorCliente;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenuItem pagarAluguelDeImovel;
     // End of variables declaration//GEN-END:variables
 }

@@ -50,6 +50,6 @@ public class Cartao extends Pagamento implements Serializable {
                 + "\nNome: " + getNome()
                 + "\nBandeira: " + getBandeira()
                 + "\nNúmero: " + getNumero()
-                + "\n-----------------------------------------------------------------\n";
+                + "\n-----------------------------------------------------------------";
     }
 }

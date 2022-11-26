@@ -5,7 +5,9 @@ package Grafico.Cadastro;
 
 import Controlador.Controlador;
 import Unicos.Aluguel;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
@@ -22,7 +24,12 @@ public class PagarLocacao extends javax.swing.JFrame {
      */
     public PagarLocacao() {
         initComponents();
-        String[] CodigosImoveis = Controlador.codigosImoveisArray().toArray(new String[0]);
+        ArrayList<String> Strings = new ArrayList<String>();
+        ArrayList<Aluguel> Alugueis = Controlador.getAlugueislVigente(LocalDate.now());
+        for (Aluguel A : Alugueis) {
+            Strings.add(Integer.toString(A.getCodigoAluguel()));
+        }
+        String[] CodigosImoveis = Strings.toArray(new String[0]);
         DefaultComboBoxModel CodigosModel = new DefaultComboBoxModel(CodigosImoveis);
         ImovelCodigo.setModel(CodigosModel);
     }

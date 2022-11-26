@@ -254,6 +254,17 @@ public class Controlador {
         return clientesAtrasados;
     }
 
+    // Imoveis
+    public Aluguel getImovelCodigo(int codigo) {
+        ArrayList<Aluguel> Alugueis = Imobiliaria.getAlugueis();
+        for (Aluguel A : Alugueis) {
+            if (A.getCodigoAluguel() == codigo) {
+                return A;
+            }
+        }
+        return null;
+    }
+
     // Casa residencial
     public void cadastroCasaResidencial(int codigoImovel, String endereco, LocalDate dataConstrucao, float areaTotal,
             float areaConstruida, int qtdDormitorios, int qtdBanheiros, int qtdVagasGaragem, float valorIPTU,
@@ -264,7 +275,6 @@ public class Controlador {
         System.out.println("Casa residencial cadastrado:\n" + CasaResidencial.toString());
     }
 
-    // exibe todos os imoveis da classe Comercial
     public String todosComerciaisToString() {
         String Dados = "";
         ArrayList<Imovel> Comercial = Imobiliaria.getImoveis();
@@ -275,21 +285,6 @@ public class Controlador {
             }
         }
         return Dados;
-    }
-
-    public ArrayList<Aluguel> getAlugueis() {
-        return Imobiliaria.getAlugueis();
-    }
-
-    public ArrayList<Aluguel> getAlugueisFinalizados() {
-        ArrayList<Aluguel> alugueisFinalizados = new ArrayList<Aluguel>();
-        ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
-        for (Aluguel alu : alugueis) {
-            if (alu.getDataDevolucao().isBefore(LocalDate.now())) {
-                alugueisFinalizados.add(alu);
-            }
-        }
-        return alugueisFinalizados;
     }
 
     // exibe todos os imoveis da classe ApartamentoResidencial
@@ -410,14 +405,19 @@ public class Controlador {
         return Dados;
     }
 
-    public Aluguel getImovelCodigo(int codigo) {
-        ArrayList<Aluguel> Alugueis = Imobiliaria.getAlugueis();
-        for (Aluguel A : Alugueis) {
-            if (A.getCodigoAluguel() == codigo) {
-                return A;
+    public ArrayList<Aluguel> getAlugueis() {
+        return Imobiliaria.getAlugueis();
+    }
+
+    public ArrayList<Aluguel> getAlugueisFinalizados() {
+        ArrayList<Aluguel> alugueisFinalizados = new ArrayList<Aluguel>();
+        ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
+        for (Aluguel alu : alugueis) {
+            if (alu.getDataDevolucao().isBefore(LocalDate.now())) {
+                alugueisFinalizados.add(alu);
             }
         }
-        return null;
+        return alugueisFinalizados;
     }
 
     // Seguro
@@ -453,6 +453,8 @@ public class Controlador {
         }
         return null;
     }
+
+    // Vendas e lucros
 
     public ArrayList<Venda> getArrayDeVendas() {
         ArrayList<Venda> Vendas = Imobiliaria.getVendas();

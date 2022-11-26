@@ -1,11 +1,10 @@
 /*
  * Trabalho de programacao orientado a objetos II
  */
-package Grafico.Cadastro;
+package Grafico.Outros;
 
 import Controlador.Controlador;
 import Unicos.Aluguel;
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
@@ -25,9 +24,11 @@ public class PagarLocacao extends javax.swing.JFrame {
     public PagarLocacao() {
         initComponents();
         ArrayList<String> Strings = new ArrayList<String>();
-        ArrayList<Aluguel> Alugueis = Controlador.getAlugueislVigente(LocalDate.now());
+        ArrayList<Aluguel> Alugueis = Controlador.getAlugueis();
         for (Aluguel A : Alugueis) {
-            Strings.add(Integer.toString(A.getCodigoAluguel()));
+            if (!A.isPago()) {
+                Strings.add(Integer.toString(A.getCodigoAluguel()));
+            }
         }
         String[] CodigosImoveis = Strings.toArray(new String[0]);
         DefaultComboBoxModel CodigosModel = new DefaultComboBoxModel(CodigosImoveis);

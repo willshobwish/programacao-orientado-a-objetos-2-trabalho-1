@@ -159,14 +159,14 @@
     <Component class="javax.swing.JSpinner" name="DiaVenda">
       <Properties>
         <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="DataDia()" type="code"/>
+          <Connection code="LocalDate.now().getDayOfMonth()" type="code"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="MesVenda">
       <Properties>
         <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="DataMes()" type="code"/>
+          <Connection code="LocalDate.now().getMonthValue()" type="code"/>
         </Property>
       </Properties>
     </Component>
@@ -174,7 +174,7 @@
       <Properties>
         <Property name="name" type="java.lang.String" value="" noResource="true"/>
         <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="DataAno()" type="code"/>
+          <Connection code="LocalDate.now().getYear()" type="code"/>
         </Property>
       </Properties>
     </Component>

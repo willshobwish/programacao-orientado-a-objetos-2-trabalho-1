@@ -15,6 +15,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /*
@@ -43,6 +44,25 @@ public class Imobiliaria {
         carregarSeguros();
         carregarUsuarios();
         carregarVendas();
+        // Criacao de objetos para teste
+        if (imoveis.size() == 0) {
+            imoveis.add(new CasaResidencial(0, "Rua de teste de casa residencial", LocalDate.parse("1998-08-12"), 200,
+                    150, 2, 1, 2,
+                    100, 200, 300));
+            imoveis.add(new Comercial(100, 1, "Rua de teste de comercial", LocalDate.parse("1999-09-22"), 300, 250, 2,
+                    2, 10, 300,
+                    500, 600));
+            imoveis.add(new ApartamentoResidencial(20, 300, 2, "Rua de teste de apartamento residencial",
+                    LocalDate.parse("1898-07-17"), 400, 300, 4, 2, 4, 400, 600, 200));
+        }
+        if (usuarios.size() == 0) {
+            usuarios.add(new Cliente(LocalDate.now(), 0, "Cliente de teste", "328.432.432-32", "421.321.321-48",
+                    LocalDate.parse("2022-09-13"), "Rua de teste cliente teste", "19015-832", "(18) 92894-2382",
+                    "emailteste@email.com.br"));
+            usuarios.add(new Corretor("93402843", 300, "489327", LocalDate.parse("2021-09-10"), 1, "Corretor teste",
+                    "983.324.234-23", "324.432.543-54", LocalDate.parse("2000-09-12"), "Rua de teste corretor",
+                    "32983-343", "(18) 90382-3242", "emailcorretor@email.com.br"));
+        }
     }
 
     public void setNome(String nome) {

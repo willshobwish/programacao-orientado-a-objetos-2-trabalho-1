@@ -13,6 +13,7 @@ import Grafico.Cadastro.CadastroSeguro;
 import Grafico.Cadastro.CadastroVenda;
 import Grafico.Cadastro.PagarLocacao;
 import Imovel.Imovel;
+import java.util.ArrayList;
 
 /**
  *
@@ -43,7 +44,8 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jMenuItem11 = new javax.swing.JMenuItem();
@@ -298,28 +300,28 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(TextoExibicaoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 908, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(TextoExibicaoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 908,
+                                        Short.MAX_VALUE)
+                                .addContainerGap()));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(TextoExibicaoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(TextoExibicaoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 505,
+                                        Short.MAX_VALUE)
+                                .addContainerGap()));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TodasCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TodasCategoriasActionPerformed
+    private void TodasCategoriasActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_TodasCategoriasActionPerformed
         // TODO add your handling code here:
-        TextoExibicao.setText(Controlador.exibirCasasResidenciais() + Controlador.exibirApartamentosResidenciais() + Controlador.exibirComercio());
-
-    }//GEN-LAST:event_TodasCategoriasActionPerformed
+        TextoExibicao.setText(Controlador.exibirCasasResidenciais() + Controlador.exibirApartamentosResidenciais()
+                + Controlador.exibirComercio());
+    }// GEN-LAST:event_TodasCategoriasActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
@@ -380,7 +382,8 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private void CategoriaApartamentoResidencialActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CategoriaApartamentoResidencialActionPerformed
         // TODO add your handling code here:
         Limpar();
-        TextoExibicao.setText("Lista de categoria de apartamento residencial:\n" + Controlador.exibirApartamentosResidenciais());
+        TextoExibicao.setText(
+                "Lista de categoria de apartamento residencial:\n" + Controlador.exibirApartamentosResidenciais());
     }// GEN-LAST:event_CategoriaApartamentoResidencialActionPerformed
 
     private void CategoriaCasaResidencialActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CategoriaCasaResidencialActionPerformed
@@ -399,13 +402,24 @@ public class InterfaceGrafico extends javax.swing.JFrame {
     private void DisponivelVendaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_DisponivelVendaActionPerformed
         // TODO add your handling code here:
         Limpar();
-        TextoExibicao.setText("Casas disponiveis para venda:");
+        ArrayList<Imovel> ImoveisDisponiveis = Controlador.getImoveisDisponiveis();
+        String Dados = "";
+        for (Imovel I : ImoveisDisponiveis) {
+            Dados += I.toString();
+        }
+        TextoExibicao.setText("Imóveis disponiveis para venda:" + Dados);
     }// GEN-LAST:event_DisponivelVendaActionPerformed
 
     private void IndisponivelVendaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_IndisponivelVendaActionPerformed
         // TODO add your handling code here:
         Limpar();
-        TextoExibicao.setText("Casas indisponíveis para venda ou aluguel:");
+        ArrayList<Imovel> ImoveisDisponiveis = Controlador.getImoveisNaoDisponiveis();
+        String Dados = "";
+        for (Imovel I : ImoveisDisponiveis) {
+            Dados += I.toString();
+        }
+        TextoExibicao.setText("Imóveis indisponíveis para venda ou aluguel:" + Dados);
+
     }// GEN-LAST:event_IndisponivelVendaActionPerformed
 
     private void ListaDisponivelActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ListaDisponivelActionPerformed

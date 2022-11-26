@@ -338,11 +338,17 @@ public class CadastroCorretor extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Controlador Controlador = new Controlador();
-        LocalDate DataNascimento = LocalDate.parse(Ano.getValue() + "-" + Mes.getValue() + "-" + Dia.getValue());
-        LocalDate DataAdmissao = LocalDate.parse(AnoAdmisssao.getValue() + "-" + MesAdmissao.getValue() + "-" + DiaAdmissao.getValue());
-        Controlador.adicionarCorretores(CreciText.getText(), Float.parseFloat(SalarioText.getText()), PIS.getText(), Integer.parseInt(Codigo.getText()), Nome.getText(), Cpf.getText(), Rg.getText(), DataNascimento, DataAdmissao, Endereco.getText(), Cep.getText(), Telefone.getText(), Email.getText());
-        Codigo.setText(Integer.toString(Controlador.getGeradorCodigoUsuario()));
-        JOptionPane.showMessageDialog(this, "Corretor cadastrado com sucesso");
+        if ((int) Ano.getValue() < 1 || ((int) Mes.getValue() < 1 || (int) Mes.getValue() > 12) || ((int) Dia.getValue() < 1 || (int) Dia.getValue() > 31)) {
+            JOptionPane.showMessageDialog(this, "Insira uma data de nascimento válida", "Data incorreta", JOptionPane.WARNING_MESSAGE);
+        } else if ((int) AnoAdmisssao.getValue() < 1 || ((int) MesAdmissao.getValue() < 1 || (int) MesAdmissao.getValue() > 12) || ((int) DiaAdmissao.getValue() < 1 || (int) DiaAdmissao.getValue() > 31)) {
+            JOptionPane.showMessageDialog(this, "Insira uma data de admissão válida", "Data incorreta", JOptionPane.WARNING_MESSAGE);
+        } else {
+            LocalDate DataNascimento = LocalDate.parse(Ano.getValue() + "-" + Mes.getValue() + "-" + Dia.getValue());
+            LocalDate DataAdmissao = LocalDate.parse(AnoAdmisssao.getValue() + "-" + MesAdmissao.getValue() + "-" + DiaAdmissao.getValue());
+            Controlador.adicionarCorretores(CreciText.getText(), Float.parseFloat(SalarioText.getText()), PIS.getText(), Integer.parseInt(Codigo.getText()), Nome.getText(), Cpf.getText(), Rg.getText(), DataNascimento, DataAdmissao, Endereco.getText(), Cep.getText(), Telefone.getText(), Email.getText());
+            Codigo.setText(Integer.toString(Controlador.getGeradorCodigoUsuario()));
+            JOptionPane.showMessageDialog(this, "Corretor cadastrado com sucesso");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

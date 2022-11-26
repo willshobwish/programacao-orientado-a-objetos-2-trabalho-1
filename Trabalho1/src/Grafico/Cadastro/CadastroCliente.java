@@ -364,13 +364,19 @@ public class CadastroCliente extends javax.swing.JFrame {
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CadastrarActionPerformed
         // TODO add your handling code here:
         // Controlador Controlador = new Controlador();
-        LocalDate DataNascimeto = LocalDate
-                .parse(AnoNascimento.getValue() + "-" + MesNascimento.getValue() + "-" + DiaNascimento.getValue());
-        Controlador.adicionarCliente(LocalDate.now(), Integer.parseInt(CodigoCliente.getText()), NomeCliente.getText(),
-                CPFCliente.getText(), RGCliente.getText(), DataNascimeto, EnderecoCliente.getText(),
-                CEPCliente.getText(), TelefoneCliente.getText(), EmailCliente.getText());
-        CodigoCliente.setText(Integer.toString(Controlador.getGeradorCodigoUsuario()));
-        JOptionPane.showMessageDialog(this, "Cliente cadastrado com sucesso");
+        if ((int) AnoNascimento.getValue() < 1 || ((int) MesNascimento.getValue() < 1 || (int) MesNascimento.getValue() > 12) || ((int) DiaNascimento.getValue() < 1 || (int) DiaNascimento.getValue() >31 )) {
+            JOptionPane.showMessageDialog(this, "Insira uma data de nascimento válida", "Data incorreta", JOptionPane.WARNING_MESSAGE);
+        } else if ((int) AnoCadastro.getValue() < 1 || ((int) MesCadastro.getValue() < 1 || (int) MesCadastro.getValue() > 12) || ((int) DiaCadastro.getValue() < 1 || (int) DiaCadastro.getValue() > 31)) {
+            JOptionPane.showMessageDialog(this, "Insira uma data de cadastro válida", "Data incorreta", JOptionPane.WARNING_MESSAGE);
+        } else {
+            LocalDate DataNascimeto = LocalDate.parse(AnoNascimento.getValue() + "-" + MesNascimento.getValue() + "-" + DiaNascimento.getValue());
+            LocalDate DataCadastro = LocalDate.parse(AnoCadastro.getValue() + "-" + MesCadastro.getValue() + "-" + DiaCadastro.getValue());
+            Controlador.adicionarCliente(DataCadastro, Integer.parseInt(CodigoCliente.getText()), NomeCliente.getText(),
+                    CPFCliente.getText(), RGCliente.getText(), DataNascimeto, EnderecoCliente.getText(),
+                    CEPCliente.getText(), TelefoneCliente.getText(), EmailCliente.getText());
+            CodigoCliente.setText(Integer.toString(Controlador.getGeradorCodigoUsuario()));
+            JOptionPane.showMessageDialog(this, "Cliente cadastrado com sucesso");
+        }
     }// GEN-LAST:event_CadastrarActionPerformed
 
     private void RGClienteActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_RGClienteActionPerformed
@@ -430,7 +436,6 @@ public class CadastroCliente extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner AnoCadastro;
     private javax.swing.JLabel AnoCadastroLabel;

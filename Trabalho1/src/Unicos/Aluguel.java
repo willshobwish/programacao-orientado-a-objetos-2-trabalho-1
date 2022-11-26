@@ -139,6 +139,7 @@ public class Aluguel implements Serializable {
 
     public void setPago(boolean pago) {
         this.pago = pago;
+        this.dataPagamentoMensal.plusMonths(1);
     }
 
     public float calcularValorTotal() {
@@ -168,9 +169,9 @@ public class Aluguel implements Serializable {
         return "Aluguel:\n"
                 + "Codigo do aluguel: " + this.codigoAluguel + "\n"
                 + "Cliente:\n" + this.cliente + "\n"
-                + "---------\n"
+                + "-----------------------------------------------------------------\n"
                 + "Corretor:\n" + this.corretor + "\n"
-                + "---------\n"
+                + "-----------------------------------------------------------------\n"
                 + "Data do aluguel: " + this.dataAluguel.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + "\n"
                 + "Data de devolucao: " + this.dataDevolucao.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + "\n"
                 + "Data do pagamento mensal: " + this.dataPagamentoMensal.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + "\n"

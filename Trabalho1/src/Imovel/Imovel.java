@@ -154,8 +154,8 @@ abstract public class Imovel implements Serializable {
                 + "\nQuantidade de dormitorios: " + this.qtdDormitorios
                 + "\nQuantidade de banheiros: " + this.qtdBanheiros
                 + "\nQuantidade de vagas na garagem: " + this.qtdVagasGaragem
-                + "\nValor do IPTU: " + this.valorIPTU
-                + "\nValor de venda: " + this.valorVenda
-                + "\nValor de aluguel: " + this.valorAluguel;
+                + "\nValor do IPTU: R$ " + this.valorIPTU
+                + "\nValor de venda: R$ " + this.valorVenda
+                + "\nValor de aluguel: R$ " + this.valorAluguel;
     }
 }

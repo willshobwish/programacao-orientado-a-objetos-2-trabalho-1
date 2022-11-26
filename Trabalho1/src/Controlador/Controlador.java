@@ -364,19 +364,7 @@ public class Controlador {
                         qtdDormitorios, qtdBanheiros, qtdVagasGaragem, valorIPTU, valorVenda, valorAluguel));
     }
 
-    // Vendas
-    public void cadastroVenda(int codigoVenda, Cliente cliente, Corretor corretor, Imovel imovel, LocalDate dataVenda,
-            float valorTotalVenda, Pagamento formaPagamento) {
-        if (imovel.isDisponivel()) {
-            Imobiliaria.CadastrarVenda(
-                    new Venda(codigoVenda, cliente, corretor, imovel, dataVenda, valorTotalVenda, formaPagamento));
-            corretor.addVenda();
-            imovel.setDisponibilidade();
-            cliente.comprarImovel(imovel);
-        } else {
-            System.out.println("Imovel nao disponivel para venda");
-        }
-    }
+
 
     // Locacao
     public void cadastroAluguel(int codigoAluguel, Cliente cliente, Corretor corretor, Imovel imovel,
@@ -455,7 +443,19 @@ public class Controlador {
     }
 
     // Vendas e lucros
-
+    public void cadastroVenda(int codigoVenda, Cliente cliente, Corretor corretor, Imovel imovel, LocalDate dataVenda,
+            float valorTotalVenda, Pagamento formaPagamento) {
+        if (imovel.isDisponivel()) {
+            Imobiliaria.CadastrarVenda(
+                    new Venda(codigoVenda, cliente, corretor, imovel, dataVenda, valorTotalVenda, formaPagamento));
+            corretor.addVenda();
+            imovel.setDisponibilidade();
+            cliente.comprarImovel(imovel);
+        } else {
+            System.out.println("Imovel nao disponivel para venda");
+        }
+    }
+    
     public ArrayList<Venda> getArrayDeVendas() {
         ArrayList<Venda> Vendas = Imobiliaria.getVendas();
         return Vendas;

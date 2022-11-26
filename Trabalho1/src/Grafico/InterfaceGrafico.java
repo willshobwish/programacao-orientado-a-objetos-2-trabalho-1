@@ -326,6 +326,11 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         jMenu2.add(todasVendas);
 
         todasVendasELucro.setText("Todas vendas realizadas e o lucro total");
+        todasVendasELucro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                todasVendasELucroActionPerformed(evt);
+            }
+        });
         jMenu2.add(todasVendasELucro);
 
         BarraMenu.add(jMenu2);
@@ -383,6 +388,17 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         }
         TextoExibicao.setText(Dados);
     }//GEN-LAST:event_todasVendasActionPerformed
+
+    private void todasVendasELucroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todasVendasELucroActionPerformed
+        // TODO add your handling code here:
+        Limpar();
+        String Dados = "Todas as vendas realizadas:\n";
+        for (Venda V : Controlador.getArrayDeVendas()) {
+            Dados += V.toString();
+        }
+        Dados += "Lucro total: R$ " + Float.toString(Controlador.getLucroTotalVendas());
+        TextoExibicao.setText(Dados);
+    }//GEN-LAST:event_todasVendasELucroActionPerformed
 
     private void funcionarioDoMesActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_funcionarioDoMesActionPerformed
         // TODO add your handling code here:

@@ -133,7 +133,7 @@ public class Aluguel implements Serializable {
         this.segurosContratados = segurosContratados;
     }
 
-    public boolean isPago() {
+    public boolean getPago() {
         return pago;
     }
 

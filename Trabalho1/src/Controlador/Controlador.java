@@ -187,7 +187,7 @@ public class Controlador {
         ArrayList<Aluguel> alugueisAtrasados = new ArrayList<Aluguel>();
         ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
         for (Aluguel alu : alugueis) {
-            if (alu.getDataPagamentoMensal().isBefore(data) && !alu.isPago()) {
+            if (alu.getDataPagamentoMensal().isBefore(data) && !alu.getPago()) {
                 alugueisAtrasados.add(alu);
             }
         }

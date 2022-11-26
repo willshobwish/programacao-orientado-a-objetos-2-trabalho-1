@@ -26,7 +26,7 @@ public class PagarLocacao extends javax.swing.JFrame {
         ArrayList<String> Strings = new ArrayList<String>();
         ArrayList<Aluguel> Alugueis = Controlador.getAlugueis();
         for (Aluguel A : Alugueis) {
-            if (!A.isPago()) {
+            if (!A.getPago()) {
                 Strings.add(Integer.toString(A.getCodigoAluguel()));
             }
         }

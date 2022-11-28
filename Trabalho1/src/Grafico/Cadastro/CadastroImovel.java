@@ -26,6 +26,9 @@ public class CadastroImovel extends javax.swing.JDialog {
             ValorCondominio.setEnabled(false);
             TaxaImpostoFederal.setEnabled(false);
         }
+        DiaNascimento.setText(String.valueOf(DataDia()));
+        MesNascimento.setText(String.valueOf(DataMes()));
+        AnoNascimento.setText(String.valueOf(DataAno()));
         Codigo.setText(String.valueOf(controlador.getGeradorCodigoImovel()));
     }
 
@@ -64,19 +67,16 @@ public class CadastroImovel extends javax.swing.JDialog {
 
     public int DataAno() {
         LocalDate localdate = LocalDate.now();
-//        System.out.println(localdate.getYear());
         return localdate.getYear();
     }
 
     public int DataMes() {
         LocalDate localdate = LocalDate.now();
-//        System.out.println(localdate.getYear());
         return localdate.getMonthValue();
     }
 
     public int DataDia() {
         LocalDate localdate = LocalDate.now();
-//        System.out.println(localdate.getYear());
         return localdate.getDayOfMonth();
     }
 
@@ -112,11 +112,8 @@ public class CadastroImovel extends javax.swing.JDialog {
         ValorVenda = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        Ano1 = new javax.swing.JSpinner();
         jLabel16 = new javax.swing.JLabel();
-        Mes1 = new javax.swing.JSpinner();
         jLabel17 = new javax.swing.JLabel();
-        Dia1 = new javax.swing.JSpinner();
         jLabel18 = new javax.swing.JLabel();
         ValorAluguel = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
@@ -128,6 +125,9 @@ public class CadastroImovel extends javax.swing.JDialog {
         TaxaImpostoFederalLabel = new javax.swing.JLabel();
         TipoImovel = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
+        AnoNascimento = new javax.swing.JTextField();
+        MesNascimento = new javax.swing.JTextField();
+        DiaNascimento = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -187,16 +187,9 @@ public class CadastroImovel extends javax.swing.JDialog {
 
         jLabel15.setText("Quantidade:");
 
-        Ano1.setName(""); // NOI18N
-        Ano1.setValue(DataAno());
-
         jLabel16.setText("Ano");
 
-        Mes1.setValue(DataMes());
-
         jLabel17.setText("Mês");
-
-        Dia1.setValue(DataDia());
 
         jLabel18.setText("Dia");
 
@@ -220,6 +213,12 @@ public class CadastroImovel extends javax.swing.JDialog {
         });
 
         jLabel7.setText("Tipo de imovel");
+
+        AnoNascimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AnoNascimentoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -253,21 +252,21 @@ public class CadastroImovel extends javax.swing.JDialog {
                                 .addComponent(AreaConstruida, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(AreaTotal, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(Dia1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel18))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(Mes1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel17))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel16)
-                                        .addComponent(Ano1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jLabel18)
+                                    .addGap(29, 29, 29)
+                                    .addComponent(jLabel17)
+                                    .addGap(24, 24, 24)
+                                    .addComponent(jLabel16)))
                             .addComponent(jLabel7)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(Codigo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
-                                .addComponent(TipoImovel, javax.swing.GroupLayout.Alignment.LEADING, 0, 204, Short.MAX_VALUE)))
+                                .addComponent(TipoImovel, javax.swing.GroupLayout.Alignment.LEADING, 0, 204, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(DiaNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(MesNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(AnoNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13)
@@ -335,10 +334,10 @@ public class CadastroImovel extends javax.swing.JDialog {
                             .addComponent(jLabel16))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Dia1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Ano1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Mes1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(DiaNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MesNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AnoNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(AreaTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -386,10 +385,10 @@ public class CadastroImovel extends javax.swing.JDialog {
         int andar = (int) Andar.getValue();
         float valorCondominio = Float.parseFloat(ValorCondominio.getText());
         float taxaImpostoFederal = Float.parseFloat(TaxaImpostoFederal.getText());
-        if ((int) Ano1.getValue() < 1 || ((int) Mes1.getValue() < 1 || (int) Mes1.getValue() > 12) || ((int) Dia1.getValue() < 1 || (int) Dia1.getValue() > 31)) {
+        if ((Integer.parseInt(AnoNascimento.getText()) < 1 || (Integer.parseInt(MesNascimento.getText())) < 1 || Integer.parseInt(MesNascimento.getText()) > 12) || (Integer.parseInt(DiaNascimento.getText()) < 1 || Integer.parseInt(DiaNascimento.getText()) > 31)) {
             JOptionPane.showMessageDialog(this, "Insira uma data de construção válida", "Data incorreta", JOptionPane.WARNING_MESSAGE);
         } else {
-            LocalDate dataConstrucao = LocalDate.parse(Ano1.getValue() + "-" + Mes1.getValue() + "-" + Dia1.getValue());
+            LocalDate dataConstrucao = LocalDate.parse(AnoNascimento.getText() + "-" + MesNascimento.getText() + "-" + DiaNascimento.getText());
             if (TipoImovel.getSelectedItem().equals("Casa residencial")) {
                 controlador.cadastroCasaResidencial(codigoImovel, endereco, dataConstrucao, areaTotal, areaConstruida, qtdDormitorios, qtdBanheiros, qtdVagasGaragem, valorIPTU, valorVenda, valorAluguel);
                 JOptionPane.showMessageDialog(this, "Casa residencial cadastrado com sucesso");
@@ -437,6 +436,10 @@ public class CadastroImovel extends javax.swing.JDialog {
             TaxaImpostoFederal.setEnabled(true);
         }
     }//GEN-LAST:event_TipoImovelActionPerformed
+
+    private void AnoNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnoNascimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AnoNascimentoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -517,17 +520,17 @@ public class CadastroImovel extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner Andar;
     private javax.swing.JLabel AndarLabel;
-    private javax.swing.JSpinner Ano1;
+    private javax.swing.JTextField AnoNascimento;
     private javax.swing.JTextField AreaConstruida;
     private javax.swing.JTextField AreaTotal;
     private javax.swing.JSpinner Banheiros;
     private javax.swing.JButton Cadastrar;
     private javax.swing.JTextField Codigo;
-    private javax.swing.JSpinner Dia1;
+    private javax.swing.JTextField DiaNascimento;
     private javax.swing.JSpinner Dormitorios;
     private javax.swing.JTextField Endereco;
     private javax.swing.JTextField IPTU;
-    private javax.swing.JSpinner Mes1;
+    private javax.swing.JTextField MesNascimento;
     private javax.swing.JTextField TaxaImpostoFederal;
     private javax.swing.JLabel TaxaImpostoFederalLabel;
     private javax.swing.JComboBox<String> TipoImovel;

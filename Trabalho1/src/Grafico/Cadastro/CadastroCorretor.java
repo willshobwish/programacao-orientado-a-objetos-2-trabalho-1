@@ -19,6 +19,12 @@ public class CadastroCorretor extends javax.swing.JFrame {
     public CadastroCorretor() {
         initComponents();
         Controlador Controlador = new Controlador();
+        DiaCadastro.setText(String.valueOf(DataDia()));
+        DiaNascimento.setText(String.valueOf(DataDia()));
+        MesCadastro.setText(String.valueOf(DataMes()));
+        MesNascimento.setText(String.valueOf(DataMes()));
+        AnoCadastro.setText(String.valueOf(DataAno()));
+        AnoNascimento.setText(String.valueOf(DataAno()));
         Codigo.setText(Integer.toString(Controlador.getGeradorCodigoUsuario()));
     }
 
@@ -58,22 +64,16 @@ public class CadastroCorretor extends javax.swing.JFrame {
         CreciText = new javax.swing.JTextField();
         SalarioLabel = new javax.swing.JLabel();
         SalarioText = new javax.swing.JTextField();
-        AnoAdmisssao = new javax.swing.JSpinner();
         AnoAdmissaoLabel = new javax.swing.JLabel();
         MesAdmissaoLabel = new javax.swing.JLabel();
         DiaAdmissaoLabel = new javax.swing.JLabel();
         DataAdmissaoLabel = new javax.swing.JLabel();
-        DiaAdmissao = new javax.swing.JSpinner();
-        MesAdmissao = new javax.swing.JSpinner();
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         Rg = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         Endereco = new javax.swing.JTextField();
-        Dia = new javax.swing.JSpinner();
-        Mes = new javax.swing.JSpinner();
-        Ano = new javax.swing.JSpinner();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -89,6 +89,12 @@ public class CadastroCorretor extends javax.swing.JFrame {
         Nome = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         Cpf = new javax.swing.JTextField();
+        DiaNascimento = new javax.swing.JTextField();
+        MesNascimento = new javax.swing.JTextField();
+        AnoNascimento = new javax.swing.JTextField();
+        MesCadastro = new javax.swing.JTextField();
+        AnoCadastro = new javax.swing.JTextField();
+        DiaCadastro = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -121,9 +127,6 @@ public class CadastroCorretor extends javax.swing.JFrame {
 
         SalarioLabel.setText("Salário");
 
-        AnoAdmisssao.setName(""); // NOI18N
-        AnoAdmisssao.setValue(DataAno());
-
         AnoAdmissaoLabel.setText("Ano");
 
         MesAdmissaoLabel.setText("Mês");
@@ -131,10 +134,6 @@ public class CadastroCorretor extends javax.swing.JFrame {
         DiaAdmissaoLabel.setText("Dia");
 
         DataAdmissaoLabel.setText("Data de admissão");
-
-        DiaAdmissao.setValue(DataDia());
-
-        MesAdmissao.setValue(DataMes());
 
         jButton1.setText("Cadastrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -148,13 +147,6 @@ public class CadastroCorretor extends javax.swing.JFrame {
         jLabel5.setText("Data de nascimento");
 
         jLabel6.setText("Endereço");
-
-        Dia.setValue(DataDia());
-
-        Mes.setValue(DataMes());
-
-        Ano.setName(""); // NOI18N
-        Ano.setValue(DataAno());
 
         jLabel16.setText("Ano");
 
@@ -182,6 +174,12 @@ public class CadastroCorretor extends javax.swing.JFrame {
 
         jLabel3.setText("CPF");
 
+        AnoNascimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AnoNascimentoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -197,28 +195,31 @@ public class CadastroCorretor extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(Codigo, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(Dia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel18))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(Mes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel17))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel16)
-                                        .addComponent(Ano, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(Nome, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(Cpf, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(Rg, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addComponent(Endereco, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(Rg, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(jLabel18)
+                                            .addGap(29, 29, 29)
+                                            .addComponent(jLabel17)
+                                            .addGap(24, 24, 24)
+                                            .addComponent(jLabel16)))
+                                    .addGap(90, 90, 90)))
+                            .addComponent(Endereco, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(DiaNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(MesNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(AnoNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(CreciText)
@@ -226,26 +227,30 @@ public class CadastroCorretor extends javax.swing.JFrame {
                             .addComponent(PIS)
                             .addComponent(SalarioText)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel7)
-                                    .addComponent(SalarioLabel)
-                                    .addComponent(PisLabel)
-                                    .addComponent(DataAdmissaoLabel)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(Email)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel9)
+                                                .addComponent(jLabel7)
+                                                .addComponent(SalarioLabel)
+                                                .addComponent(PisLabel)
+                                                .addComponent(DataAdmissaoLabel)
+                                                .addComponent(CreciLabel)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(DiaAdmissaoLabel)
+                                                    .addGap(29, 29, 29)
+                                                    .addComponent(MesAdmissaoLabel)
+                                                    .addGap(24, 24, 24)
+                                                    .addComponent(AnoAdmissaoLabel)))
+                                            .addGap(90, 90, 90)))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(DiaAdmissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(DiaAdmissaoLabel))
+                                        .addComponent(DiaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(MesAdmissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(MesAdmissaoLabel))
+                                        .addComponent(MesCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(AnoAdmissaoLabel)
-                                            .addComponent(AnoAdmisssao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(CreciLabel)
-                                    .addComponent(Email))
+                                        .addComponent(AnoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addComponent(Cep))
                 .addContainerGap())
@@ -255,38 +260,6 @@ public class CadastroCorretor extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Rg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel18)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel16))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Dia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Ano, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Mes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Endereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -316,10 +289,43 @@ public class CadastroCorretor extends javax.swing.JFrame {
                             .addComponent(AnoAdmissaoLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(DiaAdmissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(AnoAdmisssao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(MesAdmissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(DiaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MesCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AnoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Rg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel16))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(DiaNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MesNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AnoNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Endereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Cep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -338,18 +344,22 @@ public class CadastroCorretor extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Controlador Controlador = new Controlador();
-        if ((int) Ano.getValue() < 1 || ((int) Mes.getValue() < 1 || (int) Mes.getValue() > 12) || ((int) Dia.getValue() < 1 || (int) Dia.getValue() > 31)) {
+        if ((Integer.parseInt(AnoNascimento.getText()) < 1 || (Integer.parseInt(MesNascimento.getText())) < 1 || Integer.parseInt(MesNascimento.getText()) > 12) || (Integer.parseInt(DiaNascimento.getText()) < 1 || Integer.parseInt(DiaNascimento.getText()) > 31)) {
             JOptionPane.showMessageDialog(this, "Insira uma data de nascimento válida", "Data incorreta", JOptionPane.WARNING_MESSAGE);
-        } else if ((int) AnoAdmisssao.getValue() < 1 || ((int) MesAdmissao.getValue() < 1 || (int) MesAdmissao.getValue() > 12) || ((int) DiaAdmissao.getValue() < 1 || (int) DiaAdmissao.getValue() > 31)) {
-            JOptionPane.showMessageDialog(this, "Insira uma data de admissão válida", "Data incorreta", JOptionPane.WARNING_MESSAGE);
+        } else if ((Integer.parseInt(AnoCadastro.getText()) < 1 || (Integer.parseInt(MesCadastro.getText())) < 1 || Integer.parseInt(MesCadastro.getText()) > 12) || (Integer.parseInt(DiaCadastro.getText()) < 1 || Integer.parseInt(DiaCadastro.getText()) > 31)) {
+            JOptionPane.showMessageDialog(this, "Insira uma data de cadastro válida", "Data incorreta", JOptionPane.WARNING_MESSAGE);
         } else {
-            LocalDate DataNascimento = LocalDate.parse(Ano.getValue() + "-" + Mes.getValue() + "-" + Dia.getValue());
-            LocalDate DataAdmissao = LocalDate.parse(AnoAdmisssao.getValue() + "-" + MesAdmissao.getValue() + "-" + DiaAdmissao.getValue());
+            LocalDate DataNascimento = LocalDate.parse(AnoNascimento.getText() + "-" + MesNascimento.getText() + "-" + DiaNascimento.getText());
+            LocalDate DataAdmissao = LocalDate.parse(AnoCadastro.getText() + "-" + MesCadastro.getText() + "-" + DiaCadastro.getText());
             Controlador.adicionarCorretores(CreciText.getText(), Float.parseFloat(SalarioText.getText()), PIS.getText(), Integer.parseInt(Codigo.getText()), Nome.getText(), Cpf.getText(), Rg.getText(), DataNascimento, DataAdmissao, Endereco.getText(), Cep.getText(), Telefone.getText(), Email.getText());
             Codigo.setText(Integer.toString(Controlador.getGeradorCodigoUsuario()));
             JOptionPane.showMessageDialog(this, "Corretor cadastrado com sucesso");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void AnoNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnoNascimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AnoNascimentoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -386,23 +396,23 @@ public class CadastroCorretor extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JSpinner Ano;
     private javax.swing.JLabel AnoAdmissaoLabel;
-    private javax.swing.JSpinner AnoAdmisssao;
+    private javax.swing.JTextField AnoCadastro;
+    private javax.swing.JTextField AnoNascimento;
     private javax.swing.JTextField Cep;
     private javax.swing.JTextField Codigo;
     private javax.swing.JTextField Cpf;
     private javax.swing.JLabel CreciLabel;
     private javax.swing.JTextField CreciText;
     private javax.swing.JLabel DataAdmissaoLabel;
-    private javax.swing.JSpinner Dia;
-    private javax.swing.JSpinner DiaAdmissao;
     private javax.swing.JLabel DiaAdmissaoLabel;
+    private javax.swing.JTextField DiaCadastro;
+    private javax.swing.JTextField DiaNascimento;
     private javax.swing.JTextField Email;
     private javax.swing.JTextField Endereco;
-    private javax.swing.JSpinner Mes;
-    private javax.swing.JSpinner MesAdmissao;
     private javax.swing.JLabel MesAdmissaoLabel;
+    private javax.swing.JTextField MesCadastro;
+    private javax.swing.JTextField MesNascimento;
     private javax.swing.JTextField Nome;
     private javax.swing.JTextField PIS;
     private javax.swing.JLabel PisLabel;

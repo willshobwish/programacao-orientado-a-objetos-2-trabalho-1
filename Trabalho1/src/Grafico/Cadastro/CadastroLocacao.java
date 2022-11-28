@@ -33,12 +33,12 @@ public class CadastroLocacao extends javax.swing.JFrame {
         SegurosSelecao.setEnabled(false);
         Seguros.setEnabled(false);
         AdicionarSeguro.setEnabled(false);
+        //
+        setDafault();
 //
         String[] NomesCorretores = Controlador.nomesCorretoresArray().toArray(new String[0]);
         DefaultComboBoxModel CorretorModel = new DefaultComboBoxModel(NomesCorretores);
         Corretor.setModel(CorretorModel);
-//
-        setDafault();
 //
         String[] TipoSeguros = Controlador.getArrayDeNomeDeSeguro().toArray(new String[0]);
         DefaultComboBoxModel SeguroModel = new DefaultComboBoxModel(TipoSeguros);
@@ -51,26 +51,20 @@ public class CadastroLocacao extends javax.swing.JFrame {
         Dinheiro.setSelected(true);
         disableCartao();
         Codigo.setText(String.valueOf(Controlador.getGeradorCodigoAluguel()));
-        DiaLocacao.setValue(DataDia());
-        MesLocacao.setValue(DataMes());
-        AnoLocacao.setValue(DataAno());
     }
 
     public int DataAno() {
         LocalDate localdate = LocalDate.now();
-        // System.out.println(localdate.getYear());
         return localdate.getYear();
     }
 
     public int DataMes() {
         LocalDate localdate = LocalDate.now();
-        // System.out.println(localdate.getYear());
         return localdate.getMonthValue();
     }
 
     public int DataDia() {
         LocalDate localdate = LocalDate.now();
-        // System.out.println(localdate.getYear());
         return localdate.getDayOfMonth();
     }
 
@@ -95,6 +89,13 @@ public class CadastroLocacao extends javax.swing.JFrame {
         String[] CodigosImoveis = imoveisDisponiveisCodigo.toArray(new String[0]);
         DefaultComboBoxModel CodigosModel = new DefaultComboBoxModel(CodigosImoveis);
         ImovelCodigo.setModel(CodigosModel);
+        DiaLocacao.setText(String.valueOf(DataDia()));
+        MesLocacao.setText(String.valueOf(DataMes()));
+        AnoLocacao.setText(String.valueOf(DataAno()));
+        DiaDevolucao.setText(String.valueOf(DataDia()));
+        MesDevolucao.setText(String.valueOf(DataMes()));
+        AnoDevolucao.setText(String.valueOf(DataAno()));
+        DiaPagamento.setText(String.valueOf(DataDia()));
     }
 
     /**
@@ -105,7 +106,7 @@ public class CadastroLocacao extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         buttonGroup3 = new javax.swing.ButtonGroup();
@@ -114,9 +115,6 @@ public class CadastroLocacao extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         ImovelCodigo = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
-        DiaLocacao = new javax.swing.JSpinner();
-        MesLocacao = new javax.swing.JSpinner();
-        AnoLocacao = new javax.swing.JSpinner();
         AnoCadastroLabel = new javax.swing.JLabel();
         MesCadastroLabel = new javax.swing.JLabel();
         DiaCadastroLabel = new javax.swing.JLabel();
@@ -127,14 +125,10 @@ public class CadastroLocacao extends javax.swing.JFrame {
         SegurosSelecao = new javax.swing.JComboBox<>();
         AdicionarSeguro = new javax.swing.JButton();
         DataCadastroLabel1 = new javax.swing.JLabel();
-        DiaDevolucao = new javax.swing.JSpinner();
-        MesDevolucao = new javax.swing.JSpinner();
-        AnoDevolucao = new javax.swing.JSpinner();
         AnoCadastroLabel1 = new javax.swing.JLabel();
         MesCadastroLabel1 = new javax.swing.JLabel();
         DiaCadastroLabel1 = new javax.swing.JLabel();
         DataCadastroLabel2 = new javax.swing.JLabel();
-        DiaPagamento = new javax.swing.JSpinner();
         DiaCadastroLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         Dinheiro = new javax.swing.JRadioButton();
@@ -153,6 +147,13 @@ public class CadastroLocacao extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         ClientesNomeBox = new javax.swing.JComboBox<>();
+        DiaLocacao = new javax.swing.JTextField();
+        MesLocacao = new javax.swing.JTextField();
+        AnoLocacao = new javax.swing.JTextField();
+        DiaPagamento = new javax.swing.JTextField();
+        MesDevolucao = new javax.swing.JTextField();
+        AnoDevolucao = new javax.swing.JTextField();
+        DiaDevolucao = new javax.swing.JTextField();
 
         buttonGroup3.add(Dinheiro);
         buttonGroup3.add(Cartao);
@@ -162,9 +163,7 @@ public class CadastroLocacao extends javax.swing.JFrame {
 
         jLabel1.setText("Corretor");
 
-        Corretor.setModel(
-                new javax.swing.DefaultComboBoxModel<>(
-                        new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Corretor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Corretor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CorretorActionPerformed(evt);
@@ -185,13 +184,6 @@ public class CadastroLocacao extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        DiaLocacao.setValue(DataDia());
-
-        MesLocacao.setValue(DataMes());
-
-        AnoLocacao.setName(""); // NOI18N
-        AnoLocacao.setValue(DataAno());
 
         AnoCadastroLabel.setText("Ano");
 
@@ -228,13 +220,6 @@ public class CadastroLocacao extends javax.swing.JFrame {
 
         DataCadastroLabel1.setText("Data da devolução");
 
-        DiaDevolucao.setValue(DataDia());
-
-        MesDevolucao.setValue(DataMes());
-
-        AnoDevolucao.setName(""); // NOI18N
-        AnoDevolucao.setValue(DataAno());
-
         AnoCadastroLabel1.setText("Ano");
 
         MesCadastroLabel1.setText("Mês");
@@ -242,8 +227,6 @@ public class CadastroLocacao extends javax.swing.JFrame {
         DiaCadastroLabel1.setText("Dia");
 
         DataCadastroLabel2.setText("Data do pagamento");
-
-        DiaPagamento.setValue(DataDia());
 
         DiaCadastroLabel2.setText("Dia");
 
@@ -284,240 +267,180 @@ public class CadastroLocacao extends javax.swing.JFrame {
 
         jLabel10.setText("Cliente");
 
-        ClientesNomeBox.setModel(
-                new javax.swing.DefaultComboBoxModel<>(
-                        new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ClientesNomeBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        AnoLocacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AnoLocacaoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(NomeCartao)
+                        .addComponent(BandeiraCartao)
+                        .addComponent(Corretor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ImovelCodigo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Codigo)
+                        .addComponent(NumeroCartao)
+                        .addComponent(ClientesNomeBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(Dinheiro)
-                                        .addComponent(Cartao)
-                                        .addComponent(jLabel4)
-                                        .addComponent(NomeCartao)
-                                        .addComponent(jLabel5)
-                                        .addComponent(BandeiraCartao)
-                                        .addComponent(jLabel6)
-                                        .addComponent(jLabel1)
-                                        .addComponent(Corretor, 0, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                Short.MAX_VALUE)
-                                        .addComponent(jLabel2)
-                                        .addComponent(ImovelCodigo, 0, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                Short.MAX_VALUE)
-                                        .addComponent(DataCadastroLabel)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(DiaLocacao,
-                                                                javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(DiaCadastroLabel))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(MesLocacao,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(MesCadastroLabel))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(AnoCadastroLabel)
-                                                        .addComponent(AnoLocacao,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addComponent(DataCadastroLabel1)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(DiaDevolucao,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(DiaCadastroLabel1))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(MesDevolucao,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(MesCadastroLabel1))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(AnoCadastroLabel1)
-                                                        .addComponent(AnoDevolucao,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addComponent(DataCadastroLabel2)
-                                        .addComponent(DiaPagamento)
-                                        .addComponent(DiaCadastroLabel2)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jLabel9)
-                                        .addComponent(Codigo)
-                                        .addComponent(NumeroCartao)
-                                        .addComponent(jLabel10)
-                                        .addComponent(ClientesNomeBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 263,
-                                                Short.MAX_VALUE)
-                                        .addComponent(jScrollPane1)
-                                        .addComponent(AdicionarSeguro, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jCheckBox1)
-                                                        .addComponent(jLabel8)
-                                                        .addComponent(jLabel7))
-                                                .addGap(0, 0, Short.MAX_VALUE))
-                                        .addComponent(SegurosSelecao, 0, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                Short.MAX_VALUE))
-                                .addContainerGap()));
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(Dinheiro)
+                                .addComponent(Cartao)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel2)
+                                .addComponent(DataCadastroLabel)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(DiaCadastroLabel)
+                                    .addGap(29, 29, 29)
+                                    .addComponent(MesCadastroLabel)
+                                    .addGap(24, 24, 24)
+                                    .addComponent(AnoCadastroLabel))
+                                .addComponent(DataCadastroLabel1)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(DiaCadastroLabel1)
+                                    .addGap(29, 29, 29)
+                                    .addComponent(MesCadastroLabel1)
+                                    .addGap(24, 24, 24)
+                                    .addComponent(AnoCadastroLabel1))
+                                .addComponent(DataCadastroLabel2)
+                                .addComponent(DiaCadastroLabel2)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel9)
+                                .addComponent(jLabel10))
+                            .addGap(90, 90, 90)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(DiaLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(MesLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(AnoLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(DiaDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(MesDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(AnoDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DiaPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+                    .addComponent(AdicionarSeguro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCheckBox1)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel7))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(SegurosSelecao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel9)
-                                        .addComponent(jLabel7))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(Codigo, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(Corretor, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel10)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(ClientesNomeBox, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel2)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(ImovelCodigo, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(DataCadastroLabel)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(MesCadastroLabel)
-                                                        .addComponent(AnoCadastroLabel)
-                                                        .addComponent(DiaCadastroLabel))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(DiaLocacao,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(AnoLocacao,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(MesLocacao,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(DataCadastroLabel1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(MesCadastroLabel1)
-                                                        .addComponent(AnoCadastroLabel1)
-                                                        .addComponent(DiaCadastroLabel1))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(DiaDevolucao,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(AnoDevolucao,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(MesDevolucao,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(DataCadastroLabel2)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(DiaCadastroLabel2)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(DiaPagamento, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel3)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(Dinheiro)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(Cartao)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel4)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(NomeCartao, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel5)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(BandeiraCartao, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel6))
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jScrollPane1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jCheckBox1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(SegurosSelecao, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(AdicionarSeguro)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel8)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 178,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(NumeroCartao, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton1))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Corretor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ClientesNomeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ImovelCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(DataCadastroLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(MesCadastroLabel)
+                            .addComponent(AnoCadastroLabel)
+                            .addComponent(DiaCadastroLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(DiaLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MesLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AnoLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(DataCadastroLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(MesCadastroLabel1)
+                            .addComponent(AnoCadastroLabel1)
+                            .addComponent(DiaCadastroLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(MesDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AnoDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DiaDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(DataCadastroLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(DiaCadastroLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(DiaPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Dinheiro)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Cartao)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(NomeCartao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BandeiraCartao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jCheckBox1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(SegurosSelecao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(AdicionarSeguro)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NumeroCartao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void AnoLocacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnoLocacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AnoLocacaoActionPerformed
 
     private void CorretorActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CorretorActionPerformed
         // TODO add your handling code here:
@@ -525,25 +448,25 @@ public class CadastroLocacao extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        if ((int) AnoLocacao.getValue() < 1 || ((int) MesLocacao.getValue() < 1 || (int) MesLocacao.getValue() > 12) || ((int) DiaLocacao.getValue() < 1 || (int) DiaLocacao.getValue() > 31)) {
+        if ((Integer.parseInt(AnoLocacao.getText()) < 1 || (Integer.parseInt(MesLocacao.getText())) < 1 || Integer.parseInt(MesLocacao.getText()) > 12) || (Integer.parseInt(DiaLocacao.getText()) < 1 || Integer.parseInt(DiaLocacao.getText()) > 31)) {
             JOptionPane.showMessageDialog(this, "Insira uma data de locação válida", "Data incorreta", JOptionPane.WARNING_MESSAGE);
-        } else if ((int) AnoDevolucao.getValue() < 1 || ((int) MesDevolucao.getValue() < 1 || (int) MesDevolucao.getValue() > 12) || ((int) DiaDevolucao.getValue() < 1 || (int) DiaDevolucao.getValue() > 31)) {
+        } else if ((Integer.parseInt(AnoDevolucao.getText()) < 1 || (Integer.parseInt(MesDevolucao.getText())) < 1 || Integer.parseInt(MesDevolucao.getText()) > 12) || (Integer.parseInt(DiaPagamento.getText()) < 1 || Integer.parseInt(DiaPagamento.getText()) > 31)) {
             JOptionPane.showMessageDialog(this, "Insira uma data de devolução válida", "Data incorreta", JOptionPane.WARNING_MESSAGE);
-        } else if ((int) DiaPagamento.getValue() < 1 || (int) DiaPagamento.getValue() > 31) {
+        } else if (Integer.parseInt(DiaPagamento.getText()) < 1 || Integer.parseInt(DiaPagamento.getText()) > 31) {
             JOptionPane.showMessageDialog(this, "Insira uma data de pagamento válida", "Data incorreta", JOptionPane.WARNING_MESSAGE);
         } else {
             int codigoAluguel = Integer.parseInt(Codigo.getText());
             Cliente cliente = Controlador.getClientePorNome(ClientesNomeBox.getSelectedItem().toString());
             Corretor corretor = Controlador.getCorretorPorNome(Corretor.getSelectedItem().toString());
             Imovel imovel = Controlador.buscarImovel(ImovelCodigo.getSelectedItem().toString());
-            LocalDate dataAluguel = LocalDate.parse(AnoLocacao.getValue().toString() + "-"
-                    + MesLocacao.getValue().toString() + "-" + DiaLocacao.getValue().toString());
-            LocalDate dataDevolucao = LocalDate.parse(AnoDevolucao.getValue().toString() + "-"
-                    + MesDevolucao.getValue().toString() + "-" + DiaDevolucao.getValue().toString());
+            LocalDate dataAluguel = LocalDate.parse(AnoLocacao.getText().toString() + "-"
+                    + MesLocacao.getText().toString() + "-" + DiaLocacao.getText().toString());
+            LocalDate dataDevolucao = LocalDate.parse(AnoDevolucao.getText().toString() + "-"
+                    + MesDevolucao.getText().toString() + "-" + DiaPagamento.getText().toString());
             LocalDate DataAgora = LocalDate.now();
             LocalDate dataPagamentoMensal = LocalDate.parse(
                     DataAgora.getYear() + "-" + DataAgora.getMonthValue() + "-"
-                    + DiaPagamento.getValue().toString());
+                    + DiaPagamento.getText().toString());
             float valorTotalAluguel = imovel.getValorAluguel();
             Pagamento formaPagamento = null;
             if (Dinheiro.isSelected()) {
@@ -662,8 +585,8 @@ public class CadastroLocacao extends javax.swing.JFrame {
     private javax.swing.JButton AdicionarSeguro;
     private javax.swing.JLabel AnoCadastroLabel;
     private javax.swing.JLabel AnoCadastroLabel1;
-    private javax.swing.JSpinner AnoDevolucao;
-    private javax.swing.JSpinner AnoLocacao;
+    private javax.swing.JTextField AnoDevolucao;
+    private javax.swing.JTextField AnoLocacao;
     private javax.swing.JTextField BandeiraCartao;
     private javax.swing.JRadioButton Cartao;
     private javax.swing.JComboBox<String> ClientesNomeBox;
@@ -676,15 +599,15 @@ public class CadastroLocacao extends javax.swing.JFrame {
     private javax.swing.JLabel DiaCadastroLabel;
     private javax.swing.JLabel DiaCadastroLabel1;
     private javax.swing.JLabel DiaCadastroLabel2;
-    private javax.swing.JSpinner DiaDevolucao;
-    private javax.swing.JSpinner DiaLocacao;
-    private javax.swing.JSpinner DiaPagamento;
+    private javax.swing.JTextField DiaDevolucao;
+    private javax.swing.JTextField DiaLocacao;
+    private javax.swing.JTextField DiaPagamento;
     private javax.swing.JRadioButton Dinheiro;
     private javax.swing.JComboBox<String> ImovelCodigo;
     private javax.swing.JLabel MesCadastroLabel;
     private javax.swing.JLabel MesCadastroLabel1;
-    private javax.swing.JSpinner MesDevolucao;
-    private javax.swing.JSpinner MesLocacao;
+    private javax.swing.JTextField MesDevolucao;
+    private javax.swing.JTextField MesLocacao;
     private javax.swing.JTextField NomeCartao;
     private javax.swing.JTextField NumeroCartao;
     private javax.swing.JTextArea Seguros;

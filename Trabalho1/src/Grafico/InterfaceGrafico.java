@@ -19,6 +19,7 @@ import Grafico.Outros.vendasRealizadasEmMes;
 import Imovel.Imovel;
 import Unicos.Aluguel;
 import Unicos.Venda;
+import Usuario.Usuario;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -354,6 +355,11 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         aluguel.add(alugueisNaoFinalizadas);
 
         imoveisCompradosPorCliente.setText("Imóveis comprados por um cliente");
+        imoveisCompradosPorCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imoveisCompradosPorClienteActionPerformed(evt);
+            }
+        });
         aluguel.add(imoveisCompradosPorCliente);
 
         imoveisComAtrasoPagamento.setText("Imóveis com atraso no pagamento do aluguel");
@@ -417,6 +423,11 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         pagamento.add(funcionarioDoMes);
 
         clientesComAlugueisEmAtraso.setText("Clientes com alugueis em atraso");
+        clientesComAlugueisEmAtraso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clientesComAlugueisEmAtrasoActionPerformed(evt);
+            }
+        });
         pagamento.add(clientesComAlugueisEmAtraso);
 
         BarraMenu.add(pagamento);
@@ -554,6 +565,22 @@ public class InterfaceGrafico extends javax.swing.JFrame {
         }
         TextoExibicao.setText("Estabelecimentos comerciais com contrato vigente:\n" + Dados);
     }//GEN-LAST:event_comerciaisComContratoActionPerformed
+
+    private void imoveisCompradosPorClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imoveisCompradosPorClienteActionPerformed
+        // TODO add your handling code here:
+        imoveisCompradosPorUmCliente imoveisCompradosPorUmCliente = new imoveisCompradosPorUmCliente();
+        imoveisCompradosPorUmCliente.setLocationRelativeTo(this);
+        imoveisCompradosPorUmCliente.setVisible(true);
+    }//GEN-LAST:event_imoveisCompradosPorClienteActionPerformed
+
+    private void clientesComAlugueisEmAtrasoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientesComAlugueisEmAtrasoActionPerformed
+        // TODO add your handling code here:
+        String dados = "Clientes com alguel atrasado:\n";
+        for (Usuario C : Controlador.getClientesComAluguelAtrasado(LocalDate.now())) {
+            dados += C.toString();
+        }
+        TextoExibicao.setText(dados);
+    }//GEN-LAST:event_clientesComAlugueisEmAtrasoActionPerformed
 
     private void funcionarioDoMesActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_funcionarioDoMesActionPerformed
         // TODO add your handling code here:

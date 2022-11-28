@@ -270,6 +270,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Im&#xf3;veis comprados por um cliente"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="imoveisCompradosPorClienteActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="imoveisComAtrasoPagamento">
               <Properties>
@@ -338,6 +341,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Clientes com alugueis em atraso"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clientesComAlugueisEmAtrasoActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

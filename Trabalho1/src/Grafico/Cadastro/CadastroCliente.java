@@ -20,10 +20,16 @@ public class CadastroCliente extends javax.swing.JFrame {
      */
     public CadastroCliente() {
         initComponents();
-        CodigoCliente.setText(Integer.toString(Controlador.getGeradorCodigoUsuario()));
+        DiaCadastro.setText(String.valueOf(DataDia()));
+        DiaNascimento.setText(String.valueOf(DataDia()));
+        MesCadastro.setText(String.valueOf(DataMes()));
+        MesNascimento.setText(String.valueOf(DataMes()));
+        AnoCadastro.setText(String.valueOf(DataAno()));
+        AnoNascimento.setText(String.valueOf(DataAno()));
+        CodigoCliente.setText(String.valueOf(Controlador.getGeradorCodigoUsuario()));
     }
 
-    public int DataAno() {
+    public int DataAno() {;
         LocalDate localdate = LocalDate.now();
         return localdate.getYear();
     }
@@ -45,7 +51,7 @@ public class CadastroCliente extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
@@ -59,26 +65,20 @@ public class CadastroCliente extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         EnderecoCliente = new javax.swing.JTextField();
-        DiaNascimento = new javax.swing.JSpinner();
-        MesNascimento = new javax.swing.JSpinner();
-        AnoNascimento = new javax.swing.JSpinner();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         EmailCliente = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         CEPCliente = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         TelefoneCliente = new javax.swing.JTextField();
-        DiaCadastroLabel = new javax.swing.JLabel();
         DataCadastroLabel = new javax.swing.JLabel();
-        DiaCadastro = new javax.swing.JSpinner();
-        MesCadastro = new javax.swing.JSpinner();
-        AnoCadastro = new javax.swing.JSpinner();
-        AnoCadastroLabel = new javax.swing.JLabel();
-        MesCadastroLabel = new javax.swing.JLabel();
         Cadastrar = new javax.swing.JButton();
+        DiaNascimento = new javax.swing.JTextField();
+        AnoNascimento = new javax.swing.JTextField();
+        MesNascimento = new javax.swing.JTextField();
+        AnoCadastro = new javax.swing.JTextField();
+        MesCadastro = new javax.swing.JTextField();
+        DiaCadastro = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de cliente");
@@ -109,19 +109,6 @@ public class CadastroCliente extends javax.swing.JFrame {
             }
         });
 
-        DiaNascimento.setValue(DataDia());
-
-        MesNascimento.setValue(DataMes());
-
-        AnoNascimento.setName(""); // NOI18N
-        AnoNascimento.setValue(DataAno());
-
-        jLabel16.setText("Ano");
-
-        jLabel17.setText("Mês");
-
-        jLabel18.setText("Dia");
-
         jLabel7.setText("E-mail");
 
         jLabel8.setText("CEP");
@@ -134,20 +121,7 @@ public class CadastroCliente extends javax.swing.JFrame {
 
         jLabel9.setText("Telefone");
 
-        DiaCadastroLabel.setText("Dia");
-
         DataCadastroLabel.setText("Data de cadastro");
-
-        DiaCadastro.setValue(DataDia());
-
-        MesCadastro.setValue(DataMes());
-
-        AnoCadastro.setName(""); // NOI18N
-        AnoCadastro.setValue(DataAno());
-
-        AnoCadastroLabel.setText("Ano");
-
-        MesCadastroLabel.setText("Mês");
 
         Cadastrar.setText("Cadastrar");
         Cadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -156,206 +130,122 @@ public class CadastroCliente extends javax.swing.JFrame {
             }
         });
 
+        AnoNascimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AnoNascimentoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(Cadastrar, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addContainerGap())
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(layout
-                                                                .createParallelGroup(
-                                                                        javax.swing.GroupLayout.Alignment.LEADING,
-                                                                        false)
-                                                                .addComponent(jLabel1)
-                                                                .addComponent(jLabel2)
-                                                                .addComponent(jLabel3)
-                                                                .addComponent(jLabel4)
-                                                                .addComponent(jLabel5)
-                                                                .addComponent(RGCliente,
-                                                                        javax.swing.GroupLayout.DEFAULT_SIZE, 204,
-                                                                        Short.MAX_VALUE)
-                                                                .addComponent(CPFCliente)
-                                                                .addComponent(NomeCliente)
-                                                                .addComponent(CodigoCliente))
-                                                        .addGroup(layout.createSequentialGroup()
-                                                                .addGroup(layout.createParallelGroup(
-                                                                        javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(DiaNascimento,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(jLabel18))
-                                                                .addPreferredGap(
-                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addGroup(layout.createParallelGroup(
-                                                                        javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(MesNascimento,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(jLabel17))
-                                                                .addPreferredGap(
-                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addGroup(layout.createParallelGroup(
-                                                                        javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(jLabel16)
-                                                                        .addComponent(AnoNascimento,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
-                                                                false)
-                                                        .addComponent(jLabel6)
-                                                        .addComponent(jLabel8)
-                                                        .addComponent(jLabel9)
-                                                        .addComponent(jLabel7)
-                                                        .addComponent(DataCadastroLabel)
-                                                        .addGroup(layout.createSequentialGroup()
-                                                                .addGroup(layout.createParallelGroup(
-                                                                        javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(DiaCadastro,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(DiaCadastroLabel))
-                                                                .addPreferredGap(
-                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addGroup(layout.createParallelGroup(
-                                                                        javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(MesCadastro,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(MesCadastroLabel))
-                                                                .addPreferredGap(
-                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addGroup(layout.createParallelGroup(
-                                                                        javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(AnoCadastroLabel)
-                                                                        .addComponent(AnoCadastro,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                        .addComponent(EnderecoCliente)
-                                                        .addComponent(CEPCliente)
-                                                        .addComponent(TelefoneCliente)
-                                                        .addComponent(EmailCliente))
-                                                .addGap(0, 9, Short.MAX_VALUE)))));
-        layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(CodigoCliente, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel2)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel3)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(CPFCliente, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel4)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(RGCliente, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel5)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(jLabel18)
-                                                        .addComponent(jLabel17)
-                                                        .addComponent(jLabel16))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(DiaNascimento,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(AnoNascimento,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(MesNascimento,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel6)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(EnderecoCliente, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel8)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(CEPCliente, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel9)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(TelefoneCliente, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel7)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(EmailCliente, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(DataCadastroLabel)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(DiaCadastroLabel)
-                                                        .addComponent(MesCadastroLabel)
-                                                        .addComponent(AnoCadastroLabel))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(DiaCadastro,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(AnoCadastro,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(MesCadastro,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE))))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Cadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel5)
+                                .addComponent(RGCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                                .addComponent(CPFCliente)
+                                .addComponent(NomeCliente)
+                                .addComponent(CodigoCliente))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(DiaNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Cadastrar)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+                                .addComponent(MesNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(AnoNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(DiaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(MesCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(AnoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(EnderecoCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                                .addComponent(CEPCliente)
+                                .addComponent(TelefoneCliente)
+                                .addComponent(EmailCliente)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel8)
+                                .addComponent(jLabel9)
+                                .addComponent(jLabel7)
+                                .addComponent(DataCadastroLabel)))
+                        .addGap(0, 9, Short.MAX_VALUE))))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CodigoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CPFCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(RGCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(DiaNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MesNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AnoNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(EnderecoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CEPCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TelefoneCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(EmailCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(DataCadastroLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(DiaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MesCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AnoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addComponent(Cadastrar)
+                .addContainerGap())
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void AnoNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnoNascimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AnoNascimentoActionPerformed
 
     private void CEPClienteActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CEPClienteActionPerformed
         // TODO add your handling code here:
@@ -364,13 +254,13 @@ public class CadastroCliente extends javax.swing.JFrame {
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CadastrarActionPerformed
         // TODO add your handling code here:
         // Controlador Controlador = new Controlador();
-        if ((int) AnoNascimento.getValue() < 1 || ((int) MesNascimento.getValue() < 1 || (int) MesNascimento.getValue() > 12) || ((int) DiaNascimento.getValue() < 1 || (int) DiaNascimento.getValue() >31 )) {
+        if ((Integer.parseInt(AnoNascimento.getText()) < 1 || (Integer.parseInt(MesNascimento.getText())) < 1 || Integer.parseInt(MesNascimento.getText()) > 12) || (Integer.parseInt(DiaNascimento.getText()) < 1 || Integer.parseInt(DiaNascimento.getText()) > 31)) {
             JOptionPane.showMessageDialog(this, "Insira uma data de nascimento válida", "Data incorreta", JOptionPane.WARNING_MESSAGE);
-        } else if ((int) AnoCadastro.getValue() < 1 || ((int) MesCadastro.getValue() < 1 || (int) MesCadastro.getValue() > 12) || ((int) DiaCadastro.getValue() < 1 || (int) DiaCadastro.getValue() > 31)) {
+        } else if ((Integer.parseInt(AnoCadastro.getText()) < 1 || (Integer.parseInt(MesCadastro.getText())) < 1 || Integer.parseInt(MesCadastro.getText()) > 12) || (Integer.parseInt(DiaCadastro.getText()) < 1 || Integer.parseInt(DiaCadastro.getText()) > 31)) {
             JOptionPane.showMessageDialog(this, "Insira uma data de cadastro válida", "Data incorreta", JOptionPane.WARNING_MESSAGE);
         } else {
-            LocalDate DataNascimeto = LocalDate.parse(AnoNascimento.getValue() + "-" + MesNascimento.getValue() + "-" + DiaNascimento.getValue());
-            LocalDate DataCadastro = LocalDate.parse(AnoCadastro.getValue() + "-" + MesCadastro.getValue() + "-" + DiaCadastro.getValue());
+            LocalDate DataNascimeto = LocalDate.parse(AnoNascimento.getText() + "-" + MesNascimento.getText() + "-" + DiaNascimento.getText());
+            LocalDate DataCadastro = LocalDate.parse(AnoCadastro.getText() + "-" + MesCadastro.getText() + "-" + DiaCadastro.getText());
             Controlador.adicionarCliente(DataCadastro, Integer.parseInt(CodigoCliente.getText()), NomeCliente.getText(),
                     CPFCliente.getText(), RGCliente.getText(), DataNascimeto, EnderecoCliente.getText(),
                     CEPCliente.getText(), TelefoneCliente.getText(), EmailCliente.getText());
@@ -437,29 +327,23 @@ public class CadastroCliente extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JSpinner AnoCadastro;
-    private javax.swing.JLabel AnoCadastroLabel;
-    private javax.swing.JSpinner AnoNascimento;
+    private javax.swing.JTextField AnoCadastro;
+    private javax.swing.JTextField AnoNascimento;
     private javax.swing.JTextField CEPCliente;
     private javax.swing.JTextField CPFCliente;
     private javax.swing.JButton Cadastrar;
     private javax.swing.JTextField CodigoCliente;
     private javax.swing.JLabel DataCadastroLabel;
-    private javax.swing.JSpinner DiaCadastro;
-    private javax.swing.JLabel DiaCadastroLabel;
-    private javax.swing.JSpinner DiaNascimento;
+    private javax.swing.JTextField DiaCadastro;
+    private javax.swing.JTextField DiaNascimento;
     private javax.swing.JTextField EmailCliente;
     private javax.swing.JTextField EnderecoCliente;
-    private javax.swing.JSpinner MesCadastro;
-    private javax.swing.JLabel MesCadastroLabel;
-    private javax.swing.JSpinner MesNascimento;
+    private javax.swing.JTextField MesCadastro;
+    private javax.swing.JTextField MesNascimento;
     private javax.swing.JTextField NomeCliente;
     private javax.swing.JTextField RGCliente;
     private javax.swing.JTextField TelefoneCliente;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

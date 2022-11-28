@@ -32,68 +32,70 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="Dinheiro" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="Cartao" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="NomeCartao" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="BandeiraCartao" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="Corretor" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="ImovelCodigo" alignment="0" max="32767" attributes="0"/>
-                  <Component id="DataCadastroLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="DiaLocacao" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="DiaCadastroLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="MesLocacao" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="MesCadastroLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="AnoCadastroLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="AnoLocacao" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Component id="DataCadastroLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="DiaDevolucao" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="DiaCadastroLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="MesDevolucao" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="MesCadastroLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="AnoCadastroLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="AnoDevolucao" alignment="0" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="NomeCartao" alignment="0" max="32767" attributes="0"/>
+                      <Component id="BandeiraCartao" alignment="0" max="32767" attributes="0"/>
+                      <Component id="Corretor" alignment="0" max="32767" attributes="0"/>
+                      <Component id="ImovelCodigo" alignment="0" max="32767" attributes="0"/>
+                      <Component id="Codigo" alignment="0" max="32767" attributes="0"/>
+                      <Component id="NumeroCartao" alignment="0" max="32767" attributes="0"/>
+                      <Component id="ClientesNomeBox" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="Dinheiro" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="Cartao" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="DataCadastroLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="DiaCadastroLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                  <Component id="MesCadastroLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                  <Component id="AnoCadastroLabel" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="DataCadastroLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="DiaCadastroLabel1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                  <Component id="MesCadastroLabel1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                  <Component id="AnoCadastroLabel1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="DataCadastroLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="DiaCadastroLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="DataCadastroLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="DiaPagamento" alignment="0" max="32767" attributes="0"/>
-                  <Component id="DiaCadastroLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="Codigo" alignment="0" max="32767" attributes="0"/>
-                  <Component id="NumeroCartao" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="ClientesNomeBox" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="DiaLocacao" min="-2" pref="40" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="MesLocacao" min="-2" pref="40" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="AnoLocacao" min="-2" pref="40" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="DiaDevolucao" min="-2" pref="40" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="MesDevolucao" min="-2" pref="40" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="AnoDevolucao" min="-2" pref="40" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="DiaPagamento" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jButton1" max="32767" attributes="0"/>
                   <Component id="jScrollPane2" pref="263" max="32767" attributes="0"/>
-                  <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
                   <Component id="AdicionarSeguro" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -104,6 +106,7 @@
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Component id="SegurosSelecao" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
@@ -144,8 +147,8 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="DiaLocacao" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="AnoLocacao" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="MesLocacao" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="AnoLocacao" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="DataCadastroLabel1" min="-2" max="-2" attributes="0"/>
@@ -157,9 +160,9 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="DiaDevolucao" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="AnoDevolucao" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="MesDevolucao" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="AnoDevolucao" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="DiaDevolucao" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="DataCadastroLabel2" min="-2" max="-2" attributes="0"/>
@@ -258,28 +261,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JSpinner" name="DiaLocacao">
-      <Properties>
-        <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="DataDia()" type="code"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JSpinner" name="MesLocacao">
-      <Properties>
-        <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="DataMes()" type="code"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JSpinner" name="AnoLocacao">
-      <Properties>
-        <Property name="name" type="java.lang.String" value="" noResource="true"/>
-        <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="DataAno()" type="code"/>
-        </Property>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="AnoCadastroLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ano"/>
@@ -350,28 +331,6 @@
         <Property name="text" type="java.lang.String" value="Data da devolu&#xe7;&#xe3;o"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JSpinner" name="DiaDevolucao">
-      <Properties>
-        <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="DataDia()" type="code"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JSpinner" name="MesDevolucao">
-      <Properties>
-        <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="DataMes()" type="code"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JSpinner" name="AnoDevolucao">
-      <Properties>
-        <Property name="name" type="java.lang.String" value="" noResource="true"/>
-        <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="DataAno()" type="code"/>
-        </Property>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="AnoCadastroLabel1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ano"/>
@@ -390,13 +349,6 @@
     <Component class="javax.swing.JLabel" name="DataCadastroLabel2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Data do pagamento"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JSpinner" name="DiaPagamento">
-      <Properties>
-        <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="DataDia()" type="code"/>
-        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="DiaCadastroLabel2">
@@ -501,6 +453,23 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JTextField" name="DiaLocacao">
+    </Component>
+    <Component class="javax.swing.JTextField" name="MesLocacao">
+    </Component>
+    <Component class="javax.swing.JTextField" name="AnoLocacao">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AnoLocacaoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="DiaPagamento">
+    </Component>
+    <Component class="javax.swing.JTextField" name="MesDevolucao">
+    </Component>
+    <Component class="javax.swing.JTextField" name="AnoDevolucao">
+    </Component>
+    <Component class="javax.swing.JTextField" name="DiaDevolucao">
     </Component>
   </SubComponents>
 </Form>

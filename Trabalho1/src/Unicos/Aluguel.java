@@ -156,8 +156,7 @@ public class Aluguel implements Serializable {
     }
 
     public boolean verificarAtraso() {
-        return dataPagamentoMensal.isBefore(dataAluguel); // retorna verdadeiro se a data de pagamento mensal for
-        // anterior a data do aluguel
+        return dataPagamentoMensal.isBefore(dataAluguel); // retorna verdadeiro se a data de pagamento mensal for anterior a data do aluguel
     }
 
     @Override

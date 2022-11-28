@@ -41,6 +41,7 @@ public class vendasRealizadasEmMes extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Vendas em mês especificado");
 
         jLabel1.setText("Mês");
 
@@ -49,7 +50,7 @@ public class vendasRealizadasEmMes extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Consultar vendas");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

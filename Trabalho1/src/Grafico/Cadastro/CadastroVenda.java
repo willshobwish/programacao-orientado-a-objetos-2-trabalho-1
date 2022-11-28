@@ -10,6 +10,7 @@ import Pagamento.Pagamento;
 import Usuario.Cliente;
 import Usuario.Corretor;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
@@ -26,35 +27,33 @@ public class CadastroVenda extends javax.swing.JFrame {
      */
     public CadastroVenda() {
         initComponents();
-        String[] NomesCorretores = Controlador.nomesCorretoresArray().toArray(new String[0]);
-        DefaultComboBoxModel model = new DefaultComboBoxModel(NomesCorretores);
-        Corretor.setModel(model);
-        String[] CodigosImoveis = Controlador.codigosImoveisArray().toArray(new String[0]);
-        DefaultComboBoxModel CodigosModel = new DefaultComboBoxModel(CodigosImoveis);
-        ImovelCodigo.setModel(CodigosModel);
-        String[] ClientesNomes = Controlador.getNomesClientesArray().toArray(new String[0]);
-        DefaultComboBoxModel ClientesModel = new DefaultComboBoxModel(ClientesNomes);
-        ClientesNomeBox.setModel(ClientesModel);
-        Codigo.setText(String.valueOf(Controlador.getGeradorCodigoVenda()));
+        setDefault();
         DiaVenda.setValue(LocalDate.now().getDayOfMonth());
         MesVenda.setValue(LocalDate.now().getMonthValue());
         AnoVenda.setValue(LocalDate.now().getYear());
     }
 
-//    public int DataAno() {
-//        LocalDate localdate = LocalDate.now();
-//        return localdate.getYear();
-//    }
+    public void setDefault() {
+        String[] NomesCorretores = Controlador.nomesCorretoresArray().toArray(new String[0]);
+        DefaultComboBoxModel model = new DefaultComboBoxModel(NomesCorretores);
+        Corretor.setModel(model);
 //
-//    public int DataMes() {
-//        LocalDate localdate = LocalDate.now();
-//        return localdate.getMonthValue();
-//    }
+        ArrayList<String> imoveisDisponiveisCodigo = new ArrayList<>();
+        for (Imovel imoveisDisponiveis : Controlador.getImoveisDisponiveis()) {
+            String codigo = String.valueOf(imoveisDisponiveis.getCodigoImovel());
+            imoveisDisponiveisCodigo.add(String.valueOf(codigo));
+        }
+        String[] CodigosImoveis = imoveisDisponiveisCodigo.toArray(new String[0]);
+        DefaultComboBoxModel CodigosModel = new DefaultComboBoxModel(CodigosImoveis);
+        ImovelCodigo.setModel(CodigosModel);
 //
-//    public int DataDia() {
-//        LocalDate localdate = LocalDate.now();
-//        return localdate.getDayOfMonth();
-//    }
+        String[] ClientesNomes = Controlador.getNomesClientesArray().toArray(new String[0]);
+        DefaultComboBoxModel ClientesModel = new DefaultComboBoxModel(ClientesNomes);
+        ClientesNomeBox.setModel(ClientesModel);
+//
+        Codigo.setText(String.valueOf(Controlador.getGeradorCodigoVenda()));
+    }
+
     /**
      * This method is called from within the constructor to
      * initialize the form.
@@ -237,6 +236,7 @@ public class CadastroVenda extends javax.swing.JFrame {
             float valorTotalVenda = imovel.getValorVenda();
             Pagamento formaPagamento = new Dinheiro();
             Controlador.cadastroVenda(codigoVenda, cliente, corretor, imovel, dataVenda, valorTotalVenda, formaPagamento);
+            setDefault();
             JOptionPane.showMessageDialog(this, "Venda cadastrado com sucesso");
         }
     }// GEN-LAST:event_jButton1ActionPerformed

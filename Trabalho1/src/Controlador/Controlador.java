@@ -173,7 +173,6 @@ public class Controlador {
     }
 
     public Imovel buscarImovel(String Codigo) {
-        // ArrayList<String> CodigosImoveis = new ArrayList<String>();
         ArrayList<Imovel> Imoveis = Imobiliaria.getImoveis();
         for (Imovel I : Imoveis) {
             if (I.getCodigoImovel() == Integer.parseInt(Codigo)) {
@@ -185,8 +184,7 @@ public class Controlador {
 
     public ArrayList<Aluguel> getAlugueisAtrasado(LocalDate data) {
         ArrayList<Aluguel> alugueisAtrasados = new ArrayList<Aluguel>();
-        ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
-        for (Aluguel alu : alugueis) {
+        for (Aluguel alu : Imobiliaria.getAlugueis()) {
             if (alu.getDataPagamentoMensal().isBefore(data) && !alu.getPago()) {
                 alugueisAtrasados.add(alu);
             }
@@ -196,9 +194,8 @@ public class Controlador {
 
     public ArrayList<Aluguel> getAlugueislVigente(LocalDate data) {
         ArrayList<Aluguel> alugueisVigentes = new ArrayList<Aluguel>();
-        ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
-        for (Aluguel alu : alugueis) {
-            if (alu.getDataPagamentoMensal().isAfter(data)) {
+        for (Aluguel alu : Imobiliaria.getAlugueis()) {
+            if (alu.getDataDevolucao().isAfter(data)) {
                 alugueisVigentes.add(alu);
             }
         }
@@ -207,9 +204,8 @@ public class Controlador {
 
     public ArrayList<Imovel> getCasaResidencialVigente(LocalDate data) {
         ArrayList<Imovel> casasResidenciaisVigentes = new ArrayList<Imovel>();
-        ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
-        for (Aluguel alu : alugueis) {
-            if (alu.getDataPagamentoMensal().isAfter(data) && alu.getImovel() instanceof CasaResidencial) {
+        for (Aluguel alu : Imobiliaria.getAlugueis()) {
+            if (alu.getDataDevolucao().isAfter(data) && alu.getImovel() instanceof CasaResidencial) {
                 casasResidenciaisVigentes.add(alu.getImovel());
             }
         }
@@ -220,7 +216,7 @@ public class Controlador {
         ArrayList<Imovel> apartamentosResidenciaisVigentes = new ArrayList<Imovel>();
         ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
         for (Aluguel alu : alugueis) {
-            if (alu.getDataPagamentoMensal().isAfter(data) && alu.getImovel() instanceof ApartamentoResidencial) {
+            if (alu.getDataDevolucao().isAfter(data) && alu.getImovel() instanceof ApartamentoResidencial) {
                 apartamentosResidenciaisVigentes.add(alu.getImovel());
             }
         }
@@ -231,7 +227,7 @@ public class Controlador {
         ArrayList<Imovel> comerciaisVigentes = new ArrayList<Imovel>();
         ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
         for (Aluguel alu : alugueis) {
-            if (alu.getDataPagamentoMensal().isAfter(data) && alu.getImovel() instanceof Comercial) {
+            if (alu.getDataDevolucao().isAfter(data) && alu.getImovel() instanceof Comercial) {
                 comerciaisVigentes.add(alu.getImovel());
             }
         }
@@ -240,8 +236,7 @@ public class Controlador {
 
     public ArrayList<Usuario> getClientesComAluguelAtrasado(LocalDate data) {
         ArrayList<Usuario> clientesAtrasados = new ArrayList<Usuario>();
-        ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
-        for (Aluguel alu : alugueis) {
+        for (Aluguel alu : Imobiliaria.getAlugueis()) {
             if (alu.getDataPagamentoMensal().isBefore(data)) {
                 clientesAtrasados.add(alu.getCliente());
             }
@@ -392,8 +387,7 @@ public class Controlador {
 
     public ArrayList<Aluguel> getAlugueisFinalizados() {
         ArrayList<Aluguel> alugueisFinalizados = new ArrayList<Aluguel>();
-        ArrayList<Aluguel> alugueis = Imobiliaria.getAlugueis();
-        for (Aluguel alu : alugueis) {
+        for (Aluguel alu : Imobiliaria.getAlugueis()) {
             if (alu.getDataDevolucao().isBefore(LocalDate.now())) {
                 alugueisFinalizados.add(alu);
             }

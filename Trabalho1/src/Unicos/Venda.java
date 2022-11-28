@@ -99,12 +99,13 @@ public class Venda implements Serializable {
 
     @Override
     public String toString() {
-        return "Codigo da venda: " + this.codigoVenda 
-        +"\nCliente: " + this.cliente.getNome() 
-        + "\nCorretor: "+ this.corretor.getNome() 
-        + "\nImovel: " + this.imovel.toString() 
-        + "\nData da venda: "+ this.dataVenda.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) 
-                + "\nValor total da venda: R$" + this.valorTotalVenda + "\nForma de pagamento: " + this.formaPagamento.getTipoPagamento()
+        return "Codigo da venda: " + this.codigoVenda
+                + "\nCliente: " + this.cliente.getNome()
+                + "\nCorretor: " + this.corretor.getNome()
+                + "\nImovel: " + this.imovel.toString()
+                + "Data da venda: " + this.dataVenda.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
+                + "\nValor total da venda: R$" + this.valorTotalVenda
+                + "\nForma de pagamento: " + this.formaPagamento.getTipoPagamento()
                 + "\n-----------------------------------------------------------------\n";
     }
 }

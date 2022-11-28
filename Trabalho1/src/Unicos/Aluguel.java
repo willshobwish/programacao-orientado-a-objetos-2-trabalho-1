@@ -176,10 +176,10 @@ public class Aluguel implements Serializable {
                 + "Data de devolucao: " + this.dataDevolucao.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + "\n"
                 + "Data do pagamento mensal: " + this.dataPagamentoMensal.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + "\n"
                 + "Forma de pagamento: " + this.formaPagamento + "\n"
-                + "Imovel: " + this.imovel + "\n"
+                + "Imovel: " + this.imovel
                 + "Pago: " + this.pago + "\n"
                 + "Seguros contratados:\n" + Seguros
-                + "Valor total do aluguel: " + this.valorTotalAluguel
-                + "\n-----------------------------------------------------------------\n";
+                + "Valor total do aluguel: R$" + this.valorTotalAluguel
+                + "\n========================================================\n";
     }
 }

@@ -153,10 +153,10 @@ public class Controlador {
 
     public Corretor getCorretorDoMes() {
         ArrayList<Corretor> Corretores = Imobiliaria.getCorretores();
-        Corretor CorretorDoMes = null;
+        Corretor CorretorDoMes = Corretores.get(0);
         for (Corretor C : Corretores) {
-            if (C.getVendas() >= CorretorDoMes.getVendas()) {
-                CorretorDoMes = (Corretor) C;
+            if (C.getVendas() > CorretorDoMes.getVendas()) {
+                CorretorDoMes = C;
             }
         }
         return CorretorDoMes;

@@ -20,8 +20,8 @@ public class Corretor extends Usuario implements Serializable {
     protected float salario;
     protected String pis;
     protected LocalDate dataAdmissao;
-    protected int numeroVendas;
-    protected int numeroAlugueis;
+    protected int numeroVendas = 0;
+    protected int numeroAlugueis = 0;
 
     public Corretor(String creci, float salario, String pis, LocalDate dataAdmissao, int codigoUsuario, String nome,
             String cpf, String rg, LocalDate dataNascimento, String endereco, String cep, String telefone,

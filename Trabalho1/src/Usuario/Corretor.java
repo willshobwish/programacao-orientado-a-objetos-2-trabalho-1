@@ -65,20 +65,21 @@ public class Corretor extends Usuario implements Serializable {
         this.dataAdmissao = dataAdmissao;
     }
 
-    public void addVenda() {
-        this.numeroVendas++;
-    }
-
     public int getVendas() {
         return numeroVendas;
     }
 
+    public int getAlugueis() {
+        return numeroAlugueis;
+    }
+
+//Adiciona a quantidade de vendas e algueis para o funcionario do mes
     public void addAluguel() {
         this.numeroAlugueis++;
     }
 
-    public int getAlugueis() {
-        return numeroAlugueis;
+    public void addVenda() {
+        this.numeroVendas++;
     }
 
     @Override

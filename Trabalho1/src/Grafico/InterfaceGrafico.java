@@ -557,6 +557,8 @@ public class InterfaceGrafico extends javax.swing.JFrame {
 
     private void funcionarioDoMesActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_funcionarioDoMesActionPerformed
         // TODO add your handling code here:
+        Limpar();
+        TextoExibicao.setText("Funcionário do mês: " + Controlador.getCorretorDoMes().toString());
     }// GEN-LAST:event_funcionarioDoMesActionPerformed
 
     private void pagarAluguelDeImovelActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_pagarAluguelDeImovelActionPerformed

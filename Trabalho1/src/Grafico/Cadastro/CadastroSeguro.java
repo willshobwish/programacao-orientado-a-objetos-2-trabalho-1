@@ -4,6 +4,7 @@
 package Grafico.Cadastro;
 
 import Controlador.Controlador;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -124,6 +125,7 @@ public class CadastroSeguro extends javax.swing.JFrame {
         String descricao = Descricao.getText();
         float valor = Float.parseFloat(Valor.getText());
         Controlador.cadastroSeguro(codigoSeguro, nomeSeguradora, tipo, descricao, valor);
+        JOptionPane.showMessageDialog(this, "Seguro cadastrado com sucesso");
     }//GEN-LAST:event_CadastrarActionPerformed
 
     /**

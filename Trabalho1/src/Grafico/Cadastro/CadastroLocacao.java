@@ -33,18 +33,21 @@ public class CadastroLocacao extends javax.swing.JFrame {
         SegurosSelecao.setEnabled(false);
         Seguros.setEnabled(false);
         AdicionarSeguro.setEnabled(false);
+//
         String[] NomesCorretores = Controlador.nomesCorretoresArray().toArray(new String[0]);
         DefaultComboBoxModel CorretorModel = new DefaultComboBoxModel(NomesCorretores);
         Corretor.setModel(CorretorModel);
-        String[] CodigosImoveis = Controlador.codigosImoveisArray().toArray(new String[0]);
-        DefaultComboBoxModel CodigoModel = new DefaultComboBoxModel(CodigosImoveis);
-        ImovelCodigo.setModel(CodigoModel);
+//
+        setDafault();
+//
         String[] TipoSeguros = Controlador.getArrayDeNomeDeSeguro().toArray(new String[0]);
         DefaultComboBoxModel SeguroModel = new DefaultComboBoxModel(TipoSeguros);
         SegurosSelecao.setModel(SeguroModel);
+//
         String[] ClientesNomes = Controlador.getNomesClientesArray().toArray(new String[0]);
         DefaultComboBoxModel ClientesNomesModel = new DefaultComboBoxModel(ClientesNomes);
         ClientesNomeBox.setModel(ClientesNomesModel);
+//
         Dinheiro.setSelected(true);
         disableCartao();
         Codigo.setText(String.valueOf(Controlador.getGeradorCodigoAluguel()));
@@ -81,6 +84,17 @@ public class CadastroLocacao extends javax.swing.JFrame {
         NomeCartao.setEnabled(false);
         NumeroCartao.setEnabled(false);
         BandeiraCartao.setEnabled(false);
+    }
+
+    public void setDafault() {
+        ArrayList<String> imoveisDisponiveisCodigo = new ArrayList<>();
+        for (Imovel imoveisDisponiveis : Controlador.getImoveisDisponiveis()) {
+            String codigo = String.valueOf(imoveisDisponiveis.getCodigoImovel());
+            imoveisDisponiveisCodigo.add(String.valueOf(codigo));
+        }
+        String[] CodigosImoveis = imoveisDisponiveisCodigo.toArray(new String[0]);
+        DefaultComboBoxModel CodigosModel = new DefaultComboBoxModel(CodigosImoveis);
+        ImovelCodigo.setModel(CodigosModel);
     }
 
     /**
@@ -512,38 +526,40 @@ public class CadastroLocacao extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         if ((int) AnoLocacao.getValue() < 1 || ((int) MesLocacao.getValue() < 1 || (int) MesLocacao.getValue() > 12) || ((int) DiaLocacao.getValue() < 1 || (int) DiaLocacao.getValue() > 31)) {
-                JOptionPane.showMessageDialog(this, "Insira uma data de locação válida", "Data incorreta", JOptionPane.WARNING_MESSAGE);
-            } else if ((int) AnoDevolucao.getValue() < 1 || ((int) MesDevolucao.getValue() < 1 || (int) MesDevolucao.getValue() > 12) || ((int) DiaDevolucao.getValue() < 1 || (int) DiaDevolucao.getValue() > 31)) {
-                JOptionPane.showMessageDialog(this, "Insira uma data de devolução válida", "Data incorreta", JOptionPane.WARNING_MESSAGE);
-            } else if ((int) DiaPagamento.getValue() < 1 || (int) DiaPagamento.getValue() > 31) {
-                JOptionPane.showMessageDialog(this, "Insira uma data de pagamento válida", "Data incorreta", JOptionPane.WARNING_MESSAGE);
-            }else {
-        int codigoAluguel = Integer.parseInt(Codigo.getText());
-        Cliente cliente = Controlador.getClientePorNome(ClientesNomeBox.getSelectedItem().toString());
-        Corretor corretor = Controlador.getCorretorPorNome(Corretor.getSelectedItem().toString());
-        Imovel imovel = Controlador.buscarImovel(ImovelCodigo.getSelectedItem().toString());
-        LocalDate dataAluguel = LocalDate.parse(AnoLocacao.getValue().toString() + "-"
-                + MesLocacao.getValue().toString() + "-" + DiaLocacao.getValue().toString());
-        LocalDate dataDevolucao = LocalDate.parse(AnoDevolucao.getValue().toString() + "-"
-                + MesDevolucao.getValue().toString() + "-" + DiaDevolucao.getValue().toString());
-        LocalDate DataAgora = LocalDate.now();
-        LocalDate dataPagamentoMensal = LocalDate.parse(
-                DataAgora.getYear() + "-" + DataAgora.getMonthValue() + "-"
-                + DiaPagamento.getValue().toString());
-        float valorTotalAluguel = imovel.getValorAluguel();
-        Pagamento formaPagamento = null;
-        if (Dinheiro.isSelected()) {
-            formaPagamento = new Dinheiro();
+            JOptionPane.showMessageDialog(this, "Insira uma data de locação válida", "Data incorreta", JOptionPane.WARNING_MESSAGE);
+        } else if ((int) AnoDevolucao.getValue() < 1 || ((int) MesDevolucao.getValue() < 1 || (int) MesDevolucao.getValue() > 12) || ((int) DiaDevolucao.getValue() < 1 || (int) DiaDevolucao.getValue() > 31)) {
+            JOptionPane.showMessageDialog(this, "Insira uma data de devolução válida", "Data incorreta", JOptionPane.WARNING_MESSAGE);
+        } else if ((int) DiaPagamento.getValue() < 1 || (int) DiaPagamento.getValue() > 31) {
+            JOptionPane.showMessageDialog(this, "Insira uma data de pagamento válida", "Data incorreta", JOptionPane.WARNING_MESSAGE);
+        } else {
+            int codigoAluguel = Integer.parseInt(Codigo.getText());
+            Cliente cliente = Controlador.getClientePorNome(ClientesNomeBox.getSelectedItem().toString());
+            Corretor corretor = Controlador.getCorretorPorNome(Corretor.getSelectedItem().toString());
+            Imovel imovel = Controlador.buscarImovel(ImovelCodigo.getSelectedItem().toString());
+            LocalDate dataAluguel = LocalDate.parse(AnoLocacao.getValue().toString() + "-"
+                    + MesLocacao.getValue().toString() + "-" + DiaLocacao.getValue().toString());
+            LocalDate dataDevolucao = LocalDate.parse(AnoDevolucao.getValue().toString() + "-"
+                    + MesDevolucao.getValue().toString() + "-" + DiaDevolucao.getValue().toString());
+            LocalDate DataAgora = LocalDate.now();
+            LocalDate dataPagamentoMensal = LocalDate.parse(
+                    DataAgora.getYear() + "-" + DataAgora.getMonthValue() + "-"
+                    + DiaPagamento.getValue().toString());
+            float valorTotalAluguel = imovel.getValorAluguel();
+            Pagamento formaPagamento = null;
+            if (Dinheiro.isSelected()) {
+                formaPagamento = new Dinheiro();
+            }
+            if (Cartao.isSelected()) {
+                formaPagamento = new Cartao(NomeCartao.getText(), NumeroCartao.getText(),
+                        BandeiraCartao.getText());
+            }
+            ArrayList<Seguro> segurosContratados = SegurosSelecionados;
+            boolean pago = false;
+            Controlador.cadastroAluguel(codigoAluguel, cliente, corretor, imovel, dataAluguel, dataDevolucao,
+                    dataPagamentoMensal, valorTotalAluguel, formaPagamento, segurosContratados, pago);
+            setDafault();
+            JOptionPane.showMessageDialog(this, "Locação cadastrado com sucesso");
         }
-        if (Cartao.isSelected()) {
-            formaPagamento = new Cartao(NomeCartao.getText(), NumeroCartao.getText(),
-                    BandeiraCartao.getText());
-        }
-        ArrayList<Seguro> segurosContratados = SegurosSelecionados;
-        boolean pago = false;
-        Controlador.cadastroAluguel(codigoAluguel, cliente, corretor, imovel, dataAluguel, dataDevolucao,
-                dataPagamentoMensal, valorTotalAluguel, formaPagamento, segurosContratados, pago);
-        JOptionPane.showMessageDialog(this, "Locação cadastrado com sucesso");}
     }// GEN-LAST:event_jButton1ActionPerformed
 
     private void ImovelCodigoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ImovelCodigoActionPerformed

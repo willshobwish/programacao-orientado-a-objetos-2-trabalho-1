@@ -13,4 +13,7 @@ Apache Netbeans.
 \subsection{Inicialização do projeto}
 O arquivo \textit{main} do trabalho é a classe na qual é implementado a interface gráfica:\\\texttt{Trabalho01/src/InterfaceGrafico.java}.\\
 Provavelmente no arquivo \texttt{build.xml} já está configurado para executar essa classe primeiramente.
+
+\subsection{Bugs não resolvidos}
+Para cadastros que envolvem data, é necessário a escrita do mês e dia com zero no inicio (por exemplo: para registrar o mês de janeiro será necessário digitar 01, caso queira registrar o dia 1, é necessário digitar 01\footnote{Isso ocorre por causa do método de registro do LocalDate utilizando o método parse, que só aceita indices iniciando em zero, provavelmente possui métodos mais corretos e menos problemáticos}).
 \newpage
